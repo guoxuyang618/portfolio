@@ -1,5 +1,6 @@
 ---
 import worksData from '../../content/works.json';
+import config from '../../content/config.json';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
@@ -17,125 +18,183 @@ const { work } = Astro.props;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{work?.title || '作品详情'} - 设计师作品集</title>
+  <title>{work?.title || '作品详情'} - {config.site.name}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 作品主图 -->
-  <section class="work-hero">
-    <img src={work?.cover} alt={work?.title} />
-    <div class="hero-overlay"></div>
-  </section>
-
   <!-- 顶部导航 -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <a href="/" class="logo">Portfolio</a>
+      <a href="/" class="logo">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">{config.site.name}</span>
+      </a>
       <nav class="main-nav">
-        <a href="/">Home</a>
-        <a href="/works">Work</a>
-        <a href="/about">About</a>
+        <a href="/" class="nav-link">Portfolio</a>
+        <a href="/works" class="nav-link active">Work</a>
+        <a href="/about" class="nav-link">About</a>
       </nav>
+      <a href="/about#contact" class="nav-cta">
+        <span>Contact Us</span>
+      </a>
     </div>
   </header>
 
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+  <!-- 作品 Hero 大图 -->
+  <section class="work-hero">
+    <div class="hero-bg">
+      <img src={work?.cover} alt={work?.title} />
+    </div>
+    <div class="hero-gradient"></div>
+  </section>
+
   <main class="work-detail">
     <div class="container">
-      <!-- 作品标题和基本信息 -->
+      <!-- 作品标题区 -->
       <div class="work-header">
+        <div class="work-header-top">
+          <a href="/works" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>All Projects</span>
+          </a>
+        </div>
         <h1>{work?.title}</h1>
-        <div class="work-meta">
-          <span class="meta-item">{work?.category}</span>
-          <span class="meta-divider">·</span>
-          <span class="meta-item">{work?.year}</span>
+        <div class="work-meta-row">
+          <div class="meta-tag">
+            <span class="meta-label">Category</span>
+            <span class="meta-value">{work?.category}</span>
+          </div>
+          <div class="meta-tag">
+            <span class="meta-label">Year</span>
+            <span class="meta-value">{work?.year}</span>
+          </div>
         </div>
       </div>
 
-      <!-- 作品描述 -->
+      <!-- 项目介绍 -->
       <section class="work-section">
-        <h2>项目介绍</h2>
-        <p class="work-description">
-          {work?.description || '暂无描述'}
-        </p>
-      </section>
-
-      <!-- 作品图片展示 -->
-      <section class="work-section">
-        <h2>作品展示</h2>
-        <div class="work-gallery">
-          <img src={work?.cover} alt={work?.title} class="gallery-main" />
-        </div>
-      </section>
-
-      <!-- 左图右文 -->
-      <section class="work-section">
-        <div class="alternating-layout">
-          <div class="alternating-image">
-            <img src="/images/works/2024/project-001.jpg" alt="Detail 1">
+        <div class="section-grid">
+          <div class="section-label">
+            <span class="label-tag">01</span>
+            <h2>项目介绍</h2>
           </div>
-          <div class="alternating-text">
-            <h3>设计思路</h3>
-            <p>详细描述该作品的设计思路、用户调研、交互流程等信息。展示设计背后的思考过程和解决方案。</p>
+          <div class="section-content">
+            <p class="large-text">{work?.description || '暂无描述'}</p>
           </div>
         </div>
       </section>
 
-      <!-- 右图左文 -->
+      <!-- 作品主图展示 -->
       <section class="work-section">
-        <div class="alternating-layout reverse">
-          <div class="alternating-image">
-            <img src="/images/works/2024/project-001.jpg" alt="Detail 2">
+        <div class="work-showcase">
+          <img src={work?.cover} alt={work?.title} class="showcase-img" />
+        </div>
+      </section>
+
+      <!-- 设计思路 - 左图右文 -->
+      <section class="work-section">
+        <div class="section-grid">
+          <div class="section-label">
+            <span class="label-tag">02</span>
+            <h2>设计思路</h2>
           </div>
-          <div class="alternating-text">
-            <h3>视觉效果</h3>
-            <p>详细描述该作品的视觉设计、色彩运用、排版布局等细节。展示最终的设计成果和视觉表现。</p>
+          <div class="section-content">
+            <div class="content-split">
+              <div class="split-image">
+                <img src="/images/works/2024/project-001.jpg" alt="Design Process">
+              </div>
+              <div class="split-text">
+                <p>详细描述该作品的设计思路、用户调研、交互流程等信息。展示设计背后的思考过程和解决方案。</p>
+                <p>通过深入的用户研究和竞品分析，我们确定了核心设计方向，确保每一个设计决策都有据可依。</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 左图右文 -->
+      <!-- 视觉效果 - 右图左文 -->
       <section class="work-section">
-        <div class="alternating-layout">
-          <div class="alternating-image">
-            <img src="/images/works/2024/project-001.jpg" alt="Detail 3">
+        <div class="section-grid">
+          <div class="section-label">
+            <span class="label-tag">03</span>
+            <h2>视觉效果</h2>
           </div>
-          <div class="alternating-text">
-            <h3>交互体验</h3>
-            <p>详细描述该作品的交互设计、用户流程、动效表现等。展示如何通过交互设计提升用户体验。</p>
+          <div class="section-content">
+            <div class="content-split reverse">
+              <div class="split-image">
+                <img src="/images/works/2024/project-001.jpg" alt="Visual Design">
+              </div>
+              <div class="split-text">
+                <p>详细描述该作品的视觉设计、色彩运用、排版布局等细节。展示最终的设计成果和视觉表现。</p>
+                <p>色彩体系的选择基于品牌调性和目标用户的审美偏好，确保视觉传达的一致性和专业感。</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 右图左文 -->
+      <!-- 交互体验 -->
       <section class="work-section">
-        <div class="alternating-layout reverse">
-          <div class="alternating-image">
-            <img src="/images/works/2024/project-001.jpg" alt="Detail 4">
+        <div class="section-grid">
+          <div class="section-label">
+            <span class="label-tag">04</span>
+            <h2>交互体验</h2>
           </div>
-          <div class="alternating-text">
-            <h3>项目总结</h3>
-            <p>总结该项目的成果、收获和反思。分享在项目中遇到的挑战以及最终的解决方案。</p>
+          <div class="section-content">
+            <div class="content-split">
+              <div class="split-image">
+                <img src="/images/works/2024/project-001.jpg" alt="Interaction Design">
+              </div>
+              <div class="split-text">
+                <p>详细描述该作品的交互设计、用户流程、动效表现等。展示如何通过交互设计提升用户体验。</p>
+                <p>每一个微交互都经过反复打磨，确保用户操作的流畅性和直觉性。</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 视频展示（如果有） -->
+      <!-- 视频展示 -->
       {work?.video && (
         <section class="work-section">
-          <h2>演示视频</h2>
-          <div class="work-video">
-            <iframe
-              src={`https://player.bilibili.com/player.html?bvid=${work.video.id}&page=1`}
-              scrolling="no"
-              frameborder="no"
-              allowfullscreen="true">
-            </iframe>
+          <div class="section-grid">
+            <div class="section-label">
+              <span class="label-tag">05</span>
+              <h2>演示视频</h2>
+            </div>
+            <div class="section-content">
+              <div class="work-video">
+                <iframe
+                  src={`https://player.bilibili.com/player.html?bvid=${work.video.id}&page=1`}
+                  scrolling="no"
+                  frameborder="no"
+                  allowfullscreen="true">
+                </iframe>
+              </div>
+            </div>
           </div>
         </section>
       )}
 
-      <!-- 导航 -->
+      <!-- 底部导航 -->
       <div class="work-nav">
-        <a href="/works" class="btn-back">← 返回作品列表</a>
+        <a href="/works" class="nav-back">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>Back to All Projects</span>
+        </a>
       </div>
     </div>
   </main>
@@ -143,17 +202,25 @@ const { work } = Astro.props;
   <!-- 页脚 -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <h3>Portfolio</h3>
-        <p>Creative Design Solutions</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon">◆</span>
+            <span>{config.site.name}</span>
+          </div>
+          <p>{config.site.description}</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="/">Home</a>
+            <a href="/works">Work</a>
+            <a href="/about">About</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/works">Work</a>
-        <a href="/about">About</a>
-      </div>
-      <div class="footer-copyright">
-        <p>&copy; 2024. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p>&copy; 2024 {config.site.name}. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -161,202 +228,301 @@ const { work } = Astro.props;
 </html>
 
 <style>
-  /* 作品主图 */
-  .work-hero {
-    width: 100%;
-    height: 60vh;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .work-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to top, var(--bg-primary), transparent);
-  }
-
-  /* 顶部导航 - 参考kevurugames.com */
+  /* ===== 导航栏 ===== */
   .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
-    padding: 1.25rem 3rem;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    z-index: 1000;
+    padding: 1.5rem var(--container-padding);
+    background: transparent;
+    transition: all 0.4s var(--ease-out);
+  }
+
+  .site-header.scrolled {
+    background: rgba(8, 8, 10, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--border);
   }
 
   .header-inner {
-    max-width: 1400px;
+    max-width: var(--container-max);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .site-header .logo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: white;
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     text-decoration: none;
+    color: var(--text-primary);
+  }
+
+  .logo-icon { color: var(--accent); font-size: 0.9rem; }
+  .logo-text {
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
-  .main-nav {
+  .main-nav { display: flex; gap: 2.5rem; align-items: center; }
+
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.25rem 0;
+  }
+
+  .nav-link.active, .nav-link:hover { color: var(--text-primary); }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.3s var(--ease-out);
+  }
+
+  .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+
+  .nav-cta {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--border-hover);
+    border-radius: 100px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ===== 作品 Hero ===== */
+  .work-hero {
+    width: 100%;
+    height: 65vh;
+    min-height: 450px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+  }
+
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,8,10,0.3) 0%, rgba(8,8,10,0.1) 50%, var(--bg-primary) 100%);
+  }
+
+  /* ===== 作品详情 ===== */
+  .work-detail {
+    background: var(--bg-primary);
+    padding-bottom: 4rem;
+  }
+
+  .work-header {
+    margin-top: -8rem;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4rem;
+  }
+
+  .work-header-top {
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+
+  .work-header h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .work-meta-row {
     display: flex;
     gap: 2.5rem;
   }
 
-  .main-nav a {
-    color: rgba(255,255,255,0.65);
-    text-decoration: none;
-    font-size: 0.8rem;
+  .meta-tag {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-label {
+    font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    transition: color 0.25s ease;
-    position: relative;
+    color: var(--text-tertiary);
   }
 
-  .main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: white;
-    transition: width 0.25s ease;
+  .meta-value {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
   }
 
-  .main-nav a:hover {
-    color: white;
-  }
-
-  .main-nav a:hover::after {
-    width: 100%;
-  }
-
-  /* 作品详情 */
-  .work-detail {
-    background: var(--bg-primary);
-    padding: 2rem 0 4rem;
-  }
-
-  .work-header {
-    margin-top: -10rem;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 3rem;
-  }
-
-  .work-header h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .work-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-  }
-
-  .meta-divider {
-    opacity: 0.5;
-  }
-
+  /* ===== Section 通用 ===== */
   .work-section {
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
   }
 
-  .work-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+  .section-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+
+  .section-label {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .label-tag {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-label h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0;
     color: var(--text-primary);
   }
 
-  .work-description {
-    font-size: 1.1rem;
+  .large-text {
+    font-size: 1.15rem;
     color: var(--text-secondary);
-    line-height: 1.8;
-    max-width: 800px;
+    line-height: 1.85;
+    max-width: 700px;
   }
 
-  /* 图片画廊 */
-  .work-gallery {
-    margin-top: 1rem;
-  }
-
-  .gallery-main {
-    width: 100%;
-    border-radius: 12px;
+  /* ===== 展示图 ===== */
+  .work-showcase {
+    border-radius: 16px;
     overflow: hidden;
+    border: 1px solid var(--border);
   }
 
-  /* 左右交替布局 */
-  .alternating-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    margin-bottom: 3rem;
-  }
-
-  .alternating-layout.reverse {
-    direction: rtl;
-  }
-
-  .alternating-layout.reverse .alternating-text {
-    direction: ltr;
-    text-align: left;
-  }
-
-  .alternating-image {
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .alternating-image img {
+  .showcase-img {
     width: 100%;
-    height: auto;
     display: block;
   }
 
-  .alternating-text h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
+  /* ===== 图文分割 ===== */
+  .content-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
   }
 
-  .alternating-text p {
+  .content-split.reverse {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  .content-split.reverse .split-image {
+    order: 2;
+  }
+
+  .content-split.reverse .split-text {
+    order: 1;
+  }
+
+  .split-image {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .split-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  .split-image:hover img {
+    transform: scale(1.03);
+  }
+
+  .split-text p {
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.8;
+    margin-bottom: 1rem;
   }
 
-  /* 视频 */
+  .split-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ===== 视频 ===== */
   .work-video {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 12px;
+    border: 1px solid var(--border);
   }
 
   .work-video iframe {
@@ -367,87 +533,117 @@ const { work } = Astro.props;
     height: 100%;
   }
 
-  /* 返回按钮 */
+  /* ===== 底部导航 ===== */
   .work-nav {
-    margin-top: 3rem;
-    padding-top: 2rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
     border-top: 1px solid var(--border);
   }
 
-  .btn-back {
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.2s;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
   }
 
-  .btn-back:hover {
+  .nav-back:hover {
     color: var(--text-primary);
+    border-color: var(--border-hover);
+    transform: translateX(-4px);
   }
 
-  /* 页脚 - 与首页一致 */
+  /* ===== 页脚 ===== */
   .site-footer {
-    padding: 4rem 3rem;
+    padding: 4rem var(--container-padding) 2rem;
     background: var(--bg-primary);
     border-top: 1px solid var(--border);
   }
 
-  .footer-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 4rem;
-    align-items: start;
-  }
+  .footer-inner { max-width: var(--container-max); margin: 0 auto; }
 
-  .footer-brand h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: white;
-  }
-
-  .footer-brand p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    max-width: 300px;
-  }
-
-  .footer-links {
+  .footer-top {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
   }
 
-  .footer-links a {
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand p { color: var(--text-tertiary); font-size: 0.9rem; max-width: 280px; }
+  .footer-nav { display: flex; gap: 5rem; }
+
+  .footer-col h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--text-tertiary);
     text-decoration: none;
     font-size: 0.9rem;
+    padding: 0.3rem 0;
     transition: color 0.2s;
   }
 
-  .footer-links a:hover {
-    color: white;
-  }
+  .footer-col a:hover { color: var(--text-primary); }
 
-  .footer-copyright {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-  }
+  .footer-bottom p { color: var(--text-tertiary); font-size: 0.8rem; }
 
-  @media (max-width: 768px) {
-    .work-hero { height: 40vh; }
-    .work-header { margin-top: -6rem; }
-    .work-header h1 { font-size: 2rem; }
-    .site-header { padding: 1rem 1.5rem; }
-    .main-nav { gap: 1.5rem; }
-    .alternating-layout {
+  /* ===== 响应式 ===== */
+  @media (max-width: 1024px) {
+    .section-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
     }
-    .alternating-layout.reverse {
-      direction: ltr;
+    .section-label {
+      position: static;
     }
+  }
+
+  @media (max-width: 768px) {
+    .site-header { padding: 1rem 1.5rem; }
+    .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+    .logo-text { font-size: 0.72rem; }
+    .main-nav { gap: 1.2rem; }
+    .nav-link { font-size: 0.7rem; }
+    .nav-cta { font-size: 0.7rem; padding: 0.45rem 1rem; }
+    .work-hero { height: 45vh; min-height: 300px; }
+    .work-header { margin-top: -5rem; margin-bottom: 3rem; }
+    .work-header h1 { font-size: 2rem; }
+    .work-meta-row { gap: 1.5rem; }
+    .content-split, .content-split.reverse {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .content-split.reverse .split-image { order: 0; }
+    .content-split.reverse .split-text { order: 0; }
+    .work-section { margin-bottom: 3rem; }
+    .footer-top { flex-direction: column; gap: 2rem; }
   }
 </style>

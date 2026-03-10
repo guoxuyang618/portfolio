@@ -10,37 +10,141 @@ import '../styles/global.css';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - {config.site.name}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- 顶部导航 -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <a href="/" class="logo">{config.site.name}</a>
+      <a href="/" class="logo">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">{config.site.name}</span>
+      </a>
       <nav class="main-nav">
-        <a href="/">Home</a>
-        <a href="/works">Work</a>
-        <a href="/about">About</a>
+        <a href="/" class="nav-link">Portfolio</a>
+        <a href="/works" class="nav-link">Work</a>
+        <a href="/about" class="nav-link active">About</a>
       </nav>
+      <a href="#contact" class="nav-cta">
+        <span>Contact Us</span>
+      </a>
     </div>
   </header>
 
+  <script>
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
   <main>
-    <!-- 关于内容 -->
+    <!-- Hero 区域 -->
+    <section class="about-hero">
+      <div class="hero-content">
+        <span class="hero-badge">About</span>
+        <h1>Creating Exceptional<br/>Game Experiences</h1>
+        <p class="hero-desc">{config.site.description}</p>
+      </div>
+    </section>
+
+    <!-- 关于介绍 -->
     <section class="about-section">
       <div class="about-inner">
-        <div class="about-text">
-          <p>{about.about.description || '暂无介绍'}</p>
-        </div>
-
-        <div class="about-contact">
-          <h3>Get in Touch</h3>
-          <div class="contact-item">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">{config.contact.email || '暂无'}</span>
+        <div class="about-grid">
+          <div class="about-label">
+            <span class="label-tag">Who We Are</span>
           </div>
-          <div class="contact-item">
-            <span class="contact-label">WeChat</span>
-            <span class="contact-value">{config.contact.wechat || '暂无'}</span>
+          <div class="about-content">
+            <p class="about-text-large">{about.about.description || 'We are passionate game designers focused on creating innovative and immersive experiences. Our work spans across multiple platforms and genres, always pushing the boundaries of interactive design.'}</p>
+            <p class="about-text">With years of experience in game design, UI/UX, and interactive media, we bring a unique perspective to every project. Our approach combines creative vision with technical expertise to deliver exceptional results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 数据亮点 -->
+    <section class="highlights-section">
+      <div class="highlights-inner">
+        <div class="highlight-card">
+          <span class="highlight-number">6+</span>
+          <span class="highlight-label">Projects<br/>Delivered</span>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-number">3</span>
+          <span class="highlight-label">Design<br/>Categories</span>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-number">100%</span>
+          <span class="highlight-label">Client<br/>Satisfaction</span>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-number">2024</span>
+          <span class="highlight-label">Latest<br/>Projects</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能和服务 -->
+    <section class="services-section">
+      <div class="services-inner">
+        <div class="services-header">
+          <span class="label-tag">What We Do</span>
+          <h2>Our Services</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🎮</div>
+            <h3>Game Design</h3>
+            <p>Full-cycle game design from concept to final product, including level design, game mechanics, and player experience optimization.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🖥️</div>
+            <h3>Web Design</h3>
+            <p>Modern, responsive web design with focus on user experience, accessibility, and visual impact.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>Mobile Design</h3>
+            <p>Intuitive mobile app design optimized for touch interactions and seamless user flows.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <h3>UI/UX Design</h3>
+            <p>User-centered interface design driven by research, wireframing, prototyping, and usability testing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact-section" id="contact">
+      <div class="contact-inner">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="label-tag">Get in Touch</span>
+            <h2>Let's Start a<br/>Conversation</h2>
+            <p>Have a project in mind or want to learn more about our work? We'd love to hear from you.</p>
+          </div>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:{config.contact.email || '#'}" class="contact-value">{config.contact.email || 'hello@example.com'}</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">WeChat</span>
+              <span class="contact-value">{config.contact.wechat || '暂无'}</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Location</span>
+              <span class="contact-value">China</span>
+            </div>
           </div>
         </div>
       </div>
@@ -50,17 +154,25 @@ import '../styles/global.css';
   <!-- 页脚 -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <h3>{config.site.name}</h3>
-        <p>{config.site.description}</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon">◆</span>
+            <span>{config.site.name}</span>
+          </div>
+          <p>{config.site.description}</p>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="/">Home</a>
+            <a href="/works">Work</a>
+            <a href="/about">About</a>
+          </div>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/works">Work</a>
-        <a href="/about">About</a>
-      </div>
-      <div class="footer-copyright">
-        <p>&copy; 2024 {config.author.name}. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p>&copy; 2024 {config.site.name}. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -68,22 +180,28 @@ import '../styles/global.css';
 </html>
 
 <style>
-  /* 顶部导航 - 参考kevurugames.com */
+  /* ===== 导航栏 ===== */
   .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
-    padding: 1.25rem 3rem;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    z-index: 1000;
+    padding: 1.5rem var(--container-padding);
+    background: rgba(8, 8, 10, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s var(--ease-out);
+  }
+
+  .site-header.scrolled {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
   }
 
   .header-inner {
-    max-width: 1400px;
+    max-width: var(--container-max);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -91,224 +209,408 @@ import '../styles/global.css';
   }
 
   .logo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     text-decoration: none;
+    color: var(--text-primary);
+  }
+
+  .logo-icon { color: var(--accent); font-size: 0.9rem; }
+  .logo-text {
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
-  .main-nav {
-    display: flex;
-    gap: 2.5rem;
+  .main-nav { display: flex; gap: 2.5rem; align-items: center; }
+
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.25rem 0;
   }
 
-  .main-nav a {
-    color: rgba(255,255,255,0.65);
+  .nav-link.active, .nav-link:hover { color: var(--text-primary); }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.3s var(--ease-out);
+  }
+
+  .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+
+  .nav-cta {
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    transition: color 0.25s ease;
-    position: relative;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--border-hover);
+    border-radius: 100px;
+    transition: all 0.3s ease;
   }
 
-  .main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: white;
-    transition: width 0.25s ease;
+  .nav-cta:hover {
+    background: var(--accent);
+    border-color: var(--accent);
   }
 
-  .main-nav a:hover {
-    color: white;
-  }
-
-  .main-nav a:hover::after {
-    width: 100%;
-  }
-
-  /* Hero区域 */
-  .page-hero {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .hero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.55);
+  /* ===== About Hero ===== */
+  .about-hero {
+    padding: 10rem var(--container-padding) 5rem;
+    background: var(--bg-primary);
+    text-align: center;
   }
 
   .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    color: white;
-  }
-
-  .hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    letter-spacing: 0.02em;
-  }
-
-  .hero-content p {
-    font-size: 1.2rem;
-    color: rgba(255,255,255,0.75);
-  }
-
-  /* 关于内容 */
-  .about-section {
-    padding: 8rem 3rem 5rem;
-    background: var(--bg-primary);
-  }
-
-  .about-inner {
-    max-width: 900px;
+    max-width: 750px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
   }
 
-  .about-text p {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-  }
-
-  .about-contact h3 {
-    font-size: 1.3rem;
+  .hero-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: 100px;
+    font-size: 0.68rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: white;
-  }
-
-  .contact-item {
-    margin-bottom: 1rem;
-  }
-
-  .contact-label {
-    display: block;
-    font-size: 0.8rem;
-    color: var(--accent);
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.25rem;
+    color: var(--accent-secondary);
+    margin-bottom: 2rem;
   }
 
-  .contact-value {
+  .about-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    font-size: 1rem;
+    line-height: 1.7;
   }
 
-  /* 页脚 - 与首页一致 */
-  .site-footer {
-    padding: 4rem 3rem;
+  /* ===== About Section ===== */
+  .about-section {
+    padding: var(--section-padding) var(--container-padding);
     background: var(--bg-primary);
     border-top: 1px solid var(--border);
   }
 
-  .footer-inner {
-    max-width: 1400px;
+  .about-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 4rem;
+  }
+
+  .about-label {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .label-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .about-text-large {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  /* ===== 数据亮点 ===== */
+  .highlights-section {
+    padding: var(--section-padding) var(--container-padding);
+    background: var(--bg-secondary);
+  }
+
+  .highlights-inner {
+    max-width: var(--container-max);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 4rem;
-    align-items: start;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
   }
 
-  .footer-brand h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
+  .highlight-card {
+    padding: 2.5rem 2rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+  }
+
+  .highlight-card:hover {
+    border-color: var(--border-hover);
+  }
+
+  .highlight-number {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
     margin-bottom: 0.75rem;
-    color: white;
+    line-height: 1;
   }
 
-  .footer-brand p {
+  .highlight-label {
+    font-size: 0.75rem;
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    max-width: 300px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
   }
 
-  .footer-links {
+  /* ===== 服务 ===== */
+  .services-section {
+    padding: var(--section-padding) var(--container-padding);
+    background: var(--bg-primary);
+  }
+
+  .services-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .services-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .services-header h2 {
+    margin-top: 0.75rem;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--text-primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 2.5rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== 联系 ===== */
+  .contact-section {
+    padding: var(--section-padding) var(--container-padding);
+    background: var(--bg-secondary);
+  }
+
+  .contact-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: flex-start;
+  }
+
+  .contact-info h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: var(--text-primary);
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 2rem;
+    padding-top: 1.5rem;
   }
 
-  .footer-links a {
-    color: var(--text-secondary);
+  .contact-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .contact-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-value {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
     text-decoration: none;
-    font-size: 0.9rem;
     transition: color 0.2s;
   }
 
-  .footer-links a:hover {
-    color: white;
+  a.contact-value:hover {
+    color: var(--accent);
   }
 
-  .footer-copyright {
-    color: var(--text-secondary);
+  /* ===== 页脚 ===== */
+  .site-footer {
+    padding: 4rem var(--container-padding) 2rem;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner { max-width: var(--container-max); margin: 0 auto; }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
   }
 
-  /* 响应式 */
+  .footer-brand p { color: var(--text-tertiary); font-size: 0.9rem; max-width: 280px; }
+  .footer-nav { display: flex; gap: 5rem; }
+
+  .footer-col h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--text-primary); }
+  .footer-bottom p { color: var(--text-tertiary); font-size: 0.8rem; }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .about-label { position: static; }
+    .highlights-inner { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
   @media (max-width: 768px) {
-    .site-header {
-      padding: 1rem 1.5rem;
-    }
-    .main-nav {
-      gap: 1.5rem;
-    }
-    .hero-content h1 {
-      font-size: 2.5rem;
-    }
-    .about-section {
-      padding: 3rem 1.5rem;
-    }
-    .about-inner {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      text-align: center;
-    }
-    .footer-brand p {
-      margin: 0 auto;
-    }
+    .site-header { padding: 1rem 1.5rem; }
+    .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
+    .logo-text { font-size: 0.72rem; }
+    .main-nav { gap: 1.2rem; }
+    .nav-link { font-size: 0.7rem; }
+    .nav-cta { font-size: 0.7rem; padding: 0.45rem 1rem; }
+    .about-hero { padding: 8rem 1.5rem 3rem; }
+    .about-hero h1 { font-size: 2.2rem; }
+    .about-section { padding: 3rem 1.5rem; }
+    .highlights-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .highlight-card { padding: 1.5rem; }
+    .highlight-number { font-size: 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .contact-section { padding: 4rem 1.5rem; }
+    .footer-top { flex-direction: column; gap: 2rem; }
   }
 </style>
