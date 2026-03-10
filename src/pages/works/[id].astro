@@ -303,21 +303,22 @@ const { work } = Astro.props;
   .nav-link.active::after, .nav-link:hover::after { width: 100%; }
 
   .nav-cta {
-    color: var(--text-primary);
+    color: #08080a;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     padding: 0.6rem 1.4rem;
-    border: 1px solid var(--border-hover);
-    border-radius: 100px;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 0;
     transition: all 0.3s ease;
   }
 
   .nav-cta:hover {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: #3dd4c6;
+    border-color: #3dd4c6;
   }
 
   /* ===== 作品 Hero ===== */
@@ -551,7 +552,7 @@ const { work } = Astro.props;
     transition: all 0.25s ease;
     padding: 0.7rem 1.5rem;
     border: 1px solid var(--border);
-    border-radius: 100px;
+    border-radius: 0;
   }
 
   .nav-back:hover {
