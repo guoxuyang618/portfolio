@@ -50,10 +50,98 @@ import '../styles/global.css';
     }
   </script>
 
-  <!-- Hero区域 - Kevuru Games 风格 -->
+  <!-- 视频背景加载优化脚本 -->
+  <script>
+    (function() {
+      const heroBg = document.querySelector('.hero-bg');
+      const video = document.querySelector('.hero-video') as HTMLVideoElement;
+      if (!heroBg || !video) return;
+
+      // 1. 网络检测：慢速网络不加载视频
+      const conn = (navigator as any).connection;
+      if (conn && (conn.saveData || conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g')) {
+        video.remove();
+        return;
+      }
+
+      // 2. 移动端宽度检测：≤768px 不加载视频（CSS 也隐藏了）
+      if (window.innerWidth <= 768) {
+        video.remove();
+        return;
+      }
+
+      // 3. 视频可播放时淡入，隐藏回退图
+      video.addEventListener('canplaythrough', () => {
+        heroBg.classList.add('video-ready');
+      });
+
+      // 如果视频已经缓存就绑定 readyState
+      if (video.readyState >= 4) {
+        heroBg.classList.add('video-ready');
+      }
+
+      // 4. 页面不可见时暂停视频（省电/省资源）
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          video.pause();
+        } else {
+          video.play().catch(() => {});
+        }
+      });
+
+      // 5. 滚动超出 Hero 区域时暂停视频
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(hero);
+      }
+    })();
+  </script>
+
+  <!-- Hero区域 - 视频背景 -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="/images/works/2024/project-001.jpg" alt="Hero Background">
+      <!-- 回退静态图（视频加载前 / 移动端省流时显示） -->
+      <img
+        src="/images/works/2024/project-001.jpg"
+        alt="Hero Background"
+        class="hero-poster"
+      />
+      <!-- 视频背景：autoplay + muted + loop + playsinline 确保自动静音播放 -->
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="/images/works/2024/project-001.jpg"
+      >
+        <!--
+          推荐视频规格：
+          ▸ 格式：MP4 (H.264 编码) — 兼容性最佳
+          ▸ 备选：WebM (VP9 编码) — 更小体积、更好画质
+          ▸ 分辨率：1920×1080 (16:9) — 适配主流屏幕
+          ▸ 帧率：24-30fps — 背景视频无需高帧率
+          ▸ 码率：2-4 Mbps — 平衡画质与文件大小
+          ▸ 时长：10-30秒 — 循环播放，短即可
+          ▸ 文件大小：≤ 8MB — 确保快速加载
+          ▸ 音频：移除音轨 — 减少体积
+
+          请将视频文件放入：public/videos/
+          推荐命名：hero-bg.mp4 / hero-bg.webm
+        -->
+        <source src="/videos/hero-bg.webm" type="video/webm" />
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+      </video>
     </div>
     <div class="hero-gradient"></div>
     <div class="hero-content">
@@ -303,11 +391,59 @@ import '../styles/global.css';
     inset: 0;
   }
 
-  .hero-bg img {
+  /* 回退图片 — 视频未加载时可见 */
+  .hero-poster {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(0.35) saturate(1.1);
+    z-index: 0;
+  }
+
+  /* 视频加载完成后隐藏回退图 */
+  .hero-bg.video-ready .hero-poster {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  /* 视频 — 铺满容器 */
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35) saturate(1.1);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  /* 视频加载完成后淡入 */
+  .hero-bg.video-ready .hero-video {
+    opacity: 1;
+  }
+
+  /* 移动端 ≤ 768px：隐藏视频，只用图片（节省流量 & 电量） */
+  @media (max-width: 768px) {
+    .hero-video {
+      display: none !important;
+    }
+    .hero-bg.video-ready .hero-poster {
+      opacity: 1;
+    }
+  }
+
+  /* prefers-reduced-motion：尊重用户系统设置 */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video {
+      display: none !important;
+    }
+    .hero-bg.video-ready .hero-poster {
+      opacity: 1;
+    }
   }
 
   .hero-gradient {
