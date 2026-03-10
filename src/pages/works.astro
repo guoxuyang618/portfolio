@@ -229,23 +229,23 @@ import '../styles/global.css';
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-primary);
+    color: #08080a;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     padding: 0.6rem 1.4rem;
-    border: 1px solid var(--border-hover);
+    background: var(--accent);
+    border: 1px solid var(--accent);
     border-radius: 100px;
     transition: all 0.3s ease;
   }
 
   .nav-cta:hover {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: #3dd4c6;
+    border-color: #3dd4c6;
     transform: translateY(-1px);
-    box-shadow: 0 4px 20px var(--accent-glow);
   }
 
   /* ===== Page Hero ===== */
@@ -333,8 +333,8 @@ import '../styles/global.css';
 
   .filter-btn {
     padding: 0.55rem 1.3rem;
-    background: transparent;
-    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    border: none;
     border-radius: 100px;
     color: var(--text-secondary);
     font-size: 0.78rem;
@@ -346,7 +346,7 @@ import '../styles/global.css';
   }
 
   .filter-btn:hover {
-    border-color: var(--border-hover);
+    background: #2a2a30;
     color: var(--text-primary);
   }
 

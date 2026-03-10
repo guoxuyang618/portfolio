@@ -265,23 +265,23 @@ import '../styles/global.css';
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-primary);
+    color: #08080a;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     padding: 0.6rem 1.4rem;
-    border: 1px solid var(--border-hover);
+    background: var(--accent);
+    border: 1px solid var(--accent);
     border-radius: 100px;
     transition: all 0.3s ease;
   }
 
   .nav-cta:hover {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: #3dd4c6;
+    border-color: #3dd4c6;
     transform: translateY(-1px);
-    box-shadow: 0 4px 20px var(--accent-glow);
   }
 
   /* ===== Hero ===== */
@@ -561,8 +561,9 @@ import '../styles/global.css';
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
-    border: 2px solid var(--accent);
+    color: #08080a;
+    background: var(--accent);
+    border: none;
     border-radius: 6px;
     width: fit-content;
     transition: all 0.3s ease;
@@ -570,16 +571,15 @@ import '../styles/global.css';
 
   .card-cta svg {
     transition: transform 0.3s ease;
+    stroke: #08080a;
   }
 
   .project-card:hover .card-cta {
-    background: var(--accent);
-    color: #08080a;
+    background: #3dd4c6;
   }
 
   .project-card:hover .card-cta svg {
     transform: translate(2px, -2px);
-    stroke: #08080a;
   }
 
   /* 右下角分类信息 */
@@ -615,18 +615,17 @@ import '../styles/global.css';
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--text-primary);
-    border: 1px solid var(--border-hover);
+    color: #08080a;
+    background: var(--accent);
+    border: none;
     border-radius: 100px;
     text-decoration: none;
     transition: all 0.3s ease;
   }
 
   .btn-view-all:hover {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: #3dd4c6;
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px var(--accent-glow);
   }
 
   /* ===== CTA 区域 ===== */
@@ -700,18 +699,18 @@ import '../styles/global.css';
   }
 
   .btn-primary:hover {
-    background: var(--accent-hover);
+    background: #3dd4c6;
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px var(--accent-glow);
   }
 
   .btn-secondary {
     display: inline-flex;
     align-items: center;
     padding: 0.85rem 1.8rem;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     text-decoration: none;
-    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    border: none;
     border-radius: 100px;
     font-weight: 600;
     font-size: 0.85rem;
@@ -719,8 +718,7 @@ import '../styles/global.css';
   }
 
   .btn-secondary:hover {
-    color: var(--text-primary);
-    border-color: var(--border-hover);
+    background: #2a2a30;
   }
 
   /* ===== 页脚 ===== */
