@@ -16,11 +16,11 @@
   --text-secondary: #8a8a9a;
   --text-tertiary: #5a5a6a;
 
-  /* 强调色 - 更偏向游戏科技感 */
-  --accent: #6366f1;
-  --accent-hover: #818cf8;
-  --accent-glow: rgba(99, 102, 241, 0.15);
-  --accent-secondary: #a78bfa;
+  /* 强调色 - 明亮青绿色/薄荷色 */
+  --accent: #4EEADB;
+  --accent-hover: #6FF0E4;
+  --accent-glow: rgba(78, 234, 219, 0.15);
+  --accent-secondary: #7CF5E8;
 
   /* 功能色 */
   --success: #34d399;
@@ -95,7 +95,7 @@ img {
 /* 选择高亮色 */
 ::selection {
   background: var(--accent);
-  color: white;
+  color: #08080a;
 }
 
 /* 滚动条样式 */
