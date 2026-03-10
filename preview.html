@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设计师作品集 - 预览</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --accent: #3b82f6;
+      --border: #2a2a2a;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    .hero-banner {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .hero-banner h1 {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-banner p {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .btn {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-top: 2rem;
+    }
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+    }
+    .logo { font-weight: 700; }
+    .nav-links {}
+    main { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .work-card {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .work-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .work-card-content { padding: 1.5rem; }
+    .work-card h3 { margin-bottom: 0.5rem; }
+    .work-card p { color: var(--text-secondary); }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <section class="hero-banner">
+    <nav>
+      <a href="#" class="logo">设计师作品集</a>
+      <div class="nav-links">
+        <a href="#works">作品</a>
+        <a href="#about">关于</a>
+      </div>
+    </nav>
+    <h1>设计师</h1>
+    <p>个人设计作品展示网站</p>
+    <a href="#works" class="btn">查看作品</a>
+  </section>
+
+  <main id="works">
+    <h2>精选作品</h2>
+    <div class="works-grid">
+      <article class="work-card">
+        <img src="/images/works/2024/project-001.jpg" alt="金融App界面设计" />
+        <div class="work-card-content">
+          <h3>金融App界面设计</h3>
+          <p>移动端 · 2024</p>
+        </div>
+      </article>
+      <article class="work-card">
+        <img src="/images/works/2024/project-002.jpg" alt="电商网站设计" />
+        <div class="work-card-content">
+          <h3>电商网站设计</h3>
+          <p>网页设计 · 2024</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 设计师. All rights reserved.</p>
+  </footer>
+</body>
+</html>

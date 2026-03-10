@@ -1,0 +1,314 @@
+---
+import config from '../content/config.json';
+import about from '../content/about.json';
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - {config.site.name}</title>
+  <link rel="stylesheet" href="/src/styles/global.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">{config.site.name}</a>
+      <nav class="main-nav">
+        <a href="/">Home</a>
+        <a href="/works">Work</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 关于内容 -->
+    <section class="about-section">
+      <div class="about-inner">
+        <div class="about-text">
+          <p>{about.about.description || '暂无介绍'}</p>
+        </div>
+
+        <div class="about-contact">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">{config.contact.email || '暂无'}</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">WeChat</span>
+            <span class="contact-value">{config.contact.wechat || '暂无'}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>{config.site.name}</h3>
+        <p>{config.site.description}</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/works">Work</a>
+        <a href="/about">About</a>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2024 {config.author.name}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style>
+  /* 顶部导航 - 参考kevurugames.com */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.25rem 3rem;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .main-nav a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+    position: relative;
+  }
+
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.25s ease;
+  }
+
+  .main-nav a:hover {
+    color: white;
+  }
+
+  .main-nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Hero区域 */
+  .page-hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* 关于内容 */
+  .about-section {
+    padding: 8rem 3rem 5rem;
+    background: var(--bg-primary);
+  }
+
+  .about-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .about-contact h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+
+  .contact-item {
+    margin-bottom: 1rem;
+  }
+
+  .contact-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-value {
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  /* 页脚 - 与首页一致 */
+  .site-footer {
+    padding: 4rem 3rem;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .footer-brand h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: white;
+  }
+
+  .footer-brand p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 300px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: white;
+  }
+
+  .footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .site-header {
+      padding: 1rem 1.5rem;
+    }
+    .main-nav {
+      gap: 1.5rem;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    .about-section {
+      padding: 3rem 1.5rem;
+    }
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    .footer-brand p {
+      margin: 0 auto;
+    }
+  }
+</style>

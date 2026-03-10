@@ -1,0 +1,385 @@
+---
+import works from '../content/works.json';
+import categories from '../content/categories.json';
+import config from '../content/config.json';
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work - {config.site.name}</title>
+  <link rel="stylesheet" href="/src/styles/global.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">{config.site.name}</a>
+      <nav class="main-nav">
+        <a href="/">Home</a>
+        <a href="/works">Work</a>
+        <a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero区域 -->
+    <section class="page-hero">
+      <div class="hero-bg">
+        <img src="/images/works/2024/project-001.jpg" alt="Hero">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Our Work</h1>
+        <p>Showcasing creative design solutions</p>
+      </div>
+    </section>
+
+    <!-- 作品列表 -->
+    <section class="works-section">
+      <div class="works-grid">
+        {works.works.map((work: any) => (
+          <a href={`/works/${work.id}`} class="work-card-link">
+            <article class="work-card">
+              <div class="work-card-image">
+                <img src={work.cover} alt={work.title} />
+                <div class="work-card-overlay">
+                  <span class="view-btn">View Project</span>
+                </div>
+              </div>
+              <div class="work-card-content">
+                <h3>{work.title}</h3>
+                <span class="work-category">{work.category}</span>
+              </div>
+            </article>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>{config.site.name}</h3>
+        <p>{config.site.description}</p>
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/works">Work</a>
+        <a href="/about">About</a>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2024 {config.author.name}. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style>
+  /* 顶部导航 - 参考kevurugames.com */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.25rem 3rem;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .main-nav a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+    position: relative;
+  }
+
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.25s ease;
+  }
+
+  .main-nav a:hover {
+    color: white;
+  }
+
+  .main-nav a:hover::after {
+    width: 100%;
+  }
+
+  /* Hero区域 */
+  .page-hero {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* 作品列表 */
+  .works-section {
+    padding: 4rem 3rem;
+    background: var(--bg-primary);
+  }
+
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .work-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .work-card {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .work-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .work-card:hover .work-card-image img {
+    transform: scale(1.08);
+  }
+
+  .work-card:hover .work-card-overlay {
+    opacity: 1;
+  }
+
+  .work-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .work-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .work-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .view-btn {
+    padding: 0.9rem 2rem;
+    background: white;
+    color: var(--bg-primary);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .work-card-content {
+    padding: 1.5rem;
+  }
+
+  .work-card-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.4rem;
+  }
+
+  .work-category {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  /* 页脚 - 与首页一致 */
+  .site-footer {
+    padding: 4rem 3rem;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .footer-brand h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: white;
+  }
+
+  .footer-brand p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 300px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: white;
+  }
+
+  .footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+  }
+
+  /* 响应式 */
+  @media (max-width: 1024px) {
+    .works-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      padding: 1rem 1.5rem;
+    }
+    .main-nav {
+      gap: 1.5rem;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    .works-section {
+      padding: 3rem 1.5rem;
+    }
+    .works-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    .footer-brand p {
+      margin: 0 auto;
+    }
+  }
+</style>

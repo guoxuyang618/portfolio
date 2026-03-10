@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>金融App界面设计 - 作品详情</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --accent: #3b82f6;
+      --border: #2a2a2a;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    /* 作品主图 */
+    .work-hero {
+      width: 100%;
+      height: 60vh;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    }
+    .work-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(to top, var(--bg-primary), transparent);
+    }
+    /* 导航 */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 1.5rem 3rem;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+    }
+    .logo { font-weight: 700; }
+    /* 作品详情 */
+    .work-detail {
+      background: var(--bg-primary);
+      padding: 2rem 0 4rem;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .work-header {
+      margin-top: -10rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 3rem;
+    }
+    .work-header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .work-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+    .work-section { margin-bottom: 3rem; }
+    .work-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .work-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 800px;
+    }
+    .gallery-main {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-secondary);
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+    }
+    .work-nav {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .btn-back {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <!-- 作品主图 -->
+  <section class="work-hero">
+    <div class="hero-overlay"></div>
+  </section>
+
+  <header>
+    <nav>
+      <a href="preview.html" class="logo">设计师作品集</a>
+      <div class="nav-links">
+        <a href="preview.html">首页</a>
+        <a href="preview.html">作品</a>
+        <a href="#">关于</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="work-detail">
+    <div class="container">
+      <!-- 作品标题和基本信息 -->
+      <div class="work-header">
+        <h1>金融App界面设计</h1>
+        <div class="work-meta">
+          <span class="meta-item">移动端</span>
+          <span class="meta-divider">·</span>
+          <span class="meta-item">2024</span>
+        </div>
+      </div>
+
+      <!-- 作品描述 -->
+      <section class="work-section">
+        <h2>项目介绍</h2>
+        <p class="work-description">
+          这是一款金融类App的界面设计项目。
+          项目涵盖了从需求分析、用户研究、界面设计到交互规范的完整设计流程。
+          旨在为用户提供安全、便捷的金融服务体验。
+        </p>
+      </section>
+
+      <!-- 作品图片展示 -->
+      <section class="work-section">
+        <h2>作品展示</h2>
+        <div class="work-gallery">
+          <div class="gallery-main">
+            项目主图展示区域
+          </div>
+        </div>
+      </section>
+
+      <!-- 导航 -->
+      <div class="work-nav">
+        <a href="preview.html" class="btn-back">← 返回作品列表</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

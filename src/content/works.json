@@ -1,0 +1,52 @@
+{
+  "works": [
+    {
+      "id": "project-001",
+      "title": "金融App界面设计",
+      "category": "移动端",
+      "year": "2024",
+      "cover": "/images/works/2024/project-001.jpg",
+      "description": "这是一款金融类App的界面设计..."
+    },
+    {
+      "id": "project-002",
+      "title": "电商网站设计",
+      "category": "网页设计",
+      "year": "2024",
+      "cover": "/images/works/2024/project-002.jpg",
+      "description": "这是一个电商平台界面设计..."
+    },
+    {
+      "id": "project-003",
+      "title": "游戏界面设计",
+      "category": "游戏设计",
+      "year": "2024",
+      "cover": "/images/works/2024/project-003.jpg",
+      "description": "这是一个游戏界面设计..."
+    },
+    {
+      "id": "project-004",
+      "title": "企业网站设计",
+      "category": "网页设计",
+      "year": "2024",
+      "cover": "/images/works/2024/project-004.jpg",
+      "description": "这是一个企业网站设计..."
+    },
+    {
+      "id": "project-005",
+      "title": "游戏界面设计",
+      "category": "游戏设计",
+      "year": "2024",
+      "cover": "/images/works/2024/project-005.jpg",
+      "description": "这是一个游戏界面设计..."
+    },
+    {
+      "id": "project-006",
+      "title": "游戏界面设计",
+      "category": "游戏设计",
+      "year": "2024",
+      "cover": "/images/works/2024/project-006.jpg",
+      "description": "这是一个游戏界面设计..."
+    }
+  ]
+}
