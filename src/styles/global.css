@@ -41,25 +41,7 @@ h3 {
   font-weight: 500;
 }
 
-/* 导航 */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 3rem;
-  background: var(--bg-secondary);
-}
-
-nav a {
-(--text-secondary  color: var);
-  text-decoration: none;
-  margin-left: 2rem;
-  transition: color 0.2s;
-}
-
-nav a:hover {
-  color: var(--text-primary);
-}
+/* 导航 - 由各页面 scoped style 控制 */
 
 /* 布局容器 */
 .container {
@@ -179,5 +161,4 @@ nav a:hover {
   h2 { font-size: 1.8rem; }
   .container { padding: 0 1.5rem; }
   .works-grid { grid-template-columns: 1fr; }
-  nav { padding: 1rem 1.5rem; }
 }
