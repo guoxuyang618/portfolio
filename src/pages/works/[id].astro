@@ -1,5 +1,6 @@
 ---
 import worksData from '../../content/works.json';
+import '../../styles/global.css';
 
 export function getStaticPaths() {
   return worksData.works.map((work: any) => ({
@@ -17,7 +18,6 @@ const { work } = Astro.props;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{work?.title || '作品详情'} - 设计师作品集</title>
-  <link rel="stylesheet" href="/src/styles/global.css">
 </head>
 <body>
   <!-- 作品主图 -->
