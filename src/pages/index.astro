@@ -150,7 +150,7 @@ import '../styles/global.css';
       <p class="hero-desc">Showcasing innovative game design solutions and creative visual experiences through expert artistry and development.</p>
       <a href="/about#contact" class="hero-cta">
         <span>Contact Us</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
     </div>
 
@@ -196,7 +196,7 @@ import '../styles/global.css';
             <p class="card-desc">{work.description}</p>
             <span class="card-cta">
               SEE MORE
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
             </span>
           </div>
           <div class="card-meta">
@@ -361,11 +361,11 @@ import '../styles/global.css';
     gap: 0.5rem;
     color: #08080a;
     text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1.5rem;
     background: var(--accent);
     border: 1px solid var(--accent);
     border-radius: 0;
@@ -503,15 +503,15 @@ import '../styles/global.css';
     margin: 0 0 2.2rem 0;
   }
 
-  /* Hero CTA 按钮 */
+  /* Hero CTA 按钮 - Kevuru Games 风格 */
   .hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.75rem 1.8rem;
-    font-size: 0.82rem;
+    gap: 0.5rem;
+    padding: 0.75rem 1.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #08080a;
     background: var(--accent);
@@ -642,7 +642,7 @@ import '../styles/global.css';
     gap: 1.25rem;
   }
 
-  /* === 单个作品卡片 - Kevuru Games 尺寸：大画幅、无圆角 === */
+  /* === 单个作品卡片 - Kevuru Games 尺寸：宽高比驱动、无圆角 === */
   .project-card {
     position: relative;
     display: block;
@@ -651,7 +651,9 @@ import '../styles/global.css';
     border-radius: 0;
     overflow: hidden;
     border: none;
-    height: 520px;
+    /* 使用 aspect-ratio 代替固定高度，保持 kevurugames.com 的 ~2.8:1 比例 */
+    aspect-ratio: 2.8 / 1;
+    width: 100%;
     transition: all 0.5s var(--ease-out);
   }
 
@@ -695,7 +697,7 @@ import '../styles/global.css';
     pointer-events: none;
   }
 
-  /* 文字信息区 - Kevuru Games 风格：更大内边距 */
+  /* 文字信息区 - Kevuru Games 风格 */
   .card-content {
     position: absolute;
     left: 0;
@@ -705,36 +707,36 @@ import '../styles/global.css';
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3.5rem 4rem;
-    max-width: 50%;
+    padding: 3rem 4.5rem;
+    max-width: 45%;
   }
 
   .card-title {
-    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-    font-weight: 800;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    font-weight: 700;
     color: #ffffff;
-    margin-bottom: 1.2rem;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
     text-transform: uppercase;
   }
 
   .card-desc {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.7;
-    margin-bottom: 2.2rem;
-    max-width: 440px;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.65;
+    margin-bottom: 1.8rem;
+    max-width: 380px;
   }
 
   .card-cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.7rem;
-    padding: 0.85rem 2rem;
-    font-size: 0.875rem;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: #08080a;
     background: var(--accent);
@@ -785,11 +787,11 @@ import '../styles/global.css';
   .btn-view-all {
     display: inline-flex;
     align-items: center;
-    gap: 0.7rem;
-    padding: 1rem 2.5rem;
-    font-size: 0.9rem;
+    gap: 0.5rem;
+    padding: 0.85rem 2.2rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: #08080a;
     background: var(--accent);
     border: none;
@@ -983,25 +985,25 @@ import '../styles/global.css';
   /* ===== 响应式 ===== */
   @media (max-width: 1024px) {
     .project-card {
-      height: 440px;
+      aspect-ratio: 2.5 / 1;
     }
 
     .card-content {
-      padding: 2.5rem 3rem;
+      padding: 2.5rem 2.5rem;
       max-width: 55%;
     }
 
     .card-title {
-      font-size: 1.6rem;
+      font-size: 1.35rem;
     }
 
     .card-desc {
-      font-size: 0.88rem;
+      font-size: 0.82rem;
     }
 
     .card-cta {
-      padding: 0.75rem 1.8rem;
-      font-size: 0.82rem;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.75rem;
     }
 
     .hero-stats {
@@ -1061,8 +1063,8 @@ import '../styles/global.css';
     }
 
     .hero-cta {
-      font-size: 0.78rem;
-      padding: 0.65rem 1.5rem;
+      font-size: 0.75rem;
+      padding: 0.6rem 1.4rem;
     }
 
     .hero-stats {
@@ -1091,7 +1093,7 @@ import '../styles/global.css';
     }
 
     .project-card {
-      height: 380px;
+      aspect-ratio: 1.6 / 1;
     }
 
     .card-gradient {
@@ -1106,17 +1108,17 @@ import '../styles/global.css';
 
     .card-content {
       max-width: 100%;
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 1.5rem;
       justify-content: flex-end;
     }
 
     .card-title {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
 
     .card-desc {
-      font-size: 0.85rem;
-      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 1.2rem;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -1124,8 +1126,8 @@ import '../styles/global.css';
     }
 
     .card-cta {
-      padding: 0.7rem 1.5rem;
-      font-size: 0.78rem;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.72rem;
     }
 
     .card-meta {
