@@ -126,7 +126,7 @@ import '../styles/global.css';
   </footer>
 
   <script>
-    // 分类筛选功能
+    // 分类筛选功能 - 即时切换，无延迟
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -134,16 +134,15 @@ import '../styles/global.css';
         
         const filter = btn.getAttribute('data-filter');
         document.querySelectorAll('.work-card').forEach(card => {
+          const el = card as HTMLElement;
           if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            (card as HTMLElement).style.display = 'block';
-            (card as HTMLElement).style.opacity = '1';
-            (card as HTMLElement).style.transform = 'translateY(0)';
+            el.style.display = 'block';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
           } else {
-            (card as HTMLElement).style.opacity = '0';
-            (card as HTMLElement).style.transform = 'translateY(10px)';
-            setTimeout(() => {
-              (card as HTMLElement).style.display = 'none';
-            }, 300);
+            el.style.display = 'none';
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(0)';
           }
         });
       });
