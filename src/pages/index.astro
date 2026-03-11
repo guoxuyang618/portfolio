@@ -616,13 +616,13 @@ import '../styles/global.css';
     gap: 1.25rem;
   }
 
-  /* === 单个作品卡片 - Kevuru Games 尺寸：宽高比驱动、无圆角 === */
+  /* === 单个作品卡片 === */
   .project-card {
     position: relative;
     display: block;
     text-decoration: none;
     color: inherit;
-    border-radius: 0;
+    border-radius: 8px;
     overflow: hidden;
     border: none;
     /* 使用 aspect-ratio 代替固定高度，保持 kevurugames.com 的 ~2.8:1 比例 */
@@ -655,19 +655,27 @@ import '../styles/global.css';
     transform: scale(1.04);
   }
 
-  /* 左侧渐变遮罩 - 从深色到透明 */
+  /* 渐变遮罩 - 左侧 + 上下边缘遮蔽 */
   .card-gradient {
     position: absolute;
     inset: 0;
     z-index: 2;
-    background: linear-gradient(
-      90deg,
-      rgba(8, 8, 12, 0.95) 0%,
-      rgba(8, 8, 12, 0.88) 15%,
-      rgba(8, 8, 12, 0.7) 35%,
-      rgba(8, 8, 12, 0.3) 55%,
-      transparent 75%
-    );
+    background: 
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 12, 0.95) 0%,
+        rgba(8, 8, 12, 0.88) 15%,
+        rgba(8, 8, 12, 0.7) 35%,
+        rgba(8, 8, 12, 0.3) 55%,
+        transparent 75%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(8, 8, 12, 0.4) 0%,
+        transparent 15%,
+        transparent 85%,
+        rgba(8, 8, 12, 0.4) 100%
+      );
     pointer-events: none;
   }
 
@@ -1071,13 +1079,21 @@ import '../styles/global.css';
     }
 
     .card-gradient {
-      background: linear-gradient(
-        0deg,
-        rgba(8, 8, 12, 0.95) 0%,
-        rgba(8, 8, 12, 0.8) 30%,
-        rgba(8, 8, 12, 0.4) 60%,
-        transparent 100%
-      );
+      background: 
+        linear-gradient(
+          0deg,
+          rgba(8, 8, 12, 0.95) 0%,
+          rgba(8, 8, 12, 0.8) 30%,
+          rgba(8, 8, 12, 0.4) 60%,
+          transparent 100%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(8, 8, 12, 0.3) 0%,
+          transparent 10%,
+          transparent 90%,
+          rgba(8, 8, 12, 0.3) 100%
+        );
     }
 
     .card-content {
