@@ -1,65 +1,56 @@
 @echo off
+setlocal enabledelayedexpansion
 chcp 65001 >nul
 title 视频压缩工具 - 视觉无损
 
 echo ============================================
-echo    视频压缩工具 (视觉无损 / 近无损)
+echo    视频压缩工具（视觉无损 / 近无损）
 echo    适用于 Web 视频背景
 echo ============================================
 echo.
 
 REM ====== FFmpeg 路径配置 ======
-REM 自动查找 ffmpeg，优先用 PATH 中的，找不到则用 winget 安装路径
-where ffmpeg >nul 2>nul
-if %errorlevel%==0 (
-    set "FFMPEG=ffmpeg"
-) else (
-    REM winget 安装的默认路径
-    set "FFMPEG_DIR="
-    for /d %%d in ("%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg*") do set "FFMPEG_DIR=%%d"
-    if defined FFMPEG_DIR (
-        for /d %%d in ("!FFMPEG_DIR!\ffmpeg-*") do set "FFMPEG_BIN=%%d\bin"
-    )
-    if defined FFMPEG_BIN (
-        set "FFMPEG=!FFMPEG_BIN!\ffmpeg.exe"
-    ) else (
-        echo [错误] 未找到 FFmpeg！请先安装：
-        echo        winget install Gyan.FFmpeg
-        echo.
-        pause
-        exit /b 1
-    )
-)
-
-REM 因为要用延迟变量展开，重新启用
-setlocal enabledelayedexpansion
-
-REM ====== 重新查找 FFmpeg（延迟展开模式） ======
 set "FFMPEG="
+
+REM 1. 先检查 PATH 中是否有 ffmpeg
 where ffmpeg >nul 2>nul
 if !errorlevel!==0 (
     set "FFMPEG=ffmpeg"
     goto :ffmpeg_found
 )
 
-REM winget 安装的默认路径
-for /d %%d in ("%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg*") do (
-    for /d %%e in ("%%d\ffmpeg-*") do (
-        if exist "%%e\bin\ffmpeg.exe" (
-            set "FFMPEG=%%e\bin\ffmpeg.exe"
-            goto :ffmpeg_found
-        )
-    )
+REM 2. 已知的 winget 安装路径（硬编码，最可靠）
+set "KNOWN_PATH=%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.0.1-full_build\bin\ffmpeg.exe"
+if exist "!KNOWN_PATH!" (
+    set "FFMPEG=!KNOWN_PATH!"
+    goto :ffmpeg_found
 )
 
-if not defined FFMPEG (
-    echo [错误] 未找到 FFmpeg！请先安装：
-    echo        winget install Gyan.FFmpeg
-    echo        安装后重启电脑或重新打开命令行窗口
-    echo.
-    pause
-    exit /b 1
+REM 3. 使用 where /R 递归搜索 winget 包目录
+for /f "delims=" %%f in ('where /R "%LOCALAPPDATA%\Microsoft\WinGet\Packages" ffmpeg.exe 2^>nul') do (
+    set "FFMPEG=%%f"
+    goto :ffmpeg_found
 )
+
+REM 4. 检查剪映自带的 ffmpeg（备选）
+for /f "delims=" %%f in ('where /R "%LOCALAPPDATA%\JianyingPro" ffmpeg.exe 2^>nul') do (
+    set "FFMPEG=%%f"
+    goto :ffmpeg_found
+)
+
+REM 5. 常见安装路径
+if exist "C:\ffmpeg\bin\ffmpeg.exe" (
+    set "FFMPEG=C:\ffmpeg\bin\ffmpeg.exe"
+    goto :ffmpeg_found
+)
+
+REM 6. 都找不到，报错退出
+echo [错误] 未找到 FFmpeg！请先安装：
+echo        winget install Gyan.FFmpeg
+echo        安装后重启电脑或重新打开命令行窗口
+echo.
+pause
+exit /b 1
 
 :ffmpeg_found
 echo [信息] FFmpeg 路径: !FFMPEG!
@@ -69,7 +60,7 @@ REM ====== 获取输入文件 ======
 set "INPUT_FILE=%~1"
 
 if "!INPUT_FILE!"=="" (
-    echo [错误] 请将视频文件拖拽到此批处理文件上，或使用命令行：
+    echo [提示] 请将视频文件拖拽到此批处理文件上，或使用命令行：
     echo        compress-video.bat 你的视频.mp4
     echo.
     pause
