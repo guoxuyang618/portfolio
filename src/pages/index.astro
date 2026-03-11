@@ -146,11 +146,15 @@ import '../styles/global.css';
     <div class="hero-gradient"></div>
     <div class="hero-content">
       <div class="hero-badge">GAME DESIGN PORTFOLIO</div>
-      <h1 class="hero-title">OUR<br/>PORTFOLIO</h1>
-      <p class="hero-desc">Showcasing innovative game design solutions<br/>and creative visual experiences</p>
+      <h1 class="hero-title">GAME<br/>DESIGN<br/>PORTFOLIO</h1>
+      <p class="hero-desc">Showcasing innovative game design solutions and creative visual experiences through expert artistry and development.</p>
+      <a href="/about#contact" class="hero-cta">
+        <span>Contact Us</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      </a>
     </div>
 
-    <!-- 数据统计 - Kevuru Games 风格 -->
+    <!-- 数据统计 - 底部左下角 -->
     <div class="hero-stats">
       <div class="stat-item">
         <span class="stat-number">6+</span>
@@ -381,8 +385,8 @@ import '../styles/global.css';
     height: 100vh;
     min-height: 700px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     overflow: hidden;
   }
 
@@ -450,16 +454,19 @@ import '../styles/global.css';
     position: absolute;
     inset: 0;
     background: 
-      linear-gradient(180deg, rgba(8,8,10,0.4) 0%, rgba(8,8,10,0.1) 40%, rgba(8,8,10,0.7) 80%, var(--bg-primary) 100%),
-      radial-gradient(ellipse at 30% 50%, rgba(78,234,219,0.08) 0%, transparent 60%);
+      linear-gradient(90deg, rgba(8,8,10,0.75) 0%, rgba(8,8,10,0.5) 35%, rgba(8,8,10,0.15) 65%, transparent 100%),
+      linear-gradient(180deg, rgba(8,8,10,0.5) 0%, rgba(8,8,10,0.05) 40%, rgba(8,8,10,0.6) 80%, var(--bg-primary) 100%),
+      radial-gradient(ellipse at 20% 30%, rgba(78,234,219,0.06) 0%, transparent 60%);
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 900px;
-    padding: 0 2rem;
+    text-align: left;
+    max-width: 700px;
+    padding: 0 var(--container-padding);
+    margin-top: clamp(140px, 22vh, 220px);
+    margin-left: clamp(2rem, 8vw, 10rem);
   }
 
   .hero-badge {
@@ -473,35 +480,67 @@ import '../styles/global.css';
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .hero-title {
-    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-size: clamp(3rem, 7vw, 6rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.0;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.75) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .hero-desc {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.7;
-    max-width: 500px;
-    margin: 0 auto;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+    max-width: 440px;
+    margin: 0 0 2.2rem 0;
   }
 
-  /* Hero 数据统计 */
+  /* Hero CTA 按钮 */
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.8rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #08080a;
+    background: var(--accent);
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    background: #3dd4c6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(78, 234, 219, 0.25);
+  }
+
+  .hero-cta svg {
+    transition: transform 0.3s ease;
+    stroke: #08080a;
+  }
+
+  .hero-cta:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  /* Hero 数据统计 - 左下角 */
   .hero-stats {
     position: absolute;
     bottom: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: clamp(2rem, 8vw, 10rem);
     z-index: 3;
     display: flex;
     align-items: center;
@@ -545,8 +584,7 @@ import '../styles/global.css';
   .hero-scroll-indicator {
     position: absolute;
     bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    right: clamp(2rem, 5vw, 5rem);
     z-index: 3;
   }
 
@@ -964,6 +1002,7 @@ import '../styles/global.css';
     .hero-stats {
       gap: 2rem;
       padding: 1.2rem 2rem;
+      left: clamp(2rem, 5vw, 6rem);
     }
     .stat-number {
       font-size: 1.6rem;
@@ -1002,17 +1041,30 @@ import '../styles/global.css';
     }
 
     .hero-title {
-      font-size: 3rem;
+      font-size: 2.5rem;
+    }
+
+    .hero-content {
+      margin-top: 120px;
+      margin-left: 1.5rem;
+      max-width: calc(100% - 3rem);
     }
 
     .hero-desc {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      max-width: 100%;
+    }
+
+    .hero-cta {
+      font-size: 0.78rem;
+      padding: 0.65rem 1.5rem;
     }
 
     .hero-stats {
       flex-direction: column;
       gap: 1rem;
       bottom: 6rem;
+      left: 1.5rem;
       padding: 1.2rem 2rem;
     }
 
