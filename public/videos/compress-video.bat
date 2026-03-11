@@ -1,11 +1,11 @@
 @echo off
 setlocal enabledelayedexpansion
 chcp 65001 >nul
-title 视频压缩工具 - 视觉无损
+title 视频压缩工具 - 保留音频版
 
 echo ============================================
-echo    视频压缩工具（视觉无损 / 近无损）
-echo    适用于 Web 视频背景
+echo    视频压缩工具（支持保留/去除音频）
+echo    适用于 Web 视频 / 通用视频压缩
 echo ============================================
 echo.
 
@@ -86,13 +86,36 @@ cd /d "!FILEDIR!"
 echo 源文件: !INPUT_FILE!
 echo 输出目录: !FILEDIR!
 echo.
+
+REM ====== 音频选择 ======
+echo 是否保留音频（声音）？
+echo.
+echo   [Y] 保留声音（通用视频推荐）
+echo   [N] 去掉声音（网页背景视频推荐）
+echo.
+set /p AUDIO_CHOICE="请输入 [Y/N]（默认Y）: "
+echo.
+
+set "AUDIO_OPTS="
+set "AUDIO_LABEL=保留音频"
+if /i "!AUDIO_CHOICE!"=="N" (
+    set "AUDIO_OPTS=-an"
+    set "AUDIO_LABEL=无音频"
+) else (
+    REM 保留音频：AAC编码，128k码率，质量与体积平衡
+    set "AUDIO_OPTS=-c:a aac -b:a 128k"
+    set "AUDIO_LABEL=保留音频"
+)
+
+echo [音频模式] !AUDIO_LABEL!
+echo.
 echo 请选择压缩方案:
 echo.
 echo   [1] 视觉无损 MP4  (H.264, CRF 18) - 质量最高，文件较大
 echo   [2] 高质量 MP4    (H.264, CRF 23) - 推荐！质量与体积平衡
-echo   [3] Web优化 MP4   (H.264, CRF 26, 1080p) - Web背景推荐，体积小
+echo   [3] Web优化 MP4   (H.264, CRF 26, 1080p) - 体积小
 echo   [4] 视觉无损 WebM (VP9, CRF 15)  - 最佳Web格式，质量极高
-echo   [5] Web优化 WebM  (VP9, CRF 30, 1080p) - WebM推荐，体积最小
+echo   [5] Web优化 WebM  (VP9, CRF 30, 1080p) - 体积最小
 echo   [6] 双格式生成    (MP4 CRF23 + WebM CRF30) - 一键双格式
 echo   [7] Hero专用      (1080p + 双格式 + 15秒截取) - 网页背景视频
 echo.
@@ -101,12 +124,13 @@ set /p CHOICE="请输入选项 [1-7]: "
 echo.
 echo ============================================
 echo [处理中] 请耐心等待，视频越大耗时越长...
+echo [音频模式] !AUDIO_LABEL!
 echo ============================================
 echo.
 
 if "!CHOICE!"=="1" (
-    echo [开始] 视觉无损 MP4 压缩...
-    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 18 -an -movflags +faststart -pix_fmt yuv420p "!BASENAME!-lossless.mp4" -y
+    echo [开始] 视觉无损 MP4 压缩 (!AUDIO_LABEL!^)...
+    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 18 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p "!BASENAME!-lossless.mp4" -y
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-lossless.mp4
@@ -116,8 +140,8 @@ if "!CHOICE!"=="1" (
 )
 
 if "!CHOICE!"=="2" (
-    echo [开始] 高质量 MP4 压缩...
-    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 23 -an -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
+    echo [开始] 高质量 MP4 压缩 (!AUDIO_LABEL!^)...
+    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-hq.mp4
@@ -127,8 +151,8 @@ if "!CHOICE!"=="2" (
 )
 
 if "!CHOICE!"=="3" (
-    echo [开始] Web 优化 MP4 压缩 (缩放至1080p^)...
-    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 26 -an -movflags +faststart -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.mp4" -y
+    echo [开始] Web 优化 MP4 压缩 (缩放至1080p, !AUDIO_LABEL!^)...
+    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 26 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.mp4" -y
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-web.mp4
@@ -138,8 +162,12 @@ if "!CHOICE!"=="3" (
 )
 
 if "!CHOICE!"=="4" (
-    echo [开始] 视觉无损 WebM 压缩 (VP9编码较慢，请耐心等待^)...
-    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 15 -b:v 0 -an -pix_fmt yuv420p "!BASENAME!-lossless.webm" -y
+    echo [开始] 视觉无损 WebM 压缩 (VP9编码较慢，请耐心等待, !AUDIO_LABEL!^)...
+    if /i "!AUDIO_CHOICE!"=="N" (
+        "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 15 -b:v 0 -an -pix_fmt yuv420p "!BASENAME!-lossless.webm" -y
+    ) else (
+        "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 15 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p "!BASENAME!-lossless.webm" -y
+    )
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-lossless.webm
@@ -149,8 +177,12 @@ if "!CHOICE!"=="4" (
 )
 
 if "!CHOICE!"=="5" (
-    echo [开始] Web 优化 WebM 压缩...
-    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.webm" -y
+    echo [开始] Web 优化 WebM 压缩 (!AUDIO_LABEL!^)...
+    if /i "!AUDIO_CHOICE!"=="N" (
+        "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.webm" -y
+    ) else (
+        "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.webm" -y
+    )
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-web.webm
@@ -160,13 +192,17 @@ if "!CHOICE!"=="5" (
 )
 
 if "!CHOICE!"=="6" (
-    echo [开始] 双格式生成...
+    echo [开始] 双格式生成 (!AUDIO_LABEL!^)...
     echo.
     echo [1/2] 生成 MP4 (H.264 High, CRF 23^)...
-    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 23 -an -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
+    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
     echo.
     echo [2/2] 生成 WebM (VP9, CRF 30^)...
-    "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p "!BASENAME!-web.webm" -y
+    if /i "!AUDIO_CHOICE!"=="N" (
+        "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p "!BASENAME!-web.webm" -y
+    ) else (
+        "!FFMPEG!" -i "!INPUT_FILE!" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p "!BASENAME!-web.webm" -y
+    )
     echo.
     echo [完成] 输出:
     echo   - !FILEDIR!!BASENAME!-hq.mp4
@@ -174,16 +210,20 @@ if "!CHOICE!"=="6" (
 )
 
 if "!CHOICE!"=="7" (
-    echo [开始] Hero 背景视频专用处理...
+    echo [开始] Hero 背景视频专用处理 (!AUDIO_LABEL!^)...
     echo.
     echo [1/4] 截取前15秒...
     "!FFMPEG!" -i "!INPUT_FILE!" -t 15 -c copy "!BASENAME!-15s-temp.mp4" -y
     echo.
     echo [2/4] 缩放至1920x1080 + MP4压缩...
-    "!FFMPEG!" -i "!BASENAME!-15s-temp.mp4" -c:v libx264 -profile:v high -preset slow -crf 23 -an -movflags +faststart -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.mp4" -y
+    "!FFMPEG!" -i "!BASENAME!-15s-temp.mp4" -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.mp4" -y
     echo.
     echo [3/4] 生成 WebM 格式...
-    "!FFMPEG!" -i "!BASENAME!-15s-temp.mp4" -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.webm" -y
+    if /i "!AUDIO_CHOICE!"=="N" (
+        "!FFMPEG!" -i "!BASENAME!-15s-temp.mp4" -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.webm" -y
+    ) else (
+        "!FFMPEG!" -i "!BASENAME!-15s-temp.mp4" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.webm" -y
+    )
     echo.
     echo [4/4] 清理临时文件...
     del "!BASENAME!-15s-temp.mp4" 2>nul
