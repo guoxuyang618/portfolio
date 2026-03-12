@@ -154,6 +154,10 @@ import '../styles/global.css';
     <section class="contact-section" id="contact">
       <div class="contact-inner">
         <div class="contact-grid">
+          <div class="contact-qrcode">
+            <img src="/images/works/xuyang code.jpg" alt="WeChat QR Code" class="qrcode-img" />
+            <span class="qrcode-label">WeChat</span>
+          </div>
           <div class="contact-info">
             <span class="label-tag">Get in Touch</span>
             <h2>Get In Touch</h2>
@@ -606,9 +610,33 @@ import '../styles/global.css';
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 5rem;
+    grid-template-columns: auto 1.2fr 1fr;
+    gap: 3rem;
     align-items: flex-start;
+  }
+
+  /* 微信二维码 */
+  .contact-qrcode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .qrcode-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .qrcode-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
   }
 
   .contact-info h2 {
@@ -629,12 +657,12 @@ import '../styles/global.css';
   .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     padding-top: 1.5rem;
   }
 
   .contact-item {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
   }
 
@@ -725,7 +753,7 @@ import '../styles/global.css';
     .about-label { position: static; }
     .highlights-inner { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-grid { grid-template-columns: auto 1fr; gap: 2rem; }
   }
 
   @media (max-width: 768px) {
@@ -744,6 +772,9 @@ import '../styles/global.css';
     .highlight-number { font-size: 2rem; }
     .services-grid { grid-template-columns: 1fr; }
     .contact-section { padding: 4rem 1.5rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-qrcode { flex-direction: row; gap: 1rem; }
+    .qrcode-img { width: 100px; height: 100px; }
     .footer-top { flex-direction: column; gap: 2rem; }
     .footer-nav { align-self: flex-end; }
   }
