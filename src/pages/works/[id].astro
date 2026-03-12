@@ -39,8 +39,23 @@ const { work } = Astro.props;
         <span>Contact Me</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </header>
+
+  <!-- 移动端菜单 -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="/" class="mobile-nav-link">Home</a>
+      <a href="/works" class="mobile-nav-link active">Work</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/about#contact" class="mobile-nav-cta">Contact Me</a>
+    </nav>
+  </div>
 
   <script>
     const header = document.getElementById('siteHeader');
@@ -51,6 +66,16 @@ const { work } = Astro.props;
         } else {
           header.classList.remove('scrolled');
         }
+      });
+    }
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
       });
     }
   </script>
@@ -319,6 +344,111 @@ const { work } = Astro.props;
     background: #3dd4c6;
     border-color: #3dd4c6;
   }
+
+  /* 汉堡菜单按钮 */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s ease;
+    border-radius: 1px;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(8, 8, 12, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 2rem;
+  }
+
+  .mobile-nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-nav-link.active,
+  .mobile-nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .mobile-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.9rem 2.5rem;
+    background: var(--accent);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    border-radius: 0;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-cta:hover {
+    background: #3dd4c6;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
 
   /* ===== 作品 Hero ===== */
   .work-hero {
@@ -630,9 +760,10 @@ const { work } = Astro.props;
     .site-header { padding: 1rem 1.5rem; }
     .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
     .logo-img { height: 40px; }
-    .main-nav { gap: 1.2rem; }
-    .nav-link { font-size: 0.7rem; }
-    .nav-cta { font-size: 0.7rem; padding: 0.45rem 1rem; }
+    .main-nav { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: block; }
     .work-hero { height: 45vh; min-height: 300px; }
     .work-header { margin-top: -5rem; margin-bottom: 3rem; }
     .work-header h1 { font-size: 2rem; }
