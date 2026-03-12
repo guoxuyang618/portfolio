@@ -244,6 +244,7 @@ import '../styles/global.css';
   <section class="logo-marquee-section">
     <div class="logo-marquee" id="logoMarquee">
       <div class="logo-track" id="logoTrack">
+        <!-- 第1组 -->
         <div class="logo-item">
           <img src="/images/works/穿越火线虹.png" alt="穿越火线虹" />
         </div>
@@ -262,7 +263,26 @@ import '../styles/global.css';
         <div class="logo-item">
           <img src="/images/works/穿越火线-枪战王者.png" alt="穿越火线-枪战王者" />
         </div>
-        <!-- 复制一组用于无缝循环 -->
+        <!-- 第2组（无缝循环副本） -->
+        <div class="logo-item">
+          <img src="/images/works/穿越火线虹.png" alt="穿越火线虹" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/works/全军出击.png" alt="全军出击" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/works/逆战助手.png" alt="逆战助手" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/works/使命召唤手游.png" alt="使命召唤手游" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/works/逆战：未来.png" alt="逆战：未来" />
+        </div>
+        <div class="logo-item">
+          <img src="/images/works/穿越火线-枪战王者.png" alt="穿越火线-枪战王者" />
+        </div>
+        <!-- 第3组（确保宽屏也不出现空缺） -->
         <div class="logo-item">
           <img src="/images/works/穿越火线虹.png" alt="穿越火线虹" />
         </div>
@@ -907,22 +927,22 @@ import '../styles/global.css';
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-33.333%);
     }
   }
 
   .logo-item {
     flex-shrink: 0;
-    width: 100px;
-    height: 100px;
-    border-radius: 20px;
-    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    overflow: visible;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
 
   .logo-item:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
   }
 
@@ -931,6 +951,7 @@ import '../styles/global.css';
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 16px;
   }
 
   /* ===== CTA 区域 ===== */
@@ -1362,9 +1383,9 @@ import '../styles/global.css';
     }
 
     .logo-item {
-      width: 72px;
-      height: 72px;
-      border-radius: 16px;
+      width: 58px;
+      height: 58px;
+      border-radius: 12px;
     }
 
     .cta-section {
