@@ -23,12 +23,13 @@ import '../styles/global.css';
         <span class="logo-text">{config.site.name}</span>
       </a>
       <nav class="main-nav">
-        <a href="/" class="nav-link">Portfolio</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="/works" class="nav-link">Work</a>
         <a href="/about" class="nav-link active">About</a>
       </nav>
       <a href="#contact" class="nav-cta">
-        <span>Contact Us</span>
+        <span>Contact Me</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
     </div>
   </header>
@@ -75,7 +76,7 @@ import '../styles/global.css';
     <section class="highlights-section">
       <div class="highlights-inner">
         <div class="highlight-card">
-          <span class="highlight-number">6+</span>
+          <span class="highlight-number">5+</span>
           <span class="highlight-label">Projects<br/>Delivered</span>
         </div>
         <div class="highlight-card">
@@ -84,10 +85,10 @@ import '../styles/global.css';
         </div>
         <div class="highlight-card">
           <span class="highlight-number">100%</span>
-          <span class="highlight-label">Client<br/>Satisfaction</span>
+          <span class="highlight-label">Design<br/>Passion</span>
         </div>
         <div class="highlight-card">
-          <span class="highlight-number">2024</span>
+          <span class="highlight-number">2026</span>
           <span class="highlight-label">Latest<br/>Projects</span>
         </div>
       </div>
@@ -174,7 +175,7 @@ import '../styles/global.css';
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 {config.site.name}. All rights reserved.</p>
+        <p>&copy; 2026 {config.site.name}. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -256,6 +257,9 @@ import '../styles/global.css';
   .nav-link.active::after, .nav-link:hover::after { width: 100%; }
 
   .nav-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: #08080a;
     text-decoration: none;
     font-size: 0.8rem;
