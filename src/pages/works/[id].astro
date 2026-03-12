@@ -959,13 +959,17 @@ const { work } = Astro.props;
     .footer-top { flex-direction: column; gap: 2rem; }
 
     /* 灯箱移动端适配 */
+    .lightbox {
+      align-items: flex-start;
+    }
     .lightbox-content {
-      max-width: 90%;
+      max-width: 92%;
+      margin-top: 10vh;
     }
     .lightbox-image-wrap {
-      height: 45vh;
-      min-height: 45vh;
-      max-height: 45vh;
+      height: 40vh;
+      min-height: 40vh;
+      max-height: 40vh;
     }
     .lightbox-image-wrap img {
       max-height: 100%;
@@ -973,25 +977,29 @@ const { work } = Astro.props;
     .lightbox-arrow {
       width: 36px;
       height: 36px;
+      top: calc(10vh + 20vh);
     }
     .lightbox-arrow svg {
       width: 18px;
       height: 18px;
     }
     .lightbox-prev {
-      left: 0.5rem;
+      left: 0.3rem;
     }
     .lightbox-next {
-      right: 0.5rem;
+      right: 0.3rem;
     }
     .lightbox-info {
-      min-height: 80px;
+      margin-top: 1rem;
+      text-align: left;
     }
     .lightbox-info h3 {
       font-size: 1.1rem;
+      text-align: left;
     }
     .lightbox-info p {
       font-size: 0.85rem;
+      text-align: left;
     }
   }
 </style>
