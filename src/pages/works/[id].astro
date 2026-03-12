@@ -30,7 +30,7 @@ const { work } = Astro.props;
       <a href="/" class="logo">
         <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="logo-img" />
       </a>
-      <nav class="main-nav" id="mainNav">
+      <nav class="main-nav">
         <a href="/" class="nav-link">Home</a>
         <a href="/works" class="nav-link active">Work</a>
         <a href="/about" class="nav-link">About</a>
@@ -39,11 +39,6 @@ const { work } = Astro.props;
         <span>Contact Me</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
     </div>
   </header>
 
@@ -58,22 +53,99 @@ const { work } = Astro.props;
         }
       });
     }
+  </script>
 
-    const hamburger = document.getElementById('hamburger');
-    const mainNav = document.getElementById('mainNav');
-    if (hamburger && mainNav) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mainNav.classList.toggle('open');
-      });
-      mainNav.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          mainNav.classList.remove('open');
+  <!-- 灯箱交互脚本 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg') as HTMLImageElement;
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const lightboxText = document.getElementById('lightboxText');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+      const lightboxOverlay = document.getElementById('lightboxOverlay');
+
+      // 收集所有可点击图片的数据
+      const triggers = document.querySelectorAll('.lightbox-trigger');
+      const imagesData: { src: string; title: string; text: string }[] = [];
+      
+      triggers.forEach((trigger) => {
+        const img = trigger.querySelector('img') as HTMLImageElement;
+        const section = trigger.closest('.work-section');
+        const sectionTitle = section?.querySelector('.section-label h2')?.textContent || '';
+        const sectionText = section?.querySelector('.split-text p')?.textContent || '';
+        
+        imagesData.push({
+          src: img?.src || '',
+          title: sectionTitle,
+          text: sectionText
         });
       });
-    }
-  </script>
+
+      let currentIndex = 0;
+
+      function showImage(index: number) {
+        if (index < 0 || index >= imagesData.length) return;
+        currentIndex = index;
+        const data = imagesData[currentIndex];
+        if (lightboxImg) lightboxImg.src = data.src;
+        if (lightboxImg) lightboxImg.alt = data.title;
+        if (lightboxTitle) lightboxTitle.textContent = data.title;
+        if (lightboxText) lightboxText.textContent = data.text;
+      }
+
+      function openLightbox(index: number) {
+        showImage(index);
+        lightbox?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox?.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // 点击图片打开灯箱
+      triggers.forEach((trigger, idx) => {
+        trigger.addEventListener('click', () => {
+          openLightbox(idx);
+        });
+      });
+
+      // 关闭按钮
+      lightboxClose?.addEventListener('click', closeLightbox);
+
+      // 点击遮罩关闭
+      lightboxOverlay?.addEventListener('click', closeLightbox);
+
+      // 上一张
+      lightboxPrev?.addEventListener('click', () => {
+        const newIndex = currentIndex > 0 ? currentIndex - 1 : imagesData.length - 1;
+        showImage(newIndex);
+      });
+
+      // 下一张
+      lightboxNext?.addEventListener('click', () => {
+        const newIndex = currentIndex < imagesData.length - 1 ? currentIndex + 1 : 0;
+        showImage(newIndex);
+      });
+
+      // 键盘支持
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox?.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') {
+          const newIndex = currentIndex > 0 ? currentIndex - 1 : imagesData.length - 1;
+          showImage(newIndex);
+        }
+        if (e.key === 'ArrowRight') {
+          const newIndex = currentIndex < imagesData.length - 1 ? currentIndex + 1 : 0;
+          showImage(newIndex);
+        }
+      });
+    });
   </script>
 
   <!-- 作品 Hero 大图 -->
@@ -127,68 +199,30 @@ const { work } = Astro.props;
         </div>
       </section>
 
-      <!-- Design Approach -->
-      <section class="work-section">
-        <div class="section-grid">
-          <div class="section-label">
-            <span class="label-tag">02</span>
-            <h2>Design Approach</h2>
-          </div>
-          <div class="section-content">
-            <div class="content-split">
-              <div class="split-image">
-                <img src="/images/works/2024/project-001.jpg" alt="Design Process">
-              </div>
-              <div class="split-text">
-                <p>Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design.</p>
-                <p>Through in-depth user research and competitive analysis, we identified the core design direction, ensuring every design decision is evidence-based.</p>
+      <!-- 动态图文 Section：保持左图右文 / 左文右图交替 -->
+      {work?.images && work.images.map((img: any, idx: number) => (
+        <section class="work-section">
+          <div class="section-grid">
+            <div class="section-label">
+              <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
+              <h2>{img.title}</h2>
+            </div>
+            <div class="section-content">
+              <div class={`content-split ${idx % 2 !== 0 ? 'reverse' : ''}`}>
+                <div class="split-image lightbox-trigger" data-index={idx}>
+                  <img src={img.src} alt={img.title} />
+                  <div class="image-overlay">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  </div>
+                </div>
+                <div class="split-text">
+                  <p>{img.text}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Visual Design -->
-      <section class="work-section">
-        <div class="section-grid">
-          <div class="section-label">
-            <span class="label-tag">03</span>
-            <h2>Visual Design</h2>
-          </div>
-          <div class="section-content">
-            <div class="content-split reverse">
-              <div class="split-image">
-                <img src="/images/works/2024/project-001.jpg" alt="Visual Design">
-              </div>
-              <div class="split-text">
-                <p>Detailed description of the visual design, color usage, and layout for this project. Showcasing the final design outcomes and visual presentation.</p>
-                <p>The color system was selected based on brand identity and target audience aesthetic preferences, ensuring consistency and professionalism in visual communication.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 交互体验 -->
-      <section class="work-section">
-        <div class="section-grid">
-          <div class="section-label">
-            <span class="label-tag">04</span>
-            <h2>Interaction Design</h2>
-          </div>
-          <div class="section-content">
-            <div class="content-split">
-              <div class="split-image">
-                <img src="/images/works/2024/project-001.jpg" alt="Interaction Design">
-              </div>
-              <div class="split-text">
-                <p>Detailed description of the interaction design, user flows, and motion effects for this project. Demonstrating how interaction design enhances the user experience.</p>
-                <p>Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       <!-- 视频展示 -->
       {work?.video && (
@@ -221,6 +255,29 @@ const { work } = Astro.props;
       </div>
     </div>
   </main>
+
+  <!-- 全屏灯箱 -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next image">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+    </button>
+    <div class="lightbox-content">
+      <div class="lightbox-image-wrap">
+        <img id="lightboxImg" src="" alt="" />
+      </div>
+      <div class="lightbox-info">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxText"></p>
+      </div>
+    </div>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
 
   <!-- 页脚 -->
   <footer class="site-footer">
@@ -536,6 +593,153 @@ const { work } = Astro.props;
     margin-bottom: 0;
   }
 
+  /* ===== 图片点击触发器 ===== */
+  .lightbox-trigger {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .lightbox-trigger .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+  }
+
+  .lightbox-trigger:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .lightbox-trigger .image-overlay svg {
+    color: #fff;
+  }
+
+  /* ===== 全屏灯箱 ===== */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(50, 50, 55, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .lightbox-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 65%;
+    max-height: 85vh;
+    width: 100%;
+  }
+
+  .lightbox-image-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .lightbox-image-wrap img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .lightbox-info {
+    width: 100%;
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .lightbox-info h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+  }
+
+  .lightbox-info p {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 3;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    color: #fff;
+  }
+
+  .lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+  }
+
+  .lightbox-arrow:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .lightbox-prev {
+    left: 2.5rem;
+  }
+
+  .lightbox-next {
+    right: 2.5rem;
+  }
+
   /* ===== 视频 ===== */
   .work-video {
     position: relative;
@@ -647,80 +851,13 @@ const { work } = Astro.props;
     }
   }
 
-  /* ===== 汉堡菜单按钮 ===== */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    z-index: 1001;
-  }
-
-  .hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    transform-origin: center;
-  }
-
-  .hamburger.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .hamburger.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-
   @media (max-width: 768px) {
     .site-header { padding: 1rem 1.5rem; }
     .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
     .logo-img { height: 40px; }
-    .nav-cta { display: none; }
-    .hamburger { display: flex; }
-
-    .main-nav {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      max-width: 300px;
-      height: 100vh;
-      background: rgba(40, 42, 54, 0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 6rem 2.5rem 2rem;
-      gap: 0;
-      transition: right 0.35s ease;
-      z-index: 999;
-      border-left: 1px solid var(--border);
-    }
-
-    .main-nav.open { right: 0; }
-
-    .nav-link {
-      font-size: 1.1rem;
-      padding: 1rem 0;
-      width: 100%;
-      border-bottom: 1px solid var(--border);
-      letter-spacing: 0.08em;
-    }
-
+    .main-nav { gap: 1.2rem; }
+    .nav-link { font-size: 0.7rem; }
+    .nav-cta { font-size: 0.7rem; padding: 0.45rem 1rem; }
     .work-hero { height: 45vh; min-height: 300px; }
     .work-header { margin-top: -5rem; margin-bottom: 3rem; }
     .work-header h1 { font-size: 2rem; }
@@ -733,5 +870,33 @@ const { work } = Astro.props;
     .content-split.reverse .split-text { order: 0; }
     .work-section { margin-bottom: 3rem; }
     .footer-top { flex-direction: column; gap: 2rem; }
+
+    /* 灯箱移动端适配 */
+    .lightbox-content {
+      max-width: 90%;
+    }
+    .lightbox-image-wrap img {
+      max-height: 50vh;
+    }
+    .lightbox-arrow {
+      width: 40px;
+      height: 40px;
+    }
+    .lightbox-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+    .lightbox-prev {
+      left: 0.8rem;
+    }
+    .lightbox-next {
+      right: 0.8rem;
+    }
+    .lightbox-info h3 {
+      font-size: 1.1rem;
+    }
+    .lightbox-info p {
+      font-size: 0.85rem;
+    }
   }
 </style>

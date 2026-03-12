@@ -21,7 +21,7 @@ import '../styles/global.css';
       <a href="/" class="logo">
         <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="logo-img" />
       </a>
-      <nav class="main-nav" id="mainNav">
+      <nav class="main-nav">
         <a href="/" class="nav-link">Home</a>
         <a href="/works" class="nav-link">Work</a>
         <a href="/about" class="nav-link active">About</a>
@@ -30,11 +30,6 @@ import '../styles/global.css';
         <span>Contact Me</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
     </div>
   </header>
 
@@ -47,21 +42,6 @@ import '../styles/global.css';
         } else {
           header.classList.remove('scrolled');
         }
-      });
-    }
-
-    const hamburger = document.getElementById('hamburger');
-    const mainNav = document.getElementById('mainNav');
-    if (hamburger && mainNav) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mainNav.classList.toggle('open');
-      });
-      mainNav.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          mainNav.classList.remove('open');
-        });
       });
     }
   </script>
@@ -118,26 +98,26 @@ import '../styles/global.css';
       <div class="services-inner">
         <div class="services-header">
           <span class="label-tag">What I Do</span>
-          <h2>My Skills</h2>
+          <h2>My Services</h2>
         </div>
         <div class="services-grid">
           <div class="service-card">
-            <div class="service-icon"><img src="/images/works/game.png" alt="Game Design" class="service-icon-img" /></div>
+            <div class="service-icon">🎮</div>
             <h3>Game Design</h3>
             <p>Full-cycle game design from concept to final product, including level design, game mechanics, and player experience optimization.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon"><img src="/images/works/PC.png" alt="Web Design" class="service-icon-img" /></div>
+            <div class="service-icon">🖥️</div>
             <h3>Web Design</h3>
             <p>Modern, responsive web design with focus on user experience, accessibility, and visual impact.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon"><img src="/images/works/MOBILE.png" alt="Mobile Design" class="service-icon-img" /></div>
+            <div class="service-icon">📱</div>
             <h3>Mobile Design</h3>
             <p>Intuitive mobile app design optimized for touch interactions and seamless user flows.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon"><img src="/images/works/DESIGN.png" alt="UI/UX Design" class="service-icon-img" /></div>
+            <div class="service-icon">🎨</div>
             <h3>UI/UX Design</h3>
             <p>User-centered interface design driven by research, wireframing, prototyping, and usability testing.</p>
           </div>
@@ -150,28 +130,22 @@ import '../styles/global.css';
       <div class="contact-inner">
         <div class="contact-grid">
           <div class="contact-info">
-            <span class="label-tag">Contact Me</span>
-            <h2>Contact Me</h2>
+            <span class="label-tag">Get in Touch</span>
+            <h2>Get In Touch</h2>
             <p>Want to learn more about me and my work? I'd love to hear from you.</p>
           </div>
           <div class="contact-details">
-            <div class="contact-text-items">
-              <div class="contact-item">
-                <span class="contact-label">Email</span>
-                <a href="mailto:{config.contact.email || '978973965@qq.com'}" class="contact-value">{config.contact.email || '978973965@qq.com'}</a>
-              </div>
-              <div class="contact-item">
-                <span class="contact-label">WeChat</span>
-                <span class="contact-value">{config.contact.wechat || 'XY13538160713'}</span>
-              </div>
-              <div class="contact-item">
-                <span class="contact-label">Location</span>
-                <span class="contact-value">Shenzhen, Guangdong, China</span>
-              </div>
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:{config.contact.email || '978973965@qq.com'}" class="contact-value">{config.contact.email || '978973965@qq.com'}</a>
             </div>
-            <div class="contact-qrcode-wrap">
-              <img src="/images/works/xuyang code.jpg" alt="WeChat QR Code" class="qrcode-img" />
-              <span class="qrcode-label">Scan to add WeChat</span>
+            <div class="contact-item">
+              <span class="contact-label">WeChat</span>
+              <span class="contact-value">{config.contact.wechat || 'XY13538160713'}</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Shenzhen, Guangdong, China</span>
             </div>
           </div>
         </div>
@@ -464,7 +438,6 @@ import '../styles/global.css';
     border: 1px solid var(--border);
     border-radius: 16px;
     transition: all 0.3s ease;
-    text-align: center;
   }
 
   .service-card:hover {
@@ -474,20 +447,8 @@ import '../styles/global.css';
   }
 
   .service-icon {
-    width: 86px;
-    height: 86px;
-    margin: 0 auto 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .service-icon-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: grayscale(40%) brightness(0.85);
-    opacity: 0.75;
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
   }
 
   .service-card h3 {
@@ -516,44 +477,35 @@ import '../styles/global.css';
 
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
     align-items: flex-start;
   }
 
   .contact-info h2 {
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
-    margin-top: 0.5rem;
-    margin-bottom: 0.6rem;
-    line-height: 1.1;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
     color: var(--text-primary);
   }
 
   .contact-info p {
     font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.4;
+    line-height: 1.7;
   }
 
   .contact-details {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 3rem;
+    flex-direction: column;
+    gap: 2rem;
     padding-top: 1.5rem;
   }
 
-  /* 左侧：Email/WeChat/Location 纵向排列 */
-  .contact-text-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    flex: 1;
-  }
-
   .contact-item {
-    padding-bottom: 0.8rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
   }
 
@@ -573,7 +525,7 @@ import '../styles/global.css';
   }
 
   .contact-value {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--text-primary);
     font-weight: 500;
     text-decoration: none;
@@ -582,31 +534,6 @@ import '../styles/global.css';
 
   a.contact-value:hover {
     color: var(--accent);
-  }
-
-  /* 右侧：微信二维码 */
-  .contact-qrcode-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 0 0 auto;
-  }
-
-  .qrcode-img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-  }
-
-  .qrcode-label {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--text-tertiary);
-    white-space: nowrap;
   }
 
   /* ===== 页脚 ===== */
@@ -669,83 +596,16 @@ import '../styles/global.css';
     .about-label { position: static; }
     .highlights-inner { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .contact-grid { gap: 2rem; }
-  }
-
-  /* ===== 汉堡菜单按钮 ===== */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    z-index: 1001;
-  }
-
-  .hamburger-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    transform-origin: center;
-  }
-
-  .hamburger.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .hamburger.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
   }
 
   @media (max-width: 768px) {
     .site-header { padding: 1rem 1.5rem; }
     .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
     .logo-img { height: 40px; }
-    .nav-cta { display: none; }
-    .hamburger { display: flex; }
-
-    .main-nav {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      max-width: 300px;
-      height: 100vh;
-      background: rgba(40, 42, 54, 0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 6rem 2.5rem 2rem;
-      gap: 0;
-      transition: right 0.35s ease;
-      z-index: 999;
-      border-left: 1px solid var(--border);
-    }
-
-    .main-nav.open { right: 0; }
-
-    .nav-link {
-      font-size: 1.1rem;
-      padding: 1rem 0;
-      width: 100%;
-      border-bottom: 1px solid var(--border);
-      letter-spacing: 0.08em;
-    }
-
+    .main-nav { gap: 1.2rem; }
+    .nav-link { font-size: 0.7rem; }
+    .nav-cta { font-size: 0.7rem; padding: 0.45rem 1rem; }
     .about-hero { padding: 8rem 1.5rem 3rem; }
     .about-hero h1 { font-size: 2.2rem; }
     .about-section { padding: 3rem 1.5rem; }
@@ -754,9 +614,6 @@ import '../styles/global.css';
     .highlight-number { font-size: 2rem; }
     .services-grid { grid-template-columns: 1fr; }
     .contact-section { padding: 4rem 1.5rem; }
-    .contact-details { flex-direction: column; gap: 2rem; }
-    .contact-qrcode-wrap { align-self: center; }
-    .qrcode-img { width: 120px; height: 120px; }
     .footer-top { flex-direction: column; gap: 2rem; }
   }
 </style>
