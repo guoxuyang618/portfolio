@@ -14,11 +14,11 @@ const { work } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{work?.title || '作品详情'} - {config.site.name}</title>
+  <title>{work?.title || 'Project Detail'} - {config.site.name}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -86,32 +86,32 @@ const { work } = Astro.props;
         </div>
       </div>
 
-      <!-- 项目介绍 -->
+      <!-- Project Overview -->
       <section class="work-section">
         <div class="section-grid">
           <div class="section-label">
             <span class="label-tag">01</span>
-            <h2>项目介绍</h2>
+            <h2>Project Overview</h2>
           </div>
           <div class="section-content">
-            <p class="large-text">{work?.description || '暂无描述'}</p>
+            <p class="large-text">{work?.description || 'No description available'}</p>
           </div>
         </div>
       </section>
 
-      <!-- 作品主图展示 -->
+      <!-- Main Showcase -->
       <section class="work-section">
         <div class="work-showcase">
           <img src={work?.cover} alt={work?.title} class="showcase-img" />
         </div>
       </section>
 
-      <!-- 设计思路 - 左图右文 -->
+      <!-- Design Approach -->
       <section class="work-section">
         <div class="section-grid">
           <div class="section-label">
             <span class="label-tag">02</span>
-            <h2>设计思路</h2>
+            <h2>Design Approach</h2>
           </div>
           <div class="section-content">
             <div class="content-split">
@@ -119,20 +119,20 @@ const { work } = Astro.props;
                 <img src="/images/works/2024/project-001.jpg" alt="Design Process">
               </div>
               <div class="split-text">
-                <p>详细描述该作品的设计思路、用户调研、交互流程等信息。展示设计背后的思考过程和解决方案。</p>
-                <p>通过深入的用户研究和竞品分析，我们确定了核心设计方向，确保每一个设计决策都有据可依。</p>
+                <p>Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design.</p>
+                <p>Through in-depth user research and competitive analysis, we identified the core design direction, ensuring every design decision is evidence-based.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 视觉效果 - 右图左文 -->
+      <!-- Visual Design -->
       <section class="work-section">
         <div class="section-grid">
           <div class="section-label">
             <span class="label-tag">03</span>
-            <h2>视觉效果</h2>
+            <h2>Visual Design</h2>
           </div>
           <div class="section-content">
             <div class="content-split reverse">
@@ -140,8 +140,8 @@ const { work } = Astro.props;
                 <img src="/images/works/2024/project-001.jpg" alt="Visual Design">
               </div>
               <div class="split-text">
-                <p>详细描述该作品的视觉设计、色彩运用、排版布局等细节。展示最终的设计成果和视觉表现。</p>
-                <p>色彩体系的选择基于品牌调性和目标用户的审美偏好，确保视觉传达的一致性和专业感。</p>
+                <p>Detailed description of the visual design, color usage, and layout for this project. Showcasing the final design outcomes and visual presentation.</p>
+                <p>The color system was selected based on brand identity and target audience aesthetic preferences, ensuring consistency and professionalism in visual communication.</p>
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@ const { work } = Astro.props;
         <div class="section-grid">
           <div class="section-label">
             <span class="label-tag">04</span>
-            <h2>交互体验</h2>
+            <h2>Interaction Design</h2>
           </div>
           <div class="section-content">
             <div class="content-split">
@@ -161,8 +161,8 @@ const { work } = Astro.props;
                 <img src="/images/works/2024/project-001.jpg" alt="Interaction Design">
               </div>
               <div class="split-text">
-                <p>详细描述该作品的交互设计、用户流程、动效表现等。展示如何通过交互设计提升用户体验。</p>
-                <p>每一个微交互都经过反复打磨，确保用户操作的流畅性和直觉性。</p>
+                <p>Detailed description of the interaction design, user flows, and motion effects for this project. Demonstrating how interaction design enhances the user experience.</p>
+                <p>Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations.</p>
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@ const { work } = Astro.props;
           <div class="section-grid">
             <div class="section-label">
               <span class="label-tag">05</span>
-              <h2>演示视频</h2>
+              <h2>Demo Video</h2>
             </div>
             <div class="section-content">
               <div class="work-video">
