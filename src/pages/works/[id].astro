@@ -30,7 +30,7 @@ const { work } = Astro.props;
       <a href="/" class="logo">
         <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="logo-img" />
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" id="mainNav">
         <a href="/" class="nav-link">Home</a>
         <a href="/works" class="nav-link active">Work</a>
         <a href="/about" class="nav-link">About</a>
@@ -39,6 +39,11 @@ const { work } = Astro.props;
         <span>Contact Me</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
   </header>
 
@@ -53,6 +58,22 @@ const { work } = Astro.props;
         }
       });
     }
+
+    const hamburger = document.getElementById('hamburger');
+    const mainNav = document.getElementById('mainNav');
+    if (hamburger && mainNav) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mainNav.classList.toggle('open');
+      });
+      mainNav.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mainNav.classList.remove('open');
+        });
+      });
+    }
+  </script>
   </script>
 
   <!-- 作品 Hero 大图 -->
@@ -626,13 +647,80 @@ const { work } = Astro.props;
     }
   }
 
+  /* ===== 汉堡菜单按钮 ===== */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 1001;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
   @media (max-width: 768px) {
     .site-header { padding: 1rem 1.5rem; }
     .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
     .logo-img { height: 40px; }
-    .main-nav { gap: 1.2rem; }
-    .nav-link { font-size: 0.7rem; }
-    .nav-cta { font-size: 0.7rem; padding: 0.45rem 1rem; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    .main-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: rgba(8, 8, 10, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 6rem 2.5rem 2rem;
+      gap: 0;
+      transition: right 0.35s ease;
+      z-index: 999;
+      border-left: 1px solid var(--border);
+    }
+
+    .main-nav.open { right: 0; }
+
+    .nav-link {
+      font-size: 1.1rem;
+      padding: 1rem 0;
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.08em;
+    }
+
     .work-hero { height: 45vh; min-height: 300px; }
     .work-header { margin-top: -5rem; margin-bottom: 3rem; }
     .work-header h1 { font-size: 2rem; }
