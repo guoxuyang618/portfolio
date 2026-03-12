@@ -164,7 +164,6 @@ import '../styles/global.css';
     </div>
     <div class="hero-gradient"></div>
     <div class="hero-content">
-      <div class="hero-badge">Game Interaction Designer</div>
       <h1 class="hero-title">GAME UX DESIGN</h1>
       <p class="hero-subtitle">Crafting Immersive FPS Experiences & Cross-Platform Interaction Innovation</p>
       <p class="hero-desc">A decade of dedication, from CrossFire to Counter-Strike: Future. I seamlessly blend core gameplay, narrative emotion and commercial value, using design to connect player instinct with the game world.</p>
@@ -565,20 +564,6 @@ import '../styles/global.css';
     padding: 0 var(--container-padding);
     margin-top: clamp(120px, 18vh, 180px);
     margin-left: clamp(2rem, 8vw, 10rem);
-  }
-
-  .hero-badge {
-    display: inline-block;
-    padding: 0.4rem 1.2rem;
-    background: rgba(78, 234, 219, 0.12);
-    border: 1px solid rgba(78, 234, 219, 0.25);
-    border-radius: 0;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent-secondary);
-    margin-bottom: 1.5rem;
   }
 
   .hero-title {
@@ -1187,16 +1172,29 @@ import '../styles/global.css';
     }
 
     .hero-stats {
-      flex-direction: column;
-      gap: 1rem;
-      bottom: 4.5rem;
+      flex-direction: row;
+      gap: 1.2rem;
+      bottom: 2rem;
       left: 1.5rem;
-      padding: 1.2rem 2rem;
+      right: 1.5rem;
+      padding: 1rem 1.2rem;
+    }
+
+    .stat-number {
+      font-size: 1.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.6rem;
+    }
+
+    .stat-item {
+      gap: 0.5rem;
     }
 
     .stat-divider {
-      width: 40px;
-      height: 1px;
+      width: 1px;
+      height: 28px;
     }
 
     .projects-section {
