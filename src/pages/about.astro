@@ -98,26 +98,26 @@ import '../styles/global.css';
       <div class="services-inner">
         <div class="services-header">
           <span class="label-tag">What I Do</span>
-          <h2>My Services</h2>
+          <h2>My Skills</h2>
         </div>
         <div class="services-grid">
           <div class="service-card">
-            <div class="service-icon">🎮</div>
+            <div class="service-icon"><img src="/images/works/game.png" alt="Game Design" class="service-icon-img" /></div>
             <h3>Game Design</h3>
             <p>Full-cycle game design from concept to final product, including level design, game mechanics, and player experience optimization.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon">🖥️</div>
+            <div class="service-icon"><img src="/images/works/PC.png" alt="Web Design" class="service-icon-img" /></div>
             <h3>Web Design</h3>
             <p>Modern, responsive web design with focus on user experience, accessibility, and visual impact.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon">📱</div>
+            <div class="service-icon"><img src="/images/works/MOBILE.png" alt="Mobile Design" class="service-icon-img" /></div>
             <h3>Mobile Design</h3>
             <p>Intuitive mobile app design optimized for touch interactions and seamless user flows.</p>
           </div>
           <div class="service-card">
-            <div class="service-icon">🎨</div>
+            <div class="service-icon"><img src="/images/works/DESIGN.png" alt="UI/UX Design" class="service-icon-img" /></div>
             <h3>UI/UX Design</h3>
             <p>User-centered interface design driven by research, wireframing, prototyping, and usability testing.</p>
           </div>
@@ -451,8 +451,15 @@ import '../styles/global.css';
   }
 
   .service-icon {
-    font-size: 2rem;
+    width: 48px;
+    height: 48px;
     margin-bottom: 1.25rem;
+  }
+
+  .service-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .service-card h3 {
