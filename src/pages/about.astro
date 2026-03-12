@@ -155,24 +155,23 @@ import '../styles/global.css';
             <p>Want to learn more about me and my work? I'd love to hear from you.</p>
           </div>
           <div class="contact-details">
-            <div class="contact-item">
-              <span class="contact-label">Email</span>
-              <a href="mailto:{config.contact.email || '978973965@qq.com'}" class="contact-value">{config.contact.email || '978973965@qq.com'}</a>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">WeChat</span>
-              <span class="contact-value">{config.contact.wechat || 'XY13538160713'}</span>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">Location</span>
-              <span class="contact-value">Shenzhen, Guangdong, China</span>
-            </div>
-            <div class="contact-item contact-qrcode-item">
-              <span class="contact-label">WeChat QR</span>
-              <div class="contact-qrcode">
-                <img src="/images/works/xuyang code.jpg" alt="WeChat QR Code" class="qrcode-img" />
-                <span class="qrcode-label">Scan to add WeChat</span>
+            <div class="contact-text-items">
+              <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <a href="mailto:{config.contact.email || '978973965@qq.com'}" class="contact-value">{config.contact.email || '978973965@qq.com'}</a>
               </div>
+              <div class="contact-item">
+                <span class="contact-label">WeChat</span>
+                <span class="contact-value">{config.contact.wechat || 'XY13538160713'}</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Shenzhen, Guangdong, China</span>
+              </div>
+            </div>
+            <div class="contact-qrcode-wrap">
+              <img src="/images/works/xuyang code.jpg" alt="WeChat QR Code" class="qrcode-img" />
+              <span class="qrcode-label">Scan to add WeChat</span>
             </div>
           </div>
         </div>
@@ -541,14 +540,26 @@ import '../styles/global.css';
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 2rem;
+    gap: 3rem;
     padding-top: 1.5rem;
   }
 
-  .contact-item {
+  /* 左侧：Email/WeChat/Location 纵向排列 */
+  .contact-text-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
     flex: 1;
-    padding-bottom: 0;
+  }
+
+  .contact-item {
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-item:last-child {
     border-bottom: none;
+    padding-bottom: 0;
   }
 
   .contact-label {
@@ -562,34 +573,29 @@ import '../styles/global.css';
   }
 
   .contact-value {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--text-primary);
     font-weight: 500;
     text-decoration: none;
     transition: color 0.2s;
-    word-break: break-all;
   }
 
   a.contact-value:hover {
     color: var(--accent);
   }
 
-  /* 微信二维码 - 行内展示 */
-  .contact-qrcode-item {
-    flex: 0 0 auto;
-  }
-
-  .contact-qrcode {
+  /* 右侧：微信二维码 */
+  .contact-qrcode-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 0;
+    flex: 0 0 auto;
   }
 
   .qrcode-img {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     border-radius: 10px;
     border: 1px solid var(--border);
@@ -748,9 +754,9 @@ import '../styles/global.css';
     .highlight-number { font-size: 2rem; }
     .services-grid { grid-template-columns: 1fr; }
     .contact-section { padding: 4rem 1.5rem; }
-    .contact-details { flex-direction: column; gap: 1.2rem; }
-    .contact-qrcode-item { align-self: center; }
-    .qrcode-img { width: 100px; height: 100px; }
+    .contact-details { flex-direction: column; gap: 2rem; }
+    .contact-qrcode-wrap { align-self: center; }
+    .qrcode-img { width: 120px; height: 120px; }
     .footer-top { flex-direction: column; gap: 2rem; }
   }
 </style>
