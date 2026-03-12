@@ -153,7 +153,7 @@ import '../styles/global.css';
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <span class="stat-number">3</span>
+        <span class="stat-number">5</span>
         <span class="stat-label">Design<br/>Categories</span>
       </div>
       <div class="stat-divider"></div>
@@ -766,11 +766,16 @@ import '../styles/global.css';
 
   .card-category,
   .card-year {
-    font-size: 0.7rem;
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.68rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--accent-secondary);
+    background: rgba(78, 234, 219, 0.1);
+    border: 1px solid rgba(78, 234, 219, 0.2);
+    border-radius: 0;
   }
 
   .section-cta {
