@@ -20,8 +20,7 @@ import '../styles/global.css';
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a href="/" class="logo">
-        <span class="logo-icon">◆</span>
-        <span class="logo-text">{config.site.name}</span>
+        <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="logo-img" />
       </a>
       <nav class="main-nav">
         <a href="/" class="nav-link">Home</a>
@@ -107,8 +106,7 @@ import '../styles/global.css';
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-logo">
-            <span class="logo-icon">◆</span>
-            <span>{config.site.name}</span>
+            <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="footer-logo-img" />
           </div>
           <p>{config.site.description}</p>
         </div>
@@ -191,12 +189,11 @@ import '../styles/global.css';
     color: var(--text-primary);
   }
 
-  .logo-icon { color: var(--accent); font-size: 0.9rem; }
-  .logo-text {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .logo-img {
+    height: 28px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
   .main-nav { display: flex; gap: 2.5rem; align-items: center; }
@@ -503,13 +500,13 @@ import '../styles/global.css';
   .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-primary);
     margin-bottom: 0.75rem;
+  }
+
+  .footer-logo-img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
   }
 
   .footer-brand p { color: var(--text-tertiary); font-size: 0.9rem; max-width: 280px; }
@@ -550,7 +547,7 @@ import '../styles/global.css';
   @media (max-width: 768px) {
     .site-header { padding: 1rem 1.5rem; }
     .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
-    .logo-text { font-size: 0.72rem; }
+    .logo-img { height: 22px; }
     .main-nav { gap: 1.2rem; }
     .nav-link { font-size: 0.7rem; }
     .nav-cta { font-size: 0.7rem; padding: 0.45rem 1rem; }
