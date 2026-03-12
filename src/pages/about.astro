@@ -442,6 +442,7 @@ import '../styles/global.css';
     border: 1px solid var(--border);
     border-radius: 16px;
     transition: all 0.3s ease;
+    text-align: center;
   }
 
   .service-card:hover {
@@ -451,15 +452,20 @@ import '../styles/global.css';
   }
 
   .service-icon {
-    width: 72px;
-    height: 72px;
-    margin-bottom: 1.25rem;
+    width: 86px;
+    height: 86px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .service-icon-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    filter: grayscale(40%) brightness(0.85);
+    opacity: 0.75;
   }
 
   .service-card h3 {
