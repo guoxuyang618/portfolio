@@ -139,9 +139,10 @@ import '../styles/global.css';
     </div>
     <div class="hero-gradient"></div>
     <div class="hero-content">
-      <div class="hero-badge">GAME DESIGN PORTFOLIO</div>
-      <h1 class="hero-title">GAME<br/>DESIGN<br/>PORTFOLIO</h1>
-      <p class="hero-desc">Showcasing innovative game design solutions and creative visual experiences through expert artistry and development.</p>
+      <div class="hero-badge">GAME INTERACTION DESIGNER</div>
+      <h1 class="hero-title">资深游戏交互设计师</h1>
+      <p class="hero-subtitle">专注于打造沉浸式FPS体验与跨终端交互创新</p>
+      <p class="hero-desc">十年磨一剑，从《穿越火线》到《逆战：未来》。我致力于将核心玩法、叙事情感与商业价值无缝融合，用设计连接玩家直觉与游戏世界。</p>
     </div>
 
     <!-- 数据统计 - 底部左下角 -->
@@ -175,7 +176,7 @@ import '../styles/global.css';
     </div>
     
     <div class="projects-list">
-      {works.works.slice(0, 6).map((work: any, index: number) => (
+      {works.works.slice(0, 5).map((work: any, index: number) => (
         <a href={`/works/${work.id}`} class="project-card">
           <div class="card-bg">
             <img src={work.cover} alt={work.title} loading="lazy">
@@ -458,15 +459,24 @@ import '../styles/global.css';
   }
 
   .hero-title {
-    font-size: clamp(3rem, 7vw, 6rem);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
     font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
     background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.75) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+    color: var(--accent-secondary);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
   }
 
   .hero-desc {

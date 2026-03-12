@@ -2,51 +2,48 @@
   "works": [
     {
       "id": "project-001",
-      "title": "金融App界面设计",
-      "category": "移动端",
+      "title": "主题化体验设计",
+      "category": "沉浸体验",
       "year": "2024",
       "cover": "/images/works/2024/project-001.jpg",
-      "description": "这是一款金融类App的界面设计..."
+      "description": "让界面成为世界的延伸。我擅长将世界观叙事融入交互细节，通过风格化的布局、符合设定的动效与音效，营造强烈的沉浸感。",
+      "case": "在《逆战：未来》中，为机甲核心系统设计了充满机械感的充能、变形动画。"
     },
     {
       "id": "project-002",
-      "title": "电商网站设计",
-      "category": "网页设计",
+      "title": "操作体验设计",
+      "category": "核心玩法",
       "year": "2024",
       "cover": "/images/works/2024/project-002.jpg",
-      "description": "这是一个电商平台界面设计..."
+      "description": "为硬核玩法赋予直觉交互。我专注于战斗、策略等核心玩法的操作设计，追求精准、流畅、无干扰的战场体验，确保玩家心流不被中断。",
+      "case": "在《穿越火线手游》中，持续优化射击、瞄准、投掷物等关键操作的手感与反馈逻辑。"
     },
     {
       "id": "project-003",
-      "title": "游戏界面设计",
-      "category": "游戏设计",
+      "title": "商业体验设计",
+      "category": "商业化",
       "year": "2024",
       "cover": "/images/works/2024/project-003.jpg",
-      "description": "这是一个游戏界面设计..."
+      "description": "优雅地实现商业价值。我致力于将商业系统无缝嵌入玩家旅程，通过简化付费路径、强化视觉表现和心流引导，实现用户与商业的双赢。",
+      "case": "主导设计了多款游戏的赛季通行证、抽奖活动界面，数据表明有效提升了用户参与度和付费意愿。"
     },
     {
       "id": "project-004",
-      "title": "企业网站设计",
-      "category": "网页设计",
+      "title": "跨终端体验设计",
+      "category": "跨平台",
       "year": "2024",
       "cover": "/images/works/2024/project-004.jpg",
-      "description": "这是一个企业网站设计..."
+      "description": "体验的一致性高于一切。我具备移动端、PC、主机及XR设备的交互设计经验，能根据不同设备的输入特性和使用场景，量身定制最佳的交互方案。",
+      "case": "参与《穿越火线：虹》PC版的交互适配，针对键鼠操作进行了深度优化。"
     },
     {
       "id": "project-005",
-      "title": "游戏界面设计",
-      "category": "游戏设计",
+      "title": "海外本地化设计",
+      "category": "全球化",
       "year": "2024",
       "cover": "/images/works/2024/project-005.jpg",
-      "description": "这是一个游戏界面设计..."
-    },
-    {
-      "id": "project-006",
-      "title": "游戏界面设计",
-      "category": "游戏设计",
-      "year": "2024",
-      "cover": "/images/works/2024/project-006.jpg",
-      "description": "这是一个游戏界面设计..."
+      "description": "跨越文化的用户体验。我熟悉海外市场的用户习惯与文化差异，能从交互流程、信息层级、视觉符号等层面进行本地化适配，确保产品在全球市场的接受度。",
+      "case": "负责XX项目东南亚版本的界面布局与操作逻辑调整，通过了当地用户的可用性测试。"
     }
   ]
 }
