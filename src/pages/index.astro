@@ -125,15 +125,57 @@ import '../styles/global.css';
       const track = document.getElementById('logoTrack');
       if (!track) return;
 
-      const logoItems = track.querySelectorAll('.logo-item');
-      logoItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-          track.classList.add('paused');
+      // 1. 获取原始logo列表
+      const originalItems = Array.from(track.querySelectorAll('.logo-item'));
+      const itemCount = originalItems.length;
+      if (itemCount === 0) return;
+
+      // 2. 计算一组logo的总宽度（包含gap）
+      const style = getComputedStyle(track);
+      const gap = parseFloat(style.gap) || 0;
+      const singleGroupWidth = originalItems.reduce((sum, item) => {
+        return sum + item.offsetWidth + gap;
+      }, 0);
+
+      // 3. 动态克隆足够多的副本，确保填满屏幕宽度的3倍（绝对不会出现空缺）
+      const screenWidth = window.innerWidth;
+      const clonesNeeded = Math.ceil((screenWidth * 3) / singleGroupWidth) + 1;
+      for (let i = 0; i < clonesNeeded; i++) {
+        originalItems.forEach(item => {
+          const clone = item.cloneNode(true);
+          track.appendChild(clone);
         });
-        item.addEventListener('mouseleave', () => {
-          track.classList.remove('paused');
-        });
-      });
+      }
+
+      // 4. requestAnimationFrame 驱动滚动
+      let offset = 0;
+      const speed = 0.5; // px/frame
+      let paused = false;
+
+      function animate() {
+        if (!paused) {
+          offset += speed;
+          // 当滚动了一组宽度，重置回0（无缝衔接）
+          if (offset >= singleGroupWidth) {
+            offset -= singleGroupWidth;
+          }
+          track.style.transform = `translateX(-${offset}px)`;
+        }
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+
+      // 5. 鼠标悬停暂停/移出继续 — 监听所有logo（含克隆的）
+      track.addEventListener('mouseenter', (e) => {
+        if ((e.target as HTMLElement).closest('.logo-item')) {
+          paused = true;
+        }
+      }, true);
+      track.addEventListener('mouseleave', (e) => {
+        if ((e.target as HTMLElement).closest('.logo-item')) {
+          paused = false;
+        }
+      }, true);
     });
   </script>
 
@@ -244,45 +286,6 @@ import '../styles/global.css';
   <section class="logo-marquee-section">
     <div class="logo-marquee" id="logoMarquee">
       <div class="logo-track" id="logoTrack">
-        <!-- 第1组 -->
-        <div class="logo-item">
-          <img src="/images/works/穿越火线虹.png" alt="穿越火线虹" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/全军出击.png" alt="全军出击" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/逆战助手.png" alt="逆战助手" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/使命召唤手游.png" alt="使命召唤手游" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/逆战：未来.png" alt="逆战：未来" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/穿越火线-枪战王者.png" alt="穿越火线-枪战王者" />
-        </div>
-        <!-- 第2组（无缝循环副本） -->
-        <div class="logo-item">
-          <img src="/images/works/穿越火线虹.png" alt="穿越火线虹" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/全军出击.png" alt="全军出击" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/逆战助手.png" alt="逆战助手" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/使命召唤手游.png" alt="使命召唤手游" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/逆战：未来.png" alt="逆战：未来" />
-        </div>
-        <div class="logo-item">
-          <img src="/images/works/穿越火线-枪战王者.png" alt="穿越火线-枪战王者" />
-        </div>
-        <!-- 第3组（确保宽屏也不出现空缺） -->
         <div class="logo-item">
           <img src="/images/works/穿越火线虹.png" alt="穿越火线虹" />
         </div>
@@ -898,7 +901,7 @@ import '../styles/global.css';
 
   /* ===== 游戏 Logo 跑马灯 ===== */
   .logo-marquee-section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background: var(--bg-primary);
     overflow: hidden;
   }
@@ -907,35 +910,23 @@ import '../styles/global.css';
     position: relative;
     width: 100%;
     overflow: hidden;
-    mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    padding: 12px 0;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
   }
 
   .logo-track {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     width: max-content;
-    animation: marqueeScroll 25s linear infinite;
-  }
-
-  .logo-track.paused {
-    animation-play-state: paused;
-  }
-
-  @keyframes marqueeScroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-33.333%);
-    }
+    will-change: transform;
   }
 
   .logo-item {
     flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    border-radius: 16px;
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
     overflow: visible;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -943,7 +934,7 @@ import '../styles/global.css';
 
   .logo-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
   }
 
   .logo-item img {
@@ -951,7 +942,7 @@ import '../styles/global.css';
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 16px;
+    border-radius: 14px;
   }
 
   /* ===== CTA 区域 ===== */
@@ -1375,17 +1366,21 @@ import '../styles/global.css';
     }
 
     .logo-marquee-section {
-      padding: 2rem 0;
+      padding: 1.5rem 0;
     }
 
     .logo-track {
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .logo-item {
-      width: 58px;
-      height: 58px;
-      border-radius: 12px;
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+    }
+
+    .logo-item img {
+      border-radius: 10px;
     }
 
     .cta-section {
