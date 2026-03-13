@@ -150,9 +150,9 @@
           "text": "Building a comprehensive, modular component library with atomic design methodology. From primitive elements like buttons and inputs to complex organisms like navigation bars and data tables, each component is designed with accessibility, responsiveness and theme-ability in mind."
         },
         {
-          "src": "/images/works/2024/project-006.jpg",
-          "title": "Documentation & Governance",
-          "text": "Creating thorough documentation with usage guidelines, do's and don'ts, and interactive examples. Establishing a governance model for component contribution, review and versioning to maintain system integrity as the team and product scale."
+          "src": "/images/works/2024/icon design.png",
+          "title": "Icon Design",
+          "text": "Crafting a cohesive and scalable icon system that communicates functionality at a glance. Each icon is designed on a unified grid with consistent stroke weights, corner radii and optical balance, ensuring pixel-perfect clarity across all resolutions. The icon library covers navigation, actions, status indicators and game-specific elements, maintaining visual harmony throughout the entire product ecosystem."
         }
       ]
     }
