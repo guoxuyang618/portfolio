@@ -129,6 +129,32 @@
           "text": "Detailed description of the interaction design, user flows, and motion effects for this project. Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations."
         }
       ]
+    },
+    {
+      "id": "project-006",
+      "title": "UI Design System",
+      "category": "UI Design System",
+      "year": "2026",
+      "cover": "/images/works/2024/project-006.jpg",
+      "description": "Building scalable and consistent design systems. I architect comprehensive UI component libraries, define design tokens, typography scales and spacing systems to ensure visual consistency across products while accelerating team collaboration and development efficiency.",
+      "case": "Established a unified design system for FPS game franchises, standardizing over 200 reusable components across multiple game titles and platforms.",
+      "images": [
+        {
+          "src": "/images/works/2024/project-006.jpg",
+          "title": "Design Tokens & Foundations",
+          "text": "Establishing the foundational layer of the design system including color palettes, typography scales, spacing units, elevation systems and motion curves. These design tokens serve as the single source of truth, ensuring pixel-perfect consistency across all platforms and products."
+        },
+        {
+          "src": "/images/works/2024/project-006.jpg",
+          "title": "Component Library",
+          "text": "Building a comprehensive, modular component library with atomic design methodology. From primitive elements like buttons and inputs to complex organisms like navigation bars and data tables, each component is designed with accessibility, responsiveness and theme-ability in mind."
+        },
+        {
+          "src": "/images/works/2024/project-006.jpg",
+          "title": "Documentation & Governance",
+          "text": "Creating thorough documentation with usage guidelines, do's and don'ts, and interactive examples. Establishing a governance model for component contribution, review and versioning to maintain system integrity as the team and product scale."
+        }
+      ]
     }
   ]
 }
