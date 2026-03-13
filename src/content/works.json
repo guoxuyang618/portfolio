@@ -150,7 +150,7 @@
           "text": "Building a comprehensive, modular component library with atomic design methodology. From primitive elements like buttons and inputs to complex organisms like navigation bars and data tables, each component is designed with accessibility, responsiveness and theme-ability in mind."
         },
         {
-          "src": "/images/works/2024/icon design.png",
+          "src": "/images/works/UI design/icon design.png",
           "title": "Icon Design",
           "text": "Crafting a cohesive and scalable icon system that communicates functionality at a glance. Each icon is designed on a unified grid with consistent stroke weights, corner radii and optical balance, ensuring pixel-perfect clarity across all resolutions. The icon library covers navigation, actions, status indicators and game-specific elements, maintaining visual harmony throughout the entire product ecosystem."
         }
