@@ -221,26 +221,22 @@ const { work } = Astro.props;
         </div>
       </section>
 
-      <!-- 动态图文 Section：保持左图右文 / 左文右图交替 -->
+      <!-- 动态图文 Section：两列布局，左图右文 / 左文右图交替 -->
       {work?.images && work.images.map((img: any, idx: number) => (
         <section class="work-section">
-          <div class="section-grid">
-            <div class="section-label">
-              <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
-              <h2>{img.title}</h2>
-            </div>
-            <div class="section-content">
-              <div class={`content-split ${idx % 2 !== 0 ? 'reverse' : ''}`}>
-                <div class="split-image lightbox-trigger" data-index={idx}>
-                  <img src={img.src} alt={img.title} />
-                  <div class="image-overlay">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                  </div>
-                </div>
-                <div class="split-text">
-                  <p>{img.text}</p>
-                </div>
+          <div class="section-label-block">
+            <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
+            <h2>{img.title}</h2>
+          </div>
+          <div class={`content-split ${idx % 2 !== 0 ? 'reverse' : ''}`}>
+            <div class="split-image lightbox-trigger" data-index={idx}>
+              <img src={img.src} alt={img.title} />
+              <div class="image-overlay">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               </div>
+            </div>
+            <div class="split-text">
+              <p>{img.text}</p>
             </div>
           </div>
         </section>
@@ -602,16 +598,37 @@ const { work } = Astro.props;
     display: block;
   }
 
+  /* ===== 图文标题区域（两列布局） ===== */
+  .section-label-block {
+    margin-bottom: 2rem;
+  }
+
+  .section-label-block .label-tag {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-label-block h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: var(--text-primary);
+  }
+
   /* ===== 图文分割 ===== */
   .content-split {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
   }
 
   .content-split.reverse {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .content-split.reverse .split-image {
