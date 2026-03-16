@@ -221,24 +221,38 @@ const { work } = Astro.props;
         </div>
       </section>
 
-      <!-- 动态图文 Section：两列布局，左图右文 / 左文右图交替 -->
+      <!-- 动态图文 Section：两列布局，左图右文 / 左文右图交替，或上文下图 -->
       {work?.images && work.images.map((img: any, idx: number) => (
         <section class="work-section">
           <div class="section-label-block">
             <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
             <h2>{img.title}</h2>
           </div>
-          <div class={`content-split ${idx % 2 !== 0 ? 'reverse' : ''}`}>
-            <div class="split-image lightbox-trigger" data-index={idx}>
-              <img src={img.src} alt={img.title} />
-              <div class="image-overlay">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          {img.layout === 'vertical' ? (
+            <div class="content-vertical">
+              <div class="vertical-text">
+                <p>{img.text}</p>
+              </div>
+              <div class="vertical-image lightbox-trigger" data-index={idx}>
+                <img src={img.src} alt={img.title} />
+                <div class="image-overlay">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
               </div>
             </div>
-            <div class="split-text">
-              <p>{img.text}</p>
+          ) : (
+            <div class={`content-split ${idx % 2 !== 0 ? 'reverse' : ''}`}>
+              <div class="split-image lightbox-trigger" data-index={idx}>
+                <img src={img.src} alt={img.title} />
+                <div class="image-overlay">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </div>
+              </div>
+              <div class="split-text">
+                <p>{img.text}</p>
+              </div>
             </div>
-          </div>
+          )}
         </section>
       ))}
 
@@ -637,6 +651,38 @@ const { work } = Astro.props;
 
   .content-split.reverse .split-text {
     order: 1;
+  }
+
+  /* ===== 上文下图布局 ===== */
+  .content-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .vertical-text p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: 0;
+  }
+
+  .vertical-image {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .vertical-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  .vertical-image:hover img {
+    transform: scale(1.03);
   }
 
   .split-image {

@@ -147,7 +147,8 @@
         {
           "src": "/images/works/UI design/card design.png",
           "title": "Component Library",
-          "text": "Building a comprehensive, modular component library with atomic design methodology. From primitive elements like buttons and inputs to complex organisms like navigation bars and data tables, each component is designed with accessibility, responsiveness and theme-ability in mind."
+          "text": "Building a comprehensive, modular component library with atomic design methodology. From primitive elements like buttons and inputs to complex organisms like navigation bars and data tables, each component is designed with accessibility, responsiveness and theme-ability in mind.",
+          "layout": "vertical"
         },
         {
           "src": "/images/works/UI design/icon design.png",
