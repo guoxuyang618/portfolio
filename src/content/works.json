@@ -142,7 +142,8 @@
         {
           "src": "/images/works/2024/project-006.jpg",
           "title": "Design Tokens & Foundations",
-          "text": "Establishing the foundational layer of the design system including color palettes, typography scales, spacing units, elevation systems and motion curves. These design tokens serve as the single source of truth, ensuring pixel-perfect consistency across all platforms and products."
+          "text": "Establishing the foundational layer of the design system including color palettes, typography scales, spacing units, elevation systems and motion curves. These design tokens serve as the single source of truth, ensuring pixel-perfect consistency across all platforms and products.",
+          "layout": "vertical"
         },
         {
           "src": "/images/works/UI design/card design.png",
@@ -153,7 +154,8 @@
         {
           "src": "/images/works/UI design/icon design.png",
           "title": "Icon Design",
-          "text": "Crafting a cohesive and scalable icon system that communicates functionality at a glance. Each icon is designed on a unified grid with consistent stroke weights, corner radii and optical balance, ensuring pixel-perfect clarity across all resolutions. The icon library covers navigation, actions, status indicators and game-specific elements, maintaining visual harmony throughout the entire product ecosystem."
+          "text": "Crafting a cohesive and scalable icon system that communicates functionality at a glance. Each icon is designed on a unified grid with consistent stroke weights, corner radii and optical balance, ensuring pixel-perfect clarity across all resolutions. The icon library covers navigation, actions, status indicators and game-specific elements, maintaining visual harmony throughout the entire product ecosystem.",
+          "layout": "vertical"
         }
       ]
     }
