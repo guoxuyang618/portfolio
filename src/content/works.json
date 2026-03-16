@@ -145,7 +145,7 @@
           "text": "Establishing the foundational layer of the design system including color palettes, typography scales, spacing units, elevation systems and motion curves. These design tokens serve as the single source of truth, ensuring pixel-perfect consistency across all platforms and products."
         },
         {
-          "src": "/images/works/2024/project-006.jpg",
+          "src": "/images/works/UI design/card design.png",
           "title": "Component Library",
           "text": "Building a comprehensive, modular component library with atomic design methodology. From primitive elements like buttons and inputs to complex organisms like navigation bars and data tables, each component is designed with accessibility, responsiveness and theme-ability in mind."
         },
