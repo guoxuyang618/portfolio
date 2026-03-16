@@ -221,38 +221,24 @@ const { work } = Astro.props;
         </div>
       </section>
 
-      <!-- 动态图文 Section：两列布局，左图右文 / 左文右图交替，或上文下图 -->
+      <!-- 动态图文 Section：上文下图布局 -->
       {work?.images && work.images.map((img: any, idx: number) => (
         <section class="work-section">
           <div class="section-label-block">
             <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
             <h2>{img.title}</h2>
           </div>
-          {img.layout === 'vertical' ? (
-            <div class="content-vertical">
-              <div class="vertical-text">
-                <p>{img.text}</p>
-              </div>
-              <div class="vertical-image lightbox-trigger" data-index={idx}>
-                <img src={img.src} alt={img.title} />
-                <div class="image-overlay">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </div>
+          <div class="content-vertical">
+            <div class="vertical-text">
+              <p>{img.text}</p>
+            </div>
+            <div class="vertical-image lightbox-trigger" data-index={idx}>
+              <img src={img.src} alt={img.title} />
+              <div class="image-overlay">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
               </div>
             </div>
-          ) : (
-            <div class={`content-split ${idx % 2 !== 0 ? 'reverse' : ''}`}>
-              <div class="split-image lightbox-trigger" data-index={idx}>
-                <img src={img.src} alt={img.title} />
-                <div class="image-overlay">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </div>
-              </div>
-              <div class="split-text">
-                <p>{img.text}</p>
-              </div>
-            </div>
-          )}
+          </div>
         </section>
       ))}
 
