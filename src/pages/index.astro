@@ -192,23 +192,30 @@ import '../styles/global.css';
   <section class="projects-section">
     <div class="section-header">
       <span class="section-tag">Featured Work</span>
-      <h2 class="section-title">GAME PROJECTS</h2>
+      <h2 class="section-title">DESIGN CATEGORIES</h2>
     </div>
     
     <div class="projects-list">
-      {works.works.slice(0, 6).map((work: any, index: number) => (
-        <a href={`/works/${work.id}`} class="project-card">
+      {(() => {
+        const categoryMap = new Map();
+        works.works.forEach((work: any) => {
+          if (!categoryMap.has(work.category)) {
+            categoryMap.set(work.category, work);
+          }
+        });
+        return Array.from(categoryMap.entries());
+      })().map(([category, work]: [string, any]) => (
+        <a href={`/works?category=${encodeURIComponent(category)}`} class="project-card">
           <div class="card-bg">
-            <img src={work.cover} alt={work.title} loading="lazy">
+            <img src={work.cover} alt={category} loading="lazy">
           </div>
           <div class="card-gradient"></div>
           <div class="card-content">
-            <h3 class="card-title">{work.title}</h3>
+            <h3 class="card-title">{category}</h3>
             <p class="card-desc">{work.description}</p>
-
           </div>
           <div class="card-meta">
-            <span class="card-category">{work.category}</span>
+            <span class="card-category">{works.works.filter((w: any) => w.category === category).length} Projects</span>
             <span class="card-year">{work.year}</span>
           </div>
         </a>

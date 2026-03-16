@@ -147,27 +147,68 @@ import '../styles/global.css';
   </footer>
 
   <script>
-    // 分类筛选功能 - 即时切换，无延迟
+    // 筛选函数：根据分类过滤卡片
+    function filterByCategory(filterValue: string) {
+      document.querySelectorAll('.work-card').forEach(card => {
+        const el = card as HTMLElement;
+        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+          el.style.display = 'block';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        } else {
+          el.style.display = 'none';
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(0)';
+        }
+      });
+    }
+
+    // 激活对应的 Tab 按钮
+    function activateTab(filterValue: string) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+      } else {
+        // 未找到匹配的 Tab，默认激活 All
+        const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+        if (allBtn) allBtn.classList.add('active');
+      }
+    }
+
+    // 分类筛选功能 - 点击 Tab 切换
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        const filter = btn.getAttribute('data-filter');
-        document.querySelectorAll('.work-card').forEach(card => {
-          const el = card as HTMLElement;
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            el.style.display = 'block';
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-          } else {
-            el.style.display = 'none';
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(0)';
-          }
-        });
+        const filter = btn.getAttribute('data-filter') || 'all';
+        activateTab(filter);
+        filterByCategory(filter);
+        // 更新 URL 参数（不刷新页面）
+        const url = new URL(window.location.href);
+        if (filter === 'all') {
+          url.searchParams.delete('category');
+        } else {
+          url.searchParams.set('category', filter);
+        }
+        history.replaceState(null, '', url.toString());
       });
     });
+
+    // 页面加载时：读取 URL 参数自动定位 Tab 并筛选
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoryParam = urlParams.get('category');
+      if (categoryParam) {
+        activateTab(categoryParam);
+        filterByCategory(categoryParam);
+        // 平滑滚动到筛选栏区域
+        const filterBar = document.querySelector('.filter-bar');
+        if (filterBar) {
+          setTimeout(() => {
+            filterBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      }
+    })();
   </script>
 </body>
 </html>
