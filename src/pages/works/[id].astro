@@ -203,14 +203,12 @@ const { work } = Astro.props;
 
       <!-- Project Overview -->
       <section class="work-section">
-        <div class="section-grid">
-          <div class="section-label">
-            <span class="label-tag">01</span>
-            <h2>Project Overview</h2>
-          </div>
-          <div class="section-content">
-            <p class="large-text">{work?.description || 'No description available'}</p>
-          </div>
+        <div class="section-label-block">
+          <span class="label-tag">01</span>
+          <h2>Project Overview</h2>
+        </div>
+        <div class="vertical-text">
+          <p>{work?.description || 'No description available'}</p>
         </div>
       </section>
 
