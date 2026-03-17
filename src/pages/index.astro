@@ -618,23 +618,24 @@ import '../styles/global.css';
     z-index: 3;
     display: flex;
     align-items: center;
-    gap: 3rem;
-    padding: 1.5rem 3rem;
+    gap: clamp(1rem, 2.5vw, 3rem);
+    padding: clamp(0.8rem, 1.3vw, 1.5rem) clamp(1.2rem, 2.5vw, 3rem);
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
+    white-space: nowrap;
   }
 
   .stat-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: clamp(0.4rem, 0.8vw, 1rem);
     text-align: left;
   }
 
   .stat-number {
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 1.8vw, 2.2rem);
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: -0.02em;
@@ -642,7 +643,7 @@ import '../styles/global.css';
   }
 
   .stat-label {
-    font-size: 0.72rem;
+    font-size: clamp(0.5rem, 0.6vw, 0.72rem);
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -651,7 +652,7 @@ import '../styles/global.css';
 
   .stat-divider {
     width: 1px;
-    height: 36px;
+    height: clamp(20px, 3vw, 36px);
     background: var(--border);
   }
 
@@ -1253,11 +1254,6 @@ import '../styles/global.css';
       font-size: 0.75rem;
     }
 
-    .hero-stats {
-      transform-origin: left bottom;
-      transform: scale(0.85);
-    }
-
     .abilities-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
@@ -1423,8 +1419,6 @@ import '../styles/global.css';
     }
 
     .hero-stats {
-      transform-origin: left bottom;
-      transform: scale(0.7);
       left: 1.5rem;
       bottom: 2rem;
     }
