@@ -188,6 +188,54 @@ import '../styles/global.css';
     </div>
   </section>
 
+  <!-- Design Abilities Section -->
+  <section class="abilities-section">
+    <div class="abilities-grid">
+      <div class="ability-card">
+        <div class="ability-icon">
+          <img src="/images/works/home/ability01.png" alt="UI Concepts" loading="lazy" />
+        </div>
+        <h3 class="ability-name">UI CONCEPTS</h3>
+        <p class="ability-desc">Transform ideas into concepts that captivate your audience</p>
+      </div>
+      <div class="ability-card">
+        <div class="ability-icon">
+          <img src="/images/works/home/ability02.png" alt="Design Research" loading="lazy" />
+        </div>
+        <h3 class="ability-name">DESIGN RESEARCH</h3>
+        <p class="ability-desc">Embedded UXR + playtesting enables rapid iterations</p>
+      </div>
+      <div class="ability-card">
+        <div class="ability-icon">
+          <img src="/images/works/home/ability03.png" alt="Flow Diagrams" loading="lazy" />
+        </div>
+        <h3 class="ability-name">FLOW DIAGRAMS</h3>
+        <p class="ability-desc">Optimize your player journeys and interaction sequences</p>
+      </div>
+      <div class="ability-card">
+        <div class="ability-icon">
+          <img src="/images/works/home/ability04.png" alt="Wireframes" loading="lazy" />
+        </div>
+        <h3 class="ability-name">WIREFRAMES</h3>
+        <p class="ability-desc">Enable early-stage testing, design pivots, and alignment.</p>
+      </div>
+      <div class="ability-card">
+        <div class="ability-icon">
+          <img src="/images/works/home/ability05.png" alt="Visual Design" loading="lazy" />
+        </div>
+        <h3 class="ability-name">VISUAL DESIGN</h3>
+        <p class="ability-desc">High-fidelity mockups blend visuals with intuitive functionality</p>
+      </div>
+      <div class="ability-card">
+        <div class="ability-icon">
+          <img src="/images/works/home/ability06.png" alt="Component Sheets" loading="lazy" />
+        </div>
+        <h3 class="ability-name">COMPONENT SHEETS</h3>
+        <p class="ability-desc">Ensure consistency and streamline asset integration.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Featured Projects Section -->
   <section class="projects-section">
     <div class="section-header">
@@ -623,6 +671,97 @@ import '../styles/global.css';
     0% { height: 0; opacity: 0; }
     50% { height: 40px; opacity: 1; }
     100% { height: 40px; opacity: 0; }
+  }
+
+  /* ===== 设计能力分类区域 ===== */
+  .abilities-section {
+    padding: 5rem var(--container-padding);
+    background: var(--bg-primary);
+  }
+
+  .abilities-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+  }
+
+  .ability-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.2rem 1.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--accent);
+    background: linear-gradient(180deg, rgba(78, 234, 219, 0.04) 0%, rgba(8, 8, 10, 0.6) 100%);
+    transition: all 0.4s var(--ease-out);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ability-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(78, 234, 219, 0.08) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .ability-card:hover::before {
+    opacity: 1;
+  }
+
+  .ability-card:hover {
+    border-color: #3dd4c6;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(78, 234, 219, 0.12);
+  }
+
+  .ability-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ability-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.85);
+    transition: filter 0.3s ease;
+  }
+
+  .ability-card:hover .ability-icon img {
+    filter: brightness(0) invert(1) opacity(1);
+  }
+
+  .ability-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ability-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    margin: 0;
   }
 
   /* ===== 作品展示区 - Kevuru Games 卡片风格 ===== */
@@ -1110,6 +1249,21 @@ import '../styles/global.css';
     .stat-number {
       font-size: 1.6rem;
     }
+
+    .abilities-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .ability-card {
+      padding: 1.5rem 1rem 1.4rem;
+    }
+
+    .ability-icon {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 1rem;
+    }
   }
 
   /* ===== 汉堡菜单按钮 ===== */
@@ -1150,6 +1304,36 @@ import '../styles/global.css';
   }
 
   @media (max-width: 768px) {
+    .abilities-section {
+      padding: 3rem 1.5rem;
+    }
+
+    .abilities-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .ability-card {
+      padding: 1.2rem 0.8rem 1.2rem;
+    }
+
+    .ability-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 0.8rem;
+    }
+
+    .ability-name {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .ability-desc {
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
     .site-header {
       padding: 1rem 1.5rem;
     }
