@@ -1254,12 +1254,8 @@ import '../styles/global.css';
     }
 
     .hero-stats {
-      gap: 2rem;
-      padding: 1.2rem 2rem;
-      left: clamp(2rem, 5vw, 6rem);
-    }
-    .stat-number {
-      font-size: 1.6rem;
+      transform-origin: left bottom;
+      transform: scale(0.85);
     }
 
     .abilities-grid {
@@ -1427,24 +1423,10 @@ import '../styles/global.css';
     }
 
     .hero-stats {
-      position: relative;
-      bottom: auto;
-      left: auto;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin: 1.5rem auto 3rem;
-      padding: 1.2rem 2rem;
-      align-self: center;
-    }
-
-    .stat-item {
-      justify-content: center;
-    }
-
-    .stat-divider {
-      width: 40px;
-      height: 1px;
+      transform-origin: left bottom;
+      transform: scale(0.7);
+      left: 1.5rem;
+      bottom: 2rem;
     }
 
     .hero-scroll-indicator {
