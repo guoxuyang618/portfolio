@@ -100,7 +100,6 @@ import '../styles/global.css';
               <img src={work.cover} alt={work.title} loading="lazy" />
               <div class="work-card-overlay">
                 <div class="overlay-content">
-                  <span class="overlay-category">{work.category}</span>
                   <span class="overlay-cta">
                     View Project
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
@@ -110,10 +109,6 @@ import '../styles/global.css';
             </div>
             <div class="work-card-info">
               <h3>{work.title}</h3>
-              <div class="work-card-meta">
-                <span class="work-category">{work.category}</span>
-                <span class="work-year">{work.year}</span>
-              </div>
             </div>
           </a>
         ))}
@@ -478,7 +473,7 @@ import '../styles/global.css';
 
   .overlay-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: flex-end;
     width: 100%;
   }
