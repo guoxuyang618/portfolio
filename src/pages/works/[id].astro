@@ -232,9 +232,6 @@ const { work } = Astro.props;
             </div>
             <div class="vertical-image lightbox-trigger" data-index={idx}>
               <img src={img.src} alt={img.title} />
-              <div class="image-overlay">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-              </div>
             </div>
           </div>
         </section>
@@ -666,7 +663,7 @@ const { work } = Astro.props;
   }
 
   .vertical-image:hover img {
-    transform: scale(1.03);
+    transform: none;
   }
 
   .split-image {
@@ -683,7 +680,7 @@ const { work } = Astro.props;
   }
 
   .split-image:hover img {
-    transform: scale(1.03);
+    transform: none;
   }
 
   .split-text p {
@@ -701,26 +698,6 @@ const { work } = Astro.props;
   .lightbox-trigger {
     cursor: pointer;
     position: relative;
-  }
-
-  .lightbox-trigger .image-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 12px;
-  }
-
-  .lightbox-trigger:hover .image-overlay {
-    opacity: 1;
-  }
-
-  .lightbox-trigger .image-overlay svg {
-    color: #fff;
   }
 
   /* ===== 全屏灯箱 ===== */
