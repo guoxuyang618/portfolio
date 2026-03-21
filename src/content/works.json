@@ -146,9 +146,9 @@
           "layout": "vertical"
         },
         {
-          "src": "/images/works/UI design/card design.png",
-          "title": "Component Library",
-          "text": "Building a comprehensive, modular component library with atomic design methodology. From primitive elements like buttons and inputs to complex organisms like navigation bars and data tables, each component is designed with accessibility, responsiveness and theme-ability in mind.",
+          "src": "/images/works/creative experience solution/card design.png",
+          "title": "Card Design",
+          "text": "Designing versatile and reusable card components that serve as the fundamental building blocks across products. Each card variant is crafted with flexible layouts, consistent spacing and adaptive content areas to accommodate diverse use cases — from player profiles and item showcases to notification panels and data summaries.",
           "layout": "vertical"
         },
         {
