@@ -165,23 +165,19 @@
       "category": "Creative Experience Solution",
       "year": "2026",
       "cover": "/images/works/creative experience solution/card bg.png",
+      "overviewImage": "/images/works/creative experience solution/task bg.jpg",
       "description": "Designing an immersive card-based gameplay experience that blends strategic depth with visual storytelling. From user flow architecture to card illustration and interactive prototyping, this project demonstrates a full-cycle creative solution — transforming a complex game mechanic into an intuitive, engaging and visually stunning player experience.",
       "case": "Led the end-to-end UX design of a collectible card battle system for an FPS game, encompassing interaction flow mapping, card visual design and motion prototype delivery, resulting in a highly engaging in-game feature.",
       "images": [
         {
-          "src": "/images/works/creative experience solution/task bg.jpg",
+          "src": "/images/works/creative experience solution/card planA userflow.png",
           "title": "User Flow Architecture",
           "text": "Mapping the complete card gameplay interaction journey from entry to resolution. The user flow covers card pack opening with dramatic reveal animations, strategic card selection and placement on the battlefield, real-time card effect activation with visual feedback, and the final battle outcome presentation. Each step is carefully designed to maintain player engagement while providing clear information hierarchy and intuitive navigation between states."
         },
         {
-          "src": "/images/works/creative experience solution/card planA userflow.png",
-          "title": "Interactive Prototype Demo",
-          "text": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff."
-        },
-        {
           "src": "/images/works/creative experience solution/card planA video.mp4",
-          "title": "Card Gameplay Motion Demo",
-          "text": "A video walkthrough demonstrating the card battle system in motion — showcasing card deployment, ability activation animations, and battle resolution sequences with full visual effects and transition timing.",
+          "title": "Interactive Prototype Demo",
+          "text": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff.",
           "type": "video",
           "poster": "/images/works/creative experience solution/video default page.png"
         },

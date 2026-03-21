@@ -201,8 +201,13 @@ const { work } = Astro.props;
           <span class="label-tag">01</span>
           <h2>Project Overview</h2>
         </div>
-        <div class="vertical-text">
-          <p>{work?.description || 'No description available'}</p>
+        <div class="content-vertical">
+          <div class="vertical-text">
+            <p>{work?.description || 'No description available'}</p>
+          </div>
+          <div class="vertical-image">
+            <img src={work?.overviewImage || work?.cover} alt="Project Overview" />
+          </div>
         </div>
       </section>
 
@@ -210,7 +215,7 @@ const { work } = Astro.props;
       {work?.images && work.images.map((img: any, idx: number) => (
         <section class="work-section">
           <div class="section-label-block">
-            <span class="label-tag">{String(idx + 1).padStart(2, '0')}</span>
+            <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
             <h2>{img.title}</h2>
           </div>
           <div class="content-vertical">
