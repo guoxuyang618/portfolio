@@ -164,24 +164,25 @@
       "title": "Creative Experience Solution",
       "category": "Creative Experience Solution",
       "year": "2026",
-      "cover": "/images/works/2024/project-001.jpg",
-      "description": "Crafting innovative and memorable player experiences through creative design thinking. I combine storytelling, visual innovation and interaction artistry to deliver unique experience solutions that differentiate products in a competitive market, turning ordinary touchpoints into extraordinary moments of delight.",
-      "case": "Designed breakthrough creative experience flows for major game launches, integrating narrative-driven onboarding, seasonal event campaigns and immersive promotional interactions that significantly boosted player engagement and retention.",
+      "cover": "/images/works/creative experience solution/card bg.png",
+      "description": "Designing an immersive card-based gameplay experience that blends strategic depth with visual storytelling. From user flow architecture to card illustration and interactive prototyping, this project demonstrates a full-cycle creative solution — transforming a complex game mechanic into an intuitive, engaging and visually stunning player experience.",
+      "case": "Led the end-to-end UX design of a collectible card battle system for an FPS game, encompassing interaction flow mapping, card visual design and motion prototype delivery, resulting in a highly engaging in-game feature.",
       "images": [
         {
-          "src": "/images/works/2024/project-001.jpg",
-          "title": "Creative Strategy",
-          "text": "Developing a comprehensive creative strategy framework that aligns business objectives with player expectations. Through extensive market research, competitive analysis and user persona mapping, we establish the creative direction that drives innovation while maintaining brand consistency and emotional resonance."
+          "src": "/images/works/creative experience solution/card planA userflow.png",
+          "title": "User Flow Architecture",
+          "text": "Mapping the complete card gameplay interaction journey from entry to resolution. The user flow covers card pack opening with dramatic reveal animations, strategic card selection and placement on the battlefield, real-time card effect activation with visual feedback, and the final battle outcome presentation. Each step is carefully designed to maintain player engagement while providing clear information hierarchy and intuitive navigation between states."
         },
         {
-          "src": "/images/works/2024/project-001.jpg",
-          "title": "Experience Innovation",
-          "text": "Pushing the boundaries of conventional game UX through experimental interaction patterns, novel visual narratives and emotionally engaging micro-interactions. Each creative solution is prototyped, tested and refined through iterative design sprints to ensure both innovation and usability."
+          "src": "/images/works/creative experience solution/card planA video.mp4",
+          "title": "Interactive Prototype Demo",
+          "text": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff.",
+          "type": "video"
         },
         {
-          "src": "/images/works/2024/project-001.jpg",
-          "title": "Impact & Results",
-          "text": "Measuring the effectiveness of creative experience solutions through quantitative metrics and qualitative feedback. Tracking player engagement, retention rates, emotional response and brand perception to continuously optimize and evolve the creative approach for maximum impact."
+          "src": "/images/works/creative experience solution/card design.png",
+          "title": "Card Visual Design System",
+          "text": "A comprehensive set of collectible card illustrations featuring diverse character archetypes — from armored warriors and mutant creatures to tactical operatives and mythical beings. Each card is designed with a unified frame structure incorporating rarity indicators, attribute icons and dynamic action poses. The visual language balances dark sci-fi aesthetics with vibrant color accents, ensuring each card feels unique while maintaining systematic consistency across the entire collection."
         }
       ]
     }
