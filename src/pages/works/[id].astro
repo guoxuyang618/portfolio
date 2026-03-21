@@ -226,7 +226,7 @@ const { work } = Astro.props;
             </div>
             {img.type === 'video' ? (
               <div class="vertical-video">
-                <video controls playsinline preload="metadata" poster={work?.cover}>
+                <video controls playsinline preload="metadata" poster={img.poster || work?.cover}>
                   <source src={img.src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>

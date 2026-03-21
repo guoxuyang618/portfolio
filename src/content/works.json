@@ -177,7 +177,8 @@
           "src": "/images/works/creative experience solution/card planA video.mp4",
           "title": "Interactive Prototype Demo",
           "text": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff.",
-          "type": "video"
+          "type": "video",
+          "poster": "/images/works/creative experience solution/video default page.png"
         },
         {
           "src": "/images/works/creative experience solution/card design.png",
