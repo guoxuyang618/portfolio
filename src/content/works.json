@@ -158,6 +158,32 @@
           "layout": "vertical"
         }
       ]
+    },
+    {
+      "id": "project-007",
+      "title": "Creative Experience Solution",
+      "category": "Creative Experience Solution",
+      "year": "2026",
+      "cover": "/images/works/2024/project-001.jpg",
+      "description": "Crafting innovative and memorable player experiences through creative design thinking. I combine storytelling, visual innovation and interaction artistry to deliver unique experience solutions that differentiate products in a competitive market, turning ordinary touchpoints into extraordinary moments of delight.",
+      "case": "Designed breakthrough creative experience flows for major game launches, integrating narrative-driven onboarding, seasonal event campaigns and immersive promotional interactions that significantly boosted player engagement and retention.",
+      "images": [
+        {
+          "src": "/images/works/2024/project-001.jpg",
+          "title": "Creative Strategy",
+          "text": "Developing a comprehensive creative strategy framework that aligns business objectives with player expectations. Through extensive market research, competitive analysis and user persona mapping, we establish the creative direction that drives innovation while maintaining brand consistency and emotional resonance."
+        },
+        {
+          "src": "/images/works/2024/project-001.jpg",
+          "title": "Experience Innovation",
+          "text": "Pushing the boundaries of conventional game UX through experimental interaction patterns, novel visual narratives and emotionally engaging micro-interactions. Each creative solution is prototyped, tested and refined through iterative design sprints to ensure both innovation and usability."
+        },
+        {
+          "src": "/images/works/2024/project-001.jpg",
+          "title": "Impact & Results",
+          "text": "Measuring the effectiveness of creative experience solutions through quantitative metrics and qualitative feedback. Tracking player engagement, retention rates, emotional response and brand perception to continuously optimize and evolve the creative approach for maximum impact."
+        }
+      ]
     }
   ]
 }
