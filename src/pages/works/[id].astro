@@ -625,22 +625,15 @@ const { work } = Astro.props;
   }
 
   .vertical-image {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 0;
+    border-radius: 12px;
     overflow: hidden;
-    border: none;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border);
   }
 
   .vertical-image img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain;
     transition: transform 0.5s var(--ease-out);
   }
 
@@ -650,15 +643,9 @@ const { work } = Astro.props;
 
   /* ===== 内嵌视频 ===== */
   .vertical-video {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 0;
+    border-radius: 12px;
     overflow: hidden;
-    border: none;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border);
     background: #000;
   }
 
@@ -666,7 +653,7 @@ const { work } = Astro.props;
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 0;
+    border-radius: 12px;
   }
 
   .split-image {
