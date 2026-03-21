@@ -206,18 +206,11 @@ const { work } = Astro.props;
         </div>
       </section>
 
-      <!-- Main Showcase -->
-      <section class="work-section">
-        <div class="work-showcase">
-          <img src={work?.cover} alt={work?.title} class="showcase-img" />
-        </div>
-      </section>
-
       <!-- 动态图文 Section：上文下图布局 -->
       {work?.images && work.images.map((img: any, idx: number) => (
         <section class="work-section">
           <div class="section-label-block">
-            <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
+            <span class="label-tag">{String(idx + 1).padStart(2, '0')}</span>
             <h2>{img.title}</h2>
           </div>
           <div class="content-vertical">
@@ -554,18 +547,6 @@ const { work } = Astro.props;
     color: var(--text-secondary);
     line-height: 1.85;
     max-width: 700px;
-  }
-
-  /* ===== 展示图 ===== */
-  .work-showcase {
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
-  .showcase-img {
-    width: 100%;
-    display: block;
   }
 
   /* ===== 图文标题区域（两列布局） ===== */
