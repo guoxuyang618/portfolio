@@ -179,6 +179,13 @@
           "text": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff."
         },
         {
+          "src": "/images/works/creative experience solution/card planA video.mp4",
+          "title": "Card Gameplay Motion Demo",
+          "text": "A video walkthrough demonstrating the card battle system in motion — showcasing card deployment, ability activation animations, and battle resolution sequences with full visual effects and transition timing.",
+          "type": "video",
+          "poster": "/images/works/creative experience solution/video default page.png"
+        },
+        {
           "src": "/images/works/creative experience solution/card design.png",
           "title": "Card Visual Design System",
           "text": "A comprehensive set of collectible card illustrations featuring diverse character archetypes — from armored warriors and mutant creatures to tactical operatives and mythical beings. Each card is designed with a unified frame structure incorporating rarity indicators, attribute icons and dynamic action poses. The visual language balances dark sci-fi aesthetics with vibrant color accents, ensuring each card feels unique while maintaining systematic consistency across the entire collection."
