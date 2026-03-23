@@ -170,6 +170,34 @@ const { work } = Astro.props;
     });
   </script>
 
+  <!-- 视频尺寸锁定脚本：确保播放前后尺寸一致 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 处理所有视频容器（单视频 + 双视频）
+      const videoContainers = document.querySelectorAll('.vertical-video, .dual-video-wrap');
+      videoContainers.forEach((container) => {
+        const video = container.querySelector('video');
+        if (!video) return;
+
+        // 视频元数据加载后，用真实宽高比锁定容器
+        function lockSize() {
+          const w = video!.videoWidth;
+          const h = video!.videoHeight;
+          if (w && h) {
+            (container as HTMLElement).style.aspectRatio = `${w} / ${h}`;
+          }
+        }
+
+        // 如果元数据已经加载（缓存），直接锁定
+        if (video.readyState >= 1) {
+          lockSize();
+        } else {
+          video.addEventListener('loadedmetadata', lockSize, { once: true });
+        }
+      });
+    });
+  </script>
+
   <!-- 作品 Hero 大图 -->
   <section class="work-hero">
     <div class="hero-bg">
@@ -645,22 +673,15 @@ const { work } = Astro.props;
 
   /* ===== 内嵌视频 ===== */
   .vertical-video {
-    position: relative;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border);
     background: #000;
-    aspect-ratio: 16 / 9;
   }
 
   .vertical-video video {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
     display: block;
-    object-fit: contain;
     border-radius: 12px;
   }
 
@@ -678,23 +699,16 @@ const { work } = Astro.props;
   }
 
   .dual-video-wrap {
-    position: relative;
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border);
     background: #000;
-    aspect-ratio: 16 / 9;
   }
 
   .dual-video-wrap video {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
     display: block;
-    object-fit: contain;
     border-radius: 12px;
   }
 
