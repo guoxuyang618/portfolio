@@ -64,7 +64,8 @@
         {
           "src": "/images/works/monetization/piggybank flow.png",
           "title": "Piggybank System Flow",
-          "text": "A comprehensive user flow mapping the piggybank savings mechanic — a monetization feature designed to incentivize incremental spending through visual progress and reward anticipation. The flow details each touchpoint from initial deposit prompts, accumulation tracking, milestone rewards to final redemption, ensuring a frictionless and psychologically engaging path that drives both retention and revenue."
+          "text": "A comprehensive user flow mapping the piggybank savings mechanic — a monetization feature designed to incentivize incremental spending through visual progress and reward anticipation. The flow details each touchpoint from initial deposit prompts, accumulation tracking, milestone rewards to final redemption, ensuring a frictionless and psychologically engaging path that drives both retention and revenue.",
+          "noRadius": true
         },
         {
           "src": "/images/works/monetization/商业化.png",

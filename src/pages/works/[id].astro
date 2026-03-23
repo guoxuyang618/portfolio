@@ -230,7 +230,7 @@ const { work } = Astro.props;
                 </video>
               </div>
             ) : (
-              <div class="vertical-image lightbox-trigger" data-index={idx}>
+              <div class={`vertical-image lightbox-trigger${img.noRadius ? ' no-radius' : ''}`} data-index={idx}>
                 <img src={img.src} alt={img.title} />
               </div>
             )}
@@ -612,6 +612,10 @@ const { work } = Astro.props;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border);
+  }
+
+  .vertical-image.no-radius {
+    border-radius: 0;
   }
 
   .vertical-image img {
