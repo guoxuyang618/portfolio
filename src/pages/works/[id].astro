@@ -229,6 +229,20 @@ const { work } = Astro.props;
                   Your browser does not support the video tag.
                 </video>
               </div>
+            ) : img.type === 'dual-video' ? (
+              <div class="dual-video-row">
+                {img.videos && img.videos.map((v: any) => (
+                  <div class="dual-video-item">
+                    <div class="dual-video-wrap">
+                      <video controls playsinline preload="metadata" poster={v.poster || ''}>
+                        <source src={v.src} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    {v.caption && <p class="dual-video-caption">{v.caption}</p>}
+                  </div>
+                ))}
+              </div>
             ) : (
               <div class={`vertical-image lightbox-trigger${img.noRadius ? ' no-radius' : ''}`} data-index={idx}>
                 <img src={img.src} alt={img.title} />
@@ -644,6 +658,42 @@ const { work } = Astro.props;
     border-radius: 12px;
   }
 
+  /* ===== 双视频横向排版 ===== */
+  .dual-video-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .dual-video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dual-video-wrap {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #000;
+  }
+
+  .dual-video-wrap video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  .dual-video-caption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
   .split-image {
     border-radius: 12px;
     overflow: hidden;
@@ -932,6 +982,11 @@ const { work } = Astro.props;
     .content-split.reverse .split-text { order: 0; }
     .work-section { margin-bottom: 3rem; }
     .footer-top { flex-direction: column; gap: 2rem; }
+
+    /* 双视频移动端适配 */
+    .dual-video-row {
+      grid-template-columns: 1fr;
+    }
 
     /* 灯箱移动端适配 */
     .lightbox {

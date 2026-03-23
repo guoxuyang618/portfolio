@@ -73,9 +73,19 @@
           "text": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction."
         },
         {
-          "src": "/images/works/monetization/商业化.png",
-          "title": "Interaction Design",
-          "text": "Detailed description of the interaction design, user flows, and motion effects for this project. Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations."
+          "type": "dual-video",
+          "title": "Piggybank Interaction Demo",
+          "text": "Two core interaction demos of the piggybank savings system — depositing coins into the piggybank and withdrawing coins from it. These micro-interactions are designed with satisfying visual feedback and smooth motion to reinforce the savings habit loop and create an emotionally rewarding user experience.",
+          "videos": [
+            {
+              "src": "/images/works/monetization/add coin.mp4",
+              "caption": "Deposit Coins"
+            },
+            {
+              "src": "/images/works/monetization/withdraw coin.mp4",
+              "caption": "Withdraw Coins from Piggybank"
+            }
+          ]
         }
       ]
     },
