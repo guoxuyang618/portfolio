@@ -86,6 +86,12 @@
               "caption": "Withdraw Coins from Piggybank"
             }
           ]
+        },
+        {
+          "type": "video",
+          "src": "/images/works/monetization/final version.mp4",
+          "title": "Final Production Preview",
+          "text": "A walkthrough of the fully implemented piggybank feature as it appears in the live product. This recording captures the end-to-end user journey — from the entry prompt and coin deposit animation, through balance accumulation with real-time visual feedback, to the final reward redemption moment. Every transition, particle effect and haptic cue has been polished to production quality, demonstrating how the design vision translates into a seamless and delightful in-game experience."
         }
       ]
     },
