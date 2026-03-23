@@ -307,7 +307,7 @@ const { work } = Astro.props;
                 ))}
               </div>
             ) : (
-              <div class={`vertical-image lightbox-trigger${img.noRadius ? ' no-radius' : ''}`} data-index={idx}>
+              <div class={`vertical-image lightbox-trigger${img.noRadius ? ' no-radius' : ''}${img.objectFit === 'cover' ? ' img-cover' : ''}`} data-index={idx}>
                 <img src={img.src} alt={img.title} />
               </div>
             )}
@@ -711,6 +711,17 @@ const { work } = Astro.props;
 
   .vertical-image:hover img {
     transform: scale(1.015);
+  }
+
+  /* ===== 图片填充模式（object-fit: cover）===== */
+  .vertical-image.img-cover {
+    aspect-ratio: 16 / 9;
+  }
+
+  .vertical-image.img-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   /* ===== 内嵌视频 ===== */
