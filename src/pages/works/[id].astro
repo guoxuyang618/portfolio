@@ -645,16 +645,22 @@ const { work } = Astro.props;
 
   /* ===== 内嵌视频 ===== */
   .vertical-video {
+    position: relative;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border);
     background: #000;
+    aspect-ratio: 16 / 9;
   }
 
   .vertical-video video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: contain;
     border-radius: 12px;
   }
 
@@ -672,17 +678,23 @@ const { work } = Astro.props;
   }
 
   .dual-video-wrap {
+    position: relative;
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border);
     background: #000;
+    aspect-ratio: 16 / 9;
   }
 
   .dual-video-wrap video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: contain;
     border-radius: 12px;
   }
 
