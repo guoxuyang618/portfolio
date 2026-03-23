@@ -149,8 +149,8 @@
     },
     {
       "id": "project-006",
-      "title": "UI Design System",
-      "category": "UI Design System",
+      "title": "System Design",
+      "category": "System Design",
       "year": "2026",
       "cover": "/images/works/2024/project-006.jpg",
       "description": "Building scalable and consistent design systems. I architect comprehensive UI component libraries, define design tokens, typography scales and spacing systems to ensure visual consistency across products while accelerating team collaboration and development efficiency.",
