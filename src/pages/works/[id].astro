@@ -252,10 +252,15 @@ const { work } = Astro.props;
           </div>
           {work?.overviewVideo ? (
             <div class="vertical-video overview-video">
-              <video autoplay loop muted playsinline preload="metadata">
+              <video controls playsinline preload="metadata">
                 <source src={work.overviewVideo} type="video/webm" />
                 Your browser does not support the video tag.
               </video>
+              <div class="video-play-overlay">
+                <div class="play-btn">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+              </div>
             </div>
           ) : (
             <div class="vertical-image">
@@ -287,10 +292,6 @@ const { work } = Astro.props;
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
                   </div>
                 </div>
-                <span class="video-badge">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,3 19,12 5,21"/></svg>
-                  VIDEO
-                </span>
               </div>
             ) : img.type === 'dual-video' ? (
               <div class="dual-video-row">
@@ -306,10 +307,6 @@ const { work } = Astro.props;
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
                         </div>
                       </div>
-                      <span class="video-badge">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5,3 19,12 5,21"/></svg>
-                        VIDEO
-                      </span>
                     </div>
                     {v.caption && <p class="dual-video-caption">{v.caption}</p>}
                   </div>
@@ -733,22 +730,8 @@ const { work } = Astro.props;
     object-fit: cover;
   }
 
-  /* ===== Overview 视频（自动循环，无控件覆盖） ===== */
-  .overview-video {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: #0a0a0c;
-    aspect-ratio: 16 / 9;
-  }
-
+  /* ===== Overview 视频（覆盖填充模式） ===== */
   .overview-video video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
     object-fit: cover;
   }
 
@@ -811,29 +794,8 @@ const { work } = Astro.props;
     transform: scale(1.08);
   }
 
-  .video-badge {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.3rem 0.65rem;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.85);
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 4px;
-    transition: opacity 0.35s ease;
-  }
-
-  /* 播放状态：隐藏覆盖层和角标 */
-  .is-playing .video-play-overlay,
-  .is-playing .video-badge {
+  /* 播放状态：隐藏覆盖层 */
+  .is-playing .video-play-overlay {
     opacity: 0;
     pointer-events: none;
   }
