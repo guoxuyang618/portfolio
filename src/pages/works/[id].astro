@@ -818,18 +818,18 @@ const { work } = Astro.props;
   /* ===== 瀑布流图片网格（CSS Grid） ===== */
   .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 0.75rem;
   }
 
-  /* 普通图片卡片：1列 */
+  /* 普通图片卡片：占2列 */
   .masonry-normal {
-    grid-column: span 1;
+    grid-column: span 2;
   }
 
-  /* 特色图片卡片：占2列 */
+  /* 特色图片卡片：占3列，视觉更大 */
   .masonry-featured {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 
   .masonry-item {
@@ -839,7 +839,6 @@ const { work } = Astro.props;
     background: var(--bg-secondary, #141416);
     cursor: pointer;
     position: relative;
-    aspect-ratio: 16 / 9;
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
   }
 
@@ -851,8 +850,7 @@ const { work } = Astro.props;
 
   .masonry-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     display: block;
     transition: transform 0.5s var(--ease-out);
   }
