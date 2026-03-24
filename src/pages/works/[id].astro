@@ -317,11 +317,15 @@ const { work } = Astro.props;
               </div>
             ) : img.type === 'masonry' ? (
               <div class="masonry-grid">
-                {img.images && img.images.map((masonrySrc: string, mIdx: number) => (
-                  <div class="masonry-item lightbox-trigger" data-index={`masonry-${idx}-${mIdx}`}>
-                    <img src={masonrySrc} alt={`${img.title} ${mIdx + 1}`} loading="lazy" />
-                  </div>
-                ))}
+                {img.images && img.images.map((mItem: any, mIdx: number) => {
+                  const src = typeof mItem === 'string' ? mItem : mItem.src;
+                  const size = typeof mItem === 'string' ? 'sm' : (mItem.size || 'sm');
+                  return (
+                    <div class={`masonry-item masonry-${size} lightbox-trigger`} data-index={`masonry-${idx}-${mIdx}`}>
+                      <img src={src} alt={`${img.title} ${mIdx + 1}`} loading="lazy" />
+                    </div>
+                  );
+                })}
               </div>
             ) : (
               <div class={`vertical-image lightbox-trigger${img.noRadius ? ' no-radius' : ''}${img.objectFit === 'cover' ? ' img-cover' : ''}`} data-index={idx}>
@@ -811,15 +815,30 @@ const { work } = Astro.props;
     pointer-events: none;
   }
 
-  /* ===== 瀑布流图片网格 ===== */
+  /* ===== 瀑布流图片网格（CSS Grid） ===== */
   .masonry-grid {
-    columns: 3;
-    column-gap: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* 大卡片：占 3列 */
+  .masonry-lg {
+    grid-column: span 3;
+  }
+
+  /* 中卡片：占 2列 */
+  .masonry-md {
+    grid-column: span 2;
+  }
+
+  /* 小卡片：占 1列（默认） */
+  .masonry-sm {
+    grid-column: span 1;
   }
 
   .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 0.75rem;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid var(--border);
@@ -837,7 +856,8 @@ const { work } = Astro.props;
 
   .masonry-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     transition: transform 0.5s var(--ease-out);
   }
@@ -1182,11 +1202,19 @@ const { work } = Astro.props;
 
     /* 瀑布流移动端适配：2列 */
     .masonry-grid {
-      columns: 2;
-      column-gap: 0.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+    .masonry-lg {
+      grid-column: span 2;
+    }
+    .masonry-md {
+      grid-column: span 2;
+    }
+    .masonry-sm {
+      grid-column: span 1;
     }
     .masonry-item {
-      margin-bottom: 0.5rem;
       border-radius: 6px;
     }
 
