@@ -96,8 +96,11 @@ const { work } = Astro.props;
       triggers.forEach((trigger) => {
         const img = trigger.querySelector('img') as HTMLImageElement;
         const section = trigger.closest('.work-section');
-        const sectionTitle = section?.querySelector('.section-label h2')?.textContent || '';
-        const sectionText = section?.querySelector('.split-text p')?.textContent || '';
+        // 兼容两种标题布局：section-label 和 section-label-block
+        const sectionTitle = section?.querySelector('.section-label h2')?.textContent
+          || section?.querySelector('.section-label-block h2')?.textContent || '';
+        const sectionText = section?.querySelector('.split-text p')?.textContent
+          || section?.querySelector('.vertical-text p')?.textContent || '';
         
         imagesData.push({
           src: img?.src || '',
@@ -309,6 +312,14 @@ const { work } = Astro.props;
                       </div>
                     </div>
                     {v.caption && <p class="dual-video-caption">{v.caption}</p>}
+                  </div>
+                ))}
+              </div>
+            ) : img.type === 'masonry' ? (
+              <div class="masonry-grid">
+                {img.images && img.images.map((masonrySrc: string, mIdx: number) => (
+                  <div class="masonry-item lightbox-trigger" data-index={`masonry-${idx}-${mIdx}`}>
+                    <img src={masonrySrc} alt={`${img.title} ${mIdx + 1}`} loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -800,6 +811,41 @@ const { work } = Astro.props;
     pointer-events: none;
   }
 
+  /* ===== 瀑布流图片网格 ===== */
+  .masonry-grid {
+    columns: 3;
+    column-gap: 0.75rem;
+  }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary, #141416);
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  }
+
+  .masonry-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  .masonry-item:hover img {
+    transform: scale(1.02);
+  }
+
   /* ===== 双视频横向排版 ===== */
   .dual-video-row {
     display: grid;
@@ -1132,6 +1178,16 @@ const { work } = Astro.props;
     /* 双视频移动端适配 */
     .dual-video-row {
       grid-template-columns: 1fr;
+    }
+
+    /* 瀑布流移动端适配：2列 */
+    .masonry-grid {
+      columns: 2;
+      column-gap: 0.5rem;
+    }
+    .masonry-item {
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
     }
 
     /* 播放按钮移动端适配：统一缩小 */
