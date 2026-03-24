@@ -271,7 +271,7 @@ import '../styles/global.css';
           </div>
           <div class="card-gradient"></div>
           <div class="card-content">
-            <h3 class="card-title">{category}</h3>
+            <h3 class="card-title">{category === 'Paid Character Role Showcase System' ? 'SYSTEM DESIGN' : category}</h3>
           </div>
           <div class="card-meta">
             <span class="card-category">{works.works.filter((w: any) => w.category === category).length} Projects</span>
