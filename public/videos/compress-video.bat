@@ -157,6 +157,8 @@ echo   [5] Web优化 WebM  (VP9, CRF 30, 1080p) - 体积最小
 echo   [6] 双格式生成    (MP4 CRF23 + WebM CRF30) - 一键双格式
 echo   [7] Hero专用      (1080p + 双格式 + 15秒截取) - 网页背景视频
 echo.
+echo   ※ 所有输出均为纯净画面，不添加任何文字/水印
+echo.
 set /p CHOICE="请输入选项 [1-7]: "
 
 echo.
@@ -169,7 +171,7 @@ echo.
 
 if "!CHOICE!"=="1" (
     echo [开始] 视觉无损 MP4 压缩 (!AUDIO_LABEL!, !TRIM_LABEL!^)...
-    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 18 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p "!BASENAME!-lossless.mp4" -y
+    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 18 !AUDIO_OPTS! -sn -dn -map_metadata -1 -movflags +faststart -pix_fmt yuv420p "!BASENAME!-lossless.mp4" -y
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-lossless.mp4
@@ -180,7 +182,7 @@ if "!CHOICE!"=="1" (
 
 if "!CHOICE!"=="2" (
     echo [开始] 高质量 MP4 压缩 (!AUDIO_LABEL!, !TRIM_LABEL!^)...
-    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
+    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -sn -dn -map_metadata -1 -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-hq.mp4
@@ -191,7 +193,7 @@ if "!CHOICE!"=="2" (
 
 if "!CHOICE!"=="3" (
     echo [开始] Web 优化 MP4 压缩 (缩放至1080p, !AUDIO_LABEL!, !TRIM_LABEL!^)...
-    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 26 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.mp4" -y
+    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 26 !AUDIO_OPTS! -sn -dn -map_metadata -1 -movflags +faststart -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.mp4" -y
     if !errorlevel!==0 (
         echo.
         echo [完成] 输出: !FILEDIR!!BASENAME!-web.mp4
@@ -203,9 +205,9 @@ if "!CHOICE!"=="3" (
 if "!CHOICE!"=="4" (
     echo [开始] 视觉无损 WebM 压缩 (VP9编码较慢，请耐心等待, !AUDIO_LABEL!, !TRIM_LABEL!^)...
     if /i "!AUDIO_CHOICE!"=="N" (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 15 -b:v 0 -an -pix_fmt yuv420p "!BASENAME!-lossless.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 15 -b:v 0 -an -sn -dn -map_metadata -1 -pix_fmt yuv420p "!BASENAME!-lossless.webm" -y
     ) else (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 15 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p "!BASENAME!-lossless.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 15 -b:v 0 -c:a libopus -b:a 128k -sn -dn -map_metadata -1 -pix_fmt yuv420p "!BASENAME!-lossless.webm" -y
     )
     if !errorlevel!==0 (
         echo.
@@ -218,9 +220,9 @@ if "!CHOICE!"=="4" (
 if "!CHOICE!"=="5" (
     echo [开始] Web 优化 WebM 压缩 (!AUDIO_LABEL!, !TRIM_LABEL!^)...
     if /i "!AUDIO_CHOICE!"=="N" (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -an -sn -dn -map_metadata -1 -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.webm" -y
     ) else (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -sn -dn -map_metadata -1 -pix_fmt yuv420p -vf scale=1920:-2 "!BASENAME!-web.webm" -y
     )
     if !errorlevel!==0 (
         echo.
@@ -234,13 +236,13 @@ if "!CHOICE!"=="6" (
     echo [开始] 双格式生成 (!AUDIO_LABEL!, !TRIM_LABEL!^)...
     echo.
     echo [1/2] 生成 MP4 (H.264 High, CRF 23^)...
-    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
+    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -sn -dn -map_metadata -1 -movflags +faststart -pix_fmt yuv420p "!BASENAME!-hq.mp4" -y
     echo.
     echo [2/2] 生成 WebM (VP9, CRF 30^)...
     if /i "!AUDIO_CHOICE!"=="N" (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p "!BASENAME!-web.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -an -sn -dn -map_metadata -1 -pix_fmt yuv420p "!BASENAME!-web.webm" -y
     ) else (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p "!BASENAME!-web.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -sn -dn -map_metadata -1 -pix_fmt yuv420p "!BASENAME!-web.webm" -y
     )
     echo.
     echo [完成] 输出:
@@ -252,13 +254,13 @@ if "!CHOICE!"=="7" (
     echo [开始] Hero 背景视频专用处理 (!AUDIO_LABEL!, !TRIM_LABEL!^)...
     echo.
     echo [1/2] 缩放至1920x1080 + MP4压缩...
-    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -movflags +faststart -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.mp4" -y
+    "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libx264 -profile:v high -preset slow -crf 23 !AUDIO_OPTS! -sn -dn -map_metadata -1 -movflags +faststart -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.mp4" -y
     echo.
     echo [2/2] 生成 WebM 格式...
     if /i "!AUDIO_CHOICE!"=="N" (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -an -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -an -sn -dn -map_metadata -1 -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.webm" -y
     ) else (
-        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.webm" -y
+        "!FFMPEG!" !TRIM_SS! -i "!INPUT_FILE!" !TRIM_TO! -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus -b:a 128k -sn -dn -map_metadata -1 -pix_fmt yuv420p -vf scale=1920:1080 "hero-bg-compressed.webm" -y
     )
     echo.
     echo ============================================
