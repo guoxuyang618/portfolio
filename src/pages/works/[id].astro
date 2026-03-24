@@ -1134,6 +1134,26 @@ const { work } = Astro.props;
       grid-template-columns: 1fr;
     }
 
+    /* 播放按钮移动端适配：统一缩小 */
+    .play-btn {
+      width: 52px;
+      height: 52px;
+    }
+    .play-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* 双视频变单列后，按钮恢复与单视频一致 */
+    .play-btn--sm {
+      width: 52px;
+      height: 52px;
+    }
+    .play-btn--sm svg {
+      width: 22px;
+      height: 22px;
+    }
+
     /* 灯箱移动端适配 */
     .lightbox {
       align-items: flex-start;
