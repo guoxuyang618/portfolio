@@ -32,23 +32,23 @@
       "category": "Core Gameplay",
       "year": "2026",
       "cover": "/images/works/core gameplay/gameplay.png",
-      "description": "Bringing intuitive interaction to hardcore gameplay. I focus on operation design for combat, strategy and other core mechanics, pursuing precise, fluid and distraction-free battlefield experiences that maintain player flow.",
-      "case": "Continuously optimized the feel and feedback logic for shooting, aiming and throwable operations in CrossFire Mobile.",
+      "description": "Bringing intuitive interaction to hardcore gameplay. I focus on operation design for combat, strategy and other core mechanics in CrossFire Mobile's PvE mode — pursuing precise, fluid and distraction-free battlefield experiences that keep players fully immersed in high-intensity combat scenarios.",
+      "case": "Continuously optimized the feel and feedback logic for shooting, aiming, objective interaction and throwable operations in CrossFire Mobile's PvE zombie mode.",
       "images": [
         {
           "src": "/images/works/core gameplay/企业微信截图_17738048362633.png",
-          "title": "Design Approach",
-          "text": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction."
+          "title": "Objective Interaction & HUD Feedback",
+          "text": "In-game screenshot from CrossFire Mobile's PvE mode showcasing the objective interaction system. The player is activating a generator (progress bar at 70%) while zombies approach from multiple directions. The HUD provides clear real-time feedback — a mini-map with teammate positions, objective prompts on the left ('Activate the generator, open the gate!'), and distance markers on enemies — ensuring players can track mission progress without losing situational awareness during intense combat."
         },
         {
           "src": "/images/works/core gameplay/企业微信截图_17738048538801.png",
-          "title": "Visual Design",
-          "text": "Detailed description of the visual design, color usage, and layout for this project. The color system was selected based on brand identity and target audience aesthetic preferences, ensuring consistency and professionalism in visual communication."
+          "title": "Aiming System & Combat Feedback",
+          "text": "A moment captured right after the player completes an objective in CrossFire Mobile's PvE mode. The 'Mission Complete' banner provides immediate positive feedback, while the expanded crosshair and aim-down-sight view demonstrate the precision aiming system designed for the unique weapon model. The interaction design balances tactile shooting feedback with clear UI indicators — teammate voice lines, hit markers and ammo counters — creating a fluid combat experience where every shot feels responsive and satisfying."
         },
         {
           "src": "/images/works/core gameplay/企业微信截图_17738048992465.png",
-          "title": "Interaction Design",
-          "text": "Detailed description of the interaction design, user flows, and motion effects for this project. Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations."
+          "title": "Mission Guidance & Navigation Design",
+          "text": "Showcasing the mission waypoint and navigation system in CrossFire Mobile's PvE mode. The objective prompt 'Push forward, board the train!' guides the player through a military compound environment. The design integrates directional cues, environmental storytelling and clear UI indicators (enemy markers, task objectives, weapon stats panel on the right) to create intuitive navigation flow — ensuring players always know where to go next while maintaining full combat readiness."
         }
       ]
     },
