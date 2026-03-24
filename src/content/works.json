@@ -158,28 +158,27 @@
       "case": "Established a unified design system for FPS game franchises, standardizing over 200 reusable components across multiple game titles and platforms.",
       "images": [
         {
-          "src": "/images/works/2024/project-006.jpg",
-          "title": "Design Tokens & Foundations",
-          "text": "Establishing the foundational layer of the design system including color palettes, typography scales, spacing units, elevation systems and motion curves. These design tokens serve as the single source of truth, ensuring pixel-perfect consistency across all platforms and products.",
+          "src": "/images/works/System Design/02.png",
+          "title": "Ultimate Skin System Architecture",
+          "text": "Architecting the comprehensive Ultimate Skin presentation system for FPS game characters. The design establishes a unified multi-tab navigation framework — covering Supreme Appearance, Personality Wheel, Exclusive Accessories and Battlefield Performance — enabling players to explore every facet of a premium skin through an immersive, full-screen 3D character showcase. The system balances visual spectacle with clear information hierarchy, ensuring each detail from character models to UI overlays works cohesively across the entire experience.",
           "layout": "vertical"
         },
         {
-          "src": "/images/works/2024/project-006.jpg",
-          "title": "Card Design",
-          "text": "Designing versatile and reusable card components that serve as the fundamental building blocks across products. Each card variant is crafted with flexible layouts, consistent spacing and adaptive content areas to accommodate diverse use cases — from player profiles and item showcases to notification panels and data summaries.",
+          "src": "/images/works/System Design/03.png",
+          "title": "Personality Wheel & Interactive Components",
+          "text": "Designing the Personality Wheel sub-system that houses exclusive gestures, signature actions and custom voice lines. The interface presents dynamic 3D previews of each expression and motion, organized through a secondary tab structure with clear categorization. Special attention was paid to the visual effects surrounding interactive props — such as the glowing arcane orb and energy runes — ensuring each preview feels cinematic while maintaining responsive, snappy interactions for the player.",
           "layout": "vertical"
         },
         {
-          "src": "/images/works/2024/project-006.jpg",
-          "title": "Icon Design",
-          "text": "Crafting a cohesive and scalable icon system that communicates functionality at a glance. Each icon is designed on a unified grid with consistent stroke weights, corner radii and optical balance, ensuring pixel-perfect clarity across all resolutions. The icon library covers navigation, actions, status indicators and game-specific elements, maintaining visual harmony throughout the entire product ecosystem.",
-          "layout": "vertical",
-          "objectFit": "cover"
+          "src": "/images/works/System Design/06.png",
+          "title": "Exclusive Accessories & Battlefield Effects",
+          "text": "Crafting the Exclusive Accessories showcase and Battlefield Performance modules. The accessories panel presents close-up 3D renders of themed items — bracelets, ornaments and collectible displays — with real-time rotation and kill-count integration. The Battlefield Performance section covers weapon equip moments, dramatic entry animations, in-game special effects and glory-moment highlights, forming a complete visual reward loop that reinforces the premium value of each Ultimate Skin across every stage of gameplay.",
+          "layout": "vertical"
         },
         {
           "type": "masonry",
-          "title": "System Design Gallery",
-          "text": "A curated collection of system design deliverables showcasing UI components, layout patterns, design specifications and visual guidelines. Each piece demonstrates the systematic approach to building scalable and consistent design systems across multiple products and platforms.",
+          "title": "Ultimate Skin System Gallery",
+          "text": "A comprehensive gallery showcasing the complete Ultimate Skin system design across two thematic skin lines — the mystical 'Serpent Queen' with its dark purple arcane aesthetics, and the futuristic 'Endless Thunder' featuring sci-fi mech armor visuals. Each screenshot captures a distinct module of the system: character showcase, personality wheels, exclusive accessories, voice lines, battlefield entry animations, combat effects and glory moments, demonstrating the systematic approach to building a cohesive and immersive premium skin experience.",
           "images": [
             { "src": "/images/works/System Design/04.png", "size": "hero" },
             { "src": "/images/works/System Design/01.png", "size": "normal" },
