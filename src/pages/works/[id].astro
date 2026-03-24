@@ -827,14 +827,12 @@ const { work } = Astro.props;
   .masonry-normal {
     grid-column: span 1;
     grid-row: span 1;
-    aspect-ratio: 16 / 9;
   }
 
   /* 特色图片卡片：占2列×1行 */
   .masonry-featured {
     grid-column: span 2;
     grid-row: span 1;
-    aspect-ratio: 32 / 9;
   }
 
   /* 大图（hero）：占2列×2行，视觉最突出 */
@@ -861,8 +859,8 @@ const { work } = Astro.props;
 
   .masonry-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
     transition: transform 0.5s var(--ease-out);
   }
@@ -1216,7 +1214,6 @@ const { work } = Astro.props;
     }
     .masonry-featured {
       grid-column: span 2;
-      aspect-ratio: 16 / 9;
     }
     .masonry-normal {
       grid-column: span 1;
