@@ -818,24 +818,28 @@ const { work } = Astro.props;
   /* ===== 瀑布流图片网格（CSS Grid） ===== */
   .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
   }
 
-  /* 大卡片：占 3列 */
-  .masonry-lg {
-    grid-column: span 3;
-  }
-
-  /* 中卡片：占 2列 */
-  .masonry-md {
-    grid-column: span 2;
-  }
-
-  /* 小卡片：占 1列（默认） */
-  .masonry-sm {
+  /* 普通图片卡片：1列，固定宽高比，cover 填充 */
+  .masonry-normal {
     grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .masonry-normal img {
+    object-fit: cover;
+  }
+
+  /* 特色图片卡片：占满整行，保持原始宽高比，不裁切 */
+  .masonry-featured {
+    grid-column: 1 / -1;
+  }
+
+  .masonry-featured img {
+    object-fit: contain;
+    background: var(--bg-secondary, #141416);
   }
 
   .masonry-item {
@@ -857,7 +861,6 @@ const { work } = Astro.props;
   .masonry-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     display: block;
     transition: transform 0.5s var(--ease-out);
   }
@@ -1205,13 +1208,10 @@ const { work } = Astro.props;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem;
     }
-    .masonry-lg {
-      grid-column: span 2;
+    .masonry-featured {
+      grid-column: 1 / -1;
     }
-    .masonry-md {
-      grid-column: span 2;
-    }
-    .masonry-sm {
+    .masonry-normal {
       grid-column: span 1;
     }
     .masonry-item {
