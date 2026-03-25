@@ -239,11 +239,11 @@ const { work } = Astro.props;
         <h1 data-i18n-title={work?.title}>{work?.title}</h1>
         <div class="work-meta-row">
           <div class="meta-tag">
-            <span class="meta-label">Category</span>
+            <span class="meta-label" data-i18n="detail.categoryLabel">Category</span>
             <span class="meta-value" data-i18n-category={work?.category}>{work?.category}</span>
           </div>
           <div class="meta-tag">
-            <span class="meta-label">Year</span>
+            <span class="meta-label" data-i18n="detail.yearLabel">Year</span>
             <span class="meta-value">{work?.year}</span>
           </div>
         </div>
@@ -284,11 +284,11 @@ const { work } = Astro.props;
         <section class="work-section">
           <div class="section-label-block">
             <span class="label-tag">{String(idx + 2).padStart(2, '0')}</span>
-            <h2>{img.title}</h2>
+            <h2 data-i18n-img-title={`${work.id}:${idx}`}>{img.title}</h2>
           </div>
           <div class="content-vertical">
             <div class="vertical-text">
-              <p>{img.text}</p>
+              <p data-i18n-img-text={`${work.id}:${idx}`}>{img.text}</p>
             </div>
             {img.type === 'video' ? (
               <div class="vertical-video">
@@ -304,7 +304,7 @@ const { work } = Astro.props;
               </div>
             ) : img.type === 'dual-video' ? (
               <div class="dual-video-row">
-                {img.videos && img.videos.map((v: any) => (
+                {img.videos && img.videos.map((v: any, vIdx: number) => (
                   <div class="dual-video-item">
                     <div class="dual-video-wrap">
                       <video controls playsinline preload="metadata" poster={v.poster || ''}>
@@ -317,7 +317,7 @@ const { work } = Astro.props;
                         </div>
                       </div>
                     </div>
-                    {v.caption && <p class="dual-video-caption">{v.caption}</p>}
+                    {v.caption && <p class="dual-video-caption" data-i18n-img-caption={`${work.id}:${idx}:${vIdx}`}>{v.caption}</p>}
                   </div>
                 ))}
               </div>
@@ -348,7 +348,7 @@ const { work } = Astro.props;
           <div class="section-grid">
             <div class="section-label">
               <span class="label-tag">05</span>
-              <h2>Demo Video</h2>
+              <h2 data-i18n="detail.demoVideo">Demo Video</h2>
             </div>
             <div class="section-content">
               <div class="work-video">

@@ -103,6 +103,42 @@
       const count = el.getAttribute('data-i18n-projects-count');
       el.textContent = lang === 'zh' ? count + ' 个项目' : count + ' Projects';
     });
+
+    // 翻译详情页图文段落标题 (格式: "projectId:imageIndex")
+    document.querySelectorAll('[data-i18n-img-title]').forEach(el => {
+      const val = el.getAttribute('data-i18n-img-title');
+      if (!val) return;
+      const [projectId, imgIdx] = val.split(':');
+      const entry = i18nData.projectDescriptions && i18nData.projectDescriptions[projectId];
+      if (entry && entry.images && entry.images[imgIdx] && entry.images[imgIdx].title && entry.images[imgIdx].title[lang]) {
+        el.textContent = entry.images[imgIdx].title[lang];
+      }
+    });
+
+    // 翻译详情页图文段落描述 (格式: "projectId:imageIndex")
+    document.querySelectorAll('[data-i18n-img-text]').forEach(el => {
+      const val = el.getAttribute('data-i18n-img-text');
+      if (!val) return;
+      const [projectId, imgIdx] = val.split(':');
+      const entry = i18nData.projectDescriptions && i18nData.projectDescriptions[projectId];
+      if (entry && entry.images && entry.images[imgIdx] && entry.images[imgIdx].text && entry.images[imgIdx].text[lang]) {
+        el.textContent = entry.images[imgIdx].text[lang];
+      }
+    });
+
+    // 翻译详情页视频字幕 (格式: "projectId:imageIndex:captionIndex")
+    document.querySelectorAll('[data-i18n-img-caption]').forEach(el => {
+      const val = el.getAttribute('data-i18n-img-caption');
+      if (!val) return;
+      const parts = val.split(':');
+      const projectId = parts[0];
+      const imgIdx = parts[1];
+      const captionIdx = parts[2];
+      const entry = i18nData.projectDescriptions && i18nData.projectDescriptions[projectId];
+      if (entry && entry.images && entry.images[imgIdx] && entry.images[imgIdx].captions && entry.images[imgIdx].captions[captionIdx] && entry.images[imgIdx].captions[captionIdx][lang]) {
+        el.textContent = entry.images[imgIdx].captions[captionIdx][lang];
+      }
+    });
   }
 
   // 更新切换按钮状态
