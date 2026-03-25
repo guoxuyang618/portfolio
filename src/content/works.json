@@ -122,32 +122,6 @@
       ]
     },
     {
-      "id": "project-005",
-      "title": "Global Localization Design",
-      "category": "Globalization",
-      "year": "2026",
-      "cover": "/images/works/2024/project-005.jpg",
-      "description": "User experiences that transcend cultures. Familiar with overseas market user habits and cultural differences, I adapt interaction flows, information hierarchy and visual symbols for localization, ensuring product acceptance in global markets.",
-      "case": "Led the UI layout and interaction logic adjustments for the Southeast Asian version, passing local user usability testing.",
-      "images": [
-        {
-          "src": "/images/works/2024/project-005.jpg",
-          "title": "Design Approach",
-          "text": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction."
-        },
-        {
-          "src": "/images/works/2024/project-005.jpg",
-          "title": "Visual Design",
-          "text": "Detailed description of the visual design, color usage, and layout for this project. The color system was selected based on brand identity and target audience aesthetic preferences, ensuring consistency and professionalism in visual communication."
-        },
-        {
-          "src": "/images/works/2024/project-005.jpg",
-          "title": "Interaction Design",
-          "text": "Detailed description of the interaction design, user flows, and motion effects for this project. Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations."
-        }
-      ]
-    },
-    {
       "id": "project-006",
       "title": "Paid Character Role Showcase System",
       "category": "Paid Character Role Showcase System",
