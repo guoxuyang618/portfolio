@@ -21,24 +21,26 @@ import '../styles/global.css';
       <a href="/" class="logo">
         <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="logo-img" />
       </a>
-      <nav class="main-nav" id="mainNav">
-        <a href="/" class="nav-link" data-i18n="nav.home">Home</a>
-        <a href="/works" class="nav-link" data-i18n="nav.work">Work</a>
-        <a href="/about" class="nav-link active" data-i18n="nav.about">About</a>
-      </nav>
-      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
-        <img src="/images/works/home/translate.png" alt="Language" class="lang-icon" />
-        <span class="lang-label">EN</span>
-      </button>
-      <a href="#contact" class="nav-cta">
-        <span data-i18n="nav.contact">Contact Me</span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+      <div class="nav-right">
+        <nav class="main-nav" id="mainNav">
+          <a href="/" class="nav-link" data-i18n="nav.home">Home</a>
+          <a href="/works" class="nav-link" data-i18n="nav.work">Work</a>
+          <a href="/about" class="nav-link active" data-i18n="nav.about">About</a>
+        </nav>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+          <img src="/images/works/home/translate.png" alt="Language" class="lang-icon" />
+          <span class="lang-label">EN</span>
+        </button>
+        <a href="#contact" class="nav-cta">
+          <span data-i18n="nav.contact">Contact Me</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -245,6 +247,7 @@ import '../styles/global.css';
     gap: 0.6rem;
     text-decoration: none;
     color: var(--text-primary);
+    flex-shrink: 0;
   }
 
   .logo-img {
@@ -252,6 +255,12 @@ import '../styles/global.css';
     width: auto;
     display: block;
     object-fit: contain;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
   }
 
   .main-nav { display: flex; gap: 2.5rem; align-items: center; }
@@ -740,8 +749,9 @@ import '../styles/global.css';
     .site-header { padding: 1rem 1.5rem; }
     .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
     .logo-img { height: 40px; }
+    .nav-right { gap: 0.8rem; }
     .nav-cta { display: none; }
-    .lang-toggle { order: -1; margin-right: auto; }
+    .lang-toggle { order: 0; }
     .hamburger { display: flex; }
 
     .main-nav {
