@@ -22,12 +22,16 @@ import '../styles/global.css';
         <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="logo-img" />
       </a>
       <nav class="main-nav" id="mainNav">
-        <a href="/" class="nav-link active">Home</a>
-        <a href="/works" class="nav-link">Work</a>
-        <a href="/about" class="nav-link">About</a>
+        <a href="/" class="nav-link active" data-i18n="nav.home">Home</a>
+        <a href="/works" class="nav-link" data-i18n="nav.work">Work</a>
+        <a href="/about" class="nav-link" data-i18n="nav.about">About</a>
       </nav>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <img src="/images/works/home/translate.png" alt="Language" class="lang-icon" />
+        <span class="lang-label">EN</span>
+      </button>
       <a href="/about#contact" class="nav-cta">
-        <span>Contact Me</span>
+        <span data-i18n="nav.contact">Contact Me</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -160,26 +164,26 @@ import '../styles/global.css';
     </div>
     <div class="hero-gradient"></div>
     <div class="hero-content">
-      <h1 class="hero-title">GAME UX DESIGN</h1>
-      <p class="hero-subtitle">Crafting Immersive FPS Experiences & Cross-Platform Interaction Innovation</p>
-      <p class="hero-desc">A decade of dedication, from CrossFire to Counter-Strike: Future. I seamlessly blend core gameplay, narrative emotion and commercial value, using design to connect player instinct with the game world.</p>
+      <h1 class="hero-title" data-i18n="index.heroTitle">GAME UX DESIGN</h1>
+      <p class="hero-subtitle" data-i18n="index.heroSubtitle">Crafting Immersive FPS Experiences & Cross-Platform Interaction Innovation</p>
+      <p class="hero-desc" data-i18n="index.heroDesc">A decade of dedication, from CrossFire to Counter-Strike: Future. I seamlessly blend core gameplay, narrative emotion and commercial value, using design to connect player instinct with the game world.</p>
     </div>
 
     <!-- Stats - Bottom Left -->
     <div class="hero-stats">
       <div class="stat-item">
         <span class="stat-number">5+</span>
-        <span class="stat-label">Projects<br/>Delivered</span>
+        <span class="stat-label" data-i18n-html="index.statProjects">Projects<br/>Delivered</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <span class="stat-number">5</span>
-        <span class="stat-label">Design<br/>Categories</span>
+        <span class="stat-label" data-i18n-html="index.statCategories">Design<br/>Categories</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <span class="stat-number">2026</span>
-        <span class="stat-label">Latest<br/>Projects</span>
+        <span class="stat-label" data-i18n-html="index.statLatest">Latest<br/>Projects</span>
       </div>
     </div>
 
@@ -191,52 +195,52 @@ import '../styles/global.css';
   <!-- Design Abilities Section -->
   <section class="abilities-section">
     <div class="section-header">
-      <span class="section-tag">What I Do</span>
-      <h2 class="section-title">DESIGN ABILITIES</h2>
-      <p class="section-subtitle">With years of experience in game UX/UI design, I bring a comprehensive skill set spanning thematic storytelling, cross-platform adaptation, core gameplay interaction, monetization strategy, and systematic design thinking — delivering cohesive and player-centered experiences at every touchpoint.</p>
+      <span class="section-tag" data-i18n="index.abilitiesTag">What I Do</span>
+      <h2 class="section-title" data-i18n="index.abilitiesTitle">DESIGN ABILITIES</h2>
+      <p class="section-subtitle" data-i18n="index.abilitiesSubtitle">With years of experience in game UX/UI design, I bring a comprehensive skill set spanning thematic storytelling, cross-platform adaptation, core gameplay interaction, monetization strategy, and systematic design thinking — delivering cohesive and player-centered experiences at every touchpoint.</p>
     </div>
     <div class="abilities-grid">
       <div class="ability-card">
         <div class="ability-icon">
           <img src="/images/works/home/ability06.png" alt="Thematic Experience Design" loading="lazy" />
         </div>
-        <h3 class="ability-name">THEMATIC EXPERIENCE DESIGN</h3>
-        <p class="ability-desc">Making the interface an extension of the game world through stylized layouts and lore-aligned interactions.</p>
+        <h3 class="ability-name" data-i18n="index.ability1Name">THEMATIC EXPERIENCE DESIGN</h3>
+        <p class="ability-desc" data-i18n="index.ability1Desc">Making the interface an extension of the game world through stylized layouts and lore-aligned interactions.</p>
       </div>
       <div class="ability-card">
         <div class="ability-icon">
           <img src="/images/works/home/ability05.png" alt="Cross-Platform UX Design" loading="lazy" />
         </div>
-        <h3 class="ability-name">CROSS-PLATFORM UX DESIGN</h3>
-        <p class="ability-desc">Tailoring optimal interaction solutions across mobile, PC, console and XR devices.</p>
+        <h3 class="ability-name" data-i18n="index.ability2Name">CROSS-PLATFORM UX DESIGN</h3>
+        <p class="ability-desc" data-i18n="index.ability2Desc">Tailoring optimal interaction solutions across mobile, PC, console and XR devices.</p>
       </div>
       <div class="ability-card">
         <div class="ability-icon">
           <img src="/images/works/home/ability04.png" alt="Gameplay Interaction Design" loading="lazy" />
         </div>
-        <h3 class="ability-name">GAMEPLAY INTERACTION DESIGN</h3>
-        <p class="ability-desc">Precise, fluid and distraction-free interaction design for combat and core mechanics.</p>
+        <h3 class="ability-name" data-i18n="index.ability3Name">GAMEPLAY INTERACTION DESIGN</h3>
+        <p class="ability-desc" data-i18n="index.ability3Desc">Precise, fluid and distraction-free interaction design for combat and core mechanics.</p>
       </div>
       <div class="ability-card">
         <div class="ability-icon">
           <img src="/images/works/home/ability02.png" alt="Monetization UX Design" loading="lazy" />
         </div>
-        <h3 class="ability-name">MONETIZATION UX DESIGN</h3>
-        <p class="ability-desc">Seamlessly integrating monetization systems into the player journey with elegant design.</p>
+        <h3 class="ability-name" data-i18n="index.ability4Name">MONETIZATION UX DESIGN</h3>
+        <p class="ability-desc" data-i18n="index.ability4Desc">Seamlessly integrating monetization systems into the player journey with elegant design.</p>
       </div>
       <div class="ability-card">
         <div class="ability-icon">
           <img src="/images/works/home/ability01.png" alt="System Design" loading="lazy" />
         </div>
-        <h3 class="ability-name">SYSTEM DESIGN</h3>
-        <p class="ability-desc">Building scalable component libraries and design tokens for visual consistency across products.</p>
+        <h3 class="ability-name" data-i18n="index.ability5Name">SYSTEM DESIGN</h3>
+        <p class="ability-desc" data-i18n="index.ability5Desc">Building scalable component libraries and design tokens for visual consistency across products.</p>
       </div>
       <div class="ability-card">
         <div class="ability-icon">
           <img src="/images/works/home/ability06.png" alt="Creative Experience Solution" loading="lazy" />
         </div>
-        <h3 class="ability-name">CREATIVE EXPERIENCE SOLUTION</h3>
-        <p class="ability-desc">Crafting innovative and memorable player experiences through creative design thinking and storytelling.</p>
+        <h3 class="ability-name" data-i18n="index.ability6Name">CREATIVE EXPERIENCE SOLUTION</h3>
+        <p class="ability-desc" data-i18n="index.ability6Desc">Crafting innovative and memorable player experiences through creative design thinking and storytelling.</p>
       </div>
     </div>
   </section>
@@ -244,8 +248,8 @@ import '../styles/global.css';
   <!-- Featured Projects Section -->
   <section class="projects-section">
     <div class="section-header">
-      <span class="section-tag">Featured Work</span>
-      <h2 class="section-title">DESIGN CATEGORIES</h2>
+      <span class="section-tag" data-i18n="index.projectsTag">Featured Work</span>
+      <h2 class="section-title" data-i18n="index.projectsTitle">DESIGN CATEGORIES</h2>
     </div>
     
     <div class="projects-list">
@@ -264,10 +268,10 @@ import '../styles/global.css';
           </div>
           <div class="card-gradient"></div>
           <div class="card-content">
-            <h3 class="card-title">{category}</h3>
+            <h3 class="card-title" data-i18n-category={category}>{category}</h3>
           </div>
           <div class="card-meta">
-            <span class="card-category">{works.works.filter((w: any) => w.category === category).length} Projects</span>
+            <span class="card-category" data-i18n-projects-count={works.works.filter((w: any) => w.category === category).length}>{works.works.filter((w: any) => w.category === category).length} Projects</span>
             <span class="card-year">{work.year}</span>
           </div>
         </a>
@@ -276,7 +280,7 @@ import '../styles/global.css';
 
     <div class="section-cta">
       <a href="/works" class="btn-view-all">
-        <span>View All Projects</span>
+        <span data-i18n="index.viewAll">View All Projects</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -318,11 +322,11 @@ import '../styles/global.css';
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="cta-content">
-      <span class="cta-tag">Get in Touch</span>
-      <h2>Let's Create Something<br/>Amazing Together</h2>
-      <p>I'd love to hear about it and discuss how we can bring your vision to life.</p>
+      <span class="cta-tag" data-i18n="index.ctaTag">Get in Touch</span>
+      <h2 data-i18n-html="index.ctaTitle">Let's Create Something<br/>Amazing Together</h2>
+      <p data-i18n="index.ctaDesc">I'd love to hear about it and discuss how we can bring your vision to life.</p>
       <div class="cta-actions">
-        <a href="/works" class="btn-secondary">View Portfolio</a>
+        <a href="/works" class="btn-secondary" data-i18n="index.ctaBtn">View Portfolio</a>
       </div>
     </div>
   </section>
@@ -352,11 +356,12 @@ import '../styles/global.css';
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 {config.site.name}. All rights reserved.</p>
-        <p class="footer-credit">Designed with passion</p>
+        <p>&copy; 2026 {config.site.name}. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <p class="footer-credit" data-i18n="footer.credit">Designed with passion</p>
       </div>
     </div>
   </footer>
+  <script src="/js/i18n.js"></script>
 </body>
 </html>
 
@@ -441,6 +446,46 @@ import '../styles/global.css';
   .nav-link.active::after,
   .nav-link:hover::after {
     width: 100%;
+  }
+
+  /* ===== 语言切换按钮 ===== */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    font-family: inherit;
+  }
+
+  .lang-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(45, 212, 191, 0.05);
+  }
+
+  .lang-icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+  }
+
+  .lang-toggle:hover .lang-icon {
+    opacity: 1;
+  }
+
+  .lang-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 
   .nav-cta {
@@ -1401,6 +1446,11 @@ import '../styles/global.css';
 
     .nav-cta {
       display: none;
+    }
+
+    .lang-toggle {
+      order: -1;
+      margin-right: auto;
     }
 
     .hamburger {

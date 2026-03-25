@@ -22,12 +22,16 @@ import '../styles/global.css';
         <img src="/images/works/xuyang logo.png" alt="Xuyang Logo" class="logo-img" />
       </a>
       <nav class="main-nav" id="mainNav">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/works" class="nav-link">Work</a>
-        <a href="/about" class="nav-link active">About</a>
+        <a href="/" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="/works" class="nav-link" data-i18n="nav.work">Work</a>
+        <a href="/about" class="nav-link active" data-i18n="nav.about">About</a>
       </nav>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+        <img src="/images/works/home/translate.png" alt="Language" class="lang-icon" />
+        <span class="lang-label">EN</span>
+      </button>
       <a href="#contact" class="nav-cta">
-        <span>Contact Me</span>
+        <span data-i18n="nav.contact">Contact Me</span>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -70,8 +74,8 @@ import '../styles/global.css';
     <!-- Hero 区域 -->
     <section class="about-hero">
       <div class="hero-content">
-        <span class="hero-badge">About</span>
-        <h1>Design Philosophy</h1>
+        <span class="hero-badge" data-i18n="about.heroBadge">About</span>
+        <h1 data-i18n="about.heroTitle">Design Philosophy</h1>
         <p class="hero-desc">{config.site.description}</p>
       </div>
     </section>
@@ -81,11 +85,11 @@ import '../styles/global.css';
       <div class="about-inner">
         <div class="about-grid">
           <div class="about-label">
-            <span class="label-tag">Design Philosophy</span>
+            <span class="label-tag" data-i18n="about.philosophyTag">Design Philosophy</span>
           </div>
           <div class="about-content">
-            <p class="about-text-large">I am a seasoned game interaction designer with extensive hands-on experience, dedicated to pushing the boundaries of player experience. My career began with the iconic FPS franchise CrossFire, and I am currently defining the next-generation interaction standards for shooters in Counter-Strike: Future.</p>
-            <p class="about-text">I don't just design interfaces — I design "feelings." From the instant feedback of pulling a trigger to the emotional connection of a grand worldview, I excel at using UE5, C4D and AIGC technologies to transform abstract concepts into tangible interactive experiences. With a deep understanding of FPS at my core, I also draw inspiration from MOBA, Roguelike and card game genres, striving to find the perfect balance between business objectives and player experience.</p>
+            <p class="about-text-large" data-i18n="about.philosophyText1">I am a seasoned game interaction designer with extensive hands-on experience, dedicated to pushing the boundaries of player experience. My career began with the iconic FPS franchise CrossFire, and I am currently defining the next-generation interaction standards for shooters in Counter-Strike: Future.</p>
+            <p class="about-text" data-i18n="about.philosophyText2">I don't just design interfaces — I design "feelings." From the instant feedback of pulling a trigger to the emotional connection of a grand worldview, I excel at using UE5, C4D and AIGC technologies to transform abstract concepts into tangible interactive experiences. With a deep understanding of FPS at my core, I also draw inspiration from MOBA, Roguelike and card game genres, striving to find the perfect balance between business objectives and player experience.</p>
           </div>
         </div>
       </div>
@@ -96,19 +100,19 @@ import '../styles/global.css';
       <div class="highlights-inner">
         <div class="highlight-card">
           <span class="highlight-number">5+</span>
-          <span class="highlight-label">Projects<br/>Delivered</span>
+          <span class="highlight-label" data-i18n-html="about.statProjects">Projects<br/>Delivered</span>
         </div>
         <div class="highlight-card">
           <span class="highlight-number">5</span>
-          <span class="highlight-label">Design<br/>Categories</span>
+          <span class="highlight-label" data-i18n-html="about.statCategories">Design<br/>Categories</span>
         </div>
         <div class="highlight-card">
           <span class="highlight-number">100%</span>
-          <span class="highlight-label">Design<br/>Passion</span>
+          <span class="highlight-label" data-i18n-html="about.statPassion">Design<br/>Passion</span>
         </div>
         <div class="highlight-card">
           <span class="highlight-number">2026</span>
-          <span class="highlight-label">Latest<br/>Projects</span>
+          <span class="highlight-label" data-i18n-html="about.statLatest">Latest<br/>Projects</span>
         </div>
       </div>
     </section>
@@ -117,29 +121,29 @@ import '../styles/global.css';
     <section class="services-section">
       <div class="services-inner">
         <div class="services-header">
-          <span class="label-tag">What I Do</span>
-          <h2>My Skills</h2>
+          <span class="label-tag" data-i18n="about.skillsTag">What I Do</span>
+          <h2 data-i18n="about.skillsTitle">My Skills</h2>
         </div>
         <div class="services-grid">
           <div class="service-card">
             <div class="service-icon"><img src="/images/works/game.png" alt="Game Design" class="service-icon-img" /></div>
-            <h3>Game Design</h3>
-            <p>Full-cycle game design from concept to final product, including level design, game mechanics, and player experience optimization.</p>
+            <h3 data-i18n="about.skill1Title">Game Design</h3>
+            <p data-i18n="about.skill1Desc">Full-cycle game design from concept to final product, including level design, game mechanics, and player experience optimization.</p>
           </div>
           <div class="service-card">
             <div class="service-icon"><img src="/images/works/PC.png" alt="Web Design" class="service-icon-img" /></div>
-            <h3>Web Design</h3>
-            <p>Modern, responsive web design with focus on user experience, accessibility, and visual impact.</p>
+            <h3 data-i18n="about.skill2Title">Web Design</h3>
+            <p data-i18n="about.skill2Desc">Modern, responsive web design with focus on user experience, accessibility, and visual impact.</p>
           </div>
           <div class="service-card">
             <div class="service-icon"><img src="/images/works/MOBILE.png" alt="Mobile Design" class="service-icon-img" /></div>
-            <h3>Mobile Design</h3>
-            <p>Intuitive mobile app design optimized for touch interactions and seamless user flows.</p>
+            <h3 data-i18n="about.skill3Title">Mobile Design</h3>
+            <p data-i18n="about.skill3Desc">Intuitive mobile app design optimized for touch interactions and seamless user flows.</p>
           </div>
           <div class="service-card">
             <div class="service-icon"><img src="/images/works/DESIGN.png" alt="UI/UX Design" class="service-icon-img" /></div>
-            <h3>UI/UX Design</h3>
-            <p>User-centered interface design driven by research, wireframing, prototyping, and usability testing.</p>
+            <h3 data-i18n="about.skill4Title">UI/UX Design</h3>
+            <p data-i18n="about.skill4Desc">User-centered interface design driven by research, wireframing, prototyping, and usability testing.</p>
           </div>
         </div>
       </div>
@@ -150,28 +154,28 @@ import '../styles/global.css';
       <div class="contact-inner">
         <div class="contact-grid">
           <div class="contact-info">
-            <span class="label-tag">Contact Me</span>
-            <h2>Contact Me</h2>
-            <p>Want to learn more about me and my work? I'd love to hear from you.</p>
+            <span class="label-tag" data-i18n="about.contactTag">Contact Me</span>
+            <h2 data-i18n="about.contactTitle">Contact Me</h2>
+            <p data-i18n="about.contactDesc">Want to learn more about me and my work? I'd love to hear from you.</p>
           </div>
           <div class="contact-details">
             <div class="contact-text-items">
               <div class="contact-item">
-                <span class="contact-label">Email</span>
+                <span class="contact-label" data-i18n="about.contactEmail">Email</span>
                 <a href="mailto:{config.contact.email || '978973965@qq.com'}" class="contact-value">{config.contact.email || '978973965@qq.com'}</a>
               </div>
               <div class="contact-item">
-                <span class="contact-label">WeChat</span>
+                <span class="contact-label" data-i18n="about.contactWechat">WeChat</span>
                 <span class="contact-value">{config.contact.wechat || 'XY13538160713'}</span>
               </div>
               <div class="contact-item">
-                <span class="contact-label">Location</span>
-                <span class="contact-value">Shenzhen, Guangdong, China</span>
+                <span class="contact-label" data-i18n="about.contactLocation">Location</span>
+                <span class="contact-value" data-i18n="about.contactLocationValue">Shenzhen, Guangdong, China</span>
               </div>
             </div>
             <div class="contact-qrcode-wrap">
               <img src="/images/works/xuyang code.jpg" alt="WeChat QR Code" class="qrcode-img" />
-              <span class="qrcode-label">Scan to add WeChat</span>
+              <span class="qrcode-label" data-i18n="about.contactQrcode">Scan to add WeChat</span>
             </div>
           </div>
         </div>
@@ -191,18 +195,19 @@ import '../styles/global.css';
         </div>
         <div class="footer-nav">
           <div class="footer-col">
-            <h4>Navigation</h4>
-            <a href="/">Home</a>
-            <a href="/works">Work</a>
-            <a href="/about">About</a>
+            <h4 data-i18n="footer.navigation">Navigation</h4>
+            <a href="/" data-i18n="footer.home">Home</a>
+            <a href="/works" data-i18n="footer.work">Work</a>
+            <a href="/about" data-i18n="footer.about">About</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 {config.site.name}. All rights reserved.</p>
+        <p>&copy; 2026 {config.site.name}. <span data-i18n="footer.rights">All rights reserved.</span></p>
       </div>
     </div>
   </footer>
+  <script src="/js/i18n.js"></script>
 </body>
 </html>
 
@@ -277,6 +282,28 @@ import '../styles/global.css';
   }
 
   .nav-link.active::after, .nav-link:hover::after { width: 100%; }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    font-family: inherit;
+  }
+  .lang-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(45, 212, 191, 0.05);
+  }
+  .lang-icon { width: 18px; height: 18px; object-fit: contain; opacity: 0.85; transition: opacity 0.3s; }
+  .lang-toggle:hover .lang-icon { opacity: 1; }
+  .lang-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
 
   .nav-cta {
     display: flex;
@@ -714,6 +741,7 @@ import '../styles/global.css';
     .site-header.scrolled { padding-top: 0.7rem; padding-bottom: 0.7rem; }
     .logo-img { height: 40px; }
     .nav-cta { display: none; }
+    .lang-toggle { order: -1; margin-right: auto; }
     .hamburger { display: flex; }
 
     .main-nav {
