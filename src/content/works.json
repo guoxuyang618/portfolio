@@ -100,24 +100,34 @@
       "title": "Cross-Platform UX Design",
       "category": "Cross-Platform",
       "year": "2026",
-      "cover": "/images/works/2024/project-004.jpg",
+      "cover": "/images/works/cross-platform/cross platform bg.png",
       "description": "Experience consistency above all else. With interaction design experience across mobile, PC, console and XR devices, I tailor optimal interaction solutions based on each device's input characteristics and usage scenarios.",
       "case": "Participated in the interaction adaptation of CrossFire: Rainbow PC version, conducting deep optimization for keyboard and mouse controls.",
       "images": [
         {
-          "src": "/images/works/2024/project-004.jpg",
-          "title": "Design Approach",
-          "text": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction."
+          "src": "/images/works/cross-platform/Mobile hud plan.png",
+          "title": "Mobile HUD Layout Planning",
+          "text": "Comprehensive HUD zone planning for the mobile version of CrossFire, mapping out 19 distinct functional areas across the screen. Each zone is carefully sized and positioned to maximize usability on touch devices — from the left operation area and task bar to the center information zone, weapon info panel and chat area. This systematic layout ensures that critical gameplay information remains accessible without obstructing the player's field of view during intense combat."
         },
         {
-          "src": "/images/works/2024/project-004.jpg",
-          "title": "Visual Design",
-          "text": "Detailed description of the visual design, color usage, and layout for this project. The color system was selected based on brand identity and target audience aesthetic preferences, ensuring consistency and professionalism in visual communication."
+          "src": "/images/works/cross-platform/PC hud plan.png",
+          "title": "PC HUD Layout Planning",
+          "text": "The PC-adapted HUD layout for CrossFire's PvE mode, redesigned to leverage the larger screen real estate and keyboard-mouse input paradigm. The zone planning maintains the same functional areas as mobile but redistributes them for desktop ergonomics — team info repositioned to the upper right, chat log expanded on the left, and the center information area scaled proportionally. This ensures a consistent cross-platform experience while respecting each platform's unique interaction patterns."
         },
         {
-          "src": "/images/works/2024/project-004.jpg",
-          "title": "Interaction Design",
-          "text": "Detailed description of the interaction design, user flows, and motion effects for this project. Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations."
+          "src": "/images/works/cross-platform/widget transplant.png",
+          "title": "Widget Transplant Mapping",
+          "text": "A detailed control widget mapping table documenting the systematic transplant of mobile UI components to PC. Organized into three categories — 3C Widget (basic controls), Weapon Control, and Skill Control — each row traces a specific widget from its mobile touch representation through the functional migration logic to the final PC keyboard/mouse implementation. This mapping ensures no interaction is lost during cross-platform adaptation while optimizing each control for its target input device."
+        },
+        {
+          "src": "/images/works/cross-platform/hunt PC HUD.png",
+          "title": "Hunt Mode PC HUD — In-Game",
+          "text": "A live in-game screenshot of the PC-adapted HUD in CrossFire's Hunt mode, set in a dark European street environment. The HUD showcases the fully implemented cross-platform design — compass navigation bar at the top, boss health bar with name display, team roster on the upper right, chat log on the lower left, and the weapon/ammo panel on the lower right. Every element has been optimized for PC screen resolution and mouse-driven interaction while maintaining visual consistency with the mobile version."
+        },
+        {
+          "src": "/images/works/cross-platform/world PC HUD.png",
+          "title": "World Mode PC HUD — In-Game",
+          "text": "An in-game capture of the PC HUD in CrossFire's open-world mode, featuring an outdoor environment with zombie encounters. This screenshot demonstrates the HUD's adaptability across different game modes — the same core layout framework accommodates mode-specific elements like distance markers, kill rewards ($13,000), and expanded team info panels. The consistent cross-platform design language ensures players can seamlessly transition between mobile and PC without relearning the interface."
         }
       ]
     },
