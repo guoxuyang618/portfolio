@@ -171,12 +171,9 @@
       });
     }
 
-    // 如果存储的语言是中文，立即翻译
-    if (currentLang === 'zh') {
-      translatePage('zh');
-    } else {
-      updateToggleButton('en');
-    }
+    // 无论当前语言是中文还是英文，都执行翻译
+    // 因为 SSR 输出中可能包含中英文混杂的内容（如 works.json 中的中文 category/title）
+    translatePage(currentLang);
   }
 
   // DOM 加载后初始化

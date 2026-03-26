@@ -61,7 +61,7 @@
     {
       "id": "project-002",
       "title": "Gameplay Interaction Design",
-      "category": "核心玩法交互设计",
+      "category": "Gameplay Interaction Design",
       "year": "2026",
       "cover": "/works/02-core-gameplay/_category-cover.webp",
       "description": "Bringing intuitive interaction to hardcore gameplay. I focus on operation design for combat, strategy and other core mechanics in CrossFire Mobile's PvE mode — pursuing precise, fluid and distraction-free battlefield experiences that keep players fully immersed in high-intensity combat scenarios.",
@@ -219,7 +219,7 @@
     },
     {
       "id": "project-007",
-      "title": "猎场竞速卡牌选择",
+      "title": "Hunting Ground Racing Card Selection",
       "category": "Creative Experience Solution",
       "year": "2026",
       "cover": "/works/06-creative-solution/_category-cover.webp",

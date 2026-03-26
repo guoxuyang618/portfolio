@@ -98,19 +98,19 @@
   },
   "categories": {
     "Thematic Experience Design": { "en": "Thematic Experience Design", "zh": "主题体验设计" },
-    "核心玩法交互设计": { "en": "Gameplay Interaction Design", "zh": "核心玩法交互设计" },
-    "商业化体验设计": { "en": "Monetization UX Design", "zh": "商业化体验设计" },
-    "跨平台交互设计": { "en": "Cross-Platform UX Design", "zh": "跨平台交互设计" },
-    "系统设计": { "en": "System Design", "zh": "系统设计" },
+    "Gameplay Interaction Design": { "en": "Gameplay Interaction Design", "zh": "核心玩法交互设计" },
+    "Monetization UX Design": { "en": "Monetization UX Design", "zh": "商业化体验设计" },
+    "Cross-Platform UX Design": { "en": "Cross-Platform UX Design", "zh": "跨平台交互设计" },
+    "System Design": { "en": "System Design", "zh": "系统设计" },
     "Creative Experience Solution": { "en": "Creative Experience Solution", "zh": "创意体验方案" }
   },
   "projectTitles": {
     "Talent System Packaging Design": { "en": "Talent System Packaging Design", "zh": "天赋系统包装设计" },
     "Gameplay Interaction Design": { "en": "Gameplay Interaction Design", "zh": "核心玩法交互设计" },
-    "春节储蓄罐活动": { "en": "Spring Festival Piggybank Event", "zh": "春节储蓄罐活动" },
-    "双端战斗HUD设计": { "en": "Dual-Platform Battle HUD Design", "zh": "双端战斗HUD设计" },
+    "Spring Festival Piggybank Event": { "en": "Spring Festival Piggybank Event", "zh": "春节储蓄罐活动" },
+    "Dual-Platform Battle HUD Design": { "en": "Dual-Platform Battle HUD Design", "zh": "双端战斗HUD设计" },
     "Paid Character Role Showcase System": { "en": "Paid Character Role Showcase System", "zh": "付费角色展示系统" },
-    "猎场竞速卡牌选择": { "en": "Hunting Ground Racing Card Selection", "zh": "猎场竞速卡牌选择" }
+    "Hunting Ground Racing Card Selection": { "en": "Hunting Ground Racing Card Selection", "zh": "猎场竞速卡牌选择" }
   },
   "projectDescriptions": {
     "project-001": {
