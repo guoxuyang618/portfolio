@@ -321,6 +321,25 @@ const { work } = Astro.props;
                   </div>
                 ))}
               </div>
+            ) : img.type === 'multi-video' ? (
+              <div class="multi-video-column">
+                {img.videos && img.videos.map((v: any, vIdx: number) => (
+                  <div class="multi-video-item">
+                    <div class="vertical-video">
+                      <video controls playsinline preload="metadata" poster={v.poster || ''}>
+                        <source src={v.src} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                      <div class="video-play-overlay">
+                        <div class="play-btn">
+                          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                    {v.caption && <p class="multi-video-caption" data-i18n-img-caption={`${work.id}:${idx}:${vIdx}`}>{v.caption}</p>}
+                  </div>
+                ))}
+              </div>
             ) : img.type === 'masonry' ? (
               <div class="masonry-grid">
                 {img.images && img.images.map((mItem: any, mIdx: number) => {
@@ -938,6 +957,27 @@ const { work } = Astro.props;
   }
 
   .dual-video-caption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== 多视频纵向排列 ===== */
+  .multi-video-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .multi-video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .multi-video-caption {
     margin-top: 0.75rem;
     font-size: 0.85rem;
     color: var(--text-tertiary);

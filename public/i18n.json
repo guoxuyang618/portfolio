@@ -111,16 +111,33 @@
       "case": { "en": "Designed mech-core charging and transformation animations with a strong mechanical feel for 'Counter-Strike: Future'.", "zh": "为《逆战：未来》设计了具有强烈机械感的机甲核心充能和变形动画。" },
       "images": [
         {
-          "title": { "en": "Design Approach", "zh": "设计方法" },
-          "text": { "en": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction.", "zh": "该项目的设计方法、用户研究和交互流程的详细描述。展示设计背后的思维过程和解决方案。通过深入的用户研究和竞品分析，我们确定了核心设计方向。" }
+          "title": { "en": "Season Logo", "zh": "赛季Logo" },
+          "text": { "en": "Season logo design for the talent system packaging project.", "zh": "天赋系统包装设计项目的赛季Logo设计。" }
         },
         {
-          "title": { "en": "Visual Design", "zh": "视觉设计" },
-          "text": { "en": "Detailed description of the visual design, color usage, and layout for this project. The color system was selected based on brand identity and target audience aesthetic preferences, ensuring consistency and professionalism in visual communication.", "zh": "该项目的视觉设计、色彩运用和布局的详细描述。色彩系统基于品牌定位和目标用户的审美偏好进行选择，确保视觉传达的一致性和专业性。" }
+          "title": { "en": "Graphic Extraction", "zh": "图形提取" },
+          "text": { "en": "Graphic extraction and visual element breakdown for the talent system design.", "zh": "天赋系统设计的图形提取与视觉元素拆解。" }
         },
         {
-          "title": { "en": "Interaction Design", "zh": "交互设计" },
-          "text": { "en": "Detailed description of the interaction design, user flows, and motion effects for this project. Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations.", "zh": "该项目的交互设计、用户流程和动效的详细描述。每一个微交互都经过精心打磨，确保用户操作流畅且直觉化。" }
+          "title": { "en": "Decorative Graffiti", "zh": "装饰涂鸦" },
+          "text": { "en": "Decorative graffiti elements designed for the talent system visual identity.", "zh": "为天赋系统视觉标识设计的装饰涂鸦元素。" }
+        },
+        {
+          "title": { "en": "Borderlands Art Moodboard", "zh": "无主之地美术情绪板" },
+          "text": { "en": "Art moodboard inspired by Borderlands visual style, establishing the aesthetic direction for the talent system packaging design.", "zh": "以无主之地视觉风格为灵感的美术情绪板，为天赋系统包装设计建立美学方向。" }
+        },
+        {
+          "title": { "en": "Interaction Concept Packaging Proposal", "zh": "交互概念包装提案" },
+          "text": { "en": "Three talent system packaging proposals exploring different interaction concepts and visual directions for the talent system design.", "zh": "三套天赋系统包装提案，探索天赋系统设计的不同交互概念和视觉方向。" },
+          "captions": [
+            { "en": "Plan 1", "zh": "方案1" },
+            { "en": "Plan 2", "zh": "方案2" },
+            { "en": "Plan 3", "zh": "方案3" }
+          ]
+        },
+        {
+          "title": { "en": "Dynamic Demo Showcase", "zh": "动态demo展示" },
+          "text": { "en": "S3 Season talent chain animation demo — showcasing the 324-chain dynamic effect for the talent system.", "zh": "S3赛季天赋324串联动效演示——展示天赋系统的串联动态效果。" }
         }
       ]
     },
