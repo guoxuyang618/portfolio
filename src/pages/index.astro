@@ -3,13 +3,14 @@ import config from '../content/config.json';
 import works from '../content/works.json';
 import '../styles/global.css';
 
-const categoryTaglines: Record<string, string> = {
-  'Thematic Experience Design': 'Immersive Visual Storytelling',
-  '核心玩法交互设计': 'Precise Combat Interactions',
-  '商业化体验设计': 'Elegant Monetization Design',
-  '跨平台交互设计': 'Seamless Multi-Device UX',
-  '系统设计': 'Scalable Design Systems',
-  'Creative Experience Solution': 'Innovative Player Experiences',
+// categoryTaglines: 默认文本(英文) + 对应的 i18n key
+const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
+  'Thematic Experience Design': { text: 'Immersive Visual Storytelling', i18nKey: 'index.tagline_thematic' },
+  '核心玩法交互设计': { text: 'Precise Combat Interactions', i18nKey: 'index.tagline_gameplay' },
+  '商业化体验设计': { text: 'Elegant Monetization Design', i18nKey: 'index.tagline_monetization' },
+  '跨平台交互设计': { text: 'Seamless Multi-Device UX', i18nKey: 'index.tagline_crossplatform' },
+  '系统设计': { text: 'Scalable Design Systems', i18nKey: 'index.tagline_system' },
+  'Creative Experience Solution': { text: 'Innovative Player Experiences', i18nKey: 'index.tagline_creative' },
 };
 ---
 
@@ -280,7 +281,7 @@ const categoryTaglines: Record<string, string> = {
           <div class="card-gradient"></div>
           <div class="card-content">
             <h3 class="card-title" data-i18n-category={category}>{category}</h3>
-            <p class="card-tagline">{categoryTaglines[category] || ''}</p>
+            <p class="card-tagline" data-i18n={categoryTaglines[category]?.i18nKey || ''}>{categoryTaglines[category]?.text || ''}</p>
           </div>
           <div class="card-meta">
             <span class="card-category" data-i18n-projects-count={works.works.filter((w: any) => w.category === category).length}>{works.works.filter((w: any) => w.category === category).length} Projects</span>
@@ -351,19 +352,19 @@ const categoryTaglines: Record<string, string> = {
           <div class="footer-logo">
             <img src="/common/logo.webp" alt="Xuyang Logo" class="footer-logo-img" />
           </div>
-          <p>{config.site.description}</p>
+          <p data-i18n="footer.siteDesc">{config.site.description}</p>
         </div>
         <div class="footer-nav">
           <div class="footer-col">
-            <h4>Navigation</h4>
-            <a href="/">Home</a>
-            <a href="/works">Work</a>
-            <a href="/about">About</a>
+            <h4 data-i18n="footer.navigation">Navigation</h4>
+            <a href="/" data-i18n="footer.home">Home</a>
+            <a href="/works" data-i18n="footer.work">Work</a>
+            <a href="/about" data-i18n="footer.about">About</a>
           </div>
           <div class="footer-col">
-            <h4>Contact</h4>
-            <a href="/about#contact">Get in Touch</a>
-            <a href="mailto:{config.contact.email || '#'}">Email Me</a>
+            <h4 data-i18n="footer.contact">Contact</h4>
+            <a href="/about#contact" data-i18n="footer.getInTouch">Get in Touch</a>
+            <a href="mailto:{config.contact.email || '#'}" data-i18n="footer.emailMe">Email Me</a>
           </div>
         </div>
       </div>

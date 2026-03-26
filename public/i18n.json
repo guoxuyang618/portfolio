@@ -33,7 +33,13 @@
     "ctaTag": { "en": "Get in Touch", "zh": "联系我" },
     "ctaTitle": { "en": "Let's Create Something<br/>Amazing Together", "zh": "让我们一起<br/>创造精彩" },
     "ctaDesc": { "en": "I'd love to hear about it and discuss how we can bring your vision to life.", "zh": "期待与您交流，探讨如何将您的愿景变为现实。" },
-    "ctaBtn": { "en": "View Portfolio", "zh": "查看作品集" }
+    "ctaBtn": { "en": "View Portfolio", "zh": "查看作品集" },
+    "tagline_thematic": { "en": "Immersive Visual Storytelling", "zh": "沉浸式视觉叙事" },
+    "tagline_gameplay": { "en": "Precise Combat Interactions", "zh": "精准战斗交互" },
+    "tagline_monetization": { "en": "Elegant Monetization Design", "zh": "优雅商业化设计" },
+    "tagline_crossplatform": { "en": "Seamless Multi-Device UX", "zh": "无缝多端体验" },
+    "tagline_system": { "en": "Scalable Design Systems", "zh": "可扩展设计系统" },
+    "tagline_creative": { "en": "Innovative Player Experiences", "zh": "创新玩家体验" }
   },
   "works": {
     "heroBadge": { "en": "All Projects", "zh": "全部项目" },
@@ -87,23 +93,24 @@
     "getInTouch": { "en": "Get in Touch", "zh": "联系我" },
     "emailMe": { "en": "Email Me", "zh": "发送邮件" },
     "rights": { "en": "All rights reserved.", "zh": "版权所有。" },
-    "credit": { "en": "Designed with passion", "zh": "用心设计" }
+    "credit": { "en": "Designed with passion", "zh": "用心设计" },
+    "siteDesc": { "en": "My Understanding about Game Design", "zh": "我对游戏设计的理解" }
   },
   "categories": {
     "Thematic Experience Design": { "en": "Thematic Experience Design", "zh": "主题体验设计" },
-    "Core Gameplay": { "en": "Core Gameplay", "zh": "核心玩法" },
-    "Monetization": { "en": "Monetization", "zh": "商业化" },
-    "Cross-Platform": { "en": "Cross-Platform", "zh": "跨平台" },
-    "System Design": { "en": "System Design", "zh": "系统设计" },
+    "核心玩法交互设计": { "en": "Gameplay Interaction Design", "zh": "核心玩法交互设计" },
+    "商业化体验设计": { "en": "Monetization UX Design", "zh": "商业化体验设计" },
+    "跨平台交互设计": { "en": "Cross-Platform UX Design", "zh": "跨平台交互设计" },
+    "系统设计": { "en": "System Design", "zh": "系统设计" },
     "Creative Experience Solution": { "en": "Creative Experience Solution", "zh": "创意体验方案" }
   },
   "projectTitles": {
     "Talent System Packaging Design": { "en": "Talent System Packaging Design", "zh": "天赋系统包装设计" },
     "Gameplay Interaction Design": { "en": "Gameplay Interaction Design", "zh": "核心玩法交互设计" },
-    "Monetization UX Design": { "en": "Monetization UX Design", "zh": "商业化体验设计" },
-    "Cross-Platform UX Design": { "en": "Cross-Platform UX Design", "zh": "跨平台交互设计" },
+    "春节储蓄罐活动": { "en": "Spring Festival Piggybank Event", "zh": "春节储蓄罐活动" },
+    "双端战斗HUD设计": { "en": "Dual-Platform Battle HUD Design", "zh": "双端战斗HUD设计" },
     "Paid Character Role Showcase System": { "en": "Paid Character Role Showcase System", "zh": "付费角色展示系统" },
-    "Creative Experience Solution": { "en": "Creative Experience Solution", "zh": "创意体验方案" }
+    "猎场竞速卡牌选择": { "en": "Hunting Ground Racing Card Selection", "zh": "猎场竞速卡牌选择" }
   },
   "projectDescriptions": {
     "project-001": {
