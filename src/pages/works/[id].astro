@@ -279,8 +279,8 @@ const { work } = Astro.props;
               </div>
             </div>
           ) : (
-            <div class="vertical-image">
-              <img src={encodeURI(work?.overviewImage || work?.cover)} alt="Project Overview" />
+            <div class="vertical-image lightbox-trigger" data-index="overview">
+              <img src={encodeURI(work?.overviewImage || work?.cover)} alt={work?.title || 'Project Overview'} />
             </div>
           )}
         </div>
