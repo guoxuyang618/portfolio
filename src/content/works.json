@@ -61,7 +61,7 @@
     {
       "id": "project-002",
       "title": "Gameplay Interaction Design",
-      "category": "Core Gameplay",
+      "category": "核心玩法体验",
       "year": "2026",
       "cover": "/images/works/core gameplay/gameplay.png",
       "description": "Bringing intuitive interaction to hardcore gameplay. I focus on operation design for combat, strategy and other core mechanics in CrossFire Mobile's PvE mode — pursuing precise, fluid and distraction-free battlefield experiences that keep players fully immersed in high-intensity combat scenarios.",
@@ -86,8 +86,8 @@
     },
     {
       "id": "project-003",
-      "title": "Monetization UX Design",
-      "category": "Monetization",
+      "title": "春节储蓄罐活动",
+      "category": "商业化设计",
       "year": "2026",
       "cover": "/images/works/monetization/商业化.png",
       "description": "Achieving commercial value with elegance. I seamlessly integrate monetization systems into the player journey, simplifying payment paths, enhancing visual presentation and guiding flow to create a win-win for users and business.",
@@ -129,8 +129,8 @@
     },
     {
       "id": "project-004",
-      "title": "Cross-Platform UX Design",
-      "category": "Cross-Platform",
+      "title": "双端战斗HUD设计",
+      "category": "跨平台交互设计",
       "year": "2026",
       "cover": "/images/works/cross-platform/cross platform bg.png",
       "description": "Experience consistency above all else. With interaction design experience across mobile, PC, console and XR devices, I tailor optimal interaction solutions based on each device's input characteristics and usage scenarios.",
@@ -166,7 +166,7 @@
     {
       "id": "project-006",
       "title": "Paid Character Role Showcase System",
-      "category": "System Design",
+      "category": "基础系统设计",
       "year": "2026",
       "cover": "/images/works/System Design/04.png",
       "overviewVideo": "/images/works/System Design/hero recording.webm",
@@ -220,7 +220,7 @@
     },
     {
       "id": "project-007",
-      "title": "Creative Experience Solution",
+      "title": "猎场竞速卡牌选择",
       "category": "Creative Experience Solution",
       "year": "2026",
       "cover": "/images/works/creative experience solution/card bg.png",
