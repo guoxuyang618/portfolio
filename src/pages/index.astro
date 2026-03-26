@@ -282,6 +282,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
           <div class="card-content">
             <h3 class="card-title" data-i18n-category={category}>{category}</h3>
             <p class="card-tagline" data-i18n={categoryTaglines[category]?.i18nKey || ''}>{categoryTaglines[category]?.text || ''}</p>
+            <p class="card-desc" data-i18n-desc={work.id}>{work.description}</p>
           </div>
           <div class="card-meta">
             <span class="card-category" data-i18n-projects-count={works.works.filter((w: any) => w.category === category).length}>{works.works.filter((w: any) => w.category === category).length} Projects</span>

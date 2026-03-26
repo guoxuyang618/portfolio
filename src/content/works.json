@@ -86,8 +86,8 @@
     },
     {
       "id": "project-003",
-      "title": "春节储蓄罐活动",
-      "category": "商业化体验设计",
+      "title": "Spring Festival Piggybank Event",
+      "category": "Monetization UX Design",
       "year": "2026",
       "cover": "/works/03-monetization/_category-cover.webp",
       "description": "Achieving commercial value with elegance. I seamlessly integrate monetization systems into the player journey, simplifying payment paths, enhancing visual presentation and guiding flow to create a win-win for users and business.",
@@ -129,8 +129,8 @@
     },
     {
       "id": "project-004",
-      "title": "双端战斗HUD设计",
-      "category": "跨平台交互设计",
+      "title": "Dual-Platform Battle HUD Design",
+      "category": "Cross-Platform UX Design",
       "year": "2026",
       "cover": "/works/04-cross-platform/_category-cover.webp",
       "description": "Experience consistency above all else. With interaction design experience across mobile, PC, console and XR devices, I tailor optimal interaction solutions based on each device's input characteristics and usage scenarios.",
@@ -166,7 +166,7 @@
     {
       "id": "project-006",
       "title": "Paid Character Role Showcase System",
-      "category": "系统设计",
+      "category": "System Design",
       "year": "2026",
       "cover": "/works/05-system-design/_category-cover.webp",
       "overviewVideo": "/works/05-system-design/character-showcase/_overview.webm",
