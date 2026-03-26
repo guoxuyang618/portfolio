@@ -103,7 +103,7 @@ import '../styles/global.css';
         {works.works.map((work: any) => (
           <a href={`/works/${work.id}`} class="work-card" data-category={work.category}>
             <div class="work-card-image">
-              <img src={work.cover} alt={work.title} loading="lazy" />
+              <img src={work.cardCover || work.cover} alt={work.title} loading="lazy" />
               <div class="work-card-overlay">
                 <div class="overlay-content">
                   <span class="overlay-cta" data-i18n="works.viewProject">

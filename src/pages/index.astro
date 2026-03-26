@@ -266,7 +266,7 @@ import '../styles/global.css';
       })().map(([category, work]: [string, any]) => (
         <a href={`/works?category=${encodeURIComponent(category)}`} class="project-card">
           <div class="card-bg">
-            <img src={work.cover} alt={category} loading="lazy">
+            <img src={work.cardCover || work.cover} alt={category} loading="lazy">
           </div>
           <div class="card-gradient"></div>
           <div class="card-content">

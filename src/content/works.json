@@ -5,35 +5,36 @@
       "title": "Talent System Packaging Design",
       "category": "Thematic Experience Design",
       "year": "2026",
+      "cardCover": "/images/works/thematic design/主题.png",
       "cover": "/images/works/thematic design/天赋系统/无主背景大图.png",
       "overviewImage": "/images/works/thematic design/天赋系统/联动背景图.png",
-      "description": "Making the interface an extension of the game world. I specialize in weaving worldview narratives into interaction details, creating a strong sense of immersion through stylized layouts, lore-aligned motion effects and sound design.",
-      "case": "Designed mech-core charging and transformation animations with a strong mechanical feel for 'Counter-Strike: Future'.",
+      "description": "S3 season talent system packaging design with Borderlands IP collaboration. Built a complete visual identity from logo design, graphic language extraction, decorative style to art direction, delivering three interaction packaging proposals and dynamic chain effects.",
+      "case": "Led the full-cycle thematic packaging design for the S3 season talent system, establishing the Borderlands-inspired visual language and delivering multi-scheme interaction proposals with dynamic effect demos.",
       "images": [
         {
           "src": "/images/works/thematic design/天赋系统/赛季logo.png",
           "title": "Season Logo",
-          "text": "Season logo design for the talent system packaging project."
+          "text": "The S3 season logo design anchored in Borderlands' iconic cel-shaded style — bold outlines, high-contrast colors and hand-drawn textures form the core visual identity for the talent system's thematic packaging."
         },
         {
           "src": "/images/works/thematic design/天赋系统/图形提取.png",
           "title": "Graphic Extraction",
-          "text": "Graphic extraction and visual element breakdown for the talent system design."
+          "text": "Systematic extraction of Borderlands' signature graphic elements — thick outlines, cross-hatching patterns, ink splatter textures and comic-style speed lines — deconstructed into modular visual assets for consistent application across the talent system UI."
         },
         {
           "src": "/images/works/thematic design/天赋系统/装饰涂鸦.png",
           "title": "Decorative Graffiti",
-          "text": "Decorative graffiti elements designed for the talent system visual identity."
+          "text": "A collection of hand-drawn graffiti-style decorative elements inspired by Borderlands' wasteland punk aesthetic — spray-paint tags, doodle icons and rough-edge embellishments that inject personality and IP flavor into the talent system's background layers and transition screens."
         },
         {
           "src": "/images/works/thematic design/天赋系统/无主之地美术情绪板.png",
           "title": "Borderlands Art Moodboard",
-          "text": "Art moodboard inspired by Borderlands visual style, establishing the aesthetic direction for the talent system packaging design."
+          "text": "A comprehensive art moodboard curating reference images from the Borderlands franchise — key art, environment concepts, character designs, UI screens and merchandise — establishing the tonal baseline and color palette for the talent system's visual direction."
         },
         {
           "type": "multi-video",
           "title": "Interaction Concept Packaging Proposal",
-          "text": "Three talent system packaging proposals exploring different interaction concepts and visual directions for the talent system design.",
+          "text": "Three distinct interaction packaging proposals for the S3 talent system — each exploring a different layout structure, animation language and visual hierarchy while staying true to the Borderlands collaboration aesthetic. From subtle cel-shaded transitions to explosive comic-panel reveals, these proposals demonstrate the breadth of creative exploration before final direction selection.",
           "videos": [
             {
               "src": "/images/works/thematic design/天赋系统/天赋包装方案1.mp4",
@@ -53,7 +54,7 @@
           "type": "video",
           "src": "/images/works/thematic design/天赋系统/S3赛季天赋324串联动效.mp4",
           "title": "Dynamic Demo Showcase",
-          "text": "S3 Season talent chain animation demo — showcasing the 324-chain dynamic effect for the talent system."
+          "text": "The final S3 talent chain animation showcasing the 3-2-4 sequential unlock effect — each talent node ignites in Borderlands' signature cel-shaded style with ink-splash particles, comic speed lines and energy ripples cascading through the talent tree, delivering a visceral sense of power progression."
         }
       ]
     },

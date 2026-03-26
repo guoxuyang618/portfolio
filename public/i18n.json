@@ -107,28 +107,28 @@
   },
   "projectDescriptions": {
     "project-001": {
-      "description": { "en": "Making the interface an extension of the game world. I specialize in weaving worldview narratives into interaction details, creating a strong sense of immersion through stylized layouts, lore-aligned motion effects and sound design.", "zh": "让界面成为游戏世界的延伸。我擅长将世界观叙事融入交互细节，通过风格化布局、世界观契合的动效和声音设计营造强烈的沉浸感。" },
-      "case": { "en": "Designed mech-core charging and transformation animations with a strong mechanical feel for 'Counter-Strike: Future'.", "zh": "为《逆战：未来》设计了具有强烈机械感的机甲核心充能和变形动画。" },
+      "description": { "en": "S3 season talent system packaging design with Borderlands IP collaboration. Built a complete visual identity from logo design, graphic language extraction, decorative style to art direction, delivering three interaction packaging proposals and dynamic chain effects.", "zh": "S3赛季天赋系统包装设计，与无主之地IP联动。从Logo设计、图形语言提取、装饰风格到美术方向，构建完整视觉体系，交付三套交互包装提案和动态串联效果。" },
+      "case": { "en": "Led the full-cycle thematic packaging design for the S3 season talent system, establishing the Borderlands-inspired visual language and delivering multi-scheme interaction proposals with dynamic effect demos.", "zh": "主导S3赛季天赋系统的全流程主题包装设计，建立以无主之地为灵感的视觉语言，交付多方案交互提案和动态效果Demo。" },
       "images": [
         {
           "title": { "en": "Season Logo", "zh": "赛季Logo" },
-          "text": { "en": "Season logo design for the talent system packaging project.", "zh": "天赋系统包装设计项目的赛季Logo设计。" }
+          "text": { "en": "The S3 season logo design anchored in Borderlands' iconic cel-shaded style — bold outlines, high-contrast colors and hand-drawn textures form the core visual identity for the talent system's thematic packaging.", "zh": "以无主之地标志性赛璐璐风格为锚点的S3赛季Logo设计——粗黑描边、高对比色彩和手绘质感，构成天赋系统主题包装的核心视觉标识。" }
         },
         {
           "title": { "en": "Graphic Extraction", "zh": "图形提取" },
-          "text": { "en": "Graphic extraction and visual element breakdown for the talent system design.", "zh": "天赋系统设计的图形提取与视觉元素拆解。" }
+          "text": { "en": "Systematic extraction of Borderlands' signature graphic elements — thick outlines, cross-hatching patterns, ink splatter textures and comic-style speed lines — deconstructed into modular visual assets for consistent application across the talent system UI.", "zh": "系统性提取无主之地标志性图形元素——粗描边、交叉阴影线、墨水飞溅纹理和漫画速度线——解构为模块化视觉资产，确保天赋系统UI中的一致应用。" }
         },
         {
           "title": { "en": "Decorative Graffiti", "zh": "装饰涂鸦" },
-          "text": { "en": "Decorative graffiti elements designed for the talent system visual identity.", "zh": "为天赋系统视觉标识设计的装饰涂鸦元素。" }
+          "text": { "en": "A collection of hand-drawn graffiti-style decorative elements inspired by Borderlands' wasteland punk aesthetic — spray-paint tags, doodle icons and rough-edge embellishments that inject personality and IP flavor into the talent system's background layers and transition screens.", "zh": "以无主之地废土朋克美学为灵感的手绘涂鸦风格装饰元素集——喷漆标签、涂鸦图标和粗糙边缘装饰，为天赋系统的背景层和过渡页面注入个性和IP风味。" }
         },
         {
           "title": { "en": "Borderlands Art Moodboard", "zh": "无主之地美术情绪板" },
-          "text": { "en": "Art moodboard inspired by Borderlands visual style, establishing the aesthetic direction for the talent system packaging design.", "zh": "以无主之地视觉风格为灵感的美术情绪板，为天赋系统包装设计建立美学方向。" }
+          "text": { "en": "A comprehensive art moodboard curating reference images from the Borderlands franchise — key art, environment concepts, character designs, UI screens and merchandise — establishing the tonal baseline and color palette for the talent system's visual direction.", "zh": "全面的美术情绪板，精选无主之地系列的参考图——主视觉、环境概念、角色设计、UI界面和周边产品——为天赋系统的视觉方向建立调性基准和色彩方案。" }
         },
         {
           "title": { "en": "Interaction Concept Packaging Proposal", "zh": "交互概念包装提案" },
-          "text": { "en": "Three talent system packaging proposals exploring different interaction concepts and visual directions for the talent system design.", "zh": "三套天赋系统包装提案，探索天赋系统设计的不同交互概念和视觉方向。" },
+          "text": { "en": "Three distinct interaction packaging proposals for the S3 talent system — each exploring a different layout structure, animation language and visual hierarchy while staying true to the Borderlands collaboration aesthetic.", "zh": "S3天赋系统的三套差异化交互包装提案——每套方案探索不同的布局结构、动效语言和视觉层级，同时忠实于无主之地联动美学。" },
           "captions": [
             { "en": "Plan 1", "zh": "方案1" },
             { "en": "Plan 2", "zh": "方案2" },
@@ -137,7 +137,7 @@
         },
         {
           "title": { "en": "Dynamic Demo Showcase", "zh": "动态demo展示" },
-          "text": { "en": "S3 Season talent chain animation demo — showcasing the 324-chain dynamic effect for the talent system.", "zh": "S3赛季天赋324串联动效演示——展示天赋系统的串联动态效果。" }
+          "text": { "en": "The final S3 talent chain animation showcasing the 3-2-4 sequential unlock effect — each talent node ignites in Borderlands' signature cel-shaded style with ink-splash particles, comic speed lines and energy ripples cascading through the talent tree.", "zh": "S3赛季天赋串联动效最终演示，展示3-2-4顺序解锁效果——每个天赋节点以无主之地标志性赛璐璐风格点亮，墨水飞溅粒子、漫画速度线和能量波纹在天赋树中逐级传递。" }
         }
       ]
     },

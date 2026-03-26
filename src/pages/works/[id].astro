@@ -326,7 +326,7 @@ const { work } = Astro.props;
                 {img.videos && img.videos.map((v: any, vIdx: number) => (
                   <div class="multi-video-item">
                     <div class="vertical-video">
-                      <video controls playsinline preload="metadata" poster={v.poster || ''}>
+                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: v.poster } : {})}>
                         <source src={v.src} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
@@ -975,6 +975,7 @@ const { work } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .multi-video-caption {
