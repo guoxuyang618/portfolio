@@ -227,7 +227,7 @@ const { work } = Astro.props;
   <!-- 作品 Hero 大图 -->
   <section class="work-hero">
     <div class="hero-bg">
-      <img src={work?.cover} alt={work?.title} />
+      <img src={encodeURI(work?.cover)} alt={work?.title} />
     </div>
     <div class="hero-gradient"></div>
   </section>
@@ -262,7 +262,7 @@ const { work } = Astro.props;
           {work?.overviewVideo ? (
             <div class="vertical-video overview-video">
               <video controls playsinline preload="metadata">
-                <source src={work.overviewVideo} type="video/webm" />
+                <source src={encodeURI(work.overviewVideo)} type="video/webm" />
                 Your browser does not support the video tag.
               </video>
               <div class="video-play-overlay">
@@ -273,7 +273,7 @@ const { work } = Astro.props;
             </div>
           ) : (
             <div class="vertical-image">
-              <img src={work?.overviewImage || work?.cover} alt="Project Overview" />
+              <img src={encodeURI(work?.overviewImage || work?.cover)} alt="Project Overview" />
             </div>
           )}
         </div>
@@ -292,8 +292,8 @@ const { work } = Astro.props;
             </div>
             {img.type === 'video' ? (
               <div class="vertical-video">
-                <video controls playsinline preload="metadata" poster={img.poster || ''}>
-                  <source src={img.src} type="video/mp4" />
+                <video controls playsinline preload="metadata" {...(img.poster ? { poster: encodeURI(img.poster) } : {})}>
+                  <source src={encodeURI(img.src)} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <div class="video-play-overlay">
@@ -307,8 +307,8 @@ const { work } = Astro.props;
                 {img.videos && img.videos.map((v: any, vIdx: number) => (
                   <div class="dual-video-item">
                     <div class="dual-video-wrap">
-                      <video controls playsinline preload="metadata" poster={v.poster || ''}>
-                        <source src={v.src} type="video/mp4" />
+                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: encodeURI(v.poster) } : {})}>
+                        <source src={encodeURI(v.src)} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <div class="video-play-overlay">
@@ -326,8 +326,8 @@ const { work } = Astro.props;
                 {img.videos && img.videos.map((v: any, vIdx: number) => (
                   <div class="multi-video-item">
                     <div class="vertical-video">
-                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: v.poster } : {})}>
-                        <source src={v.src} type="video/mp4" />
+                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: encodeURI(v.poster) } : {})}>
+                        <source src={encodeURI(v.src)} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <div class="video-play-overlay">
@@ -347,14 +347,14 @@ const { work } = Astro.props;
                   const size = typeof mItem === 'string' ? 'sm' : (mItem.size || 'sm');
                   return (
                     <div class={`masonry-item masonry-${size} lightbox-trigger`} data-index={`masonry-${idx}-${mIdx}`}>
-                      <img src={src} alt={`${img.title} ${mIdx + 1}`} loading="lazy" />
+                      <img src={encodeURI(src)} alt={`${img.title} ${mIdx + 1}`} loading="lazy" />
                     </div>
                   );
                 })}
               </div>
             ) : (
               <div class={`vertical-image lightbox-trigger${img.noRadius ? ' no-radius' : ''}${img.objectFit === 'cover' ? ' img-cover' : ''}`} data-index={idx}>
-                <img src={img.src} alt={img.title} />
+                <img src={encodeURI(img.src)} alt={img.title} />
               </div>
             )}
           </div>
