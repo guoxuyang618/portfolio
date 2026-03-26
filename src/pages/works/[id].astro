@@ -95,29 +95,33 @@ const { work } = Astro.props;
       const lightboxNext = document.getElementById('lightboxNext');
       const lightboxOverlay = document.getElementById('lightboxOverlay');
 
-      // 收集所有可点击图片的数据
+      // 收集所有可点击图片的触发器
       const triggers = document.querySelectorAll('.lightbox-trigger');
-      const imagesData: { src: string; title: string; text: string }[] = [];
-      
-      triggers.forEach((trigger) => {
-        const img = trigger.querySelector('img') as HTMLImageElement;
-        const section = trigger.closest('.work-section');
-        // 兼容两种标题布局：section-label 和 section-label-block
-        const sectionTitle = section?.querySelector('.section-label h2')?.textContent
-          || section?.querySelector('.section-label-block h2')?.textContent || '';
-        const sectionText = section?.querySelector('.split-text p')?.textContent
-          || section?.querySelector('.vertical-text p')?.textContent || '';
-        
-        imagesData.push({
-          src: img?.src || '',
-          title: sectionTitle,
-          text: sectionText
+
+      // 实时从 DOM 读取当前语言的 title 和 text（修复中文模式下灯箱配文仍为英文的问题）
+      function getImagesData() {
+        const data: { src: string; title: string; text: string }[] = [];
+        triggers.forEach((trigger) => {
+          const img = trigger.querySelector('img') as HTMLImageElement;
+          const section = trigger.closest('.work-section');
+          // 兼容两种标题布局：section-label 和 section-label-block
+          const sectionTitle = section?.querySelector('.section-label h2')?.textContent
+            || section?.querySelector('.section-label-block h2')?.textContent || '';
+          const sectionText = section?.querySelector('.split-text p')?.textContent
+            || section?.querySelector('.vertical-text p')?.textContent || '';
+          data.push({
+            src: img?.src || '',
+            title: sectionTitle,
+            text: sectionText
+          });
         });
-      });
+        return data;
+      }
 
       let currentIndex = 0;
 
       function showImage(index: number) {
+        const imagesData = getImagesData();
         if (index < 0 || index >= imagesData.length) return;
         currentIndex = index;
         const data = imagesData[currentIndex];
@@ -153,12 +157,14 @@ const { work } = Astro.props;
 
       // 上一张
       lightboxPrev?.addEventListener('click', () => {
+        const imagesData = getImagesData();
         const newIndex = currentIndex > 0 ? currentIndex - 1 : imagesData.length - 1;
         showImage(newIndex);
       });
 
       // 下一张
       lightboxNext?.addEventListener('click', () => {
+        const imagesData = getImagesData();
         const newIndex = currentIndex < imagesData.length - 1 ? currentIndex + 1 : 0;
         showImage(newIndex);
       });
@@ -167,6 +173,7 @@ const { work } = Astro.props;
       document.addEventListener('keydown', (e) => {
         if (!lightbox?.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
+        const imagesData = getImagesData();
         if (e.key === 'ArrowLeft') {
           const newIndex = currentIndex > 0 ? currentIndex - 1 : imagesData.length - 1;
           showImage(newIndex);
