@@ -2,6 +2,15 @@
 import config from '../content/config.json';
 import works from '../content/works.json';
 import '../styles/global.css';
+
+const categoryTaglines: Record<string, string> = {
+  'Thematic Experience Design': 'Immersive Visual Storytelling',
+  '核心玩法交互设计': 'Precise Combat Interactions',
+  '商业化体验设计': 'Elegant Monetization Design',
+  '跨平台交互设计': 'Seamless Multi-Device UX',
+  '系统设计': 'Scalable Design Systems',
+  'Creative Experience Solution': 'Innovative Player Experiences',
+};
 ---
 
 <!DOCTYPE html>
@@ -271,6 +280,7 @@ import '../styles/global.css';
           <div class="card-gradient"></div>
           <div class="card-content">
             <h3 class="card-title" data-i18n-category={category}>{category}</h3>
+            <p class="card-tagline">{categoryTaglines[category] || ''}</p>
           </div>
           <div class="card-meta">
             <span class="card-category" data-i18n-projects-count={works.works.filter((w: any) => w.category === category).length}>{works.works.filter((w: any) => w.category === category).length} Projects</span>
@@ -883,7 +893,7 @@ import '../styles/global.css';
     color: inherit;
     border-radius: 8px;
     overflow: hidden;
-    border: none;
+    border: 1px solid transparent;
     /* 使用 aspect-ratio 代替固定高度，加大宽高比让卡片更细长 */
     aspect-ratio: 3.8 / 1;
     width: 100%;
@@ -893,6 +903,11 @@ import '../styles/global.css';
   .project-card:hover {
     box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
     transform: translateY(-3px);
+    border: 1px solid var(--accent);
+  }
+
+  .project-card:hover .card-title {
+    color: var(--accent);
   }
 
   /* 图片背景 - 铺满整个卡片 */
@@ -960,6 +975,16 @@ import '../styles/global.css';
     letter-spacing: 0.01em;
     line-height: 1.2;
     text-transform: uppercase;
+    transition: color 0.4s ease;
+  }
+
+  .card-tagline {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    margin: 0;
   }
 
   .card-desc {
@@ -1302,6 +1327,10 @@ import '../styles/global.css';
       font-size: 1.35rem;
     }
 
+    .card-tagline {
+      font-size: 0.72rem;
+    }
+
     .card-desc {
       font-size: 0.82rem;
     }
@@ -1514,6 +1543,10 @@ import '../styles/global.css';
 
     .card-title {
       font-size: 1rem;
+    }
+
+    .card-tagline {
+      font-size: 0.65rem;
     }
 
     .card-desc {
