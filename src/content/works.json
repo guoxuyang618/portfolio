@@ -5,29 +5,29 @@
       "title": "Talent System Packaging Design",
       "category": "Thematic Experience Design",
       "year": "2026",
-      "cardCover": "/images/works/thematic design/主题.png",
-      "cover": "/images/works/thematic design/天赋系统/无主背景大图.png",
-      "overviewImage": "/images/works/thematic design/天赋系统/联动背景图.png",
+      "cardCover": "/works/01-thematic-design/_category-cover.png",
+      "cover": "/works/01-thematic-design/talent-system/_cover.png",
+      "overviewImage": "/works/01-thematic-design/talent-system/_overview.png",
       "description": "S3 season talent system packaging design with Borderlands IP collaboration. Built a complete visual identity from logo design, graphic language extraction, decorative style to art direction, delivering three interaction packaging proposals and dynamic chain effects.",
       "case": "Led the full-cycle thematic packaging design for the S3 season talent system, establishing the Borderlands-inspired visual language and delivering multi-scheme interaction proposals with dynamic effect demos.",
       "images": [
         {
-          "src": "/images/works/thematic design/天赋系统/赛季logo.png",
+          "src": "/works/01-thematic-design/talent-system/season-logo.png",
           "title": "Season Logo",
           "text": "The S3 season logo design anchored in Borderlands' iconic cel-shaded style — bold outlines, high-contrast colors and hand-drawn textures form the core visual identity for the talent system's thematic packaging."
         },
         {
-          "src": "/images/works/thematic design/天赋系统/图形提取.png",
+          "src": "/works/01-thematic-design/talent-system/graphic-extraction.png",
           "title": "Graphic Extraction",
           "text": "Systematic extraction of Borderlands' signature graphic elements — thick outlines, cross-hatching patterns, ink splatter textures and comic-style speed lines — deconstructed into modular visual assets for consistent application across the talent system UI."
         },
         {
-          "src": "/images/works/thematic design/天赋系统/装饰涂鸦.png",
+          "src": "/works/01-thematic-design/talent-system/decorative-graffiti.png",
           "title": "Decorative Graffiti",
           "text": "A collection of hand-drawn graffiti-style decorative elements inspired by Borderlands' wasteland punk aesthetic — spray-paint tags, doodle icons and rough-edge embellishments that inject personality and IP flavor into the talent system's background layers and transition screens."
         },
         {
-          "src": "/images/works/thematic design/天赋系统/无主之地美术情绪板.png",
+          "src": "/works/01-thematic-design/talent-system/art-moodboard.png",
           "title": "Borderlands Art Moodboard",
           "text": "A comprehensive art moodboard curating reference images from the Borderlands franchise — key art, environment concepts, character designs, UI screens and merchandise — establishing the tonal baseline and color palette for the talent system's visual direction."
         },
@@ -37,22 +37,22 @@
           "text": "Three distinct interaction packaging proposals for the S3 talent system — each exploring a different layout structure, animation language and visual hierarchy while staying true to the Borderlands collaboration aesthetic. From subtle cel-shaded transitions to explosive comic-panel reveals, these proposals demonstrate the breadth of creative exploration before final direction selection.",
           "videos": [
             {
-              "src": "/images/works/thematic design/天赋系统/天赋包装方案1.mp4",
+              "src": "/works/01-thematic-design/talent-system/plan-1.mp4",
               "caption": "Plan 1"
             },
             {
-              "src": "/images/works/thematic design/天赋系统/天赋包装方案2.mp4",
+              "src": "/works/01-thematic-design/talent-system/plan-2.mp4",
               "caption": "Plan 2"
             },
             {
-              "src": "/images/works/thematic design/天赋系统/天赋包装方案3.mp4",
+              "src": "/works/01-thematic-design/talent-system/plan-3.mp4",
               "caption": "Plan 3"
             }
           ]
         },
         {
           "type": "video",
-          "src": "/images/works/thematic design/天赋系统/S3赛季天赋324串联动效.mp4",
+          "src": "/works/01-thematic-design/talent-system/chain-effect.mp4",
           "title": "Dynamic Demo Showcase",
           "text": "The final S3 talent chain animation showcasing the 3-2-4 sequential unlock effect — each talent node ignites in Borderlands' signature cel-shaded style with ink-splash particles, comic speed lines and energy ripples cascading through the talent tree, delivering a visceral sense of power progression."
         }
@@ -63,22 +63,22 @@
       "title": "Gameplay Interaction Design",
       "category": "核心玩法交互设计",
       "year": "2026",
-      "cover": "/images/works/core gameplay/gameplay.png",
+      "cover": "/works/02-core-gameplay/_category-cover.png",
       "description": "Bringing intuitive interaction to hardcore gameplay. I focus on operation design for combat, strategy and other core mechanics in CrossFire Mobile's PvE mode — pursuing precise, fluid and distraction-free battlefield experiences that keep players fully immersed in high-intensity combat scenarios.",
       "case": "Continuously optimized the feel and feedback logic for shooting, aiming, objective interaction and throwable operations in CrossFire Mobile's PvE zombie mode.",
       "images": [
         {
-          "src": "/images/works/core gameplay/企业微信截图_17738048362633.png",
+          "src": "/works/02-core-gameplay/pve-interaction/objective-hud.png",
           "title": "Objective Interaction & HUD Feedback",
           "text": "In-game screenshot from CrossFire Mobile's PvE mode showcasing the objective interaction system. The player is activating a generator (progress bar at 70%) while zombies approach from multiple directions. The HUD provides clear real-time feedback — a mini-map with teammate positions, objective prompts on the left ('Activate the generator, open the gate!'), and distance markers on enemies — ensuring players can track mission progress without losing situational awareness during intense combat."
         },
         {
-          "src": "/images/works/core gameplay/企业微信截图_17738048538801.png",
+          "src": "/works/02-core-gameplay/pve-interaction/aiming-feedback.png",
           "title": "Aiming System & Combat Feedback",
           "text": "A moment captured right after the player completes an objective in CrossFire Mobile's PvE mode. The 'Mission Complete' banner provides immediate positive feedback, while the expanded crosshair and aim-down-sight view demonstrate the precision aiming system designed for the unique weapon model. The interaction design balances tactile shooting feedback with clear UI indicators — teammate voice lines, hit markers and ammo counters — creating a fluid combat experience where every shot feels responsive and satisfying."
         },
         {
-          "src": "/images/works/core gameplay/企业微信截图_17738048992465.png",
+          "src": "/works/02-core-gameplay/pve-interaction/mission-navigation.png",
           "title": "Mission Guidance & Navigation Design",
           "text": "Showcasing the mission waypoint and navigation system in CrossFire Mobile's PvE mode. The objective prompt 'Push forward, board the train!' guides the player through a military compound environment. The design integrates directional cues, environmental storytelling and clear UI indicators (enemy markers, task objectives, weapon stats panel on the right) to create intuitive navigation flow — ensuring players always know where to go next while maintaining full combat readiness."
         }
@@ -89,18 +89,18 @@
       "title": "春节储蓄罐活动",
       "category": "商业化体验设计",
       "year": "2026",
-      "cover": "/images/works/monetization/商业化.png",
+      "cover": "/works/03-monetization/_category-cover.png",
       "description": "Achieving commercial value with elegance. I seamlessly integrate monetization systems into the player journey, simplifying payment paths, enhancing visual presentation and guiding flow to create a win-win for users and business.",
       "case": "Led the design of season battle passes and gacha event interfaces across multiple games, with data showing significant improvements in user engagement and willingness to pay.",
       "images": [
         {
-          "src": "/images/works/monetization/piggybank flow.png",
+          "src": "/works/03-monetization/piggybank/system-flow.png",
           "title": "Piggybank System Flow",
           "text": "A comprehensive user flow mapping the piggybank savings mechanic — a monetization feature designed to incentivize incremental spending through visual progress and reward anticipation. The flow details each touchpoint from initial deposit prompts, accumulation tracking, milestone rewards to final redemption, ensuring a frictionless and psychologically engaging path that drives both retention and revenue.",
           "noRadius": true
         },
         {
-          "src": "/images/works/monetization/商业化.png",
+          "src": "/works/03-monetization/_category-cover.png",
           "title": "Design Approach",
           "text": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction."
         },
@@ -110,18 +110,18 @@
           "text": "Two core interaction demos of the piggybank savings system — depositing coins into the piggybank and withdrawing coins from it. These micro-interactions are designed with satisfying visual feedback and smooth motion to reinforce the savings habit loop and create an emotionally rewarding user experience.",
           "videos": [
             {
-              "src": "/images/works/monetization/add coin.mp4",
+              "src": "/works/03-monetization/piggybank/add-coin.mp4",
               "caption": "Deposit Coins"
             },
             {
-              "src": "/images/works/monetization/withdraw coin.mp4",
+              "src": "/works/03-monetization/piggybank/withdraw-coin.mp4",
               "caption": "Withdraw Coins from Piggybank"
             }
           ]
         },
         {
           "type": "video",
-          "src": "/images/works/monetization/final version.mp4",
+          "src": "/works/03-monetization/piggybank/final-version.mp4",
           "title": "Final Production Preview",
           "text": "A walkthrough of the fully implemented piggybank feature as it appears in the live product. This recording captures the end-to-end user journey — from the entry prompt and coin deposit animation, through balance accumulation with real-time visual feedback, to the final reward redemption moment. Every transition, particle effect and haptic cue has been polished to production quality, demonstrating how the design vision translates into a seamless and delightful in-game experience."
         }
@@ -132,32 +132,32 @@
       "title": "双端战斗HUD设计",
       "category": "跨平台交互设计",
       "year": "2026",
-      "cover": "/images/works/cross-platform/cross platform bg.png",
+      "cover": "/works/04-cross-platform/_category-cover.png",
       "description": "Experience consistency above all else. With interaction design experience across mobile, PC, console and XR devices, I tailor optimal interaction solutions based on each device's input characteristics and usage scenarios.",
       "case": "Participated in the interaction adaptation of CrossFire: Rainbow PC version, conducting deep optimization for keyboard and mouse controls.",
       "images": [
         {
-          "src": "/images/works/cross-platform/Mobile hud plan.png",
+          "src": "/works/04-cross-platform/dual-hud/mobile-hud-plan.png",
           "title": "Mobile HUD Layout Planning",
           "text": "Comprehensive HUD zone planning for the mobile version of CrossFire, mapping out 19 distinct functional areas across the screen. Each zone is carefully sized and positioned to maximize usability on touch devices — from the left operation area and task bar to the center information zone, weapon info panel and chat area. This systematic layout ensures that critical gameplay information remains accessible without obstructing the player's field of view during intense combat."
         },
         {
-          "src": "/images/works/cross-platform/PC hud plan.png",
+          "src": "/works/04-cross-platform/dual-hud/pc-hud-plan.png",
           "title": "PC HUD Layout Planning",
           "text": "The PC-adapted HUD layout for CrossFire's PvE mode, redesigned to leverage the larger screen real estate and keyboard-mouse input paradigm. The zone planning maintains the same functional areas as mobile but redistributes them for desktop ergonomics — team info repositioned to the upper right, chat log expanded on the left, and the center information area scaled proportionally. This ensures a consistent cross-platform experience while respecting each platform's unique interaction patterns."
         },
         {
-          "src": "/images/works/cross-platform/widget transplant.png",
+          "src": "/works/04-cross-platform/dual-hud/widget-transplant.png",
           "title": "Widget Transplant Mapping",
           "text": "A detailed control widget mapping table documenting the systematic transplant of mobile UI components to PC. Organized into three categories — 3C Widget (basic controls), Weapon Control, and Skill Control — each row traces a specific widget from its mobile touch representation through the functional migration logic to the final PC keyboard/mouse implementation. This mapping ensures no interaction is lost during cross-platform adaptation while optimizing each control for its target input device."
         },
         {
-          "src": "/images/works/cross-platform/hunt PC HUD.png",
+          "src": "/works/04-cross-platform/dual-hud/hunt-pc-hud.png",
           "title": "Hunt Mode PC HUD — In-Game",
           "text": "A live in-game screenshot of the PC-adapted HUD in CrossFire's Hunt mode, set in a dark European street environment. The HUD showcases the fully implemented cross-platform design — compass navigation bar at the top, boss health bar with name display, team roster on the upper right, chat log on the lower left, and the weapon/ammo panel on the lower right. Every element has been optimized for PC screen resolution and mouse-driven interaction while maintaining visual consistency with the mobile version."
         },
         {
-          "src": "/images/works/cross-platform/world PC HUD.png",
+          "src": "/works/04-cross-platform/dual-hud/world-pc-hud.png",
           "title": "World Mode PC HUD — In-Game",
           "text": "An in-game capture of the PC HUD in CrossFire's open-world mode, featuring an outdoor environment with zombie encounters. This screenshot demonstrates the HUD's adaptability across different game modes — the same core layout framework accommodates mode-specific elements like distance markers, kill rewards ($13,000), and expanded team info panels. The consistent cross-platform design language ensures players can seamlessly transition between mobile and PC without relearning the interface."
         }
@@ -168,25 +168,24 @@
       "title": "Paid Character Role Showcase System",
       "category": "系统设计",
       "year": "2026",
-      "cover": "/images/works/System Design/04.png",
-      "overviewVideo": "/images/works/System Design/hero recording.webm",
+      "cover": "/works/05-system-design/_category-cover.png",
+      "overviewVideo": "/works/05-system-design/character-showcase/_overview.webm",
       "description": "Building scalable and consistent design systems. I architect comprehensive UI component libraries, define design tokens, typography scales and spacing systems to ensure visual consistency across products while accelerating team collaboration and development efficiency.",
       "case": "Established a unified design system for FPS game franchises, standardizing over 200 reusable components across multiple game titles and platforms.",
       "images": [
         {
-          "src": "/images/works/System Design/02.png",
-          "title": "Ultimate Skin System Architecture",
+          "src": "/works/05-system-design/character-showcase/skin-architecture.png",
           "text": "Architecting the comprehensive Ultimate Skin presentation system for FPS game characters. The design establishes a unified multi-tab navigation framework — covering Supreme Appearance, Personality Wheel, Exclusive Accessories and Battlefield Performance — enabling players to explore every facet of a premium skin through an immersive, full-screen 3D character showcase. The system balances visual spectacle with clear information hierarchy, ensuring each detail from character models to UI overlays works cohesively across the entire experience.",
           "layout": "vertical"
         },
         {
-          "src": "/images/works/System Design/03.png",
+          "src": "/works/05-system-design/character-showcase/personality-wheel.png",
           "title": "Personality Wheel & Interactive Components",
           "text": "Designing the Personality Wheel sub-system that houses exclusive gestures, signature actions and custom voice lines. The interface presents dynamic 3D previews of each expression and motion, organized through a secondary tab structure with clear categorization. Special attention was paid to the visual effects surrounding interactive props — such as the glowing arcane orb and energy runes — ensuring each preview feels cinematic while maintaining responsive, snappy interactions for the player.",
           "layout": "vertical"
         },
         {
-          "src": "/images/works/System Design/06.png",
+          "src": "/works/05-system-design/character-showcase/accessories-effects.png",
           "title": "Exclusive Accessories & Battlefield Effects",
           "text": "Crafting the Exclusive Accessories showcase and Battlefield Performance modules. The accessories panel presents close-up 3D renders of themed items — bracelets, ornaments and collectible displays — with real-time rotation and kill-count integration. The Battlefield Performance section covers weapon equip moments, dramatic entry animations, in-game special effects and glory-moment highlights, forming a complete visual reward loop that reinforces the premium value of each Ultimate Skin across every stage of gameplay.",
           "layout": "vertical"
@@ -196,24 +195,24 @@
           "title": "Ultimate Skin System Gallery",
           "text": "A comprehensive gallery showcasing the complete Ultimate Skin system design across two thematic skin lines — the mystical 'Serpent Queen' with its dark purple arcane aesthetics, and the futuristic 'Endless Thunder' featuring sci-fi mech armor visuals. Each screenshot captures a distinct module of the system: character showcase, personality wheels, exclusive accessories, voice lines, battlefield entry animations, combat effects and glory moments, demonstrating the systematic approach to building a cohesive and immersive premium skin experience.",
           "images": [
-            { "src": "/images/works/System Design/04.png", "size": "hero" },
-            { "src": "/images/works/System Design/01.png", "size": "normal" },
-            { "src": "/images/works/System Design/02.png", "size": "normal" },
-            { "src": "/images/works/System Design/09.png", "size": "featured" },
-            { "src": "/images/works/System Design/03.png", "size": "normal" },
-            { "src": "/images/works/System Design/05.png", "size": "normal" },
-            { "src": "/images/works/System Design/011.png", "size": "featured" },
-            { "src": "/images/works/System Design/012.png", "size": "featured" },
-            { "src": "/images/works/System Design/06.png", "size": "normal" },
-            { "src": "/images/works/System Design/07.png", "size": "normal" },
-            { "src": "/images/works/System Design/018.png", "size": "hero" },
-            { "src": "/images/works/System Design/08.png", "size": "normal" },
-            { "src": "/images/works/System Design/010.png", "size": "normal" },
-            { "src": "/images/works/System Design/014.png", "size": "featured" },
-            { "src": "/images/works/System Design/013.png", "size": "normal" },
-            { "src": "/images/works/System Design/015.png", "size": "normal" },
-            { "src": "/images/works/System Design/016.png", "size": "normal" },
-            { "src": "/images/works/System Design/017.png", "size": "normal" }
+            { "src": "/works/05-system-design/character-showcase/gallery/04.png", "size": "hero" },
+            { "src": "/works/05-system-design/character-showcase/gallery/01.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/02.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/09.png", "size": "featured" },
+            { "src": "/works/05-system-design/character-showcase/gallery/03.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/05.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/011.png", "size": "featured" },
+            { "src": "/works/05-system-design/character-showcase/gallery/012.png", "size": "featured" },
+            { "src": "/works/05-system-design/character-showcase/gallery/06.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/07.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/018.png", "size": "hero" },
+            { "src": "/works/05-system-design/character-showcase/gallery/08.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/010.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/014.png", "size": "featured" },
+            { "src": "/works/05-system-design/character-showcase/gallery/013.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/015.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/016.png", "size": "normal" },
+            { "src": "/works/05-system-design/character-showcase/gallery/017.png", "size": "normal" }
           ]
         }
       ]
@@ -223,25 +222,25 @@
       "title": "猎场竞速卡牌选择",
       "category": "Creative Experience Solution",
       "year": "2026",
-      "cover": "/images/works/creative experience solution/card bg.png",
-      "overviewImage": "/images/works/creative experience solution/task bg.jpg",
+      "cover": "/works/06-creative-solution/_category-cover.png",
+      "overviewImage": "/works/06-creative-solution/card-battle/_overview.jpg",
       "description": "Designing an immersive card-based gameplay experience that blends strategic depth with visual storytelling. From user flow architecture to card illustration and interactive prototyping, this project demonstrates a full-cycle creative solution — transforming a complex game mechanic into an intuitive, engaging and visually stunning player experience.",
       "case": "Led the end-to-end UX design of a collectible card battle system for an FPS game, encompassing interaction flow mapping, card visual design and motion prototype delivery, resulting in a highly engaging in-game feature.",
       "images": [
         {
-          "src": "/images/works/creative experience solution/card planA userflow.png",
+          "src": "/works/06-creative-solution/card-battle/userflow.png",
           "title": "User Flow Architecture",
           "text": "Mapping the complete card gameplay interaction journey from entry to resolution. The user flow covers card pack opening with dramatic reveal animations, strategic card selection and placement on the battlefield, real-time card effect activation with visual feedback, and the final battle outcome presentation. Each step is carefully designed to maintain player engagement while providing clear information hierarchy and intuitive navigation between states."
         },
         {
-          "src": "/images/works/creative experience solution/card planA video.mp4",
+          "src": "/works/06-creative-solution/card-battle/prototype-demo.mp4",
           "title": "Interactive Prototype Demo",
           "text": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff.",
           "type": "video",
-          "poster": "/images/works/creative experience solution/video default page.png"
+          "poster": "/works/06-creative-solution/card-battle/video-poster.png"
         },
         {
-          "src": "/images/works/creative experience solution/card design.png",
+          "src": "/works/06-creative-solution/card-battle/card-design.png",
           "title": "Card Visual Design System",
           "text": "A comprehensive set of collectible card illustrations featuring diverse character archetypes — from armored warriors and mutant creatures to tactical operatives and mythical beings. Each card is designed with a unified frame structure incorporating rarity indicators, attribute icons and dynamic action poses. The visual language balances dark sci-fi aesthetics with vibrant color accents, ensuring each card feels unique while maintaining systematic consistency across the entire collection."
         }
