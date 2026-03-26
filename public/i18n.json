@@ -73,7 +73,10 @@
   },
   "detail": {
     "projectOverview": { "en": "Project Overview", "zh": "项目概述" },
-    "backToWorks": { "en": "Back to Works", "zh": "返回作品" }
+    "backToWorks": { "en": "Back to Works", "zh": "返回作品" },
+    "categoryLabel": { "en": "Category", "zh": "分类" },
+    "yearLabel": { "en": "Year", "zh": "年份" },
+    "demoVideo": { "en": "Demo Video", "zh": "演示视频" }
   },
   "footer": {
     "navigation": { "en": "Navigation", "zh": "导航" },
@@ -105,27 +108,131 @@
   "projectDescriptions": {
     "project-001": {
       "description": { "en": "Making the interface an extension of the game world. I specialize in weaving worldview narratives into interaction details, creating a strong sense of immersion through stylized layouts, lore-aligned motion effects and sound design.", "zh": "让界面成为游戏世界的延伸。我擅长将世界观叙事融入交互细节，通过风格化布局、世界观契合的动效和声音设计营造强烈的沉浸感。" },
-      "case": { "en": "Designed mech-core charging and transformation animations with a strong mechanical feel for 'Counter-Strike: Future'.", "zh": "为《逆战：未来》设计了具有强烈机械感的机甲核心充能和变形动画。" }
+      "case": { "en": "Designed mech-core charging and transformation animations with a strong mechanical feel for 'Counter-Strike: Future'.", "zh": "为《逆战：未来》设计了具有强烈机械感的机甲核心充能和变形动画。" },
+      "images": [
+        {
+          "title": { "en": "Design Approach", "zh": "设计方法" },
+          "text": { "en": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction.", "zh": "该项目的设计方法、用户研究和交互流程的详细描述。展示设计背后的思维过程和解决方案。通过深入的用户研究和竞品分析，我们确定了核心设计方向。" }
+        },
+        {
+          "title": { "en": "Visual Design", "zh": "视觉设计" },
+          "text": { "en": "Detailed description of the visual design, color usage, and layout for this project. The color system was selected based on brand identity and target audience aesthetic preferences, ensuring consistency and professionalism in visual communication.", "zh": "该项目的视觉设计、色彩运用和布局的详细描述。色彩系统基于品牌定位和目标用户的审美偏好进行选择，确保视觉传达的一致性和专业性。" }
+        },
+        {
+          "title": { "en": "Interaction Design", "zh": "交互设计" },
+          "text": { "en": "Detailed description of the interaction design, user flows, and motion effects for this project. Every micro-interaction has been meticulously refined to ensure smooth and intuitive user operations.", "zh": "该项目的交互设计、用户流程和动效的详细描述。每一个微交互都经过精心打磨，确保用户操作流畅且直觉化。" }
+        }
+      ]
     },
     "project-002": {
       "description": { "en": "Bringing intuitive interaction to hardcore gameplay. I focus on operation design for combat, strategy and other core mechanics in CrossFire Mobile's PvE mode — pursuing precise, fluid and distraction-free battlefield experiences that keep players fully immersed in high-intensity combat scenarios.", "zh": "为硬核玩法注入直觉式交互。我专注于穿越火线手游PvE模式中战斗、策略等核心机制的操作设计——追求精准、流畅且无干扰的战场体验，让玩家完全沉浸在高强度战斗场景中。" },
-      "case": { "en": "Continuously optimized the feel and feedback logic for shooting, aiming, objective interaction and throwable operations in CrossFire Mobile's PvE zombie mode.", "zh": "持续优化穿越火线手游PvE僵尸模式中的射击手感、瞄准反馈逻辑、目标交互和投掷物操作体验。" }
+      "case": { "en": "Continuously optimized the feel and feedback logic for shooting, aiming, objective interaction and throwable operations in CrossFire Mobile's PvE zombie mode.", "zh": "持续优化穿越火线手游PvE僵尸模式中的射击手感、瞄准反馈逻辑、目标交互和投掷物操作体验。" },
+      "images": [
+        {
+          "title": { "en": "Objective Interaction & HUD Feedback", "zh": "目标交互与HUD反馈" },
+          "text": { "en": "In-game screenshot from CrossFire Mobile's PvE mode showcasing the objective interaction system. The player is activating a generator (progress bar at 70%) while zombies approach from multiple directions. The HUD provides clear real-time feedback — a mini-map with teammate positions, objective prompts on the left ('Activate the generator, open the gate!'), and distance markers on enemies — ensuring players can track mission progress without losing situational awareness during intense combat.", "zh": "穿越火线手游PvE模式的游戏内截图，展示目标交互系统。玩家正在激活发电机（进度条70%），同时僵尸从多个方向逼近。HUD提供清晰的实时反馈——带队友位置的小地图、左侧的目标提示（'激活发电机，打开大门！'）以及敌人的距离标记——确保玩家在激烈战斗中既能追踪任务进度又不会失去态势感知。" }
+        },
+        {
+          "title": { "en": "Aiming System & Combat Feedback", "zh": "瞄准系统与战斗反馈" },
+          "text": { "en": "A moment captured right after the player completes an objective in CrossFire Mobile's PvE mode. The 'Mission Complete' banner provides immediate positive feedback, while the expanded crosshair and aim-down-sight view demonstrate the precision aiming system designed for the unique weapon model. The interaction design balances tactile shooting feedback with clear UI indicators — teammate voice lines, hit markers and ammo counters — creating a fluid combat experience where every shot feels responsive and satisfying.", "zh": "穿越火线手游PvE模式中玩家完成目标后的瞬间截图。'任务完成'横幅提供即时的正向反馈，扩展的准星和瞄准视角展示了为独特武器模型设计的精准瞄准系统。交互设计在触觉射击反馈与清晰的UI指标之间取得平衡——队友语音、命中标记和弹药计数器——创造出每一枪都感觉灵敏且令人满意的流畅战斗体验。" }
+        },
+        {
+          "title": { "en": "Mission Guidance & Navigation Design", "zh": "任务引导与导航设计" },
+          "text": { "en": "Showcasing the mission waypoint and navigation system in CrossFire Mobile's PvE mode. The objective prompt 'Push forward, board the train!' guides the player through a military compound environment. The design integrates directional cues, environmental storytelling and clear UI indicators (enemy markers, task objectives, weapon stats panel on the right) to create intuitive navigation flow — ensuring players always know where to go next while maintaining full combat readiness.", "zh": "展示穿越火线手游PvE模式中的任务路径点和导航系统。目标提示'向前推进，登上列车！'引导玩家穿越军事营地环境。设计整合了方向提示、环境叙事和清晰的UI指标（敌人标记、任务目标、右侧武器数据面板），创造直觉式的导航流——确保玩家始终知道下一步该去哪里，同时保持完全的战斗准备状态。" }
+        }
+      ]
     },
     "project-003": {
       "description": { "en": "Achieving commercial value with elegance. I seamlessly integrate monetization systems into the player journey, simplifying payment paths, enhancing visual presentation and guiding flow to create a win-win for users and business.", "zh": "以优雅的方式实现商业价值。我将商业化系统无缝融入玩家旅程，简化付费路径、提升视觉表现和引导流程，实现用户与商业的双赢。" },
-      "case": { "en": "Led the design of season battle passes and gacha event interfaces across multiple games, with data showing significant improvements in user engagement and willingness to pay.", "zh": "主导了多款游戏的赛季通行证和抽卡活动界面设计，数据显示用户参与度和付费意愿显著提升。" }
+      "case": { "en": "Led the design of season battle passes and gacha event interfaces across multiple games, with data showing significant improvements in user engagement and willingness to pay.", "zh": "主导了多款游戏的赛季通行证和抽卡活动界面设计，数据显示用户参与度和付费意愿显著提升。" },
+      "images": [
+        {
+          "title": { "en": "Piggybank System Flow", "zh": "存钱罐系统流程" },
+          "text": { "en": "A comprehensive user flow mapping the piggybank savings mechanic — a monetization feature designed to incentivize incremental spending through visual progress and reward anticipation. The flow details each touchpoint from initial deposit prompts, accumulation tracking, milestone rewards to final redemption, ensuring a frictionless and psychologically engaging path that drives both retention and revenue.", "zh": "全面的用户流程图，映射存钱罐储蓄机制——一种通过可视化进度和奖励期待来激励渐进消费的商业化功能。流程详细记录了从初始存入提示、累积追踪、里程碑奖励到最终兑换的每个触点，确保无摩擦且心理层面引人入胜的路径，同时驱动留存和收入。" }
+        },
+        {
+          "title": { "en": "Design Approach", "zh": "设计方法" },
+          "text": { "en": "Detailed description of the design approach, user research, and interaction flows for this project. Showcasing the thinking process and solutions behind the design. Through in-depth user research and competitive analysis, we identified the core design direction.", "zh": "该项目的设计方法、用户研究和交互流程的详细描述。展示设计背后的思维过程和解决方案。通过深入的用户研究和竞品分析，我们确定了核心设计方向。" }
+        },
+        {
+          "title": { "en": "Piggybank Interaction Demo", "zh": "存钱罐交互演示" },
+          "text": { "en": "Two core interaction demos of the piggybank savings system — depositing coins into the piggybank and withdrawing coins from it. These micro-interactions are designed with satisfying visual feedback and smooth motion to reinforce the savings habit loop and create an emotionally rewarding user experience.", "zh": "存钱罐储蓄系统的两个核心交互演示——向存钱罐存入硬币和从中取出硬币。这些微交互设计了令人满足的视觉反馈和流畅的动效，以强化储蓄习惯循环并创造情感上有回报的用户体验。" },
+          "captions": [
+            { "en": "Deposit Coins", "zh": "存入硬币" },
+            { "en": "Withdraw Coins from Piggybank", "zh": "从存钱罐取出硬币" }
+          ]
+        },
+        {
+          "title": { "en": "Final Production Preview", "zh": "最终产品预览" },
+          "text": { "en": "A walkthrough of the fully implemented piggybank feature as it appears in the live product. This recording captures the end-to-end user journey — from the entry prompt and coin deposit animation, through balance accumulation with real-time visual feedback, to the final reward redemption moment. Every transition, particle effect and haptic cue has been polished to production quality, demonstrating how the design vision translates into a seamless and delightful in-game experience.", "zh": "完整实现的存钱罐功能在上线产品中的演示。该录制捕捉了端到端的用户旅程——从入口提示和硬币存入动画，到实时视觉反馈的余额累积，再到最终奖励兑换时刻。每一个过渡、粒子效果和触觉提示都已打磨至产品级品质，展示了设计愿景如何转化为无缝且令人愉悦的游戏内体验。" }
+        }
+      ]
     },
     "project-004": {
       "description": { "en": "Experience consistency above all else. With interaction design experience across mobile, PC, console and XR devices, I tailor optimal interaction solutions based on each device's input characteristics and usage scenarios.", "zh": "体验一致性高于一切。凭借横跨移动端、PC、主机和XR设备的交互设计经验，我根据每种设备的输入特性和使用场景量身定制最优交互方案。" },
-      "case": { "en": "Participated in the interaction adaptation of CrossFire: Rainbow PC version, conducting deep optimization for keyboard and mouse controls.", "zh": "参与了穿越火线：虹PC版的交互适配，针对键盘鼠标操控进行了深度优化。" }
+      "case": { "en": "Participated in the interaction adaptation of CrossFire: Rainbow PC version, conducting deep optimization for keyboard and mouse controls.", "zh": "参与了穿越火线：虹PC版的交互适配，针对键盘鼠标操控进行了深度优化。" },
+      "images": [
+        {
+          "title": { "en": "Mobile HUD Layout Planning", "zh": "移动端HUD布局规划" },
+          "text": { "en": "Comprehensive HUD zone planning for the mobile version of CrossFire, mapping out 19 distinct functional areas across the screen. Each zone is carefully sized and positioned to maximize usability on touch devices — from the left operation area and task bar to the center information zone, weapon info panel and chat area. This systematic layout ensures that critical gameplay information remains accessible without obstructing the player's field of view during intense combat.", "zh": "穿越火线移动版的全面HUD区域规划，在屏幕上映射了19个不同的功能区域。每个区域都经过精心调整大小和定位，以最大化触控设备上的可用性——从左侧操作区和任务栏到中心信息区、武器信息面板和聊天区域。这种系统化的布局确保关键游戏信息在激烈战斗中保持可访问性，同时不遮挡玩家的视野。" }
+        },
+        {
+          "title": { "en": "PC HUD Layout Planning", "zh": "PC端HUD布局规划" },
+          "text": { "en": "The PC-adapted HUD layout for CrossFire's PvE mode, redesigned to leverage the larger screen real estate and keyboard-mouse input paradigm. The zone planning maintains the same functional areas as mobile but redistributes them for desktop ergonomics — team info repositioned to the upper right, chat log expanded on the left, and the center information area scaled proportionally. This ensures a consistent cross-platform experience while respecting each platform's unique interaction patterns.", "zh": "穿越火线PvE模式的PC适配HUD布局，重新设计以利用更大的屏幕空间和键鼠输入范式。区域规划保持了与移动端相同的功能区域，但为桌面端人体工学重新分布——队伍信息重新定位到右上角，聊天记录在左侧扩展，中心信息区按比例缩放。这确保了跨平台体验的一致性，同时尊重每个平台独特的交互模式。" }
+        },
+        {
+          "title": { "en": "Widget Transplant Mapping", "zh": "控件移植映射" },
+          "text": { "en": "A detailed control widget mapping table documenting the systematic transplant of mobile UI components to PC. Organized into three categories — 3C Widget (basic controls), Weapon Control, and Skill Control — each row traces a specific widget from its mobile touch representation through the functional migration logic to the final PC keyboard/mouse implementation. This mapping ensures no interaction is lost during cross-platform adaptation while optimizing each control for its target input device.", "zh": "详细的控件映射表，记录了移动端UI组件到PC端的系统化移植。按三个类别组织——3C控件（基础操控）、武器控制和技能控制——每一行追踪一个特定控件从移动端触控表现，经过功能迁移逻辑，到最终PC端键鼠实现的全过程。该映射确保跨平台适配过程中不丢失任何交互，同时为目标输入设备优化每个控件。" }
+        },
+        {
+          "title": { "en": "Hunt Mode PC HUD — In-Game", "zh": "狩猎模式PC端HUD — 实机画面" },
+          "text": { "en": "A live in-game screenshot of the PC-adapted HUD in CrossFire's Hunt mode, set in a dark European street environment. The HUD showcases the fully implemented cross-platform design — compass navigation bar at the top, boss health bar with name display, team roster on the upper right, chat log on the lower left, and the weapon/ammo panel on the lower right. Every element has been optimized for PC screen resolution and mouse-driven interaction while maintaining visual consistency with the mobile version.", "zh": "穿越火线狩猎模式中PC适配HUD的实机截图，场景设定在阴暗的欧洲街道环境中。HUD展示了完整实现的跨平台设计——顶部的罗盘导航条、带名称显示的Boss血条、右上角的队伍名单、左下角的聊天记录以及右下角的武器/弹药面板。每个元素都针对PC屏幕分辨率和鼠标驱动交互进行了优化，同时保持与移动端版本的视觉一致性。" }
+        },
+        {
+          "title": { "en": "World Mode PC HUD — In-Game", "zh": "开放世界模式PC端HUD — 实机画面" },
+          "text": { "en": "An in-game capture of the PC HUD in CrossFire's open-world mode, featuring an outdoor environment with zombie encounters. This screenshot demonstrates the HUD's adaptability across different game modes — the same core layout framework accommodates mode-specific elements like distance markers, kill rewards ($13,000), and expanded team info panels. The consistent cross-platform design language ensures players can seamlessly transition between mobile and PC without relearning the interface.", "zh": "穿越火线开放世界模式中PC端HUD的实机截图，展示了户外环境中的僵尸遭遇场景。该截图展示了HUD在不同游戏模式间的适应性——相同的核心布局框架容纳了模式特有的元素，如距离标记、击杀奖励（$13,000）和扩展的队伍信息面板。一致的跨平台设计语言确保玩家能够在移动端和PC端之间无缝切换，无需重新学习界面。" }
+        }
+      ]
     },
     "project-006": {
       "description": { "en": "Building scalable and consistent design systems. I architect comprehensive UI component libraries, define design tokens, typography scales and spacing systems to ensure visual consistency across products while accelerating team collaboration and development efficiency.", "zh": "构建可扩展且一致的设计系统。我搭建全面的UI组件库，定义设计令牌、字体比例和间距系统，确保产品间的视觉一致性，同时加速团队协作和开发效率。" },
-      "case": { "en": "Established a unified design system for FPS game franchises, standardizing over 200 reusable components across multiple game titles and platforms.", "zh": "为FPS游戏系列建立了统一的设计系统，在多款游戏和平台间标准化了200多个可复用组件。" }
+      "case": { "en": "Established a unified design system for FPS game franchises, standardizing over 200 reusable components across multiple game titles and platforms.", "zh": "为FPS游戏系列建立了统一的设计系统，在多款游戏和平台间标准化了200多个可复用组件。" },
+      "images": [
+        {
+          "title": { "en": "Ultimate Skin System Architecture", "zh": "终极皮肤系统架构" },
+          "text": { "en": "Architecting the comprehensive Ultimate Skin presentation system for FPS game characters. The design establishes a unified multi-tab navigation framework — covering Supreme Appearance, Personality Wheel, Exclusive Accessories and Battlefield Performance — enabling players to explore every facet of a premium skin through an immersive, full-screen 3D character showcase. The system balances visual spectacle with clear information hierarchy, ensuring each detail from character models to UI overlays works cohesively across the entire experience.", "zh": "构建FPS游戏角色的全面终极皮肤展示系统。设计建立了统一的多标签导航框架——涵盖至高外观、个性轮盘、专属配饰和战场表现——让玩家通过沉浸式全屏3D角色展示探索高级皮肤的每个方面。系统在视觉震撼与清晰的信息层级之间取得平衡，确保从角色模型到UI叠加的每个细节在整个体验中协同运作。" }
+        },
+        {
+          "title": { "en": "Personality Wheel & Interactive Components", "zh": "个性轮盘与交互组件" },
+          "text": { "en": "Designing the Personality Wheel sub-system that houses exclusive gestures, signature actions and custom voice lines. The interface presents dynamic 3D previews of each expression and motion, organized through a secondary tab structure with clear categorization. Special attention was paid to the visual effects surrounding interactive props — such as the glowing arcane orb and energy runes — ensuring each preview feels cinematic while maintaining responsive, snappy interactions for the player.", "zh": "设计个性轮盘子系统，容纳专属手势、标志性动作和自定义语音。界面呈现每个表情和动作的动态3D预览，通过具有清晰分类的二级标签结构组织。特别关注了交互道具周围的视觉效果——如发光的奥术球和能量符文——确保每个预览都有电影感，同时为玩家保持响应迅速、干脆利落的交互。" }
+        },
+        {
+          "title": { "en": "Exclusive Accessories & Battlefield Effects", "zh": "专属配饰与战场效果" },
+          "text": { "en": "Crafting the Exclusive Accessories showcase and Battlefield Performance modules. The accessories panel presents close-up 3D renders of themed items — bracelets, ornaments and collectible displays — with real-time rotation and kill-count integration. The Battlefield Performance section covers weapon equip moments, dramatic entry animations, in-game special effects and glory-moment highlights, forming a complete visual reward loop that reinforces the premium value of each Ultimate Skin across every stage of gameplay.", "zh": "打造专属配饰展示和战场表现模块。配饰面板呈现主题物品的近景3D渲染——手链、装饰品和收藏展示——配有实时旋转和击杀计数整合。战场表现部分涵盖武器装备时刻、戏剧性入场动画、游戏内特效和荣耀时刻集锦，形成完整的视觉奖励循环，在游戏的每个阶段强化每个终极皮肤的高级价值。" }
+        },
+        {
+          "title": { "en": "Ultimate Skin System Gallery", "zh": "终极皮肤系统图库" },
+          "text": { "en": "A comprehensive gallery showcasing the complete Ultimate Skin system design across two thematic skin lines — the mystical 'Serpent Queen' with its dark purple arcane aesthetics, and the futuristic 'Endless Thunder' featuring sci-fi mech armor visuals. Each screenshot captures a distinct module of the system: character showcase, personality wheels, exclusive accessories, voice lines, battlefield entry animations, combat effects and glory moments, demonstrating the systematic approach to building a cohesive and immersive premium skin experience.", "zh": "全面的图库展示了两条主题皮肤线的完整终极皮肤系统设计——神秘的'蛇女王'及其暗紫色奥术美学，以及未来感的'无尽雷霆'科幻机甲装甲视觉。每张截图捕捉系统的一个独特模块：角色展示、个性轮盘、专属配饰、语音线、战场入场动画、战斗效果和荣耀时刻，展示了构建统一且沉浸式高级皮肤体验的系统化方法。" }
+        }
+      ]
     },
     "project-007": {
       "description": { "en": "Designing an immersive card-based gameplay experience that blends strategic depth with visual storytelling. From user flow architecture to card illustration and interactive prototyping, this project demonstrates a full-cycle creative solution — transforming a complex game mechanic into an intuitive, engaging and visually stunning player experience.", "zh": "设计沉浸式的卡牌玩法体验，融合策略深度与视觉叙事。从用户流程架构到卡牌插画和交互原型，该项目展示了全流程创意方案——将复杂的游戏机制转化为直觉式、引人入胜且视觉惊艳的玩家体验。" },
-      "case": { "en": "Led the end-to-end UX design of a collectible card battle system for an FPS game, encompassing interaction flow mapping, card visual design and motion prototype delivery, resulting in a highly engaging in-game feature.", "zh": "主导了FPS游戏中收集卡牌战斗系统的端到端UX设计，涵盖交互流程映射、卡牌视觉设计和动效原型交付，最终打造出高度引人入胜的游戏内功能。" }
+      "case": { "en": "Led the end-to-end UX design of a collectible card battle system for an FPS game, encompassing interaction flow mapping, card visual design and motion prototype delivery, resulting in a highly engaging in-game feature.", "zh": "主导了FPS游戏中收集卡牌战斗系统的端到端UX设计，涵盖交互流程映射、卡牌视觉设计和动效原型交付，最终打造出高度引人入胜的游戏内功能。" },
+      "images": [
+        {
+          "title": { "en": "User Flow Architecture", "zh": "用户流程架构" },
+          "text": { "en": "Mapping the complete card gameplay interaction journey from entry to resolution. The user flow covers card pack opening with dramatic reveal animations, strategic card selection and placement on the battlefield, real-time card effect activation with visual feedback, and the final battle outcome presentation. Each step is carefully designed to maintain player engagement while providing clear information hierarchy and intuitive navigation between states.", "zh": "映射从入口到结局的完整卡牌玩法交互旅程。用户流程涵盖带有戏剧性揭示动画的卡包开启、战场上的策略性卡牌选择和放置、带视觉反馈的实时卡牌效果激活，以及最终的战斗结果展示。每个步骤都经过精心设计，以保持玩家参与度，同时提供清晰的信息层级和直觉式的状态间导航。" }
+        },
+        {
+          "title": { "en": "Interactive Prototype Demo", "zh": "交互原型演示" },
+          "text": { "en": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff.", "zh": "高保真动效原型，展示卡牌系统核心交互循环的实际运作。演示演绎了完整的玩法流程——从浏览卡牌收藏、选择并部署卡牌到战场，到目睹实时卡牌技能动画和战斗结算序列。该原型用于在开发交接前验证交互时序、过渡流畅度和整体用户体验。" }
+        },
+        {
+          "title": { "en": "Card Visual Design System", "zh": "卡牌视觉设计系统" },
+          "text": { "en": "A comprehensive set of collectible card illustrations featuring diverse character archetypes — from armored warriors and mutant creatures to tactical operatives and mythical beings. Each card is designed with a unified frame structure incorporating rarity indicators, attribute icons and dynamic action poses. The visual language balances dark sci-fi aesthetics with vibrant color accents, ensuring each card feels unique while maintaining systematic consistency across the entire collection.", "zh": "一套全面的收集卡牌插画，涵盖多样的角色原型——从装甲战士和变异生物到战术特工和神话存在。每张卡牌采用统一的框架结构设计，融入稀有度指标、属性图标和动态动作姿势。视觉语言在暗色科幻美学与鲜明色彩点缀之间取得平衡，确保每张卡牌感觉独特，同时在整个系列中保持系统性一致。" }
+        }
+      ]
     }
   }
 }
