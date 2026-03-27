@@ -464,18 +464,22 @@ import '../styles/global.css';
     border-radius: 12px;
     overflow: hidden;
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    transition: all 0.4s var(--ease-out);
+    border: 1px solid transparent;
+    transition: all 0.5s var(--ease-out);
   }
 
   .work-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--border-hover);
-    box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+    transform: translateY(-3px);
+    border: 1px solid var(--accent);
+  }
+
+  .work-card:hover .work-card-info h3 {
+    color: var(--accent);
   }
 
   .work-card:hover .work-card-image img {
-    transform: scale(1.06);
+    transform: scale(1.04);
   }
 
   .work-card:hover .work-card-overlay {
@@ -545,6 +549,7 @@ import '../styles/global.css';
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
+    transition: color 0.4s ease;
   }
 
   .work-card-meta {
