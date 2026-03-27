@@ -269,7 +269,7 @@ const { work } = Astro.props;
           {work?.overviewVideo ? (
             <div class="vertical-video overview-video">
               <video controls playsinline preload="metadata">
-                <source src={encodeURI(work.overviewVideo)} type="video/webm" />
+                <source src={work.overviewVideo} type="video/webm" />
                 Your browser does not support the video tag.
               </video>
               <div class="video-play-overlay">
@@ -299,8 +299,8 @@ const { work } = Astro.props;
             </div>
             {img.type === 'video' ? (
               <div class="vertical-video">
-                <video controls playsinline preload="metadata" {...(img.poster ? { poster: encodeURI(img.poster) } : {})}>
-                  <source src={encodeURI(img.src)} type="video/mp4" />
+                <video controls playsinline preload="metadata" {...(img.poster ? { poster: img.poster } : {})}>
+                  <source src={img.src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <div class="video-play-overlay">
@@ -314,8 +314,8 @@ const { work } = Astro.props;
                 {img.videos && img.videos.map((v: any, vIdx: number) => (
                   <div class="dual-video-item">
                     <div class="dual-video-wrap">
-                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: encodeURI(v.poster) } : {})}>
-                        <source src={encodeURI(v.src)} type="video/mp4" />
+                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: v.poster } : {})}>
+                        <source src={v.src} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <div class="video-play-overlay">
@@ -333,8 +333,8 @@ const { work } = Astro.props;
                 {img.videos && img.videos.map((v: any, vIdx: number) => (
                   <div class="multi-video-item">
                     <div class="vertical-video">
-                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: encodeURI(v.poster) } : {})}>
-                        <source src={encodeURI(v.src)} type="video/mp4" />
+                      <video controls playsinline preload="metadata" {...(v.poster ? { poster: v.poster } : {})}>
+                        <source src={v.src} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                       <div class="video-play-overlay">
