@@ -37,22 +37,22 @@
           "text": "Three distinct interaction packaging proposals for the S3 talent system — each exploring a different layout structure, animation language and visual hierarchy while staying true to the Borderlands collaboration aesthetic. From subtle cel-shaded transitions to explosive comic-panel reveals, these proposals demonstrate the breadth of creative exploration before final direction selection.",
           "videos": [
             {
-              "src": "/works/01-thematic-design/talent-system/plan-1.mp4",
+              "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-001/plan-1.mp4",
               "caption": "Plan 1"
             },
             {
-              "src": "/works/01-thematic-design/talent-system/plan-2.mp4",
+              "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-001/plan-2.mp4",
               "caption": "Plan 2"
             },
             {
-              "src": "/works/01-thematic-design/talent-system/plan-3.mp4",
+              "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-001/plan-3.mp4",
               "caption": "Plan 3"
             }
           ]
         },
         {
           "type": "video",
-          "src": "/works/01-thematic-design/talent-system/chain-effect.mp4",
+          "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-001/chain-effect.mp4",
           "title": "Dynamic Demo Showcase",
           "text": "The final S3 talent chain animation showcasing the 3-2-4 sequential unlock effect — each talent node ignites in Borderlands' signature cel-shaded style with ink-splash particles, comic speed lines and energy ripples cascading through the talent tree, delivering a visceral sense of power progression."
         }
@@ -110,18 +110,18 @@
           "text": "Two core interaction demos of the piggybank savings system — depositing coins into the piggybank and withdrawing coins from it. These micro-interactions are designed with satisfying visual feedback and smooth motion to reinforce the savings habit loop and create an emotionally rewarding user experience.",
           "videos": [
             {
-              "src": "/works/03-monetization/piggybank/add-coin.mp4",
+              "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-003/add-coin.mp4",
               "caption": "Deposit Coins"
             },
             {
-              "src": "/works/03-monetization/piggybank/withdraw-coin.mp4",
+              "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-003/withdraw-coin.mp4",
               "caption": "Withdraw Coins from Piggybank"
             }
           ]
         },
         {
           "type": "video",
-          "src": "/works/03-monetization/piggybank/final-version.mp4",
+          "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-003/final-version.mp4",
           "title": "Final Production Preview",
           "text": "A walkthrough of the fully implemented piggybank feature as it appears in the live product. This recording captures the end-to-end user journey — from the entry prompt and coin deposit animation, through balance accumulation with real-time visual feedback, to the final reward redemption moment. Every transition, particle effect and haptic cue has been polished to production quality, demonstrating how the design vision translates into a seamless and delightful in-game experience."
         }
@@ -169,7 +169,7 @@
       "category": "System Design",
       "year": "2026",
       "cover": "/works/05-system-design/_category-cover.webp",
-      "overviewVideo": "/works/05-system-design/character-showcase/_overview.webm",
+      "overviewVideo": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-005/_overview.webm",
       "description": "Building scalable and consistent design systems. I architect comprehensive UI component libraries, define design tokens, typography scales and spacing systems to ensure visual consistency across products while accelerating team collaboration and development efficiency.",
       "case": "Established a unified design system for FPS game franchises, standardizing over 200 reusable components across multiple game titles and platforms.",
       "images": [
@@ -233,7 +233,7 @@
           "text": "Mapping the complete card gameplay interaction journey from entry to resolution. The user flow covers card pack opening with dramatic reveal animations, strategic card selection and placement on the battlefield, real-time card effect activation with visual feedback, and the final battle outcome presentation. Each step is carefully designed to maintain player engagement while providing clear information hierarchy and intuitive navigation between states."
         },
         {
-          "src": "/works/06-creative-solution/card-battle/prototype-demo.mp4",
+          "src": "https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/project-006/prototype-demo.mp4",
           "title": "Interactive Prototype Demo",
           "text": "A high-fidelity motion prototype showcasing the card system's core interaction loops in action. The demo walks through the full gameplay flow — from browsing the card collection, selecting and deploying cards onto the battlefield, to witnessing real-time card ability animations and battle resolution sequences. This prototype was used to validate interaction timing, transition smoothness and overall user experience before development handoff.",
           "type": "video",
