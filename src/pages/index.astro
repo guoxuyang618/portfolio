@@ -92,24 +92,33 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
       const video = document.querySelector('.hero-video') as HTMLVideoElement;
       if (!heroBg || !video) return;
 
-      // 1. 网络检测：慢速网络不加载视频
+      // 1. 网络检测：慢速网络不加载视频，保持深色背景
       const conn = (navigator as any).connection;
       if (conn && (conn.saveData || conn.effectiveType === '2g' || conn.effectiveType === 'slow-2g')) {
         video.remove();
         return;
       }
 
-      // 2. 视频可播放时淡入，隐藏回退图（降低门槛：canplay 即可，无需等 canplaythrough）
+      // 2. 动态设置视频源（避免浏览器在解析 HTML 时提前触发加载导致闪烁）
+      const source = document.createElement('source');
+      source.src = 'https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/home/hero-bg.webm';
+      source.type = 'video/webm';
+
+      // 3. 视频可播放时淡入
       video.addEventListener('canplay', () => {
         heroBg.classList.add('video-ready');
-      });
+      }, { once: true });
 
-      // 如果视频已经缓存就绑定 readyState（readyState >= 3 即 canplay）
+      // 如果视频已缓存（readyState >= 3 即 canplay）
       if (video.readyState >= 3) {
         heroBg.classList.add('video-ready');
       }
 
-      // 3. 页面不可见时暂停视频（省电/省资源）
+      // 添加源并触发加载
+      video.appendChild(source);
+      video.load();
+
+      // 4. 页面不可见时暂停视频（省电/省资源）
       document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
           video.pause();
@@ -118,7 +127,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         }
       });
 
-      // 4. 滚动超出 Hero 区域时暂停视频
+      // 5. 滚动超出 Hero 区域时暂停视频
       const hero = document.querySelector('.hero');
       if (hero) {
         const observer = new IntersectionObserver((entries) => {
@@ -140,12 +149,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
   <!-- Hero区域 - 视频背景 -->
   <section class="hero">
     <div class="hero-bg">
-      <!-- 回退静态图（视频加载前 / 移动端省流时显示） -->
-      <img
-        src="/home/hero-poster.webp"
-        alt="Hero Background"
-        class="hero-poster"
-      />
       <!-- 视频背景：autoplay + muted + loop + playsinline 确保自动静音播放 -->
       <video
         class="hero-video"
@@ -154,7 +157,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         loop
         playsinline
         preload="auto"
-        poster="/home/hero-poster.webp"
       >
         <!--
           推荐视频规格：
@@ -167,10 +169,8 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
           ▸ 文件大小：≤ 8MB — 确保快速加载
           ▸ 音频：移除音轨 — 减少体积
 
-          请将视频文件放入：public/home/
-          推荐命名：hero-bg.mp4 / hero-bg.webm
+          视频源通过 JS 动态注入，避免浏览器提前加载导致闪烁
         -->
-        <source src="https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/home/hero-bg.webm" type="video/webm" />
       </video>
     </div>
     <div class="hero-gradient"></div>
@@ -545,26 +545,10 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
   .hero-bg {
     position: absolute;
     inset: 0;
+    background: #08080a;
   }
 
-  /* 回退图片 — 视频未加载时可见 */
-  .hero-poster {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.35) saturate(1.1);
-    z-index: 0;
-  }
-
-  /* 视频加载完成后隐藏回退图 */
-  .hero-bg.video-ready .hero-poster {
-    opacity: 0;
-    transition: opacity 0.8s ease;
-  }
-
-  /* 视频 — 铺满容器 */
+  /* 视频 — 铺满容器，默认隐藏，加载完成后淡入 */
   .hero-video {
     position: absolute;
     inset: 0;
@@ -586,9 +570,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
   @media (prefers-reduced-motion: reduce) {
     .hero-video {
       display: none !important;
-    }
-    .hero-bg.video-ready .hero-poster {
-      opacity: 1;
     }
   }
 
