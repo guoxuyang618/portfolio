@@ -405,6 +405,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
   }
 
   .logo {
@@ -433,6 +434,9 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     display: flex;
     gap: 2.5rem;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .nav-link {
@@ -1447,6 +1451,8 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
       position: fixed;
       top: 0;
       right: -100%;
+      left: auto;
+      transform: none;
       width: 70%;
       max-width: 300px;
       height: 100vh;
