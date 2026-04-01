@@ -100,9 +100,14 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
       }
 
       // 2. 动态设置视频源（避免浏览器在解析 HTML 时提前触发加载导致闪烁）
-      const source = document.createElement('source');
-      source.src = 'https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/home/hero-bg.webm';
-      source.type = 'video/webm';
+      // WebM 优先（体积更小、画质更好），MP4 作为 fallback（兼容 iOS Safari）
+      const sourceWebm = document.createElement('source');
+      sourceWebm.src = 'https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/home/hero-bg.webm';
+      sourceWebm.type = 'video/webm';
+
+      const sourceMp4 = document.createElement('source');
+      sourceMp4.src = 'https://xuyang-media-1416484933.cos.ap-guangzhou.myqcloud.com/portfolio%20videos/home/hero-bg.mp4';
+      sourceMp4.type = 'video/mp4';
 
       // 3. 视频可播放时淡入
       video.addEventListener('canplay', () => {
@@ -114,8 +119,9 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         heroBg.classList.add('video-ready');
       }
 
-      // 添加源并触发加载
-      video.appendChild(source);
+      // 添加源并触发加载（浏览器会自动选择支持的格式）
+      video.appendChild(sourceWebm);
+      video.appendChild(sourceMp4);
       video.load();
 
       // 4. 页面不可见时暂停视频（省电/省资源）
@@ -156,6 +162,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         muted
         loop
         playsinline
+        webkit-playsinline
         preload="auto"
       >
         <!--
