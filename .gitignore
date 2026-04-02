@@ -35,6 +35,10 @@ coverage/
 # Misc
 *.log
 
+# Deploy artifacts
+dist-deploy.zip
+*.zip
+
 # Videos (hosted on Tencent COS, not needed in repo)
 *.mp4
 *.webm
