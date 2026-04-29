@@ -75,6 +75,8 @@ import '../styles/global.css';
   <main>
     <!-- Hero 区域 -->
     <section class="about-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-gradient"></div>
       <div class="hero-content">
         <span class="hero-badge" data-i18n="about.heroBadge">About</span>
         <h1 data-i18n="about.heroTitle">Design Philosophy</h1>
@@ -346,14 +348,37 @@ import '../styles/global.css';
 
   /* ===== About Hero ===== */
   .about-hero {
-    padding: 10rem var(--container-padding) 5rem;
-    background: var(--bg-primary);
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     text-align: center;
   }
 
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 25%, #1e4d8c 50%, #2563eb 75%, #1a3a5c 100%);
+  }
+
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: 
+      linear-gradient(180deg, rgba(8,8,10,0.2) 0%, rgba(8,8,10,0.08) 50%, var(--bg-primary) 100%),
+      radial-gradient(ellipse at 50% 80%, rgba(78,234,219,0.06) 0%, transparent 50%);
+  }
+
   .hero-content {
-    max-width: 750px;
-    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    padding: 0 2rem;
+    color: white;
   }
 
   .hero-badge {
@@ -794,7 +819,7 @@ import '../styles/global.css';
       letter-spacing: 0.08em;
     }
 
-    .about-hero { padding: 8rem 1.5rem 3rem; }
+    .about-hero { min-height: 350px; height: 45vh; }
     .about-hero h1 { font-size: 2.2rem; }
     .about-section { padding: 3rem 1.5rem; }
     .highlights-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
