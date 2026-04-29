@@ -1,0 +1,8 @@
+{
+  "project": {
+    "name": "portfolio"
+  },
+  "build": {
+    "output": "dist"
+  }
+}
