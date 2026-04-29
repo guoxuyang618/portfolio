@@ -3,18 +3,18 @@
     "home": { "en": "Home", "zh": "首页" },
     "work": { "en": "Work", "zh": "作品" },
     "about": { "en": "About", "zh": "关于" },
-    "contact": { "en": "Contact Us", "zh": "联系我们" }
+    "contact": { "en": "Contact Me", "zh": "联系我" }
   },
   "index": {
     "heroTitle": { "en": "GAME UX DESIGN", "zh": "游戏体验设计" },
     "heroSubtitle": { "en": "Crafting Immersive FPS Experiences & Cross-Platform Interaction Innovation", "zh": "打造沉浸式FPS体验 & 跨平台交互创新" },
-    "heroDesc": { "en": "A decade of dedication, from CrossFire to Delta Force. J3 UED Design Team seamlessly blends core gameplay, narrative emotion and commercial value, using design to connect player instinct with the game world.", "zh": "十年深耕，从穿越火线到三角洲行动。J3 UED体验设计组将核心玩法、叙事情感与商业价值无缝融合，用设计连接玩家本能与游戏世界。" },
+    "heroDesc": { "en": "A decade of dedication, from CrossFire to Delta Force. I seamlessly blend core gameplay, narrative emotion and commercial value, using design to connect player instinct with the game world.", "zh": "十年深耕，从穿越火线到三角洲行动。我将核心玩法、叙事情感与商业价值无缝融合，用设计连接玩家本能与游戏世界。" },
     "statProjects": { "en": "Project<br/>Experience", "zh": "项目<br/>经验" },
     "statCategories": { "en": "Design<br/>Dimensions", "zh": "设计<br/>维度" },
     "statLatest": { "en": "Design Solutions<br/>Delivered", "zh": "设计方案<br/>交付" },
-    "abilitiesTag": { "en": "What We Do", "zh": "团队能力" },
+    "abilitiesTag": { "en": "What I Do", "zh": "专业能力" },
     "abilitiesTitle": { "en": "DESIGN ABILITIES", "zh": "设计能力" },
-    "abilitiesSubtitle": { "en": "With years of experience in game UX/UI design, J3 UED Design Team brings a comprehensive skill set spanning thematic storytelling, cross-platform adaptation, core gameplay interaction, monetization strategy, and systematic design thinking — delivering cohesive and player-centered experiences at every touchpoint.", "zh": "凭借多年游戏UX/UI设计经验，J3 UED体验设计组具备涵盖主题叙事、跨平台适配、核心玩法交互、商业化策略和系统化设计思维的综合能力——在每个触点都提供连贯且以玩家为中心的体验。" },
+    "abilitiesSubtitle": { "en": "With years of experience in game UX/UI design, I bring a comprehensive skill set spanning thematic storytelling, cross-platform adaptation, core gameplay interaction, monetization strategy, and systematic design thinking — delivering cohesive and player-centered experiences at every touchpoint.", "zh": "凭借多年游戏UX/UI设计经验，我具备涵盖主题叙事、跨平台适配、核心玩法交互、商业化策略和系统化设计思维的综合能力——在每个触点都提供连贯且以玩家为中心的体验。" },
     "ability1Name": { "en": "THEMATIC EXPERIENCE DESIGN", "zh": "主题体验设计" },
     "ability1Desc": { "en": "Making the interface an extension of the game world through stylized layouts and lore-aligned interactions.", "zh": "通过风格化布局和世界观融合的交互，让界面成为游戏世界的延伸。" },
     "ability2Name": { "en": "CROSS-PLATFORM UX DESIGN", "zh": "跨平台交互设计" },
@@ -30,9 +30,9 @@
     "projectsTag": { "en": "Featured Work", "zh": "精选作品" },
     "projectsTitle": { "en": "DESIGN CATEGORIES", "zh": "设计类别" },
     "viewAll": { "en": "View All Projects", "zh": "查看全部项目" },
-    "ctaTag": { "en": "Get in Touch", "zh": "联系我们" },
+    "ctaTag": { "en": "Get in Touch", "zh": "联系我" },
     "ctaTitle": { "en": "Let's Create Something<br/>Amazing Together", "zh": "让我们一起<br/>创造精彩" },
-    "ctaDesc": { "en": "We'd love to hear about it and discuss how J3 UED Design Team can bring your vision to life.", "zh": "期待与您交流，探讨 J3 UED体验设计组如何将您的愿景变为现实。" },
+    "ctaDesc": { "en": "I'd love to hear about it and discuss how I can bring your vision to life.", "zh": "期待与您交流，探讨我如何将您的愿景变为现实。" },
     "ctaBtn": { "en": "View Portfolio", "zh": "查看作品集" },
     "tagline_thematic": { "en": "Immersive Visual Storytelling", "zh": "沉浸式视觉叙事" },
     "tagline_gameplay": { "en": "Precise Combat Interactions", "zh": "精准战斗交互" },
@@ -52,14 +52,14 @@
     "heroBadge": { "en": "About", "zh": "关于" },
     "heroTitle": { "en": "Design Philosophy", "zh": "设计理念" },
     "philosophyTag": { "en": "Design Philosophy", "zh": "设计理念" },
-    "philosophyText1": { "en": "J3 UED Design Team is a professional game user experience design group under Tencent Games, focused on delivering world-class interactive experiences for FPS titles. From the globally acclaimed CrossFire franchise to the next-generation tactical shooter Delta Force, the team has accumulated deep domain expertise across the full lifecycle of game UX — from early concept exploration and interaction prototyping to final production-quality delivery. With a player-first mindset, the team continuously pushes the boundaries of what game interfaces can feel like.", "zh": "J3 UED体验设计组是腾讯游戏旗下专注于FPS品类的专业游戏用户体验设计团队，致力于打造世界级的交互体验。从全球知名的穿越火线系列到新一代战术射击游戏三角洲行动，团队在游戏UX的全生命周期中积累了深厚的专业沉淀——从前期概念探索、交互原型设计到最终的产品级交付。秉持玩家优先的设计理念，团队持续突破游戏界面体验的边界。" },
-    "philosophyText2": { "en": "The team brings together multidisciplinary expertise spanning interaction design, motion design, visual systems and AIGC-driven innovation. Proficient in UE5, Figma, C4D and emerging AI tools, J3 UED Design Team transforms complex game mechanics into intuitive, emotionally resonant player experiences. Our design philosophy centers on three pillars: precision — ensuring every micro-interaction delivers instant, satisfying feedback; immersion — weaving narrative and visual storytelling into every UI touchpoint; and impact — aligning design excellence with measurable business outcomes across thematic packaging, monetization systems and cross-platform adaptation.", "zh": "团队汇聚了交互设计、动效设计、视觉系统和AIGC驱动创新等多元专业能力。精通UE5、Figma、C4D及前沿AI工具，J3 UED体验设计组将复杂的游戏机制转化为直觉式、富有情感共鸣的玩家体验。我们的设计理念围绕三大支柱展开：精准——确保每一个微交互都能传递即时、令人满足的反馈；沉浸——将叙事和视觉故事融入每个UI触点；影响力——在主题包装、商业化系统和跨平台适配中，让设计卓越与可衡量的商业成果相统一。" },
+    "philosophyText1": { "en": "I am a professional game UX designer at Tencent Games, focused on delivering world-class interactive experiences for FPS titles. From the globally acclaimed CrossFire franchise to the next-generation tactical shooter Delta Force, I have accumulated deep domain expertise across the full lifecycle of game UX — from early concept exploration and interaction prototyping to final production-quality delivery. With a player-first mindset, I continuously push the boundaries of what game interfaces can feel like.", "zh": "我是腾讯游戏旗下专注于FPS品类的专业游戏用户体验设计师，致力于打造世界级的交互体验。从全球知名的穿越火线系列到新一代战术射击游戏三角洲行动，我在游戏UX的全生命周期中积累了深厚的专业沉淀——从前期概念探索、交互原型设计到最终的产品级交付。秉持玩家优先的设计理念，我持续突破游戏界面体验的边界。" },
+    "philosophyText2": { "en": "I bring multidisciplinary expertise spanning interaction design, motion design, visual systems and AIGC-driven innovation. Proficient in UE5, Figma, C4D and emerging AI tools, I transform complex game mechanics into intuitive, emotionally resonant player experiences. My design philosophy centers on three pillars: precision — ensuring every micro-interaction delivers instant, satisfying feedback; immersion — weaving narrative and visual storytelling into every UI touchpoint; and impact — aligning design excellence with measurable business outcomes across thematic packaging, monetization systems and cross-platform adaptation.", "zh": "我具备交互设计、动效设计、视觉系统和AIGC驱动创新等多元专业能力。精通UE5、Figma、C4D及前沿AI工具，我将复杂的游戏机制转化为直觉式、富有情感共鸣的玩家体验。我的设计理念围绕三大支柱展开：精准——确保每一个微交互都能传递即时、令人满足的反馈；沉浸——将叙事和视觉故事融入每个UI触点；影响力——在主题包装、商业化系统和跨平台适配中，让设计卓越与可衡量的商业成果相统一。" },
     "statProjects": { "en": "Projects<br/>Delivered", "zh": "项目<br/>交付" },
     "statCategories": { "en": "Design<br/>Categories", "zh": "设计<br/>类别" },
     "statPassion": { "en": "Design<br/>Passion", "zh": "设计<br/>热情" },
     "statLatest": { "en": "Latest<br/>Projects", "zh": "最新<br/>项目" },
-    "skillsTag": { "en": "What We Do", "zh": "团队能力" },
-    "skillsTitle": { "en": "Our Skills", "zh": "专业技能" },
+    "skillsTag": { "en": "What I Do", "zh": "专业能力" },
+    "skillsTitle": { "en": "My Skills", "zh": "专业技能" },
     "skill1Title": { "en": "Game Design", "zh": "游戏设计" },
     "skill1Desc": { "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "zh": "此处为占位文本，待填充游戏设计能力的正式描述内容。" },
     "skill2Title": { "en": "Web Design", "zh": "网页设计" },
@@ -68,9 +68,9 @@
     "skill3Desc": { "en": "Intuitive mobile app design optimized for touch interactions and seamless user flows.", "zh": "针对触控交互和流畅用户流程优化的直觉式移动端设计。" },
     "skill4Title": { "en": "UI/UX Design", "zh": "UI/UX设计" },
     "skill4Desc": { "en": "User-centered interface design driven by research, wireframing, prototyping, and usability testing.", "zh": "以用户为中心，通过调研、线框图、原型和可用性测试驱动的界面设计。" },
-    "contactTag": { "en": "Contact Us", "zh": "联系我们" },
-    "contactTitle": { "en": "Contact Us", "zh": "联系我们" },
-    "contactDesc": { "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. We'd love to hear from you.", "zh": "此处为占位文本，待填充联系我们的正式描述内容。期待与您交流。" },
+    "contactTag": { "en": "Contact Me", "zh": "联系我" },
+    "contactTitle": { "en": "Contact Me", "zh": "联系我" },
+    "contactDesc": { "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. I'd love to hear from you.", "zh": "此处为占位文本，待填充联系我的正式描述内容。期待与您交流。" },
     "contactEmail": { "en": "Email", "zh": "邮箱" },
     "contactWechat": { "en": "WeChat", "zh": "微信" },
     "contactLocation": { "en": "Location", "zh": "所在地" },
@@ -90,7 +90,7 @@
     "work": { "en": "Work", "zh": "作品" },
     "about": { "en": "About", "zh": "关于" },
     "contact": { "en": "Contact", "zh": "联系" },
-    "getInTouch": { "en": "Get in Touch", "zh": "联系我们" },
+    "getInTouch": { "en": "Get in Touch", "zh": "联系我" },
     "emailMe": { "en": "Email Me", "zh": "发送邮件" },
     "rights": { "en": "All rights reserved.", "zh": "版权所有。" },
     "credit": { "en": "Designed with passion", "zh": "用心设计" },
@@ -149,7 +149,7 @@
       ]
     },
     "project-002": {
-      "description": { "en": "Bringing intuitive interaction to hardcore gameplay. J3 UED Design Team focuses on operation design for combat, strategy and other core mechanics in CrossFire Mobile's PvE mode — pursuing precise, fluid and distraction-free battlefield experiences that keep players fully immersed in high-intensity combat scenarios.", "zh": "为硬核玩法注入直觉式交互。J3 UED体验设计组专注于穿越火线手游PvE模式中战斗、策略等核心机制的操作设计——追求精准、流畅且无干扰的战场体验，让玩家完全沉浸在高强度战斗场景中。" },
+      "description": { "en": "Bringing intuitive interaction to hardcore gameplay. I focus on operation design for combat, strategy and other core mechanics in CrossFire Mobile's PvE mode — pursuing precise, fluid and distraction-free battlefield experiences that keep players fully immersed in high-intensity combat scenarios.", "zh": "为硬核玩法注入直觉式交互。我专注于穿越火线手游PvE模式中战斗、策略等核心机制的操作设计——追求精准、流畅且无干扰的战场体验，让玩家完全沉浸在高强度战斗场景中。" },
       "case": { "en": "Continuously optimized the feel and feedback logic for shooting, aiming, objective interaction and throwable operations in CrossFire Mobile's PvE zombie mode.", "zh": "持续优化穿越火线手游PvE僵尸模式中的射击手感、瞄准反馈逻辑、目标交互和投掷物操作体验。" },
       "images": [
         {
@@ -167,7 +167,7 @@
       ]
     },
     "project-003": {
-      "description": { "en": "Achieving commercial value with elegance. J3 UED Design Team seamlessly integrates monetization systems into the player journey, simplifying payment paths, enhancing visual presentation and guiding flow to create a win-win for users and business.", "zh": "以优雅的方式实现商业价值。J3 UED体验设计组将商业化系统无缝融入玩家旅程，简化付费路径、提升视觉表现和引导流程，实现用户与商业的双赢。" },
+      "description": { "en": "Achieving commercial value with elegance. I seamlessly integrate monetization systems into the player journey, simplifying payment paths, enhancing visual presentation and guiding flow to create a win-win for users and business.", "zh": "以优雅的方式实现商业价值。我将商业化系统无缝融入玩家旅程，简化付费路径、提升视觉表现和引导流程，实现用户与商业的双赢。" },
       "case": { "en": "Led the design of season battle passes and gacha event interfaces across multiple games, with data showing significant improvements in user engagement and willingness to pay.", "zh": "主导了多款游戏的赛季通行证和抽卡活动界面设计，数据显示用户参与度和付费意愿显著提升。" },
       "images": [
         {
@@ -193,7 +193,7 @@
       ]
     },
     "project-004": {
-      "description": { "en": "Experience consistency above all else. With interaction design experience across mobile, PC, console and XR devices, J3 UED Design Team tailors optimal interaction solutions based on each device's input characteristics and usage scenarios.", "zh": "体验一致性高于一切。凭借横跨移动端、PC、主机和XR设备的交互设计经验，J3 UED体验设计组根据每种设备的输入特性和使用场景量身定制最优交互方案。" },
+      "description": { "en": "Experience consistency above all else. With interaction design experience across mobile, PC, console and XR devices, I tailor optimal interaction solutions based on each device's input characteristics and usage scenarios.", "zh": "体验一致性高于一切。凭借横跨移动端、PC、主机和XR设备的交互设计经验，我根据每种设备的输入特性和使用场景量身定制最优交互方案。" },
       "case": { "en": "Participated in the interaction adaptation of CrossFire: Rainbow PC version, conducting deep optimization for keyboard and mouse controls.", "zh": "参与了穿越火线：虹PC版的交互适配，针对键盘鼠标操控进行了深度优化。" },
       "images": [
         {
@@ -219,7 +219,7 @@
       ]
     },
     "project-006": {
-      "description": { "en": "Building scalable and consistent design systems. J3 UED Design Team architects comprehensive UI component libraries, defines design tokens, typography scales and spacing systems to ensure visual consistency across products while accelerating team collaboration and development efficiency.", "zh": "构建可扩展且一致的设计系统。J3 UED体验设计组搭建全面的UI组件库，定义设计令牌、字体比例和间距系统，确保产品间的视觉一致性，同时加速团队协作和开发效率。" },
+      "description": { "en": "Building scalable and consistent design systems. I architect comprehensive UI component libraries, define design tokens, typography scales and spacing systems to ensure visual consistency across products while accelerating collaboration and development efficiency.", "zh": "构建可扩展且一致的设计系统。我搭建全面的UI组件库，定义设计令牌、字体比例和间距系统，确保产品间的视觉一致性，同时加速协作和开发效率。" },
       "case": { "en": "Established a unified design system for FPS game franchises, standardizing over 200 reusable components across multiple game titles and platforms.", "zh": "为FPS游戏系列建立了统一的设计系统，在多款游戏和平台间标准化了200多个可复用组件。" },
       "images": [
         {
