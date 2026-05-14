@@ -524,7 +524,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
 
         card.addEventListener('mouseenter', function() {
           isHovering = true;
-          card.style.transition = 'box-shadow 0.15s var(--ease-out), border-color 0.15s ease, background 0.15s ease';
+          card.style.transition = 'box-shadow 0.05s ease, border-color 0.05s ease, background 0.05s ease';
           if (!rafId) {
             rafId = requestAnimationFrame(animate);
           }
@@ -536,7 +536,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
           targetRotateY = 0;
           targetTranslateY = 0;
           targetScale = 1;
-          card.style.transition = 'transform 0.3s var(--ease-out), box-shadow 0.15s var(--ease-out), border-color 0.15s ease, background 0.15s ease';
+          card.style.transition = 'transform 0.1s ease, box-shadow 0.05s ease, border-color 0.05s ease, background 0.05s ease';
           if (!rafId) {
             rafId = requestAnimationFrame(animate);
           }
@@ -962,7 +962,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     border-radius: 0;
     border: 1px solid var(--border);
     background: linear-gradient(180deg, rgba(78, 234, 219, 0.04) 0%, rgba(8, 8, 10, 0.6) 100%);
-    transition: background 0.15s ease, border-color 0.15s ease;
+    transition: background 0.05s ease, border-color 0.05s ease;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -993,7 +993,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     height: 100%;
     object-fit: contain;
     filter: brightness(0) invert(1) opacity(0.85);
-    transition: filter 0.15s ease, transform 0.15s var(--ease-out);
+    transition: filter 0.05s ease, transform 0.05s ease;
   }
 
   .ability-card:hover .ability-icon img {
@@ -1011,7 +1011,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     position: relative;
     z-index: 1;
     word-break: break-word;
-    transition: color 0.15s ease;
+    transition: color 0.05s ease;
   }
 
   .ability-card:hover .ability-name {
@@ -1025,7 +1025,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     position: relative;
     z-index: 1;
     margin: 0;
-    transition: color 0.15s ease;
+    transition: color 0.05s ease;
   }
 
   .ability-card:hover .ability-desc {
@@ -1108,7 +1108,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     /* 使用 aspect-ratio 代替固定高度 */
     aspect-ratio: 2.8 / 1;
     width: 100%;
-    transition: box-shadow 0.15s var(--ease-out), border-color 0.15s var(--ease-out);
+    transition: box-shadow 0.05s ease, border-color 0.05s ease;
     /* 渐入动画初始状态 */
     opacity: 0;
     transform: translateY(40px);
@@ -1150,7 +1150,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.2s var(--ease-out), filter 0.2s var(--ease-out);
+    transition: transform 0.05s ease, filter 0.05s ease;
   }
 
   .project-card:hover .card-bg img {
@@ -1205,7 +1205,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     letter-spacing: 0.01em;
     line-height: 1.2;
     text-transform: uppercase;
-    transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.15s var(--ease-out);
+    transition: color 0.05s ease, text-shadow 0.05s ease, transform 0.05s ease;
   }
 
   /* 英文模式下卡片标题字号稍小 */
@@ -1244,7 +1244,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     border: none;
     border-radius: 0;
     width: fit-content;
-    transition: all 0.15s var(--ease-out);
+    transition: all 0.05s ease;
   }
 
   .card-cta svg {
