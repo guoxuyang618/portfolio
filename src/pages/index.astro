@@ -1087,12 +1087,12 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     margin-right: auto;
   }
 
-  /* 作品列表 - PC单列横向铺满 */
+  /* 作品列表 - PC一行2个 */
   .projects-list {
     width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
 
@@ -1192,8 +1192,8 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1.5rem 3.5rem;
-    max-width: 45%;
+    padding: 1.5rem 2rem;
+    max-width: 65%;
     transition: justify-content 0.3s ease;
   }
 
