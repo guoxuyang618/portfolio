@@ -219,7 +219,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     </div>
     <div class="abilities-grid reveal-stagger">
       <div class="ability-card" data-tilt>
-        <div class="card-spotlight"></div>
         <div class="ability-icon">
           <img src="/home/abilities/thematic-design.webp" alt="Thematic Experience Design" loading="lazy" />
         </div>
@@ -227,7 +226,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         <p class="ability-desc" data-i18n="index.ability1Desc">Making the interface an extension of the game world through stylized layouts and lore-aligned interactions.</p>
       </div>
       <div class="ability-card" data-tilt>
-        <div class="card-spotlight"></div>
         <div class="ability-icon">
           <img src="/home/abilities/cross-platform.webp" alt="Cross-Platform UX Design" loading="lazy" />
         </div>
@@ -235,7 +233,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         <p class="ability-desc" data-i18n="index.ability2Desc">Tailoring optimal interaction solutions across mobile, PC, console and XR devices.</p>
       </div>
       <div class="ability-card" data-tilt>
-        <div class="card-spotlight"></div>
         <div class="ability-icon">
           <img src="/home/abilities/core-gameplay.webp" alt="Gameplay Interaction Design" loading="lazy" />
         </div>
@@ -243,7 +240,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         <p class="ability-desc" data-i18n="index.ability3Desc">Precise, fluid and distraction-free interaction design for combat and core mechanics.</p>
       </div>
       <div class="ability-card" data-tilt>
-        <div class="card-spotlight"></div>
         <div class="ability-icon">
           <img src="/home/abilities/monetization.webp" alt="Monetization UX Design" loading="lazy" />
         </div>
@@ -251,7 +247,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         <p class="ability-desc" data-i18n="index.ability4Desc">Seamlessly integrating monetization systems into the player journey with elegant design.</p>
       </div>
       <div class="ability-card" data-tilt>
-        <div class="card-spotlight"></div>
         <div class="ability-icon">
           <img src="/home/abilities/system-design.webp" alt="System Design" loading="lazy" />
         </div>
@@ -259,7 +254,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         <p class="ability-desc" data-i18n="index.ability5Desc">Building scalable component libraries and design tokens for visual consistency across products.</p>
       </div>
       <div class="ability-card" data-tilt>
-        <div class="card-spotlight"></div>
         <div class="ability-icon">
           <img src="/home/abilities/creative-solution.webp" alt="Creative Experience Solution" loading="lazy" />
         </div>
@@ -287,7 +281,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         return Array.from(categoryMap.entries());
       })().map(([category, work]: [string, any]) => (
         <a href={`/works?category=${encodeURIComponent(category)}`} class="project-card" data-tilt data-tilt-max="6">
-          <div class="card-spotlight"></div>
           <div class="card-bg">
             <img src={work.cardCover || work.cover} alt={category} loading="lazy">
           </div>
@@ -446,7 +439,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     })();
   </script>
 
-  <!-- 3D 透视倾斜 + 鼠标追光效果 -->
+  <!-- 3D 透视倾斜效果 -->
   <script>
     (function() {
       const tiltCards = document.querySelectorAll('[data-tilt]');
@@ -521,17 +514,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
           targetTranslateY = hoverLift;
           targetScale = hoverScale;
 
-          // 更新追光 CSS 变量
-          card.style.setProperty('--mouse-x', x + 'px');
-          card.style.setProperty('--mouse-y', y + 'px');
-
-          // 追光层也更新
-          const spotlight = card.querySelector('.card-spotlight');
-          if (spotlight) {
-            spotlight.style.setProperty('background', 
-              `radial-gradient(${isProjectCard ? '600px' : '350px'} circle at ${x}px ${y}px, rgba(78, 234, 219, ${isProjectCard ? '0.12' : '0.2'}) 0%, rgba(78, 234, 219, ${isProjectCard ? '0.04' : '0.06'}) 40%, transparent ${isProjectCard ? '65%' : '70%'})`
-            );
-          }
 
           if (!rafId) {
             rafId = requestAnimationFrame(animate);
@@ -987,25 +969,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     will-change: transform;
   }
 
-  /* 鼠标追光层 */
-  .ability-card > .card-spotlight {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    pointer-events: none;
-    background: radial-gradient(
-      350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(78, 234, 219, 0.2) 0%,
-      rgba(78, 234, 219, 0.06) 40%,
-      transparent 70%
-    );
-  }
-
-  .ability-card:hover > .card-spotlight {
-    opacity: 1;
-  }
 
   /* 光扫描效果 - 更亮更快 */
   .ability-card::after {
@@ -1185,25 +1148,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     will-change: transform;
   }
 
-  /* 鼠标追光层 - 项目卡片 */
-  .project-card > .card-spotlight {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-    background: radial-gradient(
-      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(78, 234, 219, 0.12) 0%,
-      rgba(78, 234, 219, 0.04) 40%,
-      transparent 65%
-    );
-  }
-
-  .project-card:hover > .card-spotlight {
-    opacity: 1;
-  }
 
   .project-card.card-visible {
     opacity: 1;
