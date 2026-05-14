@@ -470,6 +470,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         if (isAbilityCard) return;
         const hoverScale = 1;
         const hoverLift = -8;
+        let tiltEnabled = false;
 
         function lerp(start, end, factor) {
           return start + (end - start) * factor;
@@ -504,6 +505,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         }
 
         card.addEventListener('mousemove', function(e) {
+          if (!tiltEnabled) return; // 扫光期间不启动3D
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
@@ -524,14 +526,32 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
 
         card.addEventListener('mouseenter', function() {
           isHovering = true;
+          tiltEnabled = false;
+          // 先播放白色扫光动画
+          card.classList.remove('sweep-active');
+          void card.offsetWidth; // 强制 reflow 重置动画
+          card.classList.add('sweep-active');
           card.style.transition = 'box-shadow 0.05s ease, border-color 0.05s ease, background 0.05s ease';
-          if (!rafId) {
-            rafId = requestAnimationFrame(animate);
-          }
+          
+          // 延迟 400ms（等扫光完成）再启动 3D 效果
+          card._sweepTimer = setTimeout(() => {
+            if (!isHovering) return;
+            tiltEnabled = true;
+            if (!rafId) {
+              rafId = requestAnimationFrame(animate);
+            }
+          }, 400);
         });
 
         card.addEventListener('mouseleave', function() {
           isHovering = false;
+          tiltEnabled = false;
+          // 清除扫光定时器
+          if (card._sweepTimer) {
+            clearTimeout(card._sweepTimer);
+            card._sweepTimer = null;
+          }
+          card.classList.remove('sweep-active');
           targetRotateX = 0;
           targetRotateY = 0;
           targetTranslateY = 0;
@@ -1121,6 +1141,39 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
   .project-card.card-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 25%,
+      rgba(255, 255, 255, 0.7) 50%,
+      rgba(255, 255, 255, 0.4) 75%,
+      transparent 100%
+    );
+    transform: translateX(-110%);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .project-card.sweep-active::after {
+    animation: sweepLight 0.4s ease-out forwards;
+  }
+
+  @keyframes sweepLight {
+    0% {
+      opacity: 1;
+      transform: translateX(-110%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(110%);
+    }
   }
 
   .project-card:hover {
