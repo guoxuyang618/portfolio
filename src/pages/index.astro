@@ -1087,12 +1087,12 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     margin-right: auto;
   }
 
-  /* 作品列表 - PC一行2个 */
+  /* 作品列表 - PC单列横向铺满 */
   .projects-list {
-    max-width: 1300px;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
@@ -1106,7 +1106,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     overflow: hidden;
     border: 1px solid transparent;
     /* 使用 aspect-ratio 代替固定高度 */
-    aspect-ratio: 1.4 / 1;
+    aspect-ratio: 16 / 9;
     width: 100%;
     transition: box-shadow 0.05s ease, border-color 0.05s ease;
     /* 渐入动画初始状态 */
@@ -1182,7 +1182,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     pointer-events: none;
   }
 
-  /* 文字信息区 - 左上角对齐 */
+  /* 文字信息区 - 默认垂直居中，悬停时上对齐 */
   .card-content {
     position: absolute;
     left: 0;
@@ -1191,9 +1191,14 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     z-index: 3;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 1.5rem 3.5rem;
     max-width: 45%;
+    transition: justify-content 0.3s ease;
+  }
+
+  .project-card:hover .card-content {
+    justify-content: center;
   }
 
   .card-title {
@@ -1228,6 +1233,20 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     line-height: 1.65;
     margin-bottom: 1.8rem;
     max-width: 380px;
+    /* 默认隐藏 */
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-8px);
+    margin-top: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.4s ease, transform 0.3s ease, margin-bottom 0.3s ease;
+  }
+
+  .project-card:hover .card-desc {
+    opacity: 1;
+    max-height: 200px;
+    transform: translateY(0);
+    margin-bottom: 1.8rem;
   }
 
   .card-cta {
@@ -1244,18 +1263,29 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     border: none;
     border-radius: 0;
     width: fit-content;
-    transition: all 0.05s ease;
+    /* 默认隐藏 */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.3s ease 0.05s, max-height 0.4s ease, transform 0.3s ease, padding 0.3s ease, background 0.05s ease, box-shadow 0.05s ease;
+  }
+
+  .project-card:hover .card-cta {
+    opacity: 1;
+    max-height: 60px;
+    transform: translateY(0);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background: #3dd4c6;
+    box-shadow: 0 4px 20px rgba(78, 234, 219, 0.4);
   }
 
   .card-cta svg {
     transition: transform 0.3s ease;
     stroke: #08080a;
-  }
-
-  .project-card:hover .card-cta {
-    background: #3dd4c6;
-    box-shadow: 0 4px 20px rgba(78, 234, 219, 0.4);
-    transform: translateX(4px);
   }
 
   .project-card:hover .card-cta svg {
@@ -1851,6 +1881,22 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
 
     .project-card {
       aspect-ratio: 2.8 / 1;
+    }
+
+    /* 移动端无悬停，默认展开 desc 和 cta */
+    .card-desc {
+      opacity: 1;
+      max-height: 200px;
+      transform: none;
+      margin-bottom: 1rem;
+    }
+
+    .card-cta {
+      opacity: 1;
+      max-height: 60px;
+      transform: none;
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
     }
 
     .card-content {
