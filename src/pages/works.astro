@@ -480,13 +480,24 @@ import '../styles/global.css';
   }
 
   .work-card:hover {
-    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+    background: #ffffff;
+    box-shadow: none;
     transform: translateY(-3px);
-    border: 1px solid var(--accent);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   .work-card:hover .work-card-info h3 {
-    color: var(--accent);
+    color: #1a1a2e;
+  }
+
+  .work-card:hover .work-category {
+    color: #1a1a2e;
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .work-card:hover .work-year {
+    color: #3a3a5c;
   }
 
   .work-card:hover .work-card-image img {
