@@ -970,45 +970,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
   }
 
 
-  /* 光扫描效果 - 更亮更快 */
-  .ability-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -100%;
-    width: 70%;
-    height: 200%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(78, 234, 219, 0.12) 40%,
-      rgba(78, 234, 219, 0.3) 50%,
-      rgba(78, 234, 219, 0.12) 60%,
-      transparent 100%
-    );
-    transform: skewX(-20deg);
-    transition: left 0.6s var(--ease-out);
-    pointer-events: none;
-  }
-
-  .ability-card:hover::after {
-    left: 150%;
-  }
-
-  .ability-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(78, 234, 219, 0.2) 0%, transparent 65%);
-    opacity: 0;
-    transition: opacity 0.35s ease;
-  }
-
-  .ability-card:hover::before {
-    opacity: 1;
-  }
-
   .ability-card:hover {
     border-color: var(--accent);
     background: linear-gradient(180deg, rgba(78, 234, 219, 0.1) 0%, rgba(8, 8, 10, 0.8) 100%);
