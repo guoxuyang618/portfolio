@@ -132,7 +132,10 @@
   // 公共播放接口
   function play(name) {
     if (!enabled) return;
-    if (!unlocked) return; // 必须等首次交互
+    if (!audioCtx) initAudioContext();
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
     if (sounds[name]) sounds[name]();
   }
 
@@ -169,7 +172,7 @@
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       setEnabled(!enabled);
-      if (enabled) sounds.click();
+      if (enabled) play('click');
     });
 
     // 悬停音效
@@ -185,23 +188,8 @@
 
   // ===== 自动绑定事件 =====
   function bindEvents() {
-    // 首次交互即解锁音频
-    const unlockHandler = function () {
-      unlock();
-      // 解锁后播放页面进入音
-      if (enabled) {
-        setTimeout(() => play('enter'), 100);
-      }
-      window.removeEventListener('click', unlockHandler);
-      window.removeEventListener('keydown', unlockHandler);
-      window.removeEventListener('touchstart', unlockHandler);
-    };
-    window.addEventListener('click', unlockHandler, { once: false });
-    window.addEventListener('keydown', unlockHandler, { once: false });
-    window.addEventListener('touchstart', unlockHandler, { once: false });
-
     // 全局事件委托 - 用 mouseover + relatedTarget 判断（mouseenter 不冒泡）
-    const HOVER_SELECTOR = '.project-card, .ability-card, .work-card, .service-card, .principle-card, .highlight-card, .nav-cta, .card-cta, .lang-toggle, .filter-btn, .hero-cta, .btn-primary, .btn-secondary, .timeline-item, .tool-chip';
+    const HOVER_SELECTOR = '.project-card, .ability-card, .work-card, .service-card, .principle-card, .highlight-card, .nav-cta, .card-cta, .lang-toggle, .filter-btn, .hero-cta, .btn-primary, .btn-secondary, .timeline-item, .tool-chip, .life-item, .nav-link';
 
     document.addEventListener('mouseover', function (e) {
       const target = e.target.closest && e.target.closest(HOVER_SELECTOR);
