@@ -1148,14 +1148,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     position: absolute;
     inset: 0;
     z-index: 10;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.4) 25%,
-      rgba(255, 255, 255, 0.7) 50%,
-      rgba(255, 255, 255, 0.4) 75%,
-      transparent 100%
-    );
+    background: #ffffff;
     transform: translateX(-110%);
     pointer-events: none;
     opacity: 0;
@@ -1169,6 +1162,10 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     0% {
       opacity: 1;
       transform: translateX(-110%);
+    }
+    90% {
+      opacity: 1;
+      transform: translateX(110%);
     }
     100% {
       opacity: 0;
