@@ -466,8 +466,10 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
         // 判断是能力卡片还是项目卡片
         const isAbilityCard = card.classList.contains('ability-card');
         const isProjectCard = card.classList.contains('project-card');
-        const hoverScale = isAbilityCard ? 1.04 : 1;
-        const hoverLift = isAbilityCard ? -10 : -8;
+        // ability-card 不需要悬停动画效果
+        if (isAbilityCard) return;
+        const hoverScale = 1;
+        const hoverLift = -8;
 
         function lerp(start, end, factor) {
           return start + (end - start) * factor;
@@ -960,23 +962,20 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     border-radius: 0;
     border: 1px solid var(--border);
     background: linear-gradient(180deg, rgba(78, 234, 219, 0.04) 0%, rgba(8, 8, 10, 0.6) 100%);
-    transition: border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background 0.35s var(--ease-out);
+    transition: none;
     position: relative;
     overflow: hidden;
     width: 100%;
-    /* 3D 透视 */
-    transform-style: preserve-3d;
-    will-change: transform;
+    /* 3D 透视 - 已禁用 */
+    transform-style: flat;
+    will-change: auto;
   }
 
 
   .ability-card:hover {
-    border-color: var(--accent);
-    background: linear-gradient(180deg, rgba(78, 234, 219, 0.1) 0%, rgba(8, 8, 10, 0.8) 100%);
-    box-shadow: 
-      0 20px 50px rgba(78, 234, 219, 0.2),
-      0 0 30px rgba(78, 234, 219, 0.1),
-      0 0 0 1px rgba(78, 234, 219, 0.25) inset;
+    border-color: var(--border);
+    background: linear-gradient(180deg, rgba(78, 234, 219, 0.04) 0%, rgba(8, 8, 10, 0.6) 100%);
+    box-shadow: none;
   }
 
   .ability-icon {
@@ -999,8 +998,8 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
   }
 
   .ability-card:hover .ability-icon img {
-    filter: brightness(0) invert(0.75) sepia(1) saturate(5) hue-rotate(130deg) opacity(1);
-    transform: scale(1.15);
+    filter: brightness(0) invert(1) opacity(0.85);
+    transform: none;
   }
 
   .ability-name {
