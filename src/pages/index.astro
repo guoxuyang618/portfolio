@@ -961,8 +961,8 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     padding: 1.8rem 1rem 1.6rem;
     border-radius: 0;
     border: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(78, 234, 219, 0.04) 0%, rgba(8, 8, 10, 0.6) 100%);
-    transition: background 0.05s ease, border-color 0.05s ease;
+    background: rgba(8, 8, 10, 0.6);
+    transition: none;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -993,7 +993,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     height: 100%;
     object-fit: contain;
     filter: brightness(0) invert(1) opacity(0.85);
-    transition: filter 0.05s ease, transform 0.05s ease;
+    transition: none;
   }
 
   .ability-card:hover .ability-icon img {
@@ -1011,7 +1011,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     position: relative;
     z-index: 1;
     word-break: break-word;
-    transition: color 0.05s ease;
+    transition: none;
   }
 
   .ability-card:hover .ability-name {
@@ -1025,7 +1025,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     position: relative;
     z-index: 1;
     margin: 0;
-    transition: color 0.05s ease;
+    transition: none;
   }
 
   .ability-card:hover .ability-desc {
