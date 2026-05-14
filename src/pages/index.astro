@@ -1182,7 +1182,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     pointer-events: none;
   }
 
-  /* 文字信息区 - 默认垂直居中，悬停时上对齐 */
+  /* 文字信息区 - 左上角对齐 */
   .card-content {
     position: absolute;
     left: 0;
@@ -1191,14 +1191,13 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     z-index: 3;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem 2rem;
+    justify-content: flex-start;
+    padding: 1.8rem 2rem;
     max-width: 65%;
-    transition: justify-content 0.3s ease;
   }
 
   .project-card:hover .card-content {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .card-title {
