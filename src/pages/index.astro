@@ -962,19 +962,18 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     border-radius: 0;
     border: 1px solid var(--border);
     background: linear-gradient(180deg, rgba(78, 234, 219, 0.04) 0%, rgba(8, 8, 10, 0.6) 100%);
-    transition: none;
+    transition: background 0.35s ease, border-color 0.35s ease;
     position: relative;
     overflow: hidden;
     width: 100%;
-    /* 3D 透视 - 已禁用 */
     transform-style: flat;
     will-change: auto;
   }
 
 
   .ability-card:hover {
-    border-color: var(--border);
-    background: linear-gradient(180deg, rgba(78, 234, 219, 0.04) 0%, rgba(8, 8, 10, 0.6) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: #ffffff;
     box-shadow: none;
   }
 
@@ -998,7 +997,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
   }
 
   .ability-card:hover .ability-icon img {
-    filter: brightness(0) invert(1) opacity(0.85);
+    filter: brightness(0) invert(0) opacity(0.85);
     transform: none;
   }
 
@@ -1012,6 +1011,11 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     position: relative;
     z-index: 1;
     word-break: break-word;
+    transition: color 0.35s ease;
+  }
+
+  .ability-card:hover .ability-name {
+    color: #1a1a2e;
   }
 
   .ability-desc {
@@ -1021,6 +1025,11 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     position: relative;
     z-index: 1;
     margin: 0;
+    transition: color 0.35s ease;
+  }
+
+  .ability-card:hover .ability-desc {
+    color: #3a3a5c;
   }
 
   /* ===== 作品展示区 - Kevuru Games 卡片风格 ===== */
