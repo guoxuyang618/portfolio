@@ -1192,6 +1192,31 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     max-width: 65%;
   }
 
+  /* 悬停时，左侧文字下方深色渐变遮罩 */
+  .card-content::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    right: -10%;
+    bottom: -1px;
+    z-index: -1;
+    background: linear-gradient(
+      105deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.7) 35%,
+      rgba(0, 0, 0, 0.4) 70%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .project-card:hover .card-content::before {
+    opacity: 1;
+  }
+
   .project-card:hover .card-content {
     justify-content: flex-start;
   }
