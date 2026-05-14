@@ -82,6 +82,44 @@ import '../styles/global.css';
       </div>
     </section>
 
+    <!-- 个人简介 + 照片 -->
+    <section class="profile-section">
+      <div class="profile-inner">
+        <div class="profile-grid">
+          <!-- 左侧：照片 -->
+          <div class="profile-photo-wrap">
+            <div class="profile-photo">
+              <img src="/common/profile.webp" alt="Xuyang Profile" class="profile-img" onerror="this.style.display='none';this.parentElement.classList.add('photo-placeholder');" />
+              <span class="photo-placeholder-text">Add Your Photo<br/><small>/common/profile.webp</small></span>
+            </div>
+            <div class="profile-photo-deco"></div>
+          </div>
+          <!-- 右侧：个人信息 -->
+          <div class="profile-info">
+            <span class="label-tag" data-i18n="about.profileTag">Personal Profile</span>
+            <h2 class="profile-name" data-i18n="about.profileName">Xuyang Guo</h2>
+            <p class="profile-role" data-i18n="about.profileRole">Senior Game Interaction Designer</p>
+            <p class="profile-quote" data-i18n="about.profileQuote">"Designing experiences, not just interfaces."</p>
+            <div class="profile-meta">
+              <div class="profile-meta-item">
+                <span class="meta-label" data-i18n="about.profileMetaLocation">Based in</span>
+                <span class="meta-value" data-i18n="about.profileLocationValue">Shenzhen, China</span>
+              </div>
+              <div class="profile-meta-item">
+                <span class="meta-label" data-i18n="about.profileMetaExp">Experience</span>
+                <span class="meta-value" data-i18n="about.profileExpValue">8+ Years</span>
+              </div>
+              <div class="profile-meta-item">
+                <span class="meta-label" data-i18n="about.profileMetaFocus">Focus</span>
+                <span class="meta-value" data-i18n="about.profileFocusValue">FPS / UE5 / AIGC</span>
+              </div>
+            </div>
+            <p class="profile-bio" data-i18n="about.profileBio">A passionate designer who fell in love with games at age 10 and never looked back. From CrossFire to Counter-Strike: Future, I have been at the forefront of crafting immersive, emotion-driven shooter experiences. Beyond games, I find inspiration in cinema, architecture, and motion design.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 关于介绍 -->
     <section class="about-section">
       <div class="about-inner">
@@ -386,6 +424,158 @@ import '../styles/global.css';
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.8;
+  }
+
+  /* ===== Personal Profile ===== */
+  .profile-section {
+    padding: var(--section-padding) var(--container-padding);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+  }
+
+  .profile-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* 左侧照片 */
+  .profile-photo-wrap {
+    position: relative;
+    aspect-ratio: 4 / 5;
+  }
+
+  .profile-photo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .photo-placeholder-text {
+    display: none;
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.8;
+    padding: 1rem;
+  }
+
+  .photo-placeholder-text small {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    font-family: 'Inter', monospace;
+  }
+
+  .profile-photo.photo-placeholder .photo-placeholder-text {
+    display: block;
+  }
+
+  .profile-photo-deco {
+    position: absolute;
+    top: 1.2rem;
+    left: 1.2rem;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--accent);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* 右侧信息 */
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .profile-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin: 0.6rem 0 0;
+  }
+
+  .profile-role {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
+  .profile-quote {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.7;
+    padding: 0.8rem 0 0.8rem 1.2rem;
+    border-left: 2px solid var(--accent);
+    margin: 0.6rem 0;
+  }
+
+  .profile-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .meta-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .meta-value {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .profile-bio {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0.4rem 0 0;
   }
 
   /* ===== About Section ===== */
@@ -725,6 +915,9 @@ import '../styles/global.css';
     .highlights-inner { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-grid { gap: 2rem; }
+    .profile-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .profile-photo-wrap { max-width: 380px; margin: 0 auto; width: 100%; }
+    .profile-meta { grid-template-columns: repeat(3, 1fr); }
   }
 
   /* ===== 汉堡菜单按钮 ===== */
@@ -808,6 +1001,13 @@ import '../styles/global.css';
     .about-hero { padding: 8rem 1.5rem 3rem; }
     .about-hero h1 { font-size: 2.2rem; }
     .about-section { padding: 3rem 1.5rem; }
+    .profile-section { padding: 3rem 1.5rem; }
+    .profile-grid { gap: 2rem; }
+    .profile-photo-wrap { max-width: 280px; }
+    .profile-photo-deco { top: 0.8rem; left: 0.8rem; }
+    .profile-meta { grid-template-columns: 1fr; gap: 1rem; }
+    .profile-name { font-size: 1.8rem; }
+    .profile-quote { font-size: 1rem; padding-left: 1rem; }
     .highlights-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .highlight-card { padding: 1.5rem; }
     .highlight-number { font-size: 2rem; }
