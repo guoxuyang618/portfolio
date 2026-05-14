@@ -75,10 +75,16 @@ import '../styles/global.css';
   <main>
     <!-- Hero 区域 -->
     <section class="about-hero">
+      <div class="hero-bg-text" aria-hidden="true">ABOUT</div>
       <div class="hero-content">
         <span class="hero-badge" data-i18n="about.heroBadge">About</span>
         <h1 data-i18n="about.heroTitle">Design Philosophy</h1>
+        <p class="hero-subtitle" data-i18n="about.heroSubtitle">Crafting interactive experiences that resonate</p>
         <p class="hero-desc" data-i18n="footer.siteDesc">{config.site.description}</p>
+        <div class="hero-scroll-hint">
+          <span class="scroll-line"></span>
+          <span class="scroll-text" data-i18n="about.heroScroll">Scroll to explore</span>
+        </div>
       </div>
     </section>
 
@@ -91,13 +97,18 @@ import '../styles/global.css';
             <div class="profile-photo">
               <img src="/common/profile.webp" alt="Xuyang Profile" class="profile-img" onerror="this.style.display='none';this.parentElement.classList.add('photo-placeholder');" />
               <span class="photo-placeholder-text">Add Your Photo<br/><small>/common/profile.webp</small></span>
+              <span class="photo-corner photo-corner-tl"></span>
+              <span class="photo-corner photo-corner-tr"></span>
+              <span class="photo-corner photo-corner-bl"></span>
+              <span class="photo-corner photo-corner-br"></span>
             </div>
             <div class="profile-photo-deco"></div>
+            <span class="photo-year-tag">EST. 2018</span>
           </div>
           <!-- 右侧：个人信息 -->
           <div class="profile-info">
             <span class="label-tag" data-i18n="about.profileTag">Personal Profile</span>
-            <h2 class="profile-name" data-i18n="about.profileName">Xuyang Guo</h2>
+            <h2 class="profile-name" data-i18n="about.profileName">Xuyang Guo<span class="name-cursor">_</span></h2>
             <p class="profile-role" data-i18n="about.profileRole">Senior Game Interaction Designer</p>
             <p class="profile-quote" data-i18n="about.profileQuote">"Designing experiences, not just interfaces."</p>
             <div class="profile-meta">
@@ -115,6 +126,10 @@ import '../styles/global.css';
               </div>
             </div>
             <p class="profile-bio" data-i18n="about.profileBio">A passionate designer who fell in love with games at age 10 and never looked back. From CrossFire to Counter-Strike: Future, I have been at the forefront of crafting immersive, emotion-driven shooter experiences. Beyond games, I find inspiration in cinema, architecture, and motion design.</p>
+            <div class="profile-signature">
+              <span class="signature-text">— Xuyang</span>
+              <span class="signature-line"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -125,9 +140,16 @@ import '../styles/global.css';
       <div class="about-inner">
         <div class="about-grid">
           <div class="about-label">
+            <span class="section-number">01</span>
             <span class="label-tag" data-i18n="about.philosophyTag">Design Philosophy</span>
+            <div class="philosophy-keywords">
+              <span class="kw-item" data-i18n="about.kw1">Player-First</span>
+              <span class="kw-item" data-i18n="about.kw2">Emotion-Driven</span>
+              <span class="kw-item" data-i18n="about.kw3">Cinematic</span>
+            </div>
           </div>
           <div class="about-content">
+            <p class="about-pull-quote" data-i18n="about.pullQuote">"Every pixel, every frame, every interaction — they all carry intention."</p>
             <p class="about-text-large" data-i18n="about.philosophyText1">I am a seasoned game interaction designer with extensive hands-on experience, dedicated to pushing the boundaries of player experience. My career began with the iconic FPS franchise CrossFire, and I am currently defining the next-generation interaction standards for shooters in Counter-Strike: Future.</p>
             <p class="about-text" data-i18n="about.philosophyText2">I don't just design interfaces — I design "feelings." From the instant feedback of pulling a trigger to the emotional connection of a grand worldview, I excel at using UE5, C4D and AIGC technologies to transform abstract concepts into tangible interactive experiences. With a deep understanding of FPS at my core, I also draw inspiration from MOBA, Roguelike and card game genres, striving to find the perfect balance between business objectives and player experience.</p>
           </div>
@@ -135,8 +157,40 @@ import '../styles/global.css';
       </div>
     </section>
 
+    <!-- 设计原则 三卡片 -->
+    <section class="principles-section">
+      <div class="principles-inner">
+        <div class="principles-header">
+          <span class="section-number">02</span>
+          <span class="label-tag" data-i18n="about.principlesTag">What Drives Me</span>
+          <h2 data-i18n="about.principlesTitle">Three Principles</h2>
+        </div>
+        <div class="principles-grid">
+          <div class="principle-card">
+            <span class="principle-num">01</span>
+            <h3 data-i18n="about.principle1Title">Feel before Function</h3>
+            <p data-i18n="about.principle1Desc">A great interaction is felt before it's understood. I prioritize the emotional weight of every click, swipe and reveal.</p>
+          </div>
+          <div class="principle-card">
+            <span class="principle-num">02</span>
+            <h3 data-i18n="about.principle2Title">Systems over Screens</h3>
+            <p data-i18n="about.principle2Desc">I design scalable systems and modular components — not isolated screens. Consistency builds trust across journeys.</p>
+          </div>
+          <div class="principle-card">
+            <span class="principle-num">03</span>
+            <h3 data-i18n="about.principle3Title">Iterate, Always</h3>
+            <p data-i18n="about.principle3Desc">No design is final. I treat every shipped feature as a hypothesis, validated through data, playtest and player voice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 数据亮点 -->
     <section class="highlights-section">
+      <div class="highlights-header">
+        <span class="section-number">03</span>
+        <span class="label-tag" data-i18n="about.statsTag">By the Numbers</span>
+      </div>
       <div class="highlights-inner">
         <div class="highlight-card">
           <span class="highlight-number">5+</span>
@@ -157,10 +211,86 @@ import '../styles/global.css';
       </div>
     </section>
 
+    <!-- 职业时间线 -->
+    <section class="timeline-section">
+      <div class="timeline-inner">
+        <div class="timeline-header">
+          <span class="section-number">04</span>
+          <span class="label-tag" data-i18n="about.timelineTag">Career Journey</span>
+          <h2 data-i18n="about.timelineTitle">The Path So Far</h2>
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-year">2024 — Present</div>
+            <div class="timeline-content">
+              <h4 data-i18n="about.timeline1Title">Counter-Strike: Future</h4>
+              <span class="timeline-role" data-i18n="about.timeline1Role">Lead Interaction Designer</span>
+              <p data-i18n="about.timeline1Desc">Defining next-generation FPS interaction standards. UE5-powered HUD, weapon feedback systems, and progression flows.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2020 — 2024</div>
+            <div class="timeline-content">
+              <h4 data-i18n="about.timeline2Title">CrossFire Mobile</h4>
+              <span class="timeline-role" data-i18n="about.timeline2Role">Senior UX Designer</span>
+              <p data-i18n="about.timeline2Desc">Led seasonal-pass system, talent tree and event campaigns. 50M+ MAU. Multiple Best UX awards.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2018 — 2020</div>
+            <div class="timeline-content">
+              <h4 data-i18n="about.timeline3Title">Tencent IEG</h4>
+              <span class="timeline-role" data-i18n="about.timeline3Role">UI/UX Designer</span>
+              <p data-i18n="about.timeline3Desc">Game UI, marketing pages, brand identity. Built component library used across 8+ titles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工具栈 marquee -->
+    <section class="toolkit-section">
+      <div class="toolkit-header">
+        <span class="section-number">05</span>
+        <span class="label-tag" data-i18n="about.toolkitTag">Tools & Tech</span>
+        <h2 data-i18n="about.toolkitTitle">My Toolkit</h2>
+      </div>
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="tool-chip">Figma</span>
+          <span class="tool-chip">Photoshop</span>
+          <span class="tool-chip">After Effects</span>
+          <span class="tool-chip">Cinema 4D</span>
+          <span class="tool-chip">Unreal Engine 5</span>
+          <span class="tool-chip">Blender</span>
+          <span class="tool-chip">Midjourney</span>
+          <span class="tool-chip">Stable Diffusion</span>
+          <span class="tool-chip">Illustrator</span>
+          <span class="tool-chip">Premiere Pro</span>
+          <span class="tool-chip">Protopie</span>
+          <span class="tool-chip">Spline</span>
+          <!-- 复制一份用于无缝循环 -->
+          <span class="tool-chip">Figma</span>
+          <span class="tool-chip">Photoshop</span>
+          <span class="tool-chip">After Effects</span>
+          <span class="tool-chip">Cinema 4D</span>
+          <span class="tool-chip">Unreal Engine 5</span>
+          <span class="tool-chip">Blender</span>
+          <span class="tool-chip">Midjourney</span>
+          <span class="tool-chip">Stable Diffusion</span>
+          <span class="tool-chip">Illustrator</span>
+          <span class="tool-chip">Premiere Pro</span>
+          <span class="tool-chip">Protopie</span>
+          <span class="tool-chip">Spline</span>
+        </div>
+      </div>
+    </section>
+
     <!-- 技能和服务 -->
     <section class="services-section">
       <div class="services-inner">
         <div class="services-header">
+          <span class="section-number">06</span>
           <span class="label-tag" data-i18n="about.skillsTag">What I Do</span>
           <h2 data-i18n="about.skillsTitle">My Skills</h2>
         </div>
@@ -194,6 +324,7 @@ import '../styles/global.css';
       <div class="contact-inner">
         <div class="contact-grid">
           <div class="contact-info">
+            <span class="section-number">07</span>
             <span class="label-tag" data-i18n="about.contactTag">Contact Me</span>
             <h2 data-i18n="about.contactTitle">Contact Me</h2>
             <p data-i18n="about.contactDesc">Want to learn more about me and my work? I'd love to hear from you.</p>
@@ -388,11 +519,69 @@ import '../styles/global.css';
     padding: 10rem var(--container-padding) 5rem;
     background: var(--bg-primary);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(8rem, 22vw, 22rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    z-index: 0;
+    white-space: nowrap;
   }
 
   .hero-content {
     max-width: 750px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 3rem;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, transparent, var(--accent), transparent);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  .scroll-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
   }
 
   .hero-badge {
@@ -506,6 +695,69 @@ import '../styles/global.css';
     pointer-events: none;
   }
 
+  /* 四角角标 */
+  .photo-corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--accent);
+    z-index: 3;
+    pointer-events: none;
+  }
+  .photo-corner-tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+  .photo-corner-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+  .photo-corner-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+  .photo-corner-br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+  /* 照片下方年份标签 */
+  .photo-year-tag {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--accent);
+    color: #08080a;
+    font-family: 'Inter', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 0.8rem;
+    z-index: 3;
+  }
+
+  /* 姓名后闪烁光标 */
+  .name-cursor {
+    color: var(--accent);
+    margin-left: 0.2rem;
+    animation: blink 1.2s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* 签名 */
+  .profile-signature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .signature-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .signature-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.4;
+  }
+
   /* 右侧信息 */
   .profile-info {
     display: flex;
@@ -599,6 +851,23 @@ import '../styles/global.css';
   .about-label {
     position: sticky;
     top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* 序号样式（共用） */
+  .section-number {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    opacity: 0.6;
+    display: inline-block;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--accent);
+    align-self: flex-start;
   }
 
   .label-tag {
@@ -608,6 +877,35 @@ import '../styles/global.css';
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--accent);
+  }
+
+  /* 关键字标签 */
+  .philosophy-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .kw-item {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+  }
+
+  /* Pull Quote 大引言 */
+  .about-pull-quote {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent);
   }
 
   .about-text-large {
@@ -622,6 +920,266 @@ import '../styles/global.css';
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.8;
+  }
+
+  /* ===== 设计原则 ===== */
+  .principles-section {
+    padding: var(--section-padding) var(--container-padding);
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+  }
+
+  .principles-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .principles-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+  }
+
+  .principles-header h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin: 0.4rem 0 0;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .principle-card {
+    position: relative;
+    padding: 2.5rem 2rem 2rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    overflow: hidden;
+  }
+
+  .principle-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.4s var(--ease-out);
+  }
+
+  .principle-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .principle-card:hover::before {
+    width: 100%;
+  }
+
+  .principle-num {
+    display: inline-block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .principle-card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  .principle-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ===== 数据亮点 header ===== */
+  .highlights-header {
+    max-width: var(--container-max);
+    margin: 0 auto 2rem;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  /* ===== 时间线 ===== */
+  .timeline-section {
+    padding: var(--section-padding) var(--container-padding);
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+  }
+
+  .timeline-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+
+  .timeline-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+  }
+
+  .timeline-header h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin: 0.4rem 0 0;
+  }
+
+  .timeline-list {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 0.4rem;
+    left: -2.4rem;
+    width: 9px;
+    height: 9px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(78, 234, 219, 0.15);
+  }
+
+  .timeline-year {
+    font-family: 'Inter', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.3rem;
+  }
+
+  .timeline-role {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--border);
+    margin-bottom: 0.8rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 720px;
+  }
+
+  /* ===== 工具栈 marquee ===== */
+  .toolkit-section {
+    padding: var(--section-padding) 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .toolkit-header {
+    max-width: var(--container-max);
+    margin: 0 auto 2.5rem;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .toolkit-header h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin: 0.4rem 0 0;
+  }
+
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: marqueeScroll 35s linear infinite;
+  }
+
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .tool-chip {
+    flex-shrink: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.2rem, 2.4vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    padding: 0.6rem 1.6rem;
+    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    white-space: nowrap;
+    transition: color 0.3s, border-color 0.3s, background 0.3s;
+  }
+
+  .tool-chip:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(78, 234, 219, 0.05);
   }
 
   /* ===== 数据亮点 ===== */
@@ -918,6 +1476,8 @@ import '../styles/global.css';
     .profile-grid { grid-template-columns: 1fr; gap: 3rem; }
     .profile-photo-wrap { max-width: 380px; margin: 0 auto; width: 100%; }
     .profile-meta { grid-template-columns: repeat(3, 1fr); }
+    .principles-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .about-pull-quote { font-size: 1.4rem; }
   }
 
   /* ===== 汉堡菜单按钮 ===== */
@@ -1008,6 +1568,17 @@ import '../styles/global.css';
     .profile-meta { grid-template-columns: 1fr; gap: 1rem; }
     .profile-name { font-size: 1.8rem; }
     .profile-quote { font-size: 1rem; padding-left: 1rem; }
+    .photo-year-tag { right: 0; bottom: -1.2rem; }
+    .principles-section { padding: 3rem 1.5rem; }
+    .principles-grid { grid-template-columns: 1fr; }
+    .timeline-section { padding: 3rem 1.5rem; }
+    .timeline-list { padding-left: 1.5rem; }
+    .timeline-item::before { left: -1.9rem; }
+    .toolkit-section { padding: 3rem 0; }
+    .toolkit-header { padding: 0 1.5rem; }
+    .tool-chip { font-size: 1rem; padding: 0.5rem 1.2rem; }
+    .about-pull-quote { font-size: 1.2rem; padding-left: 1rem; }
+    .highlights-header { padding: 0 1.5rem; margin-bottom: 1.2rem; }
     .highlights-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
     .highlight-card { padding: 1.5rem; }
     .highlight-number { font-size: 2rem; }
