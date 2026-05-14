@@ -319,6 +319,41 @@ import '../styles/global.css';
       </div>
     </section>
 
+    <!-- 生活照横向轮播 -->
+    <section class="life-section">
+      <div class="life-header">
+        <span class="section-number">08</span>
+        <span class="label-tag" data-i18n="about.lifeTag">Off Screen</span>
+        <h2 data-i18n="about.lifeTitle">Life Beyond Pixels</h2>
+        <p class="life-desc" data-i18n="about.lifeDesc">Moments that inspire my design — travels, films, food, and quiet times.</p>
+      </div>
+      <div class="life-marquee" id="lifeMarquee">
+        <div class="life-track">
+          {[1,2,3,4,5,6,7,8,9,10].map((n) => (
+            <div class="life-item">
+              <img
+                src={`/common/life/life-${String(n).padStart(2, '0')}.webp`}
+                alt={`Life ${n}`}
+                loading="lazy"
+                onerror={`this.style.display='none';this.parentElement.classList.add('life-placeholder');this.parentElement.dataset.index='${String(n).padStart(2,'0')}';`}
+              />
+            </div>
+          ))}
+          {/* 复制一份用于无缝循环 */}
+          {[1,2,3,4,5,6,7,8,9,10].map((n) => (
+            <div class="life-item" aria-hidden="true">
+              <img
+                src={`/common/life/life-${String(n).padStart(2, '0')}.webp`}
+                alt=""
+                loading="lazy"
+                onerror={`this.style.display='none';this.parentElement.classList.add('life-placeholder');this.parentElement.dataset.index='${String(n).padStart(2,'0')}';`}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- 联系方式 -->
     <section class="contact-section" id="contact">
       <div class="contact-inner">
@@ -1184,6 +1219,116 @@ import '../styles/global.css';
     background: rgba(78, 234, 219, 0.05);
   }
 
+  /* ===== 生活照横向轮播 ===== */
+  .life-section {
+    padding: var(--section-padding) 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .life-header {
+    max-width: var(--container-max);
+    margin: 0 auto 3rem;
+    padding: 0 var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .life-header h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin: 0.4rem 0 0;
+  }
+
+  .life-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0.4rem 0 0;
+    max-width: 560px;
+  }
+
+  .life-marquee {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  }
+
+  .life-track {
+    display: flex;
+    gap: 1.2rem;
+    width: max-content;
+    animation: lifeMarquee 60s linear infinite;
+    will-change: transform;
+  }
+
+  .life-marquee:hover .life-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes lifeMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .life-item {
+    flex-shrink: 0;
+    width: 320px;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .life-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .life-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .life-item:hover img {
+    transform: scale(1.05);
+  }
+
+  /* 占位状态：图片不存在时显示编号 */
+  .life-item.life-placeholder::before {
+    content: 'life-' attr(data-index);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    font-family: 'Inter', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--bg-tertiary),
+      var(--bg-tertiary) 10px,
+      rgba(255, 255, 255, 0.02) 10px,
+      rgba(255, 255, 255, 0.02) 20px
+    );
+  }
+
   /* ===== 数据亮点 ===== */
   .highlights-section {
     padding: var(--section-padding) var(--container-padding);
@@ -1579,6 +1724,10 @@ import '../styles/global.css';
     .toolkit-section { padding: 3rem 0; }
     .toolkit-header { padding: 0 1.5rem; }
     .tool-chip { font-size: 1rem; padding: 0.5rem 1.2rem; }
+    .life-section { padding: 3rem 0; }
+    .life-header { padding: 0 1.5rem; margin-bottom: 1.5rem; }
+    .life-item { width: 220px; }
+    .life-track { gap: 0.8rem; animation-duration: 45s; }
     .about-pull-quote { font-size: 1.2rem; padding-left: 1rem; }
     .highlights-header { padding: 0 1.5rem; margin-bottom: 1.2rem; }
     .highlights-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
