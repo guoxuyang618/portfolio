@@ -1418,32 +1418,39 @@ import '../styles/global.css';
   }
 
   .service-card {
+    position: relative;
     padding: 2.5rem 2rem;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 0;
-    transition: all 0.3s ease;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    overflow: hidden;
     text-align: center;
   }
 
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.4s var(--ease-out);
+  }
+
   .service-card:hover {
-    background: #ffffff;
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--accent);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .service-card:hover::before {
+    width: 100%;
   }
 
   .service-card:hover .service-icon-img {
-    filter: brightness(0) invert(0) opacity(0.85);
+    filter: none;
     opacity: 1;
-  }
-
-  .service-card:hover h3 {
-    color: #1a1a2e;
-  }
-
-  .service-card:hover p {
-    color: #3a3a5c;
   }
 
   .service-icon {
@@ -1471,14 +1478,12 @@ import '../styles/global.css';
     letter-spacing: 0.02em;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
-    transition: color 0.3s ease;
   }
 
   .service-card p {
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.8;
-    transition: color 0.3s ease;
   }
 
   /* ===== 联系 ===== */
