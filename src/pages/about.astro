@@ -95,8 +95,8 @@ import '../styles/global.css';
           <!-- 左侧：照片 -->
           <div class="profile-photo-wrap">
             <div class="profile-photo">
-              <img src="/common/profile.webp" alt="Xuyang Profile" class="profile-img" onerror="this.style.display='none';this.parentElement.classList.add('photo-placeholder');" />
-              <span class="photo-placeholder-text">Add Your Photo<br/><small>/common/profile.webp</small></span>
+              <img src="/about/profile.webp" alt="Xuyang Profile" class="profile-img" onerror="this.style.display='none';this.parentElement.classList.add('photo-placeholder');" />
+              <span class="photo-placeholder-text">Add Your Photo<br/><small>/about/profile.webp</small></span>
               <span class="photo-corner photo-corner-tl"></span>
               <span class="photo-corner photo-corner-tr"></span>
               <span class="photo-corner photo-corner-bl"></span>
@@ -222,7 +222,7 @@ import '../styles/global.css';
         <div class="timeline-list">
           <div class="timeline-item">
             <div class="timeline-logo">
-              <img src="/common/game-icons/counter-storm.webp" alt="逆战：未来" />
+              <img src="/about/timeline/counter-storm.webp" alt="逆战：未来" />
             </div>
             <div class="timeline-content">
               <div class="timeline-year" data-i18n="about.timeline1Year">2024 — Present</div>
@@ -233,7 +233,7 @@ import '../styles/global.css';
           </div>
           <div class="timeline-item">
             <div class="timeline-logo">
-              <img src="/common/game-icons/counter-storm-app.webp" alt="逆战助手" />
+              <img src="/about/timeline/counter-storm-app.webp" alt="逆战助手" />
             </div>
             <div class="timeline-content">
               <div class="timeline-year" data-i18n="about.timeline2Year">[Year — TBD]</div>
@@ -244,7 +244,7 @@ import '../styles/global.css';
           </div>
           <div class="timeline-item">
             <div class="timeline-logo">
-              <img src="/common/game-icons/crossfire-mobile.webp" alt="穿越火线-枪战王者" />
+              <img src="/about/timeline/crossfire-mobile.webp" alt="穿越火线-枪战王者" />
             </div>
             <div class="timeline-content">
               <div class="timeline-year" data-i18n="about.timeline3Year">2020 — 2024</div>
@@ -255,7 +255,7 @@ import '../styles/global.css';
           </div>
           <div class="timeline-item">
             <div class="timeline-logo">
-              <img src="/common/game-icons/crossfire-rainbow.webp" alt="穿越火线虹" />
+              <img src="/about/timeline/crossfire-rainbow.webp" alt="穿越火线虹" />
             </div>
             <div class="timeline-content">
               <div class="timeline-year" data-i18n="about.timeline4Year">[Year — TBD]</div>
@@ -266,7 +266,7 @@ import '../styles/global.css';
           </div>
           <div class="timeline-item">
             <div class="timeline-logo">
-              <img src="/common/game-icons/codm.webp" alt="使命召唤手游" />
+              <img src="/about/timeline/codm.webp" alt="使命召唤手游" />
             </div>
             <div class="timeline-content">
               <div class="timeline-year" data-i18n="about.timeline5Year">[Year — TBD]</div>
@@ -277,7 +277,7 @@ import '../styles/global.css';
           </div>
           <div class="timeline-item">
             <div class="timeline-logo">
-              <img src="/common/game-icons/pubg-mobile.webp" alt="全军出击" />
+              <img src="/about/timeline/pubg-mobile.webp" alt="全军出击" />
             </div>
             <div class="timeline-content">
               <div class="timeline-year" data-i18n="about.timeline6Year">2018 — 2020</div>
@@ -374,7 +374,7 @@ import '../styles/global.css';
           {[1,2,3,4,5,6,7,8,9,10].map((n) => (
             <div class="life-item">
               <img
-                src={`/common/life/life-${String(n).padStart(2, '0')}.webp`}
+                src={`/about/life/life-${String(n).padStart(2, '0')}.webp`}
                 alt={`Life ${n}`}
                 loading="lazy"
                 onerror={`this.style.display='none';this.parentElement.classList.add('life-placeholder');this.parentElement.dataset.index='${String(n).padStart(2,'0')}';`}
@@ -385,7 +385,7 @@ import '../styles/global.css';
           {[1,2,3,4,5,6,7,8,9,10].map((n) => (
             <div class="life-item" aria-hidden="true">
               <img
-                src={`/common/life/life-${String(n).padStart(2, '0')}.webp`}
+                src={`/about/life/life-${String(n).padStart(2, '0')}.webp`}
                 alt=""
                 loading="lazy"
                 onerror={`this.style.display='none';this.parentElement.classList.add('life-placeholder');this.parentElement.dataset.index='${String(n).padStart(2,'0')}';`}
