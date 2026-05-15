@@ -1139,22 +1139,33 @@ import '../styles/global.css';
     gap: 2.5rem;
   }
 
-  /* 整条时间线竖线：从第一个 logo 中心串到最后一个 logo 中心 */
-  .timeline-list::before {
-    content: '';
-    position: absolute;
-    left: 40px; /* logo 宽 80 / 2 - 线宽 1/2 */
-    top: 40px;  /* 第一个 logo 中心 */
-    bottom: 40px; /* 最后一个 logo 中心 */
-    width: 1px;
-    background: var(--border-hover);
-  }
-
   .timeline-item {
     position: relative;
     display: flex;
     align-items: flex-start;
     gap: 1.75rem;
+  }
+
+  /* 虚线连线：从当前 logo 底部 → 下一 logo 顶部；最后一项不画线，确保不超出末端 logo */
+  .timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 40px;                          /* logo 宽 80 / 2 */
+    top: 80px;                           /* 当前 logo 底部 */
+    height: calc(100% + 2.5rem - 80px);  /* 延伸到下一 logo 顶部（gap 2.5rem） */
+    border-left: 1px dashed var(--border-hover);
+  }
+
+  /* 时间起点装饰：第一个 logo 顶部一个小圆点，象征「时间开端」 */
+  .timeline-item:first-child::after {
+    content: '';
+    position: absolute;
+    left: 37px;
+    top: -10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-hover);
   }
 
   .timeline-logo {
@@ -1822,7 +1833,15 @@ import '../styles/global.css';
     .principles-grid { grid-template-columns: 1fr; }
     .timeline-section { padding: 3rem 1.5rem; }
     .timeline-list { gap: 2rem; }
-    .timeline-list::before { left: 28px; top: 28px; bottom: 28px; }
+    .timeline-item:not(:last-child)::before {
+      left: 28px;
+      top: 56px;
+      height: calc(100% + 2rem - 56px);
+    }
+    .timeline-item:first-child::after {
+      left: 25px;
+      top: -8px;
+    }
     .timeline-item { gap: 1rem; }
     .timeline-logo { width: 56px; height: 56px; }
     .toolkit-section { padding: 3rem 0; }
