@@ -1143,13 +1143,11 @@ import '../styles/global.css';
   .timeline-list::before {
     content: '';
     position: absolute;
-    left: 39px; /* logo 宽 80 / 2 - 线宽 2/2 */
+    left: 40px; /* logo 宽 80 / 2 - 线宽 1/2 */
     top: 40px;  /* 第一个 logo 中心 */
     bottom: 40px; /* 最后一个 logo 中心 */
-    width: 2px;
-    background: linear-gradient(180deg, var(--accent) 0%, var(--accent) 100%);
-    box-shadow: 0 0 8px rgba(78, 234, 219, 0.45);
-    border-radius: 2px;
+    width: 1px;
+    background: var(--border-hover);
   }
 
   .timeline-item {
@@ -1824,7 +1822,7 @@ import '../styles/global.css';
     .principles-grid { grid-template-columns: 1fr; }
     .timeline-section { padding: 3rem 1.5rem; }
     .timeline-list { gap: 2rem; }
-    .timeline-list::before { left: 27px; top: 28px; bottom: 28px; }
+    .timeline-list::before { left: 28px; top: 28px; bottom: 28px; }
     .timeline-item { gap: 1rem; }
     .timeline-logo { width: 56px; height: 56px; }
     .toolkit-section { padding: 3rem 0; }
