@@ -306,38 +306,6 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     </div>
   </section>
 
-  <!-- 游戏 Logo 跑马灯 -->
-  <section class="logo-marquee-section">
-    <div class="logo-marquee" id="logoMarquee">
-      <div class="logo-track" id="logoTrack">
-        <div class="logo-item">
-          <img src="/common/game-icons/counter-storm.webp" alt="逆战：未来" />
-          <div class="logo-overlay"></div>
-        </div>
-        <div class="logo-item">
-          <img src="/common/game-icons/crossfire-mobile.webp" alt="穿越火线-枪战王者" />
-          <div class="logo-overlay"></div>
-        </div>
-        <div class="logo-item">
-          <img src="/common/game-icons/codm.webp" alt="使命召唤手游" />
-          <div class="logo-overlay"></div>
-        </div>
-        <div class="logo-item">
-          <img src="/common/game-icons/counter-storm-app.webp" alt="逆战助手" />
-          <div class="logo-overlay"></div>
-        </div>
-        <div class="logo-item">
-          <img src="/common/game-icons/pubg-mobile.webp" alt="全军出击" />
-          <div class="logo-overlay"></div>
-        </div>
-        <div class="logo-item">
-          <img src="/common/game-icons/crossfire-rainbow.webp" alt="穿越火线虹" />
-          <div class="logo-overlay"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA区域 -->
   <section class="cta-section">
     <div class="cta-bg"></div>
@@ -1477,8 +1445,7 @@ const categoryTaglines: Record<string, { text: string; i18nKey: string }> = {
     left: 10%;
     right: 10%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0.3;
+    background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
   }
 
   @keyframes ctaPulse {

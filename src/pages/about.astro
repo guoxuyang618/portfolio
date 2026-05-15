@@ -221,27 +221,69 @@ import '../styles/global.css';
         </div>
         <div class="timeline-list">
           <div class="timeline-item">
-            <div class="timeline-year">2024 — Present</div>
+            <div class="timeline-logo">
+              <img src="/common/game-icons/counter-storm.webp" alt="逆战：未来" />
+            </div>
             <div class="timeline-content">
+              <div class="timeline-year" data-i18n="about.timeline1Year">2024 — Present</div>
               <h4 data-i18n="about.timeline1Title">Counter-Strike: Future</h4>
               <span class="timeline-role" data-i18n="about.timeline1Role">Lead Interaction Designer</span>
               <p data-i18n="about.timeline1Desc">Defining next-generation FPS interaction standards. UE5-powered HUD, weapon feedback systems, and progression flows.</p>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-year">2020 — 2024</div>
+            <div class="timeline-logo">
+              <img src="/common/game-icons/counter-storm-app.webp" alt="逆战助手" />
+            </div>
             <div class="timeline-content">
-              <h4 data-i18n="about.timeline2Title">CrossFire Mobile</h4>
-              <span class="timeline-role" data-i18n="about.timeline2Role">Senior UX Designer</span>
-              <p data-i18n="about.timeline2Desc">Led seasonal-pass system, talent tree and event campaigns. 50M+ MAU. Multiple Best UX awards.</p>
+              <div class="timeline-year" data-i18n="about.timeline2Year">[Year — TBD]</div>
+              <h4 data-i18n="about.timeline2Title">[Project Name — TBD]</h4>
+              <span class="timeline-role" data-i18n="about.timeline2Role">[Role — TBD]</span>
+              <p data-i18n="about.timeline2Desc">[Description — to be provided]</p>
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-year">2018 — 2020</div>
+            <div class="timeline-logo">
+              <img src="/common/game-icons/crossfire-mobile.webp" alt="穿越火线-枪战王者" />
+            </div>
             <div class="timeline-content">
-              <h4 data-i18n="about.timeline3Title">Tencent IEG</h4>
-              <span class="timeline-role" data-i18n="about.timeline3Role">UI/UX Designer</span>
-              <p data-i18n="about.timeline3Desc">Game UI, marketing pages, brand identity. Built component library used across 8+ titles.</p>
+              <div class="timeline-year" data-i18n="about.timeline3Year">2020 — 2024</div>
+              <h4 data-i18n="about.timeline3Title">CrossFire Mobile</h4>
+              <span class="timeline-role" data-i18n="about.timeline3Role">Senior UX Designer</span>
+              <p data-i18n="about.timeline3Desc">Led seasonal-pass system, talent tree and event campaigns. 50M+ MAU. Multiple Best UX awards.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-logo">
+              <img src="/common/game-icons/crossfire-rainbow.webp" alt="穿越火线虹" />
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year" data-i18n="about.timeline4Year">[Year — TBD]</div>
+              <h4 data-i18n="about.timeline4Title">[Project Name — TBD]</h4>
+              <span class="timeline-role" data-i18n="about.timeline4Role">[Role — TBD]</span>
+              <p data-i18n="about.timeline4Desc">[Description — to be provided]</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-logo">
+              <img src="/common/game-icons/codm.webp" alt="使命召唤手游" />
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year" data-i18n="about.timeline5Year">[Year — TBD]</div>
+              <h4 data-i18n="about.timeline5Title">[Project Name — TBD]</h4>
+              <span class="timeline-role" data-i18n="about.timeline5Role">[Role — TBD]</span>
+              <p data-i18n="about.timeline5Desc">[Description — to be provided]</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-logo">
+              <img src="/common/game-icons/pubg-mobile.webp" alt="全军出击" />
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-year" data-i18n="about.timeline6Year">2018 — 2020</div>
+              <h4 data-i18n="about.timeline6Title">Tencent IEG</h4>
+              <span class="timeline-role" data-i18n="about.timeline6Role">UI/UX Designer</span>
+              <p data-i18n="about.timeline6Desc">Game UI, marketing pages, brand identity. Built component library used across 8+ titles.</p>
             </div>
           </div>
         </div>
@@ -1092,29 +1134,57 @@ import '../styles/global.css';
 
   .timeline-list {
     position: relative;
-    padding-left: 2rem;
-    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .timeline-item {
     position: relative;
-    padding-bottom: 2.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
   }
 
-  .timeline-item:last-child {
-    padding-bottom: 0;
+  .timeline-item:hover {
+    border-color: var(--accent);
+    transform: translateX(6px);
   }
 
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 0.4rem;
-    left: -2.4rem;
-    width: 9px;
-    height: 9px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(78, 234, 219, 0.15);
+  .timeline-logo {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-tertiary);
+    transition: border-color 0.3s ease;
+  }
+
+  .timeline-item:hover .timeline-logo {
+    border-color: var(--accent);
+  }
+
+  .timeline-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .timeline-item:hover .timeline-logo img {
+    filter: brightness(1.15) saturate(1.1);
+    transform: scale(1.05);
+  }
+
+  .timeline-content {
+    flex: 1;
+    min-width: 0;
   }
 
   .timeline-year {
@@ -1256,7 +1326,10 @@ import '../styles/global.css';
 
   .life-marquee {
     width: 100%;
-    overflow: hidden;
+    /* 用 clip-path 代替 overflow:hidden，仅横向严格裁切，纵向放开 60px 让悬停放大不被裁 */
+    clip-path: inset(-60px 0 -60px 0);
+    padding: 60px 0;
+    margin: -60px 0;
     mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
   }
@@ -1754,8 +1827,9 @@ import '../styles/global.css';
     .principles-section { padding: 3rem 1.5rem; }
     .principles-grid { grid-template-columns: 1fr; }
     .timeline-section { padding: 3rem 1.5rem; }
-    .timeline-list { padding-left: 1.5rem; }
-    .timeline-item::before { left: -1.9rem; }
+    .timeline-item { padding: 1rem; gap: 1rem; }
+    .timeline-logo { width: 56px; height: 56px; }
+    .timeline-item:hover { transform: none; }
     .toolkit-section { padding: 3rem 0; }
     .toolkit-header { padding: 0 1.5rem; }
     .tool-chip { font-size: 1rem; padding: 0.5rem 1.2rem; }
