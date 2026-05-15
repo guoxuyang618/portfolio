@@ -1136,7 +1136,18 @@ import '../styles/global.css';
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2.5rem;
+  }
+
+  /* 整条时间线竖线：从第一个 logo 中心串到最后一个 logo 中心 */
+  .timeline-list::before {
+    content: '';
+    position: absolute;
+    left: 40px; /* logo 宽 80 / 2 */
+    top: 40px;  /* 第一个 logo 中心 */
+    bottom: 40px; /* 最后一个 logo 中心 */
+    width: 1px;
+    background: var(--border);
   }
 
   .timeline-item {
@@ -1144,29 +1155,17 @@ import '../styles/global.css';
     display: flex;
     align-items: flex-start;
     gap: 1.75rem;
-    padding: 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
-  }
-
-  .timeline-item:hover {
-    border-color: var(--accent);
-    transform: translateX(6px);
   }
 
   .timeline-logo {
+    position: relative;
+    z-index: 1;
     flex-shrink: 0;
     width: 80px;
     height: 80px;
     overflow: hidden;
     border: 1px solid var(--border);
-    background: var(--bg-tertiary);
-    transition: border-color 0.3s ease;
-  }
-
-  .timeline-item:hover .timeline-logo {
-    border-color: var(--accent);
+    background: var(--bg-primary);
   }
 
   .timeline-logo img {
@@ -1174,17 +1173,12 @@ import '../styles/global.css';
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: filter 0.3s ease, transform 0.3s ease;
-  }
-
-  .timeline-item:hover .timeline-logo img {
-    filter: brightness(1.15) saturate(1.1);
-    transform: scale(1.05);
   }
 
   .timeline-content {
     flex: 1;
     min-width: 0;
+    padding-top: 0.25rem;
   }
 
   .timeline-year {
@@ -1827,9 +1821,10 @@ import '../styles/global.css';
     .principles-section { padding: 3rem 1.5rem; }
     .principles-grid { grid-template-columns: 1fr; }
     .timeline-section { padding: 3rem 1.5rem; }
-    .timeline-item { padding: 1rem; gap: 1rem; }
+    .timeline-list { gap: 2rem; }
+    .timeline-list::before { left: 28px; top: 28px; bottom: 28px; }
+    .timeline-item { gap: 1rem; }
     .timeline-logo { width: 56px; height: 56px; }
-    .timeline-item:hover { transform: none; }
     .toolkit-section { padding: 3rem 0; }
     .toolkit-header { padding: 0 1.5rem; }
     .tool-chip { font-size: 1rem; padding: 0.5rem 1.2rem; }
