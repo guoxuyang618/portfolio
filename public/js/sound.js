@@ -78,7 +78,7 @@
 
   // 4 种音效定义
   const sounds = {
-    // 卡片/按钮悬停 - 极轻 UI tick
+    // 卡片/按钮悬停 - UI tick（音量已放大）
     hover: function () {
       const now = Date.now();
       if (now - lastHoverTime < HOVER_THROTTLE_MS) return;
@@ -87,11 +87,11 @@
         type: 'triangle',
         freq: 1200,
         freqEnd: 1600,
-        duration: 0.04,
-        volume: 0.18
+        duration: 0.05,
+        volume: 0.45
       });
     },
-    // 主 CTA 点击 - 干净哒
+    // 主 CTA 点击 - 干净哒（CTA 按钮专用）
     click: function () {
       tone({
         type: 'square',
@@ -99,6 +99,26 @@
         freqEnd: 400,
         duration: 0.06,
         volume: 0.25
+      });
+    },
+    // 通用鼠标点击反馈 - 脆响双击感（任意点击触发）
+    tap: function () {
+      // 第一段：高频清脆"嗒"
+      tone({
+        type: 'triangle',
+        freq: 2000,
+        freqEnd: 1400,
+        duration: 0.035,
+        volume: 0.32
+      });
+      // 第二段：低频实底"啵"，制造点击踏实感
+      tone({
+        type: 'sine',
+        freq: 320,
+        freqEnd: 220,
+        duration: 0.06,
+        volume: 0.28,
+        delay: 0.012
       });
     },
     // 导航切换 - 轻嗖
@@ -204,6 +224,50 @@
     const NAV_SELECTOR = '.nav-link, .footer-col a';
     const CTA_SELECTOR = '.nav-cta, .hero-cta, .card-cta, .btn-primary, .lang-toggle, .filter-btn, .section-cta a, .section-cta button';
 
+    // tap 仅在"真正可交互"元素上触发（白名单 + cursor:pointer 探测）
+    // 排除：纯文本 <p><span><h*>、装饰 <i><svg><img>、容器 div/section 等
+    const TAP_INTERACTIVE_SELECTOR = [
+      'a[href]',
+      'button',
+      'summary',
+      'label[for]',
+      'select',
+      'input[type="button"]',
+      'input[type="submit"]',
+      'input[type="reset"]',
+      'input[type="checkbox"]',
+      'input[type="radio"]',
+      '[role="button"]',
+      '[role="link"]',
+      '[role="tab"]',
+      '[role="menuitem"]',
+      '[onclick]',
+      '[data-clickable]',
+      '.project-card',
+      '.ability-card',
+      '.work-card',
+      '.service-card',
+      '.principle-card',
+      '.highlight-card',
+      '.timeline-item',
+      '.life-item',
+      '.tool-chip'
+    ].join(',');
+
+    // 进一步通过 cursor 样式做兜底确认（避免被禁用按钮、伪交互元素误触发）
+    function isTrulyClickable(el) {
+      if (!el) return false;
+      // disabled 元素不响
+      if (el.disabled) return false;
+      if (el.getAttribute && el.getAttribute('aria-disabled') === 'true') return false;
+      // 计算 cursor，只有 pointer 才算"看起来可点"
+      try {
+        const cs = window.getComputedStyle(el);
+        if (cs && cs.cursor === 'pointer') return true;
+      } catch (e) { /* ignore */ }
+      return false;
+    }
+
     document.addEventListener('click', function (e) {
       // 优先匹配 CTA
       const ctaTarget = e.target.closest && e.target.closest(CTA_SELECTOR);
@@ -217,6 +281,18 @@
         play('nav');
         return;
       }
+      // tap：仅在真正可交互元素上触发
+      const t = e.target;
+      if (!t || !t.closest) return;
+      // 排除区
+      if (t.closest('input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]), textarea, [contenteditable="true"]')) return;
+      if (t.closest('#sfx-toggle')) return; // 喇叭开关自播 click
+
+      const interactive = t.closest(TAP_INTERACTIVE_SELECTOR);
+      if (!interactive) return; // 纯文本/装饰元素 → 不响
+      if (!isTrulyClickable(interactive)) return; // disabled / 非 pointer → 不响
+
+      play('tap');
     }, true);
   }
 

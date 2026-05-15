@@ -73,21 +73,6 @@ import '../styles/global.css';
   </script>
 
   <main>
-    <!-- Hero 区域 -->
-    <section class="about-hero">
-      <div class="hero-bg-text" aria-hidden="true">ABOUT</div>
-      <div class="hero-content">
-        <span class="hero-badge" data-i18n="about.heroBadge">About</span>
-        <h1 data-i18n="about.heroTitle">Design Philosophy</h1>
-        <p class="hero-subtitle" data-i18n="about.heroSubtitle">Crafting interactive experiences that resonate</p>
-        <p class="hero-desc" data-i18n="footer.siteDesc">{config.site.description}</p>
-        <div class="hero-scroll-hint">
-          <span class="scroll-line"></span>
-          <span class="scroll-text" data-i18n="about.heroScroll">Scroll to explore</span>
-        </div>
-      </div>
-    </section>
-
     <!-- 个人简介 + 照片 -->
     <section class="profile-section">
       <div class="profile-inner">
@@ -135,28 +120,6 @@ import '../styles/global.css';
       </div>
     </section>
 
-    <!-- 关于介绍 -->
-    <section class="about-section">
-      <div class="about-inner">
-        <div class="about-grid">
-          <div class="about-label">
-            <span class="section-number">01</span>
-            <span class="label-tag" data-i18n="about.philosophyTag">Design Philosophy</span>
-            <div class="philosophy-keywords">
-              <span class="kw-item" data-i18n="about.kw1">Player-First</span>
-              <span class="kw-item" data-i18n="about.kw2">Emotion-Driven</span>
-              <span class="kw-item" data-i18n="about.kw3">Cinematic</span>
-            </div>
-          </div>
-          <div class="about-content">
-            <p class="about-pull-quote" data-i18n="about.pullQuote">"Every pixel, every frame, every interaction — they all carry intention."</p>
-            <p class="about-text-large" data-i18n="about.philosophyText1">I am a seasoned game interaction designer with extensive hands-on experience, dedicated to pushing the boundaries of player experience. My career began with the iconic FPS franchise CrossFire, and I am currently defining the next-generation interaction standards for shooters in Counter-Strike: Future.</p>
-            <p class="about-text" data-i18n="about.philosophyText2">I don't just design interfaces — I design "feelings." From the instant feedback of pulling a trigger to the emotional connection of a grand worldview, I excel at using UE5, C4D and AIGC technologies to transform abstract concepts into tangible interactive experiences. With a deep understanding of FPS at my core, I also draw inspiration from MOBA, Roguelike and card game genres, striving to find the perfect balance between business objectives and player experience.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 设计原则 三卡片 -->
     <section class="principles-section">
       <div class="principles-inner">
@@ -185,37 +148,11 @@ import '../styles/global.css';
       </div>
     </section>
 
-    <!-- 数据亮点 -->
-    <section class="highlights-section">
-      <div class="highlights-header">
-        <span class="section-number">03</span>
-        <span class="label-tag" data-i18n="about.statsTag">By the Numbers</span>
-      </div>
-      <div class="highlights-inner">
-        <div class="highlight-card">
-          <span class="highlight-number">5+</span>
-          <span class="highlight-label" data-i18n-html="about.statProjects">Projects<br/>Delivered</span>
-        </div>
-        <div class="highlight-card">
-          <span class="highlight-number">5</span>
-          <span class="highlight-label" data-i18n-html="about.statCategories">Design<br/>Categories</span>
-        </div>
-        <div class="highlight-card">
-          <span class="highlight-number">100%</span>
-          <span class="highlight-label" data-i18n-html="about.statPassion">Design<br/>Passion</span>
-        </div>
-        <div class="highlight-card">
-          <span class="highlight-number">2026</span>
-          <span class="highlight-label" data-i18n-html="about.statLatest">Latest<br/>Projects</span>
-        </div>
-      </div>
-    </section>
-
     <!-- 职业时间线 -->
     <section class="timeline-section">
       <div class="timeline-inner">
         <div class="timeline-header">
-          <span class="section-number">04</span>
+          <span class="section-number">03</span>
           <span class="label-tag" data-i18n="about.timelineTag">Career Journey</span>
           <h2 data-i18n="about.timelineTitle">The Path So Far</h2>
         </div>
@@ -290,10 +227,69 @@ import '../styles/global.css';
       </div>
     </section>
 
+    <!-- 数据亮点 -->
+    <section class="highlights-section">
+      <div class="highlights-header">
+        <span class="section-number">04</span>
+        <span class="label-tag" data-i18n="about.statsTag">By the Numbers</span>
+      </div>
+      <div class="highlights-inner">
+        <div class="highlight-card">
+          <span class="highlight-number">5+</span>
+          <span class="highlight-label" data-i18n-html="about.statProjects">Projects<br/>Delivered</span>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-number">5</span>
+          <span class="highlight-label" data-i18n-html="about.statCategories">Design<br/>Categories</span>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-number">100%</span>
+          <span class="highlight-label" data-i18n-html="about.statPassion">Design<br/>Passion</span>
+        </div>
+        <div class="highlight-card">
+          <span class="highlight-number">2026</span>
+          <span class="highlight-label" data-i18n-html="about.statLatest">Latest<br/>Projects</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能和服务 -->
+    <section class="services-section">
+      <div class="services-inner">
+        <div class="services-header">
+          <span class="section-number">05</span>
+          <span class="label-tag" data-i18n="about.skillsTag">What I Do</span>
+          <h2 data-i18n="about.skillsTitle">My Skills</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon"><img src="/common/game.webp" alt="Game Design" class="service-icon-img" /></div>
+            <h3 data-i18n="about.skill1Title">Game Design</h3>
+            <p data-i18n="about.skill1Desc">Full-cycle game design from concept to final product, including level design, game mechanics, and player experience optimization.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><img src="/common/PC.webp" alt="Web Design" class="service-icon-img" /></div>
+            <h3 data-i18n="about.skill2Title">Web Design</h3>
+            <p data-i18n="about.skill2Desc">Modern, responsive web design with focus on user experience, accessibility, and visual impact.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><img src="/common/MOBILE.webp" alt="Mobile Design" class="service-icon-img" /></div>
+            <h3 data-i18n="about.skill3Title">Mobile Design</h3>
+            <p data-i18n="about.skill3Desc">Intuitive mobile app design optimized for touch interactions and seamless user flows.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><img src="/common/DESIGN.webp" alt="UI/UX Design" class="service-icon-img" /></div>
+            <h3 data-i18n="about.skill4Title">UI/UX Design</h3>
+            <p data-i18n="about.skill4Desc">User-centered interface design driven by research, wireframing, prototyping, and usability testing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 工具栈 marquee -->
     <section class="toolkit-section">
       <div class="toolkit-header">
-        <span class="section-number">05</span>
+        <span class="section-number">06</span>
         <span class="label-tag" data-i18n="about.toolkitTag">Tools & Tech</span>
         <h2 data-i18n="about.toolkitTitle">My Toolkit</h2>
       </div>
@@ -324,39 +320,6 @@ import '../styles/global.css';
           <span class="tool-chip">Premiere Pro</span>
           <span class="tool-chip">Protopie</span>
           <span class="tool-chip">Spline</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 技能和服务 -->
-    <section class="services-section">
-      <div class="services-inner">
-        <div class="services-header">
-          <span class="section-number">06</span>
-          <span class="label-tag" data-i18n="about.skillsTag">What I Do</span>
-          <h2 data-i18n="about.skillsTitle">My Skills</h2>
-        </div>
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="service-icon"><img src="/common/game.webp" alt="Game Design" class="service-icon-img" /></div>
-            <h3 data-i18n="about.skill1Title">Game Design</h3>
-            <p data-i18n="about.skill1Desc">Full-cycle game design from concept to final product, including level design, game mechanics, and player experience optimization.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><img src="/common/PC.webp" alt="Web Design" class="service-icon-img" /></div>
-            <h3 data-i18n="about.skill2Title">Web Design</h3>
-            <p data-i18n="about.skill2Desc">Modern, responsive web design with focus on user experience, accessibility, and visual impact.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><img src="/common/MOBILE.webp" alt="Mobile Design" class="service-icon-img" /></div>
-            <h3 data-i18n="about.skill3Title">Mobile Design</h3>
-            <p data-i18n="about.skill3Desc">Intuitive mobile app design optimized for touch interactions and seamless user flows.</p>
-          </div>
-          <div class="service-card">
-            <div class="service-icon"><img src="/common/DESIGN.webp" alt="UI/UX Design" class="service-icon-img" /></div>
-            <h3 data-i18n="about.skill4Title">UI/UX Design</h3>
-            <p data-i18n="about.skill4Desc">User-centered interface design driven by research, wireframing, prototyping, and usability testing.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -699,6 +662,11 @@ import '../styles/global.css';
     padding: var(--section-padding) var(--container-padding);
     background: var(--bg-secondary);
     border-top: 1px solid var(--border);
+  }
+
+  /* 删除 hero 后，about 页第一个 section 顶部需更多呼吸空间 */
+  main > .profile-section:first-child {
+    padding-top: calc(var(--section-padding) + 4rem);
   }
 
   .profile-inner {
@@ -1153,7 +1121,7 @@ import '../styles/global.css';
     left: 40px;                          /* logo 宽 80 / 2 */
     top: 80px;                           /* 当前 logo 底部 */
     height: calc(100% + 2.5rem - 80px);  /* 延伸到下一 logo 顶部（gap 2.5rem） */
-    border-left: 1px dashed var(--border-hover);
+    border-left: 1px solid var(--text-tertiary);
   }
 
   /* 时间起点装饰：第一个 logo 顶部一个小圆点，象征「时间开端」 */
@@ -1165,7 +1133,7 @@ import '../styles/global.css';
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--border-hover);
+    background: var(--text-tertiary);
   }
 
   .timeline-logo {
@@ -1822,6 +1790,7 @@ import '../styles/global.css';
     .about-hero h1 { font-size: 2.2rem; }
     .about-section { padding: 3rem 1.5rem; }
     .profile-section { padding: 3rem 1.5rem; }
+    main > .profile-section:first-child { padding-top: 6rem; }
     .profile-grid { gap: 2rem; }
     .profile-photo-wrap { max-width: 280px; }
     .profile-photo-deco { top: 0.8rem; left: 0.8rem; }
