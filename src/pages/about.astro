@@ -1349,11 +1349,20 @@ import '../styles/global.css';
     border: 1px solid var(--border);
     border-radius: 0;
     text-align: center;
-    transition: border-color 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
 
   .highlight-card:hover {
-    border-color: var(--border-hover);
+    background: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .highlight-card:hover .highlight-number {
+    color: #1a1a2e;
+  }
+
+  .highlight-card:hover .highlight-label {
+    color: #3a3a5c;
   }
 
   .highlight-number {
@@ -1364,6 +1373,7 @@ import '../styles/global.css';
     letter-spacing: -0.02em;
     margin-bottom: 0.75rem;
     line-height: 1;
+    transition: color 0.3s ease;
   }
 
   .highlight-label {
@@ -1372,6 +1382,7 @@ import '../styles/global.css';
     text-transform: uppercase;
     letter-spacing: 0.08em;
     line-height: 1.5;
+    transition: color 0.3s ease;
   }
 
   /* ===== 服务 ===== */
@@ -1414,9 +1425,23 @@ import '../styles/global.css';
   }
 
   .service-card:hover {
-    border-color: var(--border-hover);
+    background: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px);
     box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .service-card:hover .service-icon-img {
+    filter: brightness(0) invert(0) opacity(0.85);
+    opacity: 1;
+  }
+
+  .service-card:hover h3 {
+    color: #1a1a2e;
+  }
+
+  .service-card:hover p {
+    color: #3a3a5c;
   }
 
   .service-icon {
@@ -1434,6 +1459,7 @@ import '../styles/global.css';
     object-fit: contain;
     filter: grayscale(40%) brightness(0.85);
     opacity: 0.75;
+    transition: filter 0.3s ease, opacity 0.3s ease;
   }
 
   .service-card h3 {
@@ -1443,12 +1469,14 @@ import '../styles/global.css';
     letter-spacing: 0.02em;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
   }
 
   .service-card p {
     font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.8;
+    transition: color 0.3s ease;
   }
 
   /* ===== 联系 ===== */
