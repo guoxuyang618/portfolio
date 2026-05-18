@@ -1321,6 +1321,64 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transform: translateX(4px);
   }
 
+  /* 触屏设备：取消 :active/:focus 视觉反馈，点击直接进入下一页 */
+  @media (hover: none) and (pointer: coarse) {
+    .category-row:active,
+    .category-row:focus,
+    .category-row:focus-visible {
+      background: linear-gradient(180deg, rgba(20, 20, 28, 0.4) 0%, rgba(12, 12, 18, 0.6) 100%);
+      border-color: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+    .category-row:active .category-row-title,
+    .category-row:focus .category-row-title,
+    .category-row:focus-visible .category-row-title {
+      color: #ffffff;
+    }
+    .category-row:active .category-row-tagline,
+    .category-row:focus .category-row-tagline,
+    .category-row:focus-visible .category-row-tagline {
+      color: rgba(255, 255, 255, 0.55);
+    }
+    .category-row:active .category-row-desc,
+    .category-row:focus .category-row-desc,
+    .category-row:focus-visible .category-row-desc {
+      color: rgba(255, 255, 255, 0.72);
+    }
+    .category-row:active .category-row-meta,
+    .category-row:focus .category-row-meta,
+    .category-row:focus-visible .category-row-meta {
+      color: rgba(255, 255, 255, 0.45);
+    }
+    .category-row:active .category-row-dot,
+    .category-row:focus .category-row-dot,
+    .category-row:focus-visible .category-row-dot {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    .category-row:active .category-row-image img,
+    .category-row:focus .category-row-image img,
+    .category-row:focus-visible .category-row-image img {
+      transform: none;
+      filter: none;
+    }
+    .category-row:active .category-row-divider,
+    .category-row:focus .category-row-divider,
+    .category-row:focus-visible .category-row-divider {
+      width: 48px;
+    }
+    .category-row:active .category-row-cta,
+    .category-row:focus .category-row-cta,
+    .category-row:focus-visible .category-row-cta {
+      gap: 0.55rem;
+      color: var(--accent);
+    }
+    .category-row:active .category-row-cta svg,
+    .category-row:focus .category-row-cta svg,
+    .category-row:focus-visible .category-row-cta svg {
+      transform: none;
+    }
+  }
+
   .section-cta {
     text-align: center;
     margin-top: 4rem;

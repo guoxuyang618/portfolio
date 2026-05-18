@@ -514,6 +514,46 @@ import '../styles/global.css';
     opacity: 1;
   }
 
+  /* 触屏设备：取消 :active/:focus 视觉反馈，点击直接进入下一页 */
+  @media (hover: none) and (pointer: coarse) {
+    .work-card:active,
+    .work-card:focus,
+    .work-card:focus-visible {
+      background: var(--bg-card);
+      box-shadow: none;
+      transform: none;
+      border: 1px solid transparent;
+      outline: none;
+    }
+    .work-card:active .work-card-info h3,
+    .work-card:focus .work-card-info h3,
+    .work-card:focus-visible .work-card-info h3 {
+      color: var(--text-primary);
+    }
+    .work-card:active .work-category,
+    .work-card:focus .work-category,
+    .work-card:focus-visible .work-category {
+      color: var(--accent-secondary);
+      background: rgba(78, 234, 219, 0.1);
+      border-color: rgba(78, 234, 219, 0.2);
+    }
+    .work-card:active .work-year,
+    .work-card:focus .work-year,
+    .work-card:focus-visible .work-year {
+      color: var(--text-tertiary);
+    }
+    .work-card:active .work-card-image img,
+    .work-card:focus .work-card-image img,
+    .work-card:focus-visible .work-card-image img {
+      transform: none;
+    }
+    .work-card:active .work-card-overlay,
+    .work-card:focus .work-card-overlay,
+    .work-card:focus-visible .work-card-overlay {
+      opacity: 0;
+    }
+  }
+
   .work-card-image {
     position: relative;
     width: 100%;
