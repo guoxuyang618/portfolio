@@ -1117,30 +1117,51 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transform: translateY(0);
   }
 
-  .category-row:hover {
-    background: #ffffff;
-    border-color: transparent;
-    outline: none;
-  }
+  /* 仅鼠标设备启用 hover 视觉，触屏设备完全无 hover 状态 */
+  @media (hover: hover) and (pointer: fine) {
+    .category-row:hover {
+      background: #ffffff;
+      border-color: transparent;
+      outline: none;
+    }
 
-  .category-row:hover .category-row-title {
-    color: #0f0f15;
-  }
+    .category-row:hover .category-row-title {
+      color: #0f0f15;
+    }
 
-  .category-row:hover .category-row-tagline {
-    color: rgba(15, 15, 21, 0.85);
-  }
+    .category-row:hover .category-row-tagline {
+      color: rgba(15, 15, 21, 0.85);
+    }
 
-  .category-row:hover .category-row-desc {
-    color: #1a1a22;
-  }
+    .category-row:hover .category-row-desc {
+      color: #1a1a22;
+    }
 
-  .category-row:hover .category-row-meta {
-    color: rgba(15, 15, 21, 0.7);
-  }
+    .category-row:hover .category-row-meta {
+      color: rgba(15, 15, 21, 0.7);
+    }
 
-  .category-row:hover .category-row-dot {
-    color: rgba(15, 15, 21, 0.5);
+    .category-row:hover .category-row-dot {
+      color: rgba(15, 15, 21, 0.5);
+    }
+
+    .category-row:hover .category-row-image img {
+      transform: scale(1.06);
+      filter: brightness(1.05);
+    }
+
+    .category-row:hover .category-row-divider {
+      width: 80px;
+    }
+
+    .category-row:hover .category-row-cta {
+      gap: 0.95rem;
+      color: #0f0f15;
+    }
+
+    .category-row:hover .category-row-cta svg {
+      transform: translateX(4px);
+    }
   }
 
   /* 偶数行：右图左文（image 移到右侧） */
@@ -1167,11 +1188,6 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     object-position: center;
     transition: transform 0.6s ease, filter 0.6s ease;
     will-change: transform;
-  }
-
-  .category-row:hover .category-row-image img {
-    transform: scale(1.06);
-    filter: brightness(1.05);
   }
 
   .category-row-image-overlay {
@@ -1226,10 +1242,6 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transition: width 0.4s ease;
   }
 
-  .category-row:hover .category-row-divider {
-    width: 80px;
-  }
-
   .category-row-tagline {
     font-size: 0.82rem;
     color: rgba(255, 255, 255, 0.55);
@@ -1277,40 +1289,16 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transition: gap 0.3s ease, color 0.3s ease;
   }
 
-  .category-row:hover .category-row-cta {
-    gap: 0.95rem;
-    color: #0f0f15;
-  }
-
   .category-row-cta svg {
     transition: transform 0.3s ease;
     stroke: currentColor;
   }
 
-  .category-row:hover .category-row-cta svg {
-    transform: translateX(4px);
-  }
-
-  /* 触屏设备：屏蔽 :hover 触发的白底视觉（手指按下时浏览器会模拟 hover），仅保留极轻按下缩放 */
+  /* 触屏设备：唯一反馈是按下时极轻缩放，不沾染任何 hover 视觉 */
   @media (hover: none) and (pointer: coarse) {
     .category-row {
       transition: transform 0.15s ease-out;
     }
-    /* 锁回卡片默认深色外观，确保按下时不闪白 */
-    .category-row:hover {
-      background: transparent;
-      border-color: rgba(255, 255, 255, 0.05);
-    }
-    .category-row:hover .category-row-title { color: #ffffff; }
-    .category-row:hover .category-row-tagline { color: rgba(255, 255, 255, 0.55); }
-    .category-row:hover .category-row-desc { color: rgba(255, 255, 255, 0.72); }
-    .category-row:hover .category-row-meta { color: rgba(255, 255, 255, 0.45); }
-    .category-row:hover .category-row-dot { color: rgba(255, 255, 255, 0.3); }
-    .category-row:hover .category-row-image img { transform: none; filter: none; }
-    .category-row:hover .category-row-divider { width: 48px; }
-    .category-row:hover .category-row-cta { gap: 0.55rem; color: var(--accent); }
-    .category-row:hover .category-row-cta svg { transform: none; }
-    /* 唯一保留的反馈：按下时整张卡极轻缩放 */
     .category-row:active {
       transform: scale(0.99);
     }

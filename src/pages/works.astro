@@ -467,58 +467,44 @@ import '../styles/global.css';
     -webkit-tap-highlight-color: transparent;
   }
 
-  .work-card:hover {
-    background: #ffffff;
-    box-shadow: none;
-    transform: translateY(-3px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    outline: none;
+  /* 仅鼠标设备启用 hover 视觉，触屏设备完全无 hover 状态 */
+  @media (hover: hover) and (pointer: fine) {
+    .work-card:hover {
+      background: #ffffff;
+      box-shadow: none;
+      transform: translateY(-3px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      outline: none;
+    }
+
+    .work-card:hover .work-card-info h3 {
+      color: #1a1a2e;
+    }
+
+    .work-card:hover .work-category {
+      color: #1a1a2e;
+      background: rgba(0, 0, 0, 0.06);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .work-card:hover .work-year {
+      color: #3a3a5c;
+    }
+
+    .work-card:hover .work-card-image img {
+      transform: scale(1.04);
+    }
+
+    .work-card:hover .work-card-overlay {
+      opacity: 1;
+    }
   }
 
-  .work-card:hover .work-card-info h3 {
-    color: #1a1a2e;
-  }
-
-  .work-card:hover .work-category {
-    color: #1a1a2e;
-    background: rgba(0, 0, 0, 0.06);
-    border-color: rgba(0, 0, 0, 0.15);
-  }
-
-  .work-card:hover .work-year {
-    color: #3a3a5c;
-  }
-
-  .work-card:hover .work-card-image img {
-    transform: scale(1.04);
-  }
-
-  .work-card:hover .work-card-overlay {
-    opacity: 1;
-  }
-
-  /* 触屏设备：屏蔽 :hover 触发的白底视觉（手指按下时浏览器会模拟 hover），仅保留极轻按下缩放 */
+  /* 触屏设备：唯一反馈是按下时极轻缩放，不沾染任何 hover 视觉 */
   @media (hover: none) and (pointer: coarse) {
     .work-card {
       transition: transform 0.15s ease-out;
     }
-    /* 锁回卡片默认深色外观，确保按下时不闪白 */
-    .work-card:hover {
-      background: var(--bg-card);
-      box-shadow: none;
-      transform: none;
-      border: 1px solid transparent;
-    }
-    .work-card:hover .work-card-info h3 { color: var(--text-primary); }
-    .work-card:hover .work-category {
-      color: var(--accent-secondary);
-      background: rgba(78, 234, 219, 0.1);
-      border-color: rgba(78, 234, 219, 0.2);
-    }
-    .work-card:hover .work-year { color: var(--text-tertiary); }
-    .work-card:hover .work-card-image img { transform: none; }
-    .work-card:hover .work-card-overlay { opacity: 0; }
-    /* 唯一保留的反馈：按下时整张卡极轻缩放 */
     .work-card:active {
       transform: scale(0.99);
     }
