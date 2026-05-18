@@ -1117,28 +1117,47 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transform: translateY(0);
   }
 
-  .category-row:hover {
+  .category-row:hover,
+  .category-row:active,
+  .category-row:focus,
+  .category-row:focus-visible {
     background: #ffffff;
     border-color: transparent;
+    outline: none;
   }
 
-  .category-row:hover .category-row-title {
+  .category-row:hover .category-row-title,
+  .category-row:active .category-row-title,
+  .category-row:focus .category-row-title,
+  .category-row:focus-visible .category-row-title {
     color: #0f0f15;
   }
 
-  .category-row:hover .category-row-tagline {
+  .category-row:hover .category-row-tagline,
+  .category-row:active .category-row-tagline,
+  .category-row:focus .category-row-tagline,
+  .category-row:focus-visible .category-row-tagline {
     color: rgba(15, 15, 21, 0.85);
   }
 
-  .category-row:hover .category-row-desc {
+  .category-row:hover .category-row-desc,
+  .category-row:active .category-row-desc,
+  .category-row:focus .category-row-desc,
+  .category-row:focus-visible .category-row-desc {
     color: #1a1a22;
   }
 
-  .category-row:hover .category-row-meta {
+  .category-row:hover .category-row-meta,
+  .category-row:active .category-row-meta,
+  .category-row:focus .category-row-meta,
+  .category-row:focus-visible .category-row-meta {
     color: rgba(15, 15, 21, 0.7);
   }
 
-  .category-row:hover .category-row-dot {
+  .category-row:hover .category-row-dot,
+  .category-row:active .category-row-dot,
+  .category-row:focus .category-row-dot,
+  .category-row:focus-visible .category-row-dot {
     color: rgba(15, 15, 21, 0.5);
   }
 
@@ -1168,7 +1187,10 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     will-change: transform;
   }
 
-  .category-row:hover .category-row-image img {
+  .category-row:hover .category-row-image img,
+  .category-row:active .category-row-image img,
+  .category-row:focus .category-row-image img,
+  .category-row:focus-visible .category-row-image img {
     transform: scale(1.06);
     filter: brightness(1.05);
   }
@@ -1225,7 +1247,10 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transition: width 0.4s ease;
   }
 
-  .category-row:hover .category-row-divider {
+  .category-row:hover .category-row-divider,
+  .category-row:active .category-row-divider,
+  .category-row:focus .category-row-divider,
+  .category-row:focus-visible .category-row-divider {
     width: 80px;
   }
 
@@ -1276,7 +1301,10 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transition: gap 0.3s ease, color 0.3s ease;
   }
 
-  .category-row:hover .category-row-cta {
+  .category-row:hover .category-row-cta,
+  .category-row:active .category-row-cta,
+  .category-row:focus .category-row-cta,
+  .category-row:focus-visible .category-row-cta {
     gap: 0.95rem;
     color: #0f0f15;
   }
@@ -1286,7 +1314,10 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     stroke: currentColor;
   }
 
-  .category-row:hover .category-row-cta svg {
+  .category-row:hover .category-row-cta svg,
+  .category-row:active .category-row-cta svg,
+  .category-row:focus .category-row-cta svg,
+  .category-row:focus-visible .category-row-cta svg {
     transform: translateX(4px);
   }
 
