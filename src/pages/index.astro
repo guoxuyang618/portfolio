@@ -1291,11 +1291,26 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transform: translateX(4px);
   }
 
-  /* 触屏设备：仅给一个极轻的按下缩放反馈，不改任何颜色/背景 */
+  /* 触屏设备：屏蔽 :hover 触发的白底视觉（手指按下时浏览器会模拟 hover），仅保留极轻按下缩放 */
   @media (hover: none) and (pointer: coarse) {
     .category-row {
       transition: transform 0.15s ease-out;
     }
+    /* 锁回卡片默认深色外观，确保按下时不闪白 */
+    .category-row:hover {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+    .category-row:hover .category-row-title { color: #ffffff; }
+    .category-row:hover .category-row-tagline { color: rgba(255, 255, 255, 0.55); }
+    .category-row:hover .category-row-desc { color: rgba(255, 255, 255, 0.72); }
+    .category-row:hover .category-row-meta { color: rgba(255, 255, 255, 0.45); }
+    .category-row:hover .category-row-dot { color: rgba(255, 255, 255, 0.3); }
+    .category-row:hover .category-row-image img { transform: none; filter: none; }
+    .category-row:hover .category-row-divider { width: 48px; }
+    .category-row:hover .category-row-cta { gap: 0.55rem; color: var(--accent); }
+    .category-row:hover .category-row-cta svg { transform: none; }
+    /* 唯一保留的反馈：按下时整张卡极轻缩放 */
     .category-row:active {
       transform: scale(0.99);
     }
