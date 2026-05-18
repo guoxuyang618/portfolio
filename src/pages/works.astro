@@ -497,6 +497,16 @@ import '../styles/global.css';
     opacity: 1;
   }
 
+  /* 触屏设备：仅给一个极轻的按下缩放反馈，不改任何颜色/背景 */
+  @media (hover: none) and (pointer: coarse) {
+    .work-card {
+      transition: transform 0.15s ease-out;
+    }
+    .work-card:active {
+      transform: scale(0.99);
+    }
+  }
+
   .work-card-image {
     position: relative;
     width: 100%;

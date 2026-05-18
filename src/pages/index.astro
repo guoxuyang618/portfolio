@@ -1291,6 +1291,16 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transform: translateX(4px);
   }
 
+  /* 触屏设备：仅给一个极轻的按下缩放反馈，不改任何颜色/背景 */
+  @media (hover: none) and (pointer: coarse) {
+    .category-row {
+      transition: transform 0.15s ease-out;
+    }
+    .category-row:active {
+      transform: scale(0.99);
+    }
+  }
+
   .section-cta {
     text-align: center;
     margin-top: 4rem;
