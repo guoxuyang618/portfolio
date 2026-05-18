@@ -19,7 +19,7 @@ import '../styles/global.css';
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a href="/" class="logo">
-        <img src="/common/logo.webp" alt="Xuyang Logo" class="logo-img" />
+        <img src="/common/logo.webp" alt="XUYANG UX DESIGN" class="logo-img" />
       </a>
       <div class="nav-right">
         <nav class="main-nav" id="mainNav">
@@ -69,6 +69,117 @@ import '../styles/global.css';
           mainNav.classList.remove('open');
         });
       });
+    }
+
+    /* === Life Beyond Pixels：自动轮播（transform）+ 拖动 + 拖完恢复 + 边界纵向接力 === */
+    function initLifeMarquee() {
+      const lifeMarquee = document.getElementById('lifeMarquee');
+      if (!lifeMarquee) return;
+      const track = lifeMarquee.querySelector('.life-track');
+      if (!track) return;
+
+      const SPEED = 0.6;            // 像素/帧 @60fps
+      const RESUME_DELAY = 1200;    // 操作结束后多久恢复
+      let offset = 0;               // 当前 translateX (负数代表内容左移)
+      let halfW = 0;                // 一半内容宽（HTML 复制了一份）
+      let isDown = false;
+      let isHovering = false;
+      let userPausedUntil = 0;
+      let startX = 0;
+      let startOffset = 0;
+      let lastTs = 0;
+
+      const measure = () => {
+        // 总宽度的一半 = 一份图片宽度（10 张）
+        halfW = track.scrollWidth / 2;
+      };
+      measure();
+      window.addEventListener('resize', measure);
+      // 图片懒加载逐张到位时再测一次
+      lifeMarquee.querySelectorAll('img').forEach(img => {
+        if (!img.complete) img.addEventListener('load', measure, { once: true });
+      });
+
+      const apply = () => {
+        track.style.transform = `translate3d(${offset}px, 0, 0)`;
+      };
+
+      const shouldAuto = () => !isDown && !isHovering && performance.now() >= userPausedUntil;
+
+      function tick(ts) {
+        if (shouldAuto() && halfW > 0) {
+          const dt = lastTs ? Math.min((ts - lastTs) / 16.6667, 3) : 1;
+          offset -= SPEED * dt;
+          // 无缝循环
+          if (offset <= -halfW) offset += halfW;
+          if (offset > 0) offset -= halfW;
+          apply();
+          lastTs = ts;
+        } else {
+          lastTs = 0;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      const bumpUserPause = (ms = RESUME_DELAY) => {
+        userPausedUntil = performance.now() + ms;
+      };
+
+      lifeMarquee.addEventListener('mouseenter', () => { isHovering = true; });
+      lifeMarquee.addEventListener('mouseleave', () => { isHovering = false; });
+
+      // 拖拽
+      lifeMarquee.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        isDown = true;
+        startX = e.clientX;
+        startOffset = offset;
+        lifeMarquee.classList.add('is-dragging');
+        try { lifeMarquee.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+
+      lifeMarquee.addEventListener('pointermove', (e) => {
+        if (!isDown) return;
+        const dx = e.clientX - startX;
+        let next = startOffset + dx;
+        // 无缝：保持在 (-halfW, 0] 区间
+        if (halfW > 0) {
+          while (next <= -halfW) next += halfW;
+          while (next > 0) next -= halfW;
+        }
+        offset = next;
+        apply();
+      });
+
+      const endDrag = (e) => {
+        if (!isDown) return;
+        isDown = false;
+        lifeMarquee.classList.remove('is-dragging');
+        try { lifeMarquee.releasePointerCapture(e.pointerId); } catch (_) {}
+        bumpUserPause();
+      };
+      lifeMarquee.addEventListener('pointerup', endDrag);
+      lifeMarquee.addEventListener('pointercancel', endDrag);
+
+      // 滚轮：纵滚转横滚（无缝），同时让页面滚动也继续工作
+      lifeMarquee.addEventListener('wheel', (e) => {
+        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        if (delta === 0 || halfW <= 0) return;
+        // 不阻止默认 → 页面纵向滚动同时进行（"沿原方向继续滚动"）
+        offset -= delta * 0.5; // 折半，避免横滚过快
+        while (offset <= -halfW) offset += halfW;
+        while (offset > 0) offset -= halfW;
+        apply();
+        bumpUserPause();
+      }, { passive: true });
+
+      requestAnimationFrame(tick);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLifeMarquee);
+    } else {
+      initLifeMarquee();
     }
   </script>
 
@@ -400,7 +511,7 @@ import '../styles/global.css';
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="/common/logo.webp" alt="Xuyang Logo" class="footer-logo-img" />
+            <img src="/common/logo.webp" alt="XUYANG UX DESIGN" class="footer-logo-img" />
           </div>
           <p data-i18n="footer.siteDesc">{config.site.description}</p>
         </div>
@@ -1299,29 +1410,35 @@ import '../styles/global.css';
 
   .life-marquee {
     width: 100%;
-    /* 用 clip-path 代替 overflow:hidden，仅横向严格裁切，纵向放开 60px 让悬停放大不被裁 */
+    /* 拖动模式：使用 transform 推进，容器仅做横向裁切；纵向放开 60px 让悬停放大不被裁 */
     clip-path: inset(-60px 0 -60px 0);
     padding: 60px 0;
     margin: -60px 0;
     mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y; /* 移动端：允许垂直滑动，水平由 JS 接管 */
+  }
+
+  .life-marquee.is-dragging {
+    cursor: grabbing;
   }
 
   .life-track {
     display: flex;
     gap: 1.2rem;
     width: max-content;
-    animation: lifeMarquee 60s linear infinite;
     will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
 
-  .life-marquee:hover .life-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes lifeMarquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  /* 拖拽时禁止图片自身被选中拖动 */
+  .life-marquee img {
+    pointer-events: none;
+    -webkit-user-drag: none;
   }
 
   .life-item {
@@ -1819,7 +1936,7 @@ import '../styles/global.css';
     .life-section { padding: 3rem 0; }
     .life-header { padding: 0 1.5rem; margin-bottom: 1.5rem; }
     .life-item { width: 220px; }
-    .life-track { gap: 0.8rem; animation-duration: 45s; }
+    .life-track { gap: 0.8rem; }
     .about-pull-quote { font-size: 1.2rem; padding-left: 1rem; }
     .highlights-header { padding: 0 1.5rem; margin-bottom: 1.2rem; }
     .highlights-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }

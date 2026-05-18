@@ -20,7 +20,7 @@ import '../styles/global.css';
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <a href="/" class="logo">
-        <img src="/common/logo.webp" alt="Xuyang Logo" class="logo-img" />
+        <img src="/common/logo.webp" alt="XUYANG UX DESIGN" class="logo-img" />
       </a>
       <div class="nav-right">
         <nav class="main-nav" id="mainNav">
@@ -127,7 +127,7 @@ import '../styles/global.css';
       <div class="footer-top">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="/common/logo.webp" alt="Xuyang Logo" class="footer-logo-img" />
+            <img src="/common/logo.webp" alt="XUYANG UX DESIGN" class="footer-logo-img" />
           </div>
           <p data-i18n="footer.siteDesc">{config.site.description}</p>
         </div>
@@ -463,34 +463,54 @@ import '../styles/global.css';
     background: var(--bg-card);
     border: 1px solid transparent;
     transition: all 0.5s var(--ease-out);
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .work-card:hover {
+  .work-card:hover,
+  .work-card:active,
+  .work-card:focus,
+  .work-card:focus-visible {
     background: #ffffff;
     box-shadow: none;
     transform: translateY(-3px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    outline: none;
   }
 
-  .work-card:hover .work-card-info h3 {
+  .work-card:hover .work-card-info h3,
+  .work-card:active .work-card-info h3,
+  .work-card:focus .work-card-info h3,
+  .work-card:focus-visible .work-card-info h3 {
     color: #1a1a2e;
   }
 
-  .work-card:hover .work-category {
+  .work-card:hover .work-category,
+  .work-card:active .work-category,
+  .work-card:focus .work-category,
+  .work-card:focus-visible .work-category {
     color: #1a1a2e;
     background: rgba(0, 0, 0, 0.06);
     border-color: rgba(0, 0, 0, 0.15);
   }
 
-  .work-card:hover .work-year {
+  .work-card:hover .work-year,
+  .work-card:active .work-year,
+  .work-card:focus .work-year,
+  .work-card:focus-visible .work-year {
     color: #3a3a5c;
   }
 
-  .work-card:hover .work-card-image img {
+  .work-card:hover .work-card-image img,
+  .work-card:active .work-card-image img,
+  .work-card:focus .work-card-image img,
+  .work-card:focus-visible .work-card-image img {
     transform: scale(1.04);
   }
 
-  .work-card:hover .work-card-overlay {
+  .work-card:hover .work-card-overlay,
+  .work-card:active .work-card-overlay,
+  .work-card:focus .work-card-overlay,
+  .work-card:focus-visible .work-card-overlay {
     opacity: 1;
   }
 
