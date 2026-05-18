@@ -1127,11 +1127,11 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
   }
 
   .category-row:hover .category-row-tagline {
-    color: rgba(15, 15, 21, 0.55);
+    color: rgba(15, 15, 21, 0.85);
   }
 
   .category-row:hover .category-row-desc {
-    color: rgba(15, 15, 21, 0.78);
+    color: #1a1a22;
   }
 
   /* 偶数行：右图左文（image 移到右侧） */
@@ -1202,10 +1202,7 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     transition: color 0.3s ease;
   }
 
-  /* 悬停时整张卡片切换为白底深字 */
-  .category-row:hover .category-row-title {
-    color: #0f0f15;
-  }
+  /* 悬停时整张卡片切换为白底深字（title/tagline/desc/cta 见上方 :hover 规则） */
 
   :global(html[lang="en"]) .category-row-title {
     font-size: clamp(1.25rem, 2vw, 1.85rem);
