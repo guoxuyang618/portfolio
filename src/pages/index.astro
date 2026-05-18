@@ -1089,7 +1089,7 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 2.2rem;
+    gap: 4rem;
   }
 
   .category-row {
@@ -1103,7 +1103,7 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.06);
     background: linear-gradient(180deg, rgba(20, 20, 28, 0.4) 0%, rgba(12, 12, 18, 0.6) 100%);
-    min-height: 420px;
+    min-height: 540px;
     /* 进场动画 */
     opacity: 0;
     transform: translateY(40px);
@@ -1133,7 +1133,7 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
   .category-row-image {
     position: relative;
     overflow: hidden;
-    min-height: 420px;
+    min-height: 540px;
   }
 
   .category-row-image img {
@@ -1580,12 +1580,16 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
 
   /* ===== 响应式 ===== */
   @media (max-width: 1024px) {
+    .projects-list {
+      gap: 3rem;
+    }
+
     .category-row {
-      min-height: 360px;
+      min-height: 460px;
     }
 
     .category-row-image {
-      min-height: 360px;
+      min-height: 460px;
     }
 
     .category-row-text {
@@ -1801,7 +1805,7 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
 
     .projects-list {
       grid-template-columns: 1fr;
-      gap: 1.4rem;
+      gap: 2.2rem;
     }
 
     /* 移动端：行内图文堆叠为单列；左右交替规则失效 */
