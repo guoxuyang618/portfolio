@@ -307,20 +307,31 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
           }
         });
         return Array.from(categoryMap.entries());
-      })().map(([category, work]: [string, any]) => (
-        <a href={`/works?category=${encodeURIComponent(category)}`} class="project-card" data-tilt data-tilt-max="6">
-          <div class="card-bg">
+      })().map(([category, work]: [string, any], idx: number) => (
+        <a
+          href={`/works?category=${encodeURIComponent(category)}`}
+          class={`category-row ${idx % 2 === 0 ? 'row-left' : 'row-right'}`}
+          data-index={String(idx + 1).padStart(2, '0')}
+        >
+          <div class="category-row-image">
             <img src={work.cardCover || work.cover} alt={category} loading="lazy">
+            <div class="category-row-image-overlay"></div>
           </div>
-          <div class="card-gradient"></div>
-          <div class="card-content">
-            <h3 class="card-title" data-i18n-category={category}>{category}</h3>
-            <p class="card-tagline" data-i18n={categoryTaglines[category]?.i18nKey || ''}>{categoryTaglines[category]?.text || ''}</p>
-            <p class="card-desc" data-i18n={categoryDescriptions[category]?.i18nKey || ''}>{categoryDescriptions[category]?.text || ''}</p>
-          </div>
-          <div class="card-meta">
-            <span class="card-category" data-i18n-projects-count={works.works.filter((w: any) => w.category === category).length}>{works.works.filter((w: any) => w.category === category).length} Projects</span>
-            <span class="card-year">{work.year}</span>
+          <div class="category-row-text">
+            <span class="category-row-index">{String(idx + 1).padStart(2, '0')} / 06</span>
+            <h3 class="category-row-title" data-i18n-category={category}>{category}</h3>
+            <span class="category-row-divider"></span>
+            <p class="category-row-tagline" data-i18n={categoryTaglines[category]?.i18nKey || ''}>{categoryTaglines[category]?.text || ''}</p>
+            <p class="category-row-desc" data-i18n={categoryDescriptions[category]?.i18nKey || ''}>{categoryDescriptions[category]?.text || ''}</p>
+            <div class="category-row-meta">
+              <span class="category-row-count" data-i18n-projects-count={works.works.filter((w: any) => w.category === category).length}>{works.works.filter((w: any) => w.category === category).length} Projects</span>
+              <span class="category-row-dot">·</span>
+              <span class="category-row-year">{work.year}</span>
+            </div>
+            <span class="category-row-cta">
+              <span data-i18n="index.viewProjects">View Projects</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
           </div>
         </a>
       ))}
@@ -417,8 +428,8 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
         }, 800);
       }
 
-      // Project cards staggered reveal
-      const cards = document.querySelectorAll('.project-card');
+      // Category rows staggered reveal
+      const cards = document.querySelectorAll('.category-row');
       const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1072,251 +1083,192 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
     margin-right: auto;
   }
 
-  /* 作品列表 - PC一行2个 */
+  /* ===== 类目行（左图右文 / 右图左文 交替） ===== */
   .projects-list {
     width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
   }
 
-  /* === 单个作品卡片 === */
-  .project-card {
+  .category-row {
     position: relative;
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    gap: 0;
     text-decoration: none;
     color: inherit;
-    border-radius: 0;
     overflow: hidden;
-    border: 1px solid transparent;
-    /* 使用 aspect-ratio 代替固定高度 */
-    aspect-ratio: 2.3 / 1;
-    width: 100%;
-    transition: box-shadow 0.05s ease, border-color 0.05s ease;
-    /* 渐入动画初始状态 */
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, rgba(20, 20, 28, 0.4) 0%, rgba(12, 12, 18, 0.6) 100%);
+    min-height: 420px;
+    /* 进场动画 */
     opacity: 0;
     transform: translateY(40px);
-    /* 3D 透视 */
-    transform-style: preserve-3d;
+    transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     will-change: transform;
   }
 
-
-  .project-card.card-visible {
+  .category-row.card-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .project-card:hover {
-    box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.7);
+  .category-row:hover {
+    border-color: rgba(78, 234, 219, 0.35);
+    box-shadow: 0 30px 80px -20px rgba(78, 234, 219, 0.15);
   }
 
-  .project-card:hover .card-title {
-    color: var(--accent);
-    text-shadow: 0 0 40px rgba(78, 234, 219, 0.5);
-    transform: translateX(4px);
+  /* 偶数行：右图左文（image 移到右侧） */
+  .category-row.row-right .category-row-image {
+    order: 2;
+  }
+  .category-row.row-right .category-row-text {
+    order: 1;
   }
 
-  /* 图片背景 - 铺满整个卡片 */
-  .card-bg {
+  /* === 图片区 === */
+  .category-row-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+  }
+
+  .category-row-image img {
     position: absolute;
     inset: 0;
-    z-index: 1;
-  }
-
-  .card-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.05s ease, filter 0.05s ease;
+    transition: transform 0.6s ease, filter 0.6s ease;
+    will-change: transform;
   }
 
-  .project-card:hover .card-bg img {
-    transform: scale(1.08);
-    filter: brightness(1.1);
+  .category-row:hover .category-row-image img {
+    transform: scale(1.06);
+    filter: brightness(1.05);
   }
 
-  /* 渐变遮罩 - 左侧 + 上下边缘遮蔽 */
-  .card-gradient {
+  .category-row-image-overlay {
     position: absolute;
     inset: 0;
-    z-index: 2;
-    background: 
-      linear-gradient(
-        90deg,
-        rgba(8, 8, 12, 0.4) 0%,
-        rgba(8, 8, 12, 0.28) 15%,
-        rgba(8, 8, 12, 0.15) 35%,
-        rgba(8, 8, 12, 0.05) 55%,
-        transparent 75%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(8, 8, 12, 0.12) 0%,
-        transparent 15%,
-        transparent 85%,
-        rgba(8, 8, 12, 0.12) 100%
-      );
+    background: linear-gradient(135deg, rgba(8, 8, 12, 0.15) 0%, transparent 60%);
     pointer-events: none;
   }
 
-  /* 文字信息区 - 左上角对齐 */
-  .card-content {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 3;
+  /* === 文字区 === */
+  .category-row-text {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 1.8rem 2rem;
-    max-width: 65%;
+    justify-content: center;
+    padding: 2.6rem 3rem;
+    gap: 0.9rem;
   }
 
-  /* 悬停时，左侧文字下方深色渐变遮罩 - 覆盖卡片左半部 */
-  .card-content::before {
-    content: '';
-    position: absolute;
-    left: -1px;
-    top: -1px;
-    width: 140%;
-    bottom: -1px;
-    z-index: -1;
-    background: linear-gradient(
-      100deg,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.75) 20%,
-      rgba(0, 0, 0, 0.6) 40%,
-      rgba(0, 0, 0, 0.4) 55%,
-      rgba(0, 0, 0, 0.2) 70%,
-      rgba(0, 0, 0, 0.08) 85%,
-      transparent 100%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-
-  .project-card:hover .card-content::before {
-    opacity: 1;
-  }
-
-  .project-card:hover .card-content {
-    justify-content: flex-start;
-  }
-
-  .card-title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(1.4rem, 2.2vw, 2rem);
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0.8rem;
-    letter-spacing: 0.01em;
-    line-height: 1.2;
+  .category-row-index {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--accent);
     text-transform: uppercase;
-    transition: color 0.05s ease, text-shadow 0.05s ease, transform 0.05s ease;
   }
 
-  /* 英文模式下卡片标题字号稍小 */
-  :global(html[lang="en"]) .card-title {
-    font-size: clamp(1.15rem, 1.8vw, 1.65rem);
+  .category-row-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+    transition: color 0.3s ease;
   }
 
-  .card-tagline {
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.45);
+  .category-row:hover .category-row-title {
+    color: var(--accent);
+  }
+
+  :global(html[lang="en"]) .category-row-title {
+    font-size: clamp(1.25rem, 2vw, 1.85rem);
+  }
+
+  .category-row-divider {
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0.2rem 0 0.4rem;
+    transition: width 0.4s ease;
+  }
+
+  .category-row:hover .category-row-divider {
+    width: 80px;
+  }
+
+  .category-row-tagline {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.55);
     font-weight: 400;
     letter-spacing: 0.06em;
-    line-height: 1.4;
+    line-height: 1.45;
     margin: 0;
   }
 
-  .card-desc {
-    font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.65;
-    margin-bottom: 1.8rem;
-    max-width: 380px;
-    /* 默认隐藏 */
-    opacity: 0;
-    max-height: 0;
-    transform: translateY(-8px);
-    margin-top: 0;
-    overflow: hidden;
-    transition: opacity 0.3s ease, max-height 0.4s ease, transform 0.3s ease, margin-bottom 0.3s ease;
+  .category-row-desc {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 520px;
   }
 
-  .project-card:hover .card-desc {
-    opacity: 1;
-    max-height: 200px;
-    transform: translateY(0);
-    margin-bottom: 1.8rem;
-  }
-
-  .card-cta {
-    display: inline-flex;
+  .category-row-meta {
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.75rem;
-    font-size: 0.8rem;
-    font-weight: 700;
+    gap: 0.7rem;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #08080a;
-    background: var(--accent);
-    border: none;
-    border-radius: 0;
-    width: fit-content;
-    /* 默认隐藏 */
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    padding-top: 0;
-    padding-bottom: 0;
-    transform: translateY(-6px);
-    transition: opacity 0.3s ease 0.05s, max-height 0.4s ease, transform 0.3s ease, padding 0.3s ease, background 0.05s ease, box-shadow 0.05s ease;
+    color: rgba(255, 255, 255, 0.45);
   }
 
-  .project-card:hover .card-cta {
-    opacity: 1;
-    max-height: 60px;
-    transform: translateY(0);
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    background: #3dd4c6;
-    box-shadow: 0 4px 20px rgba(78, 234, 219, 0.4);
+  .category-row-dot {
+    color: rgba(255, 255, 255, 0.3);
   }
 
-  .card-cta svg {
-    transition: transform 0.3s ease;
-    stroke: #08080a;
-  }
-
-  .project-card:hover .card-cta svg {
-    transform: translate(5px, -3px);
-  }
-
-  /* 右下角分类信息 */
-  .card-meta {
-    position: absolute;
-    right: 2rem;
-    bottom: 1.5rem;
-    z-index: 3;
-    display: flex;
-    gap: 1rem;
+  .category-row-cta {
+    display: inline-flex;
     align-items: center;
+    gap: 0.55rem;
+    margin-top: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    transition: gap 0.3s ease, color 0.3s ease;
   }
 
-  .card-category,
-  .card-year {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+  .category-row:hover .category-row-cta {
+    gap: 0.95rem;
+    color: #ffffff;
+  }
+
+  .category-row-cta svg {
+    transition: transform 0.3s ease;
+    stroke: currentColor;
+  }
+
+  .category-row:hover .category-row-cta svg {
+    transform: translateX(4px);
   }
 
   .section-cta {
@@ -1628,34 +1580,33 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
 
   /* ===== 响应式 ===== */
   @media (max-width: 1024px) {
-    .project-card {
-      aspect-ratio: 2.5 / 1;
+    .category-row {
+      min-height: 360px;
     }
 
-    .card-content {
-      padding: 1.5rem 2.5rem;
-      max-width: 55%;
+    .category-row-image {
+      min-height: 360px;
     }
 
-    .card-title {
-      font-size: 1.35rem;
+    .category-row-text {
+      padding: 2rem 2.2rem;
+      gap: 0.7rem;
     }
 
-    :global(html[lang="en"]) .card-title {
-      font-size: 1.1rem;
+    .category-row-title {
+      font-size: 1.5rem;
     }
 
-    .card-tagline {
-      font-size: 0.72rem;
+    :global(html[lang="en"]) .category-row-title {
+      font-size: 1.25rem;
     }
 
-    .card-desc {
-      font-size: 0.82rem;
+    .category-row-tagline {
+      font-size: 0.78rem;
     }
 
-    .card-cta {
-      padding: 0.65rem 1.5rem;
-      font-size: 0.75rem;
+    .category-row-desc {
+      font-size: 0.86rem;
     }
 
     .abilities-grid {
@@ -1850,63 +1801,65 @@ const categoryDescriptions: Record<string, { text: string; i18nKey: string }> = 
 
     .projects-list {
       grid-template-columns: 1fr;
-      gap: 0.9rem;
+      gap: 1.4rem;
     }
 
-    .project-card {
-      aspect-ratio: 1.4 / 1;
+    /* 移动端：行内图文堆叠为单列；左右交替规则失效 */
+    .category-row,
+    .category-row.row-right {
+      display: flex;
+      flex-direction: column;
+      min-height: auto;
     }
 
-    /* 移动端无悬停，默认展开 desc 和 cta */
-    .card-desc {
-      opacity: 1;
-      max-height: 200px;
-      transform: none;
-      margin-bottom: 1rem;
+    .category-row.row-right .category-row-image,
+    .category-row.row-right .category-row-text {
+      order: unset;
     }
 
-    .card-cta {
-      opacity: 1;
-      max-height: 60px;
-      transform: none;
-      padding-top: 0.7rem;
-      padding-bottom: 0.7rem;
+    .category-row-image {
+      width: 100%;
+      min-height: 200px;
+      aspect-ratio: 16 / 10;
     }
 
-    .card-content {
-      padding: 1.4rem 1.8rem;
-      max-width: 62%;
+    .category-row-text {
+      padding: 1.6rem 1.5rem 1.8rem;
+      gap: 0.6rem;
     }
 
-    .card-title {
-      font-size: 1.3rem;
+    .category-row-index {
+      font-size: 0.65rem;
     }
 
-    :global(html[lang="en"]) .card-title {
+    .category-row-title {
+      font-size: 1.25rem;
+    }
+
+    :global(html[lang="en"]) .category-row-title {
       font-size: 1.05rem;
     }
 
-    .card-tagline {
-      font-size: 0.78rem;
+    .category-row-divider {
+      width: 36px;
     }
 
-    .card-desc {
-      display: none;
+    .category-row-tagline {
+      font-size: 0.74rem;
     }
 
-    .card-cta {
-      padding: 0.5rem 1rem;
-      font-size: 0.7rem;
+    .category-row-desc {
+      font-size: 0.82rem;
+      line-height: 1.6;
     }
 
-    .card-meta {
-      right: 1.2rem;
-      bottom: 1rem;
+    .category-row-meta {
+      font-size: 0.65rem;
     }
 
-    .card-category,
-    .card-year {
-      font-size: 0.6rem;
+    .category-row-cta {
+      font-size: 0.72rem;
+      margin-top: 0.6rem;
     }
 
     .logo-marquee-section {

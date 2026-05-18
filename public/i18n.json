@@ -30,6 +30,7 @@
     "projectsTag": { "en": "Featured Work", "zh": "精选作品" },
     "projectsTitle": { "en": "DESIGN CATEGORIES", "zh": "设计类别" },
     "viewAll": { "en": "View All Projects", "zh": "查看全部项目" },
+    "viewProjects": { "en": "View Projects", "zh": "查看项目" },
     "ctaTag": { "en": "Get in Touch", "zh": "联系我" },
     "ctaTitle": { "en": "Let's Create Something<br/>Amazing Together", "zh": "让我们一起<br/>创造精彩" },
     "ctaDesc": { "en": "I'd love to hear about it and discuss how we can bring your vision to life.", "zh": "期待与您交流，探讨如何将您的愿景变为现实。" },
@@ -39,7 +40,31 @@
     "tagline_monetization": { "en": "Elegant Monetization Design", "zh": "优雅商业化设计" },
     "tagline_crossplatform": { "en": "Seamless Multi-Device UX", "zh": "无缝多端体验" },
     "tagline_system": { "en": "Scalable Design Systems", "zh": "可扩展设计系统" },
-    "tagline_creative": { "en": "Innovative Player Experiences", "zh": "创新玩家体验" }
+    "tagline_creative": { "en": "Innovative Player Experiences", "zh": "创新玩家体验" },
+    "category_desc_thematic": {
+      "en": "Building immersive thematic visual systems through IP collaborations and seasonal packaging — translating narrative concepts into cohesive interface languages, motion identities and emotional player journeys.",
+      "zh": "通过IP联动与赛季主题包装，构建沉浸式的主题视觉体系——将叙事概念转化为统一的界面语言、动效气质与情感化的玩家旅程。"
+    },
+    "category_desc_gameplay": {
+      "en": "Designing precise, fluid and distraction-free combat and core mechanic interactions across shooting, strategy and action genres — keeping players fully immersed in high-intensity moments.",
+      "zh": "聚焦射击、策略、动作等核心玩法的战斗与操作设计，追求精准、流畅且无干扰的交互体验，让玩家专注沉浸于高强度的战斗时刻。"
+    },
+    "category_desc_monetization": {
+      "en": "Elegantly integrating monetization systems into the player journey — simplifying payment paths, refining visual presentation and shaping flows that create a win-win for users and business.",
+      "zh": "以优雅的方式将商业化系统融入玩家旅程——简化支付路径、优化视觉表达、梳理引导流程，实现用户与业务的双赢。"
+    },
+    "category_desc_crossplatform": {
+      "en": "Tailoring optimal interaction solutions across mobile, PC, console and XR — adapting input characteristics and usage scenarios while keeping the experience consistent and recognizable.",
+      "zh": "面向手机、PC、主机与XR等多端形态，依据输入特性与使用场景定制最佳交互方案，在保持体验一致性的同时凸显设备特色。"
+    },
+    "category_desc_system": {
+      "en": "Architecting comprehensive UI component libraries, design tokens, typography and spacing systems — ensuring visual consistency across products while accelerating team collaboration and delivery.",
+      "zh": "搭建完整的UI组件库、设计令牌、字体与间距体系，在保障产品视觉一致性的同时，提升团队协作与交付效率。"
+    },
+    "category_desc_creative": {
+      "en": "Delivering full-cycle creative solutions for novel gameplay and brand experiences — from user flow and visual storytelling to interactive prototyping, turning complex mechanics into intuitive, engaging journeys.",
+      "zh": "为创新玩法与品牌体验提供全周期创意方案——从用户流程、视觉叙事到交互原型，将复杂玩法转化为直观且富有吸引力的体验旅程。"
+    }
   },
   "works": {
     "heroBadge": { "en": "All Projects", "zh": "全部项目" },
