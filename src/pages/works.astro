@@ -467,10 +467,7 @@ import '../styles/global.css';
     -webkit-tap-highlight-color: transparent;
   }
 
-  .work-card:hover,
-  .work-card:active,
-  .work-card:focus,
-  .work-card:focus-visible {
+  .work-card:hover {
     background: #ffffff;
     box-shadow: none;
     transform: translateY(-3px);
@@ -478,81 +475,26 @@ import '../styles/global.css';
     outline: none;
   }
 
-  .work-card:hover .work-card-info h3,
-  .work-card:active .work-card-info h3,
-  .work-card:focus .work-card-info h3,
-  .work-card:focus-visible .work-card-info h3 {
+  .work-card:hover .work-card-info h3 {
     color: #1a1a2e;
   }
 
-  .work-card:hover .work-category,
-  .work-card:active .work-category,
-  .work-card:focus .work-category,
-  .work-card:focus-visible .work-category {
+  .work-card:hover .work-category {
     color: #1a1a2e;
     background: rgba(0, 0, 0, 0.06);
     border-color: rgba(0, 0, 0, 0.15);
   }
 
-  .work-card:hover .work-year,
-  .work-card:active .work-year,
-  .work-card:focus .work-year,
-  .work-card:focus-visible .work-year {
+  .work-card:hover .work-year {
     color: #3a3a5c;
   }
 
-  .work-card:hover .work-card-image img,
-  .work-card:active .work-card-image img,
-  .work-card:focus .work-card-image img,
-  .work-card:focus-visible .work-card-image img {
+  .work-card:hover .work-card-image img {
     transform: scale(1.04);
   }
 
-  .work-card:hover .work-card-overlay,
-  .work-card:active .work-card-overlay,
-  .work-card:focus .work-card-overlay,
-  .work-card:focus-visible .work-card-overlay {
+  .work-card:hover .work-card-overlay {
     opacity: 1;
-  }
-
-  /* 触屏设备：取消 :active/:focus 视觉反馈，点击直接进入下一页 */
-  @media (hover: none) and (pointer: coarse) {
-    .work-card:active,
-    .work-card:focus,
-    .work-card:focus-visible {
-      background: var(--bg-card);
-      box-shadow: none;
-      transform: none;
-      border: 1px solid transparent;
-      outline: none;
-    }
-    .work-card:active .work-card-info h3,
-    .work-card:focus .work-card-info h3,
-    .work-card:focus-visible .work-card-info h3 {
-      color: var(--text-primary);
-    }
-    .work-card:active .work-category,
-    .work-card:focus .work-category,
-    .work-card:focus-visible .work-category {
-      color: var(--accent-secondary);
-      background: rgba(78, 234, 219, 0.1);
-      border-color: rgba(78, 234, 219, 0.2);
-    }
-    .work-card:active .work-year,
-    .work-card:focus .work-year,
-    .work-card:focus-visible .work-year {
-      color: var(--text-tertiary);
-    }
-    .work-card:active .work-card-image img,
-    .work-card:focus .work-card-image img,
-    .work-card:focus-visible .work-card-image img {
-      transform: none;
-    }
-    .work-card:active .work-card-overlay,
-    .work-card:focus .work-card-overlay,
-    .work-card:focus-visible .work-card-overlay {
-      opacity: 0;
-    }
   }
 
   .work-card-image {
