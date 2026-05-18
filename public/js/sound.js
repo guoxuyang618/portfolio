@@ -209,7 +209,7 @@
   // ===== 自动绑定事件 =====
   function bindEvents() {
     // 全局事件委托 - 用 mouseover + relatedTarget 判断（mouseenter 不冒泡）
-    const HOVER_SELECTOR = '.project-card, .ability-card, .work-card, .service-card, .principle-card, .highlight-card, .nav-cta, .card-cta, .lang-toggle, .filter-btn, .hero-cta, .btn-primary, .btn-secondary, .timeline-item, .tool-chip, .life-item, .nav-link';
+    const HOVER_SELECTOR = '.project-card, .ability-card, .work-card, .service-card, .principle-card, .highlight-card, .nav-cta, .card-cta, .lang-toggle, .filter-btn, .hero-cta, .btn-primary, .btn-secondary, .tool-chip, .life-item, .nav-link';
 
     document.addEventListener('mouseover', function (e) {
       const target = e.target.closest && e.target.closest(HOVER_SELECTOR);
